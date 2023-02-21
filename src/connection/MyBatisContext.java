@@ -12,7 +12,7 @@ public class MyBatisContext {
 			
 			// DB접속용 dataSource객체 생성
 			BasicDataSource dataSource = new BasicDataSource();
-			dataSource.setDriver(null);
+			dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
 			
 			return null;
 			
