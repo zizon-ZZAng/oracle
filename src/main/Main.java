@@ -55,6 +55,17 @@ public class Main {
 //		int ret = mMapper.updateMenu(menu);
 //		System.out.println(ret);
 		
+//		List<Menu> list =  mMapper.selectMenuList();
+//		for(Menu menu : list) {
+//			System.out.println(menu.toString());
+//		}
+		
+//		Menu menu = new Menu();
+//		menu.setNo(1004L);
+//		menu.setPhone("051-425-5263");
+//		
+//		int ret = mMapper.deleteMenu(menu);
+//		System.out.println(ret);
 		List<Menu> list =  mMapper.selectMenuList();
 		for(Menu menu : list) {
 			System.out.println(menu.toString());

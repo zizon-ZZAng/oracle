@@ -23,7 +23,7 @@ public interface MenuMapper {
 	public int insertMenu(Menu menu);
 	
 	@Select({
-		"SELECT m.* FROM menu m WHERE price<=10000 ORDER BY no DESC"
+		"SELECT m.* FROM menu m "
 	})
 	public List<Menu> selectMenuList();
 	
@@ -35,7 +35,7 @@ public interface MenuMapper {
 	public int updateMenu(Menu menu);
 	
 	@Delete({
-		" DELETE FROM menu WHERE no#{no} AND phone=#{phone} "
+		" DELETE FROM menu WHERE no=#{no} AND phone=#{phone} "
 	})
 	public int deleteMenu(Menu menu);
 	
