@@ -1,14 +1,17 @@
 package connection;
 
-import java.lang.module.Configuration;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.ibatis.mapping.Environment;
+import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.ibatis.transaction.TransactionFactory;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
+
+import mapper.MenuMapper;
+import mapper.RestaurantMapper;
 
 
 // 외부에서 쓸 땐 MyBatisContext.getSqlSession();
@@ -30,6 +33,10 @@ public class MyBatisContext {
 			TransactionFactory transactionFactory = new JdbcTransactionFactory(); 
 			Environment environment = new Environment("development", transactionFactory, dataSource);
 			Configuration config = new Configuration(environment);
+			
+			//만든 mapper등록
+			config.addMapper(RestaurantMapper.class);
+			config.addMapper(MenuMapper.class);
 
 			SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(config);
 			return factory.openSession(true);	//true면 자동으로 commit을 수행함
