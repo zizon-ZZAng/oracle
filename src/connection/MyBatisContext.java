@@ -1,5 +1,6 @@
 package connection;
 
+import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.ibatis.session.SqlSession;
 
 
@@ -9,9 +10,11 @@ public class MyBatisContext {
 	public static SqlSession getSqlSession() {
 		try {
 			
+			// DB접속용 dataSource객체 생성
+			BasicDataSource dataSource = new BasicDataSource();
+			dataSource.setDriver(null);
 			
-			
-			
+			return null;
 			
 		} catch (Exception e) {
 			e.printStackTrace();
