@@ -50,7 +50,7 @@ public class Main {
 		
 //		//메뉴 삭제
 //		Menu menu = new Menu();
-//		menu.setNo(1016L);
+//		menu.setNo(1014L);
 //		menu.setPhone("051-000-0000");
 //		
 //		int ret = mMapper.delteMenu(menu);
