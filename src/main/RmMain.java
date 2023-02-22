@@ -7,7 +7,7 @@ import dto.Menu;
 import mapper.MenuMapper;
 import mapper.RestaurantMapper;
 
-public class Main {
+public class RmMain {
 
 	public static void main(String[] args) {
 		RestaurantMapper rMapper = MyBatisContext.getSqlSession().getMapper(RestaurantMapper.class);
@@ -66,10 +66,10 @@ public class Main {
 //		
 //		int ret = mMapper.deleteMenu(menu);
 //		System.out.println(ret);
-		List<Menu> list =  mMapper.selectMenuList();
-		for(Menu menu : list) {
-			System.out.println(menu.toString());
-		}
+//		List<Menu> list =  mMapper.selectMenuList();
+//		for(Menu menu : list) {
+//			System.out.println(menu.toString());
+//		}
 		}
 		
 	}
