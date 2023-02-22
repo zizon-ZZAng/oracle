@@ -55,6 +55,12 @@ public interface PurchaseMapper {
 	public List<Map<String, Object>> selectPurchaseViewGroupByMonth();
 	
 	
+	
+	//상품별 주문수량 개수가 20개 이상인 것 주문수량합계
+	@Select({" SELECT code, name, SUM(cnt) FROM purchaseview1 ",
+			 " GROUP BY code, name HAVING SUM(cnt) >= 20 "		})
+	public List<Map<String, Object>> selectPurchaseViewGroupByCode2();
+	
 
 	
 }

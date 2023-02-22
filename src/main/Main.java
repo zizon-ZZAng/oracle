@@ -95,6 +95,14 @@ public class Main {
 //		}
 		
 		
+		//상품별 주문수량 개수가 2개 이상인 것 주문수량합계
+		List<Map<String, Object>> list = pMapper.selectPurchaseViewGroupByCode2();
+		for(Map<String, Object> map : list) {
+			System.out.print("상품코드: "+map.get("CODE")+" ");
+			System.out.print("상품이름: " + map.get("NAME")+" ");
+			System.out.println("주문수량합계: "+map.get("SUM(CNT)"));
+		}
+		
 		
 //==================================================================================================
 		
