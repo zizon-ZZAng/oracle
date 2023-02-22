@@ -1,24 +1,51 @@
 package main;
 
 import java.util.List;
+import java.util.Map;
 
 import connection.MyBatisContext;
-import dto.Menu;
-import dto.Restaurant;
-import mapper.MenuMapper;
+import mapper.PurchaseMapper;
 
 public class Main {
 
 	public static void main(String[] args) {
-		MenuMapper mapper 
-			= MyBatisContext.getSqlSession().getMapper(MenuMapper.class);
-	
-		List<Menu> list = mapper.selectMenuList();
-		for(Menu obj:list) {
-			System.out.println(obj.toString());
+		PurchaseMapper mapper 
+			= MyBatisContext.getSqlSession().getMapper(PurchaseMapper.class);
+		
+		// Map으로 반환시키면 컬럼명이 키값으로 됨???
+		List<Map<String,Object>> list = mapper.selectPurchaseViewGroupByMonth();
+		
+		for(Map<String, Object> map:list) {
+			System.out.println(map.toString());
 		}
 		
+//		Purchase p = new Purchase();
 //		
+//		List<Purchase> list = mapper.selectPurchaseList("e");
+//		
+//		for(Purchase obj:list) {
+//			System.out.println(obj.toString());
+//		}
+		
+		
+//		p.setCnt(100);
+//		p.setCode(15);
+//		p.setRegdate(new Date());
+//		p.setUserid("d");
+//		p.setNo(10013);
+//	
+		
+		
+//		int ret = mapper.updatePurchaseCnt(p);
+//		
+//		System.out.println(ret);
+		
+//		for(Menu obj:list) {
+//			System.out.println(obj.toString());
+//		}
+		
+		
+		
 //		Menu menu = new Menu();
 //		menu.setContent("오늘저녁은 너다");
 //		menu.setName("변경내용");
