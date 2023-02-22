@@ -52,7 +52,6 @@ public interface PurchaseMapper {
 	//월별 구매수량
 	@Select({ " SELECT TO_CHAR(regdate, 'MONTH') month, SUM(cnt) FROM purchaseview1 ",
 			  " GROUP BY TO_CHAR(regdate, 'MONTH')"})
-	
 	public List<Map<String, Object>> selectPurchaseViewGroupByMonth();
 	
 	
