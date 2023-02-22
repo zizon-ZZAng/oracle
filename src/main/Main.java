@@ -1,6 +1,8 @@
 package main;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import connection.MyBatisContext;
 import dto.Purchase;
@@ -35,16 +37,43 @@ public class Main {
 		
 		
 		//아이디별 주문목록 
-		List<Purchase> list = pMapper.selectPurchaseList("d");
+//		List<Purchase> list = pMapper.selectPurchaseList("d");
+//		
+//		for(Purchase pch : list) {
+//			System.out.println(pch.toString());
+//			
+//		}
 		
-		for(Purchase pch : list) {
-			System.out.println(pch.toString());
-			
+		//아이디별 주문목록(2)
+//		List<Map<String, Object>> list = pMapper.selectPurchaseViewList("a");
+//		
+//		for(Map<String, Object> map : list) {
+//			System.out.println(map.toString());
+//			System.out.println(map.get("CNT"));//무조건 대문자로 해야함 소문자로 하면 null나옴 content 타입이 clob으로 되어있어서 대문자로 해야 나옴 (하나라도 타입이 CLOB이 되어있음 대문자로 설정되는가봐)
+//		
+//		
+//		}
+		
+		// 성별에 따른 구매수량 조회
+//		List<Map<String, Object>> list = pMapper.selectPurchaseViewGroupByGender();
+//		
+//		for(Map<String, Object> map : list) {
+//			System.out.println(map.get("SUM(CNT)"));
+//		}
+		
+		// 고객별 구매수량, 총구매금액 조회
+//		List<Map<String, Object>> list = pMapper.selectPurchaseViewGroupByUserid("");
+//		for(Map<String, Object> map : list) {
+//			System.out.println(map.get("SUM(CNT)"));
+//			System.out.println(map.get("SUM(total)"));
+//		}
+		
+		
+		//월별 구매수량
+		List<Map<String, Object>> list = pMapper.selectPurchaseViewGroupByMonth();
+		for(Map<String, Object> map : list) {
+			System.out.println(map.get("SUM(CNT)"));
 		}
-		
-		
-		
-	
 		
 		
 		
