@@ -58,15 +58,32 @@ public class Main {
 //		List<Map<String, Object>> list = pMapper.selectPurchaseViewGroupByGender();
 //		
 //		for(Map<String, Object> map : list) {
-//			System.out.println(map.get("SUM(CNT)"));
+//			System.err.print(map.get("USERGENDER")+" ");
+//			System.out.print(map.get("SUM(CNT)")+" ");
+//			System.out.println();
 //		}
 		
 		// 고객별 구매수량, 총구매금액 조회
-//		List<Map<String, Object>> list = pMapper.selectPurchaseViewGroupByUserid("");
+//		List<Map<String, Object>> list = pMapper.selectPurchaseViewGroupByUserid();
 //		for(Map<String, Object> map : list) {
-//			System.out.println(map.get("SUM(CNT)"));
-//			System.out.println(map.get("SUM(total)"));
+//			System.out.print(map.get("USERID")+" ");
+//			System.out.print(map.get("SUM(CNT)")+" ");
+//			System.out.print(map.get("SUM(TOTAL)"));
+//			System.out.println();
+//			System.out.println();
 //		}
+		
+		
+		//물품별 구매수량, 구매횟수, 총구매금액
+//		List<Map<String, Object>> list = pMapper.selectPurchaseViewGroupByCode();
+//		for(Map<String, Object> map : list) {
+//			System.out.print("물품코드: "+map.get("CODE")+" ");
+//			System.out.print("구매수량: "+map.get("SUM(CNT)")+" ");
+//			System.out.print("구매횟수: "+map.get("COUNT(*)")+" ");
+//			System.out.print("총구매금액: "+map.get("SUM(TOTAL)"));
+//			System.out.println();
+//		}
+		
 		
 		
 		//월별 구매수량

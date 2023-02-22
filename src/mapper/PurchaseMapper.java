@@ -39,14 +39,14 @@ public interface PurchaseMapper {
 	
 	//고객별 구매수량, 총구매금액 조회
 	@Select({ " SELECT userid, SUM(cnt), SUM(total) FROM purchaseview1 ",
-			  " GROUP BY userid=#{userid} " })
-	public List<Map<String, Object>> selectPurchaseViewGroupByUserid(String uerid);
+			  " GROUP BY userid " })
+	public List<Map<String, Object>> selectPurchaseViewGroupByUserid();
 	
 	
 	//물품별 구매수량, 구매횟수, 총구매금액
-	@Select({ " SELECT code, cnt, SUM(cnt) FROM purchaseview1 ",
-			  " GROUP BY code=#{code} "})
-	public List<Map<String, Object>> selectPurchaseViewGroupByCode(String code);
+	@Select({ " SELECT code, SUM(cnt), COUNT(*), SUM(total) FROM purchaseview1 ",
+			  " GROUP BY code "})
+	public List<Map<String, Object>> selectPurchaseViewGroupByCode();
 	
 	
 	//월별 구매수량
