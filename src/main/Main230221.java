@@ -7,7 +7,7 @@ import dto.Menu;
 import mapper.MenuMapper;
 import mapper.RestaurantMapper;
 
-public class Main {
+public class Main230221 {
 
 	public static void main(String[] args) {
 		// Restaurant
