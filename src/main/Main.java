@@ -12,6 +12,10 @@ public class Main {
 
 	public static void main(String[] args) {
 		
+		
+		
+//==================================================================================================
+		
 		//구매
 		PurchaseMapper pMapper = MyBatisContext.getSqlSession().getMapper(PurchaseMapper.class);
 		
@@ -55,42 +59,40 @@ public class Main {
 //		}
 		
 		// 성별에 따른 구매수량 조회
-//		List<Map<String, Object>> list = pMapper.selectPurchaseViewGroupByGender();
+//		List<Map<String, Object>> list = pMapper.selectPurchaseViewGroupByGender("M");
 //		
 //		for(Map<String, Object> map : list) {
-//			System.err.print(map.get("USERGENDER")+" ");
-//			System.out.print(map.get("SUM(CNT)")+" ");
-//			System.out.println();
+//			System.out.print(map.get("USERGENDER")+" ");
+//			System.out.println(map.get("SUM(CNT)"));
+//			
 //		}
 		
 		// 고객별 구매수량, 총구매금액 조회
-//		List<Map<String, Object>> list = pMapper.selectPurchaseViewGroupByUserid();
+//		List<Map<String, Object>> list = pMapper.selectPurchaseViewGroupByUserid("l");
 //		for(Map<String, Object> map : list) {
-//			System.out.print(map.get("USERID")+" ");
-//			System.out.print(map.get("SUM(CNT)")+" ");
-//			System.out.print(map.get("SUM(TOTAL)"));
-//			System.out.println();
-//			System.out.println();
+//			System.out.print("고객ID: "+map.get("USERID")+" ");
+//			System.out.print("구매수량: "+map.get("SUM(CNT)")+" ");
+//			System.out.print("총구매금액: "+map.get("SUM(TOTAL)"));
 //		}
 		
 		
 		//물품별 구매수량, 구매횟수, 총구매금액
-//		List<Map<String, Object>> list = pMapper.selectPurchaseViewGroupByCode();
+//		List<Map<String, Object>> list = pMapper.selectPurchaseViewGroupByCode(1L);
 //		for(Map<String, Object> map : list) {
 //			System.out.print("물품코드: "+map.get("CODE")+" ");
 //			System.out.print("구매수량: "+map.get("SUM(CNT)")+" ");
 //			System.out.print("구매횟수: "+map.get("COUNT(*)")+" ");
 //			System.out.print("총구매금액: "+map.get("SUM(TOTAL)"));
-//			System.out.println();
 //		}
 		
 		
 		
 		//월별 구매수량
-		List<Map<String, Object>> list = pMapper.selectPurchaseViewGroupByMonth();
-		for(Map<String, Object> map : list) {
-			System.out.println(map.get("SUM(CNT)"));
-		}
+//		List<Map<String, Object>> list = pMapper.selectPurchaseViewGroupByMonth();
+//		for(Map<String, Object> map : list) {
+//			System.out.print(map.get("MONTH"));
+//			System.out.print(map.get("SUM(CNT)"));
+//		}
 		
 		
 		

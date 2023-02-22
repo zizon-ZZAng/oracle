@@ -34,25 +34,24 @@ public interface PurchaseMapper {
 	
 	//성별에 따른 구매수량 조회
 	@Select({ " SELECT usergender, SUM(cnt) FROM purchaseview ",
-			  " GROUP BY usergender " })
-	public List<Map<String, Object>> selectPurchaseViewGroupByGender();
+			  " GROUP BY usergender HAVING usergender=#{usergender}" })
+	public List<Map<String, Object>> selectPurchaseViewGroupByGender(String usergender);
 	
 	//고객별 구매수량, 총구매금액 조회
 	@Select({ " SELECT userid, SUM(cnt), SUM(total) FROM purchaseview1 ",
-			  " GROUP BY userid " })
-	public List<Map<String, Object>> selectPurchaseViewGroupByUserid();
+			  " GROUP BY userid HAVING userid=#{userid} " })
+	public List<Map<String, Object>> selectPurchaseViewGroupByUserid(String userid);
 	
 	
 	//물품별 구매수량, 구매횟수, 총구매금액
 	@Select({ " SELECT code, SUM(cnt), COUNT(*), SUM(total) FROM purchaseview1 ",
-			  " GROUP BY code "})
-	public List<Map<String, Object>> selectPurchaseViewGroupByCode();
+			  " GROUP BY code HAVING code=#{code}"})
+	public List<Map<String, Object>> selectPurchaseViewGroupByCode(long code);
 	
 	
 	//월별 구매수량
-	
-	@Select({ " SELECT TO_CHAR(regdate, 'MM'), SUM(cnt) FROM purchaseview1 ",
-			  " GROUP BY TO_CHAR(regdate, 'MM') "})
+	@Select({ " SELECT TO_CHAR(regdate, 'MONTH') month, SUM(cnt) FROM purchaseview1 ",
+			  " GROUP BY TO_CHAR(regdate, 'MONTH')"})
 	
 	public List<Map<String, Object>> selectPurchaseViewGroupByMonth();
 	
