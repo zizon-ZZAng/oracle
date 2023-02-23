@@ -47,10 +47,10 @@ public class Main230221 {
 //		System.out.println(ret);
 		
 		// 전체 조회
-		List<Menu> list = mMapper.selectMenuList();
-		for (Menu m : list) {
-			System.out.println(m.toString());
-		}
+//		List<Menu> list = mMapper.selectMenuList();
+//		for (Menu m : list) {
+//			System.out.println(m.toString());
+//		}
 		
 		// 수정
 		Menu menu = new Menu();

@@ -13,8 +13,8 @@ import dto.Purchase;
 @Mapper
 public interface PurchaseMapper {
 	// 주문하기
-	@Insert({" INSERT INTO purchase(no, cnt, regdate, code, userid) ", 
-			 " VALUES(seq_purchase_no.NEXTVAL, #{cnt}, CURRENT_DATE, #{code}, #{userid}) "})
+	@Insert({" INSERT INTO purchase(no, cnt, code, userid) ", 
+			 " VALUES(seq_purchase_no.NEXTVAL, #{cnt}, #{code}, #{userid}) "})
 	public int insertPurchase(Purchase obj);
 	
 	// 주문수량 변경

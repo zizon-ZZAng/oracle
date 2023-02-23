@@ -17,9 +17,9 @@ public class Main230222 {
 		
 		Purchase p = new Purchase();
 		// 주문하기
-//		p.setCnt(20L);
-//		p.setCode(13L);
-//		p.setUserid("e");
+//		p.setCnt(40L);
+//		p.setCode(7L);
+//		p.setUserid("m");
 //		System.out.println(pMapper.insertPurchase(p));
 		
 		// 주문수량 변경
@@ -54,10 +54,10 @@ public class Main230222 {
 //		}
 		
 		// 월별 구매수량
-		List<Map<String, Object>> list = pMapper.selectPurchaseViewGroupByMonth();
-		for (Map<String, Object> map : list) {
-			System.out.println(map.toString());
-		}
+//		List<Map<String, Object>> list = pMapper.selectPurchaseViewGroupByMonth();
+//		for (Map<String, Object> map : list) {
+//			System.out.println(map.toString());
+//		}
 	}
 
 }
