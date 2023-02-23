@@ -18,4 +18,7 @@ public class Menu {
   private Date regdate;
   // 전화번호
   private String phone;
+  
+  private Long discountprice;
+  
 }

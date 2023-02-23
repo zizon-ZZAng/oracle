@@ -22,14 +22,14 @@ public class Main {
 		
 		Purchase obj = new Purchase();	
 
-//		//등록
-//		obj.setCnt(1);
-//		obj.setCode(19);
-//		obj.setUserid("l");
-//		
-//		
-//		int ret = pMapper.insertPurchase(obj);
-//		System.out.println(ret);
+		//등록
+		obj.setCnt(1);
+		obj.setCode(19);
+		obj.setUserid("l");
+		
+		
+		int ret = pMapper.insertPurchase(obj);
+		System.out.println(ret);
 		
 		
 //		//주문수량 변경
