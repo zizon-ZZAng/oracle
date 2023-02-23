@@ -19,6 +19,8 @@ public class Menu {
   // 전화번호
   private String phone;
   
-
+  private String strPrice;
+  private String strregdate;
+  private Long discountprice;
   
 }
