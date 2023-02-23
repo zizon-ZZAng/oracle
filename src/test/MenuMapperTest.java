@@ -80,8 +80,8 @@ class MenuMapperTest {
 	
 	// 할인율이 추가된 전체 메뉴 조회
 	@Test
-	void selectDiscountMenu() {
-		List<Map<String, Object>> list = mapper.selectDiscountPrice(70L,"051-000-0000");
+	void selectDiscountPrice() {
+		List<Map<String, Object>> list = mapper.selectDiscountPrice(0.7f,"051-000-0000");
 		for(Map<String, Object> map : list) {
 			System.out.println(map.toString());
 		}

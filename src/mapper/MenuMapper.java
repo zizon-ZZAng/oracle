@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -41,9 +42,9 @@ public interface MenuMapper {
 	
 	
 	//  30% 할인율을 전달하면 discountPrice컬럼이 추가된 전체 메뉴 조회
-	@Select({" SELECT m.no, m.name, TO_CHAR(m.price,'999,999')price,m.content, TO_CHAR(m.regdate, 'YYYY-MM-DD') regdate m.phone,(m.price*(discountprice=#{discountprice})) discountPrice FROM menu m ", 
+	@Select({" SELECT m.no, m.name, TO_CHAR(m.price,'999,999')price,m.content, TO_CHAR(m.regdate, 'YYYY-MM-DD') regdate, m.phone,(m.price*(#{discountprice})) discountPrice FROM menu m ", 
 	 		 " WHERE m.phone=#{phone} "})
-	public List<Map<String, Object>> selectDiscountPrice(long discountprice, String phone);
-	
+	public List<Map<String, Object>> selectDiscountPrice(@Param("discountprice") float discountprice, @Param("phone") String phone);
+	//param은 하나일 땐 자기가 어디들어갈지 아니깐 안해도 되는데 값이 두개가 들어가야할 경우 어디 들어갈지 명시해주는 느낌?임 그래서 들어갈 값이랑 똑같은 이름으로 명시해줘야함
 	
 }
