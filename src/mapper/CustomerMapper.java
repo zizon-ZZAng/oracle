@@ -1,0 +1,38 @@
+package mapper;
+
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
+
+import dto.Customer;
+
+@Mapper
+public interface CustomerMapper {
+
+	@Insert({
+		" INSERT INTO customer(email, password, phone, address, chk) ",
+	    " VALUES(#{email}, #{password}, #{phone}, #{address},#{chk}) "	
+	})
+	public int insertCustomer(Customer c);
+	
+	@Select({
+		" SELECT c.* FROM customer c ",
+		" WHERE c.email =#{email} AND c.password =#{password} "
+	})
+	public Customer selectLoginCustomer(@Param("email") String e, @Param("password") String p);
+	
+	@Update({
+		" UPDATE customer SET phone =#{phone}, address =#{address} ",
+		" WHERE email =#{email} AND password =#{password} "
+	})
+	public int updateCustomer(Customer c);
+	
+	@Update({
+		" UPDATE customer SET password =#{newPassword} ",
+		" WHERE email =#{email} AND password =#{password} "
+	})
+	public int updatePasswordCustomer(Customer c);
+	
+}

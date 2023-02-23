@@ -19,4 +19,9 @@ public class Menu {
   // 전화번호
   private String phone;
   
+  // 임시변수
+  private String strPrice;
+  private String strRegdate;
+  private Long discountPrice;
+  
 }
