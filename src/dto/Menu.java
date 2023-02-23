@@ -19,8 +19,8 @@ public class Menu {
   // 전화번호
   private String phone;
   
-  private String strPrice;
-  private String strregdate;
+  private String strPrice;	// => TO_CHAR 쓰려고 선언한듯?
+  private String strregdate; // => TO_CHAR 쓰려고 선언한듯?
   private Long discountprice;
   
 }

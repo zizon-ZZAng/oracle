@@ -39,7 +39,7 @@ public interface MenuMapper {
 
 	
 	//메뉴 해당 식당 전체 메뉴 조회
-	@Select({" SELECT m.no, m.name, TO_CHAR(m.price,'999,999')price,m.content, TO_CHAR(m.regdate, 'YYYY-MM-DD') regdate FROM menu m ", 
+	@Select({" SELECT m.no, m.name, TO_CHAR(m.price,'FM999,999,999')price,m.content, TO_CHAR(m.regdate, 'YYYY-MM-DD') regdate FROM menu m ", 
 			 " WHERE m.phone=#{phone} "})
 	public List<Map<String, Object>> selectRestaurantMenu(String phone);
 	
@@ -57,7 +57,7 @@ public interface MenuMapper {
 	//N% 할인율을 전달하면 discountPrice컬럼이 추가된 전체 메뉴 조회 (2)
 	@Results({
 		@Result(column="CONTENT", property="content",javaType=String.class, jdbcType=JdbcType.CLOB)}) // 오라클 CLOB를 이클립스에선 String으로 바꿔서 출력
-	@Select({" SELECT m.no, m.name, TO_CHAR(m.price,'FM999,999,999')strprice, m.content, TO_CHAR(m.regdate, 'YYYY-MM-DD') strregdate,m.phone, FLOOR((m.price * #{discountRate})) discountPrice FROM menu m ", 
+	@Select({" SELECT m.no, m.name, TO_CHAR(m.price,'FM999,999,999')strprice, m.content, TO_CHAR(m.regdate, 'YYYY-MM-DD') strregdate, m.phone, TRUNC((m.price * #{discountRate})) discountPrice FROM menu m ", 
 		 " WHERE m.phone=#{phone} "})
 	public List<Map<String, Object>> selectDiscountPrice2(@Param("discountRate") float discountRate, @Param("phone") String phone);
 	
