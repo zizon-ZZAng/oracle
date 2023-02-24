@@ -11,9 +11,13 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.ibatis.transaction.TransactionFactory;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 
+import mapper.CustomerMapper;
+import mapper.DeliveryMapper;
 import mapper.MenuMapper;
+import mapper.OrderMapper;
 import mapper.PurchaseMapper;
 import mapper.RestaurantMapper;
+import mapper.RiderMapper;
 
 //MyBatisContext.getSqlSession();
 public class MyBatisContext {
@@ -34,6 +38,10 @@ public class MyBatisContext {
 			config.addMapper(RestaurantMapper.class);
 			config.addMapper(MenuMapper.class);
 			config.addMapper(PurchaseMapper.class);
+			config.addMapper(CustomerMapper.class);
+			config.addMapper(OrderMapper.class);
+			config.addMapper(RiderMapper.class);
+			config.addMapper(DeliveryMapper.class);
 			
 			SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(config);
 			return factory.openSession(true);

@@ -17,4 +17,7 @@ public class Restaurant {
 	private String password;
 	// 등록 일자
 	private Date regdate;
+	
+	// 임시변수
+	private String newPassword;
 }
