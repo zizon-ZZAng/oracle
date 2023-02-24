@@ -66,16 +66,23 @@ class CustomerTest {
 		System.out.println(mapper.updateCustomer(c));
 	}
 	
+	// 비밀번호 변경
 	@Test
 	void updatePasswordCustomer() {
-		String hash = this.hashPW("abcde", "javaid");
-		String newHash = this.hashPW("abcdef", "javaid");
+		
+		// 입력받아야 할 값을 변수를 지정해 놓은 다음 넣어주는 게 좋음.
+		String email = "javaid";
+		String pw = "abcde";
+		String newPw = "abcdef";
+		
+		String hash = this.hashPW(pw, email);
+		String newHash = this.hashPW(newPw, email);
 		
 		Customer c = new Customer();
 
 		c.setNewPassword(newHash);
 		c.setPassword(hash);
-		c.setEmail("javaid");
+		c.setEmail(email);
 
 		System.out.println(mapper.updatePasswordCustomer(c));
 	}
