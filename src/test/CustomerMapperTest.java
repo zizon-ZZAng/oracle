@@ -87,13 +87,17 @@ class CustomerMapperTest {
 	// 고객 암호 변경
 	@Test
 	void updateCustomerPW() {
-		String oldHash = this.hashPW("bbb", "bbb@bbb.com"); // 원래 암호
-		String newHash = this.hashPW("b", "bbb@bbb.com");   // 바꿀 암호
+		String email = "bbb@bbb.com";
+		String oldPw = "bbb";
+		String newPw = "b";
+		
+		String oldHash = this.hashPW(oldPw, email); // 원래 암호
+		String newHash = this.hashPW(newPw, email);   // 바꿀 암호
 		
 		Customer c = new Customer();
 		c.setNewPassword(newHash); // 새로운 암호
 		
-		c.setEmail("bbb@bbb.com");
+		c.setEmail(email);
 		c.setPassword(oldHash);	   // 원래 암호
 		
 		System.out.println(cMapper.updateCustomerPW(c));

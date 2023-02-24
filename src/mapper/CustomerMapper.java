@@ -1,5 +1,6 @@
 package mapper;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -30,4 +31,9 @@ public interface CustomerMapper {
 			 " SET password = #{newPassword} ",
 			 " WHERE email = #{email} AND password = #{password} "})
 	public int updateCustomerPW(Customer c);	
+	
+	// 회원탈퇴는 주문을 하면 삭제가 안된다. 주문내역 출처로 인해서 => UPDATE를 이용해서 정보를 지움
+	@Delete({" DELETE FROM customer ",
+			 " WHERE email = #{c.email} AND password = #{c.password} "})
+	public int deleteCustomer(@Param("c") Customer c);
 }
