@@ -49,14 +49,20 @@ class CustomerTest {
 	@Test
 	void insertCutomer() {
 		
-		String hash = this.hashPW("1598", "c123@gmail.com");
+		
+		String email = "c123@gmail.com";
+		String pw = "1598";
+		
+		//64바이트 문자의 암호
+		String hash = this.hashPW(pw, email);
 		
 		Customer customer = new Customer();
 		
-		customer.setEmail("c123@gmail.com");
+		customer.setEmail(email);
 		customer.setPassword(hash);
 		customer.setAddress("부산 북구");
 		customer.setPhone("010-0002-0004");
+		customer.setChk(1);
 		
 		int ret = mapper.insertCutomer(customer);
 		System.out.println(ret);
@@ -99,16 +105,20 @@ class CustomerTest {
 	@Test
 	void customerChange() {
 		
-
-		String hash1 = this.hashPW("0105", "b123@gmail.com");
-		String hash2 = this.hashPW("1235", "b123@gmail.com");
+		String email="b123@gmail.com";
+		
+		String pw ="0105";
+		String hash = this.hashPW(pw, email);
+		
+		String newPW = "1235";
+		String newHash = this.hashPW(newPW, email);
 		
 		
 		Customer customer = new Customer();
-		customer.setPassword(hash1);
-		customer.setEmail("b123@gmail.com");
+		customer.setEmail(email);
+		customer.setPassword(hash);
 		
-		customer.setNewPassword(hash2);
+		customer.setNewPassword(newHash);
 		
 		int ret = mapper.customerChange(customer);
 		System.out.println(ret);

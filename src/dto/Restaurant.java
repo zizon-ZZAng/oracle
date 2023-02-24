@@ -19,6 +19,6 @@ public class Restaurant {
   private Date regdate;
   
   //일시적변수 임시 = 데이터베이스의 타입과 관련없이 java에서 데이터 전달용도로만 쓰이는
-//  @Transient
+//@Transient
   private String newPassord;
 }
