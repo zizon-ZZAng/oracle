@@ -2,6 +2,7 @@ package mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -43,5 +44,14 @@ public interface CustomerMapper {
 		
 	})
 	public int updateCustomerPw(Customer obj);
+	
+	@Delete
+	// 고객삭제: 회원탈퇴는 주문을 하면 삭제가 안돼. 주문내역의 출처이기 때문에. 
+	// 따라서 Delete가 아닌 (나중엔) Update를 이용해서 정보를 지운다
+	({
+		" DELETE FROM customer WHERE email = #{email} " 
+	})
+	public int delectCustomer(Customer obj);
+	
 	
 }

@@ -84,8 +84,13 @@ class CustomerTest {
 	//고객 암호변경
 	@Test
 	void updateCustomerPw() {
-		String hash1 = this.hashPW("uu9u@ghj.com", "0000");
-		String hash2 = this.hashPW("uu9u@ghj.com", "1111");
+		//화면에 입력받아야 할 요소
+		String email = "uu9u@ghj.com";
+		String pw = "1111";
+		String newpw = "0000";
+		
+		String hash1 = this.hashPW(email , pw);
+		String hash2 = this.hashPW(email, newpw);
 		
 		Customer obj = new Customer();
 		obj.setEmail("uu9u@ghj.com");
