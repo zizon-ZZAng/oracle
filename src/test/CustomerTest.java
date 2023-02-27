@@ -45,6 +45,8 @@ class CustomerTest {
 //	void insertCustomer() {
 //		String email = "sss2@naver.com";
 //		String password = "sss2";
+	
+	    // 64문자의 암호
 //		String hash = this.hashPW("sss2", "sss2@naver.com");
 //		
 //		Customer obj = new Customer();
@@ -91,13 +93,19 @@ class CustomerTest {
 	
 	@Test
 	void updateCustomerPw() {
-		String email = "sss2@naver.com";
+		// 화면에서 입력받아야 할 요소
+		String email = "sss2@naver.com"; // 로그인 후에
 		String password = "sss2";
+//		String newPw = "xxxxx";
+		
 		String hash = this.hashPW("sss2", "sss2@naver.com");
 		String hash1 = this.hashPW("xxxxx", "sss2@naver.com");
+//		String hash = this.hashPW(password, email);
+//		String hash1 = this.hashPW(newPw, email);
 		
 		Customer obj = new Customer();
 		obj.setEmail("sss2@naver.com");
+//		obj.setEmail(email);
 		obj.setPassword(hash);
 		obj.setNewpassword(hash1);
 		
