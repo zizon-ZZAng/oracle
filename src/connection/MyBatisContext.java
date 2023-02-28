@@ -14,7 +14,9 @@ import dto.Rider;
 import mapper.CustomerMapper;
 import mapper.DeliveryInfoViewMapper;
 import mapper.DeliveryMapper;
+import mapper.ItemMapper;
 import mapper.MenuMapper;
+import mapper.NNNMapper;
 import mapper.OrderTblMapper;
 import mapper.PurchaseMapper;
 import mapper.RestaurantMapper;
@@ -43,6 +45,8 @@ public class MyBatisContext {
 			config.addMapper(RiderMapper.class);
 			config.addMapper(DeliveryMapper.class);
 			config.addMapper(DeliveryInfoViewMapper.class);
+			config.addMapper(NNNMapper.class);
+			config.addMapper(ItemMapper.class);
 			
 			SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(config);
 			return factory.openSession(true); // true이면 자동으로 commit을 수행함.

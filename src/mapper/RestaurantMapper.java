@@ -67,6 +67,19 @@ public interface RestaurantMapper {
 
 	
 	
+	//2월28일
+	// 일괄적으로 5개 추가
+	@Insert ({
+		" <script> " 
+		, " INSERT ALL "
+		, " <foreach collection = 'list' item = 'obj' separator=' '> " 
+		, " INTO restaurant(retaurantphone, name, address, password) "
+		, " VALUES (#{obj.retaurantphone},#{obj.name},#{obj.address},#{obj.password}) "
+		, " </foreach> "
+		, " SELECT * FROM DUAL;"
+		, " </script> "
+	})
+	public int resInsertBatch(@Param("list") List<Restaurant> list);
 	
 	
 	

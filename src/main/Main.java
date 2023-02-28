@@ -9,22 +9,22 @@ import mapper.MenuMapper;
 public class Main {
 
 	public static void main(String[] args) {
-		MenuMapper mMapper =  
-				MyBatisContext.getSqlSession().getMapper(MenuMapper.class);
-		
-		try {
-		Menu obj = new Menu();
-		int a = mMapper.deleteMenu(obj);
-		if (obj.equals(obj.getMenuno()))
-			obj.setMenuno(1011L);
-			obj.setRetaurantphone("051-000-3226");
-		}
-		list.add(menu);
-//	System.out.println(list);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-		}
+//		MenuMapper mMapper =  
+//				MyBatisContext.getSqlSession().getMapper(MenuMapper.class);
+//		
+//		try {
+//		Menu obj = new Menu();
+//		int a = mMapper.deleteMenu(obj);
+//		if (obj.equals(obj.getMenuno()))
+//			obj.setMenuno(1011L);
+//			obj.setRetaurantphone("051-000-3226");
+//		}
+//		list.add(menu);
+////	System.out.println(list);
+//		}
+//		catch (Exception e) {
+//			e.printStackTrace();
+//		}
 		
 		
 //		Menu menu = new Menu();
