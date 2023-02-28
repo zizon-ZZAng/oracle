@@ -59,4 +59,16 @@ public interface RestaurantMapper {
 		" SELECT r.* FROM restaurant r WHERE phone = #{phone} "
 	})
 	public Restaurant selectRestaurantOne (String phone);
+	
+	@Insert({
+		" <script> ",
+			" INSERT ALL ",
+			" <foreach collection='list' item= 'obj' seperator=' '> ",
+				" INTO restaurant (phone, name, address, password, regdate) ",
+				" VALUES(#{obj.phone}, #{obj.name}, #{obj.address}, #{obj.password}, CURRENT_DATE) ",
+	        " </foreach> ",
+	        " SELECT * FROM DUAL ",
+	    " </script> "
+	})
+	public int insertRestaurentBatch(@Param("list") List<Restaurant> list); 
 }

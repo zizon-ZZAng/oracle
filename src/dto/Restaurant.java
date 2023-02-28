@@ -10,11 +10,11 @@ public class Restaurant {
 	  // 전화번호
 	  private String phone;
 	  // 가게이름
-	  private String name;
+	  public String name;
 	  // 주소
-	  private String address;
+	  public String address;
 	  // 암호
-	  private String password;
+	  public String password;
 	  // 등록일자
 	  private Date regdate;
 	  
