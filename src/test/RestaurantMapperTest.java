@@ -1,5 +1,6 @@
 package test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -110,6 +111,27 @@ class RestaurantMapperTest {
 	void restaurantLogin2() {
 		
 		System.out.println(mapper.restaurantLogin2("051-000-0012","bbaa").toString());
+	}
+	
+	
+	
+	//시퀀스가 없는 데이터 추가
+	@Test
+	void restaurantInsertBatch() {
+		List<Restaurant> list = new ArrayList<Restaurant>();
+		for(int i=0; i<=3;i++) {
+			Restaurant restaurant = new Restaurant();
+			restaurant.setPhone("051-000-002"+i);
+			restaurant.setName("카페"+i);
+			restaurant.setAddress("부산 기장군");
+			restaurant.setPassword("pwd"+i);
+			
+			
+			list.add(restaurant);
+		
+		}
+		int ret = mapper.restaurantInsertBatch(list);
+		System.out.println(ret);
 	}
 	
 	

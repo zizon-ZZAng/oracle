@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import dto.Member;
 import dto.Restaurant;
 
 @Mapper
@@ -46,4 +47,22 @@ public interface RestaurantMapper {
 	@Select({ " SELECT * FROM restaurant  WHERE phone=#{phone} AND password=#{password} " })
 	public Restaurant restaurantLogin2(@Param("phone") String phone, @Param("password") String password);
 
+	
+	
+	
+	//시퀀스가 없는 데이터 추가
+	@Insert({
+		" <script> ",
+		" INSERT ALL ",
+			" <foreach collection = 'list' item='obj' separator=' '> ",
+			    " INTO restaurant(phone, name, address, password) ",
+			    " VALUES(#{obj.phone}, #{obj.name}, #{obj.address}, #{obj.password}) ",
+	
+			" </foreach> ",   
+	    " SELECT * FROM DUAL ",
+	    " </script> "
+	})
+	public int restaurantInsertBatch(@Param("list") List<Restaurant> list);
+	
+	
 }
