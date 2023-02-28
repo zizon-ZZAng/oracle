@@ -1,11 +1,14 @@
 package test;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
 import connection.MyBatisContext;
+import dto.Member;
 import mapper.MemberMapper;
 
 class MemberMapperTest {
@@ -28,5 +31,32 @@ class MemberMapperTest {
 		
 		// 변경된 ret 값을 확인함 => 1이면 성공, 0이면 실패
 		System.out.println(map.get("ret"));
+	}
+	
+	@Test
+	void procMemberSelect() {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("usergender", "F");
+		map.put("cursor", null);
+		
+		// 프로시저 호출하기 cursor부분 결과값 변경됨
+		mMapper.callProcMemberSelect(map);
+		System.out.println(map.get("cursor").toString());
+	}
+	
+	@Test
+	void memberInsertBatch() {
+		List<Member> list = new ArrayList<>();
+		for (int i=0; i<3; i++) {
+			Member member = new Member();
+			member.setUserid("aa100"+i);
+			member.setUserpw("암호");
+			member.setUsername("이름");
+			member.setUserage(23);
+			member.setUserphone("010-0000-000"+i);
+			member.setUsergender("F");
+			list.add(member);
+		}
+		System.out.println(mMapper.memberInsertBatch(list));
 	}
 }

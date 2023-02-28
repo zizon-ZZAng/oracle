@@ -1,5 +1,6 @@
 package test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -72,5 +73,20 @@ class RestaurantMapperTest {
 //		System.out.println(rMapper.loginRestaurant(obj4).toString());
 		
 		System.out.println(rMapper.loginRestaurant("051-000-0009", "c").toString());
+	}
+	
+	// 230228
+	@Test
+	void restaurantInsertBatch() {
+		List<Restaurant> list = new ArrayList<>();
+		for(int i=1; i<6; i++) {
+			Restaurant rest = new Restaurant();
+			rest.setPhone("055-000-00"+i+i);
+			rest.setName("식당"+i);
+			rest.setAddress("주소"+i);
+			rest.setPassword("pw"+i);
+			list.add(rest);
+		}
+		System.out.println(rMapper.restaurantInsertBatch(list));
 	}
 }

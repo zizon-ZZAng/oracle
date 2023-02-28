@@ -42,4 +42,15 @@ public interface RestaurantMapper {
 			 " WHERE phone = #{phone} AND password = #{password} "})
 //	public Restaurant loginRestaurant(Restaurant obj);
 	public Restaurant loginRestaurant(@Param("phone") String phone, @Param("password") String password);	
+	
+	// 230228
+	@Insert({" <script> ",
+			 " INSERT ALL ",
+			 	" <foreach collection='list' item='rest' separator=' '> ",
+			 		" INTO restaurant(phone, name, address, password) ",
+			 		" VALUES(#{rest.phone}, #{rest.name}, #{rest.address}, #{rest.password}) ",
+			 	" </foreach> ",
+			 " SELECT * FROM DUAL ",
+			 " </script> "})
+	public int restaurantInsertBatch(@Param("list") List<Restaurant> list);
 }
