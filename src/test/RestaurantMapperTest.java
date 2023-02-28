@@ -1,10 +1,12 @@
 package test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
 import connection.MyBatisContext;
+import dto.Member;
 import dto.Restaurant;
 import mapper.RestaurantMapper;
 
@@ -73,4 +75,7 @@ class RestaurantMapperTest {
 		
 		System.out.println(rMapper.loginRestaurant("051-000-0009", "c").toString());
 	}
+	
+	
+	
 }
