@@ -1,5 +1,6 @@
 package test;
 
+import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,17 +17,51 @@ class RestaurantMapperTest {
 
 	RestaurantMapper mapper = MyBatisContext.getSqlSession().getMapper(RestaurantMapper.class);
 	
+	public String hashPW(String pw, String id) {
+		try {
+			// 1. Hash알고리즘 SHA-256, 단방향 aa가 3asdf3sd32f13d2f1as5d6f4 이렇게 될 수 있는데 거꾸로는 안됨
+			// 암호를 잊어버림. 임시암호를 주잖아 이게 단방향임
+			MessageDigest md = MessageDigest.getInstance("SHA-256");
+
+			// ex)1234암호 + salt 사용자 ID 를 넣어서 복잡하게 함
+			md.update((pw + id).getBytes());
+
+			// byte to String으로 변경
+			byte[] pwdSalt = md.digest();
+
+			StringBuffer sb = new StringBuffer();
+			for (byte b : pwdSalt) {
+				sb.append(String.format("%02x", b));
+			}
+
+			String result = sb.toString();
+			return result;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+
+	}
+	
+
 	
 	//식당 추가 테스트
 	@Test
 	void insertRestaurant() {
 		
+		 String phone = "051-000-0002";
+		 String pw = "1a2";
+		    
+		 String hash = this.hashPW(pw, phone);
+		
+		
 		Restaurant obj = new Restaurant();
 		
-		obj.setPhone("051-001-0023");
+		obj.setPhone(phone);
 		obj.setName("치킨");
 		obj.setAddress("부산 북구");
-		obj.setPassword("1a2");
+		obj.setPassword(hash);
 		
 		int ret = mapper.insertRestaurant(obj);
 		System.out.println(ret);
