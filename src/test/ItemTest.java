@@ -16,18 +16,6 @@ class ItemTest {
 	@Test
 	void itemInsertBatch() {
 		List<Item> list = new ArrayList<>();
-<<<<<<< Updated upstream
-		for(int i=0;i<5;i++) {
-			Item item = new Item();
-			item.setContent("내용");
-			item.setName("이름");
-			item.setPrice(1200);
-			item.setQuantity(2400);
-			list.add(item);
-		}
-		int ret = mapper.itemInsertBatch(list);
-		System.out.println(ret);
-=======
 		for(int i=0; i<5; i++) {
 			Item item = new Item();
 		
@@ -40,7 +28,6 @@ class ItemTest {
 		}
 		
 		System.out.println(mapper.itemInsertBatch(list));
->>>>>>> Stashed changes
 	}
 
 }
