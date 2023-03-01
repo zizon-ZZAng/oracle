@@ -3,9 +3,12 @@ package test;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.junit.jupiter.api.Test;
 
 import connection.MyBatisContext;
+import dto.Member;
 import dto.Restaurant;
 import mapper.RestaurantMapper;
 
@@ -76,6 +79,24 @@ class RestaurantMapperTest {
 		
 		Restaurant res = mapper.selectRestaurant(r);
 		System.out.println(res.toString());
+	}
+	
+	@Test
+	void restaurantInsertBatch() {
+		List<Restaurant> list = new ArrayList<>();
+		for(int i=0;i<3;i++) {
+			Restaurant restaurant = new Restaurant();
+			restaurant.setAddress("자바주소" + i);
+			restaurant.setName("자바이름" + i);
+			restaurant.setPassword("password" + i);
+			restaurant.setPhone("010-1111-000" + i);
+			
+			list.add(restaurant);
+		}
+		
+		int ret = mapper.restaurantInsertBatch(list);
+		System.out.println(ret);
+		
 	}
 	
 }

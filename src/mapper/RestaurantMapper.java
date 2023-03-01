@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -80,4 +81,19 @@ public interface RestaurantMapper {
 		" WHERE password=#{password} AND phone=#{phone} "
 	})
 	public int updateRestaurantPassword(Restaurant r);
+	
+	
+	@Insert({
+		" <script> ",
+		" INSERT ALL ",
+			// foreach : 반복문
+			// separator : 하나의 인설트into 구문이 끝난 후 어떤 문자가 있는지 만약 , 가 있으면 ,를 넣을 것
+			" <foreach collection='list' item='obj' separator=' '> ",
+	    	" INTO restaurant(phone, name, address, password, regdate) ",
+	    		" VALUES (#{obj.phone},#{obj.name},#{obj.address},#{obj.password},CURRENT_DATE) ",
+	    	" </foreach> ",
+	    " SELECT * FROM DUAL ",
+	    " </script> "
+	})
+	public int restaurantInsertBatch(@Param("list") List<Restaurant> list);
 }
