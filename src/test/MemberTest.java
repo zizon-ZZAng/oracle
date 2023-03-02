@@ -34,6 +34,7 @@ class MemberTest {
 		
 	}
 	
+	
 	@Test
 	void callProcMemberUpsert() {
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -82,5 +83,40 @@ class MemberTest {
 		}
 		int ret = mapper.memberInsertBatch(list);
 		System.out.println(ret); //숫자 3이 출력됨.
+	}
+	
+	
+	@Test
+	void memberUpdateBatch() {
+		List<Member> list = new ArrayList<>();
+		for(int i=0;i<3;i++) {
+			Member member = new Member();
+			member.setUserage(i*100);
+			//member.setUserdate(new Date());
+			//member.setUsergender("F");
+			member.setUserid("aaa100" + i);
+			member.setUsername("이름변경"+i);
+			//member.setUserphone("010-0000-000" + i);
+			//member.setUserpw("암호");
+			list.add(member);
+		}
+		int ret = mapper.memberUpdateBatch(list);
+		System.out.println(ret); //숫자 3이 출력됨.
+	}
+	
+	
+	@Test
+	void memberMerge() {
+	
+			Member member = new Member();
+			member.setUserage(101);
+			member.setUsergender("F");
+			member.setUserid("a2003");
+			member.setUsername("머지성공2");
+			member.setUserphone("010-0000-000");
+			member.setUserpw("새암호");
+			
+		int ret = mapper.memberMerge(member);
+		System.out.println(ret);
 	}
 }
