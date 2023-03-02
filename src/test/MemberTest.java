@@ -69,17 +69,21 @@ class MemberTest {
 		System.out.println(ret);
 	}
 	
+//	나 지금 뭐하고 이쓴ㄴ거지? 뭐?
+	
 	@Test
 	void memberUpdateBatch() {
-		List<Member> list = new ArrayList<Member>();
+		List<Member> list = new ArrayList<>();
 		
-		for(Member member : list) {
+		for(int i=0; i<=1;i++) {
+			Member member = new Member();
+		
 			
-			member.setUserid("e");
-	
-	
-			member.setUsername("빅토리");
+			member.setUserid("a");
+			
+			member.setUsername("가나다");
 			member.setUserage(27);
+		
 			
 			
 			list.add(member);
