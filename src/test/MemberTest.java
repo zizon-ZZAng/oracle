@@ -71,6 +71,7 @@ class MemberTest {
 	
 //	나 지금 뭐하고 이쓴ㄴ거지? 뭐?
 	
+	//일괄 수정
 	@Test
 	void memberUpdateBatch() {
 		List<Member> list = new ArrayList<>();
@@ -91,6 +92,8 @@ class MemberTest {
 		
 	}
 	
+	
+	//해당 아이디가 있으면 update 없으면 insert 수행
 	@Test
 	void memberUpsert() {
 		Member m = new Member();
