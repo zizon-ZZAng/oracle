@@ -10,6 +10,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.ResultType;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.apache.ibatis.mapping.StatementType;
 
 import dto.Member;
@@ -47,7 +48,7 @@ public interface MemberMapper {
 	@Insert({
 		" <script> ",
 	    " INSERT ALL ",
-	    	" <foreach collection='list' item='obj' seperator=' '> ", // foreach == 반복문
+	    	" <foreach collection='list' item='obj' separator=' '> ", // foreach == 반복문
 	    		" INTO member(userid, userpw, username, userage, userphone, usergender, userdate) ",
 	    		" VALUES (#{obj.userid}, #{obj.userpw}, #{obj.username}, #{obj.userage}, #{obj.userphone}, #{obj.usergender}, CURRENT_DATE) ",
 	        " </foreach> ",
@@ -55,4 +56,37 @@ public interface MemberMapper {
 	    " </script> "
 	})
 	public int memberInsertBatch(@Param("list") List<Member> list);
+	
+	@Update({
+		" <script> ",
+		" UPDATE member SET ",
+	    " username = (CASE ",
+	    	" <foreach collection='list' item='obj' separator=' '> ",
+	        	" WHEN userid=#{obj.userid} THEN #{obj.username} ",
+	        " </foreach> ",
+	    " END), ",    
+	    " userage = (CASE ",
+	    	" <foreach collection='list' item='obj' separator=' '> ",
+	    		" WHEN userid=#{obj.userid} THEN #{obj.userage} ",
+		    " </foreach> ",	    		
+	    " END) ",  
+	    " WHERE userid IN( ",
+	    	" <foreach collection='list' item='obj' separator=','> ",
+	    		" #{obj.userid} ",
+	    	" </foreach> ",
+	    " ) ",
+		" </script> "
+	})
+	public int memberUpdateBatch(@Param("list") List<Member> list);
+	
+	@Insert({
+		" MERGE INTO member USING DUAL ",
+	    " ON (userid=#{obj.userid}) ",
+	    " WHEN MATCHED THEN ",
+	        " UPDATE SET username = #{obj.username}, userage = #{obj.userage} ",
+	    " WHEN NOT MATCHED THEN ",
+	       " INSERT (userid, userpw, username, userage, userphone, usergender, userdate) ",
+	            " VALUES (#{obj.userid}, #{obj.userpw}, #{obj.username}, #{obj.userage}, #{obj.userphone}, #{obj.usergender}, CURRENT_DATE) "
+	})
+	public int memberUpsert(@Param("obj") Member obj);
 }

@@ -63,4 +63,32 @@ class MemberTest {
 		int ret = mMapper.memberInsertBatch(list);
 		System.out.println(ret); // 숫자 3이 출력됨.
 	}
+	
+	@Test
+	void memberUpdateBatch() {
+		List<Member> list = new ArrayList<Member>();
+		for(int i=0; i<2; i++) {
+			Member member = new Member();
+			member.setUserid("a9");
+			member.setUsername("바뀐 이름");
+			member.setUserage(45);
+			list.add(member);
+		}
+			int ret = mMapper.memberUpdateBatch(list);
+			System.out.println(ret);
+	}
+	
+	@Test
+	void memberUpsert() {
+		Member m = new Member();
+		m.setUserid("e10");
+		m.setUsername("도로롱");
+		m.setUserpw("aaaa");
+		m.setUserage(17);
+		m.setUserphone("010-1004-1004");
+		m.setUsergender("M");
+		
+		int ret = mMapper.memberUpsert(m);
+		System.out.println(ret);
+	}
 }
