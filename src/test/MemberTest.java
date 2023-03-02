@@ -62,4 +62,33 @@ class MemberTest {
 		int ret = Mmapper.memberInsertBatch(list);
 		System.out.println(ret);
 	}
+	
+	@Test
+	void memberUpdateBatch() {
+		List<Member> list = new ArrayList<>();
+		for (int i = 0; i < 3; i++) {
+			Member member = new Member();
+			member.setUserid("kkk100" + i);
+			member.setUsername("이름A" + i);
+			member.setUserage(23);
+			list.add(member);
+		}
+
+		int ret = Mmapper.memberUpdateBatch(list);
+		System.out.println(ret);
+	}
+	
+	@Test
+	void memberUpsert() {
+		
+		Member m = new Member();
+		m.setUserid("a777");
+		m.setUsername("바꿀이");
+		m.setUserage(50);
+		m.setUserpw("kkkk");
+		m.setUserphone("010-8888-9999");
+		m.setUsergender("F");
+
+		System.out.println(Mmapper.memberUpsert(m));
+	}
 }
