@@ -19,7 +19,7 @@ import dto.Member;
 public interface MemberMapper {
 	
 	@Select({
-		" { call proc_member_insert( ",
+		" { call proc_member_insert( ",	//프로시저라 select쓰는거임
 				" #{ map.userid, mode=IN, jdbcType=VARCHAR, javaType=String }, ",
 				" #{ map.userpw, mode=IN, jdbcType=VARCHAR, javaType=String }, ",
 				" #{ map.username, mode=IN, jdbcType=VARCHAR, javaType=String }, ",
@@ -67,7 +67,7 @@ public interface MemberMapper {
 	public int memberInsertBatch(@Param("list") List<Member> list);
 	
 	
-	
+	//일괄 수정
 	@Update({ 
 		" <script> ",
 		" UPDATE member SET ",
@@ -91,4 +91,28 @@ public interface MemberMapper {
 	public int memberUpdateBatch(@Param("list") List<Member> list);
 	
 	
+	
+	//해당 아이디가 있으면 update 없으면 insert 수행
+	@Insert ({
+		" MERGE INTO  member USING DUAL ",
+	        " ON (userid=#{obj.userid}) ",
+	        " WHEN MATCHED THEN ",
+            	" UPDATE SET username=#{obj.username}, userage=#{obj.userage} ",
+	        " WHEN NOT MATCHED THEN ",
+	            " INSERT (userid, userpw, username, userage, userphone, usergender, userdate) ",
+                " VALUES(#{obj.userid},#{obj.userpw},#{obj.username},#{obj.userage},#{obj.userphone},#{obj.usergender},CURRENT_DATE) "
+	           
+	})
+	public int memberUpsert(@Param("obj") Member obj);
+	
+	
+	
+	
+	
 }
+	
+	
+	
+	
+	
+	

@@ -75,16 +75,13 @@ class MemberTest {
 	void memberUpdateBatch() {
 		List<Member> list = new ArrayList<>();
 		
-		for(int i=0; i<=1;i++) {
+		for(int i=1; i<=2;i++) {
 			Member member = new Member();
-		
 			
-			member.setUserid("a");
+			member.setUserid("a"+i);
 			
 			member.setUsername("가나다");
 			member.setUserage(27);
-		
-			
 			
 			list.add(member);
 		
@@ -94,6 +91,19 @@ class MemberTest {
 		
 	}
 	
-	
+	@Test
+	void memberUpsert() {
+		Member m = new Member();
+		m.setUserid("aaa");
+		m.setUsername("종이");
+		m.setUserpw("aaa");
+		m.setUsergender("F");
+		m.setUserphone("010-5555-8888");
+		m.setUserage(17);
+		
+		int ret = mapper.memberUpsert(m);
+		System.out.println(ret);
+		
+	}
 
 }
