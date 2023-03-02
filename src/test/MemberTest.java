@@ -69,6 +69,27 @@ class MemberTest {
 		System.out.println(ret);
 	}
 	
+	@Test
+	void memberUpdateBatch() {
+		List<Member> list = new ArrayList<Member>();
+		
+		for(Member member : list) {
+			
+			member.setUserid("e");
+	
+	
+			member.setUsername("빅토리");
+			member.setUserage(27);
+			
+			
+			list.add(member);
+		
+		}
+		int ret = mapper.memberUpdateBatch(list);
+		System.out.println(ret);
+		
+	}
+	
 	
 
 }

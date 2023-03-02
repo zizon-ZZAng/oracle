@@ -10,6 +10,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.ResultType;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.apache.ibatis.mapping.StatementType;
 
 import dto.Member;
@@ -66,6 +67,28 @@ public interface MemberMapper {
 	public int memberInsertBatch(@Param("list") List<Member> list);
 	
 	
+	
+	@Update({ 
+		" <script> ",
+		" UPDATE member SET ",
+	    " username = (CASE ",
+    		" <foreach collection = 'list' item = 'obj' separator=' '> ",
+    			" WHEN userid=#{obj.userid} THEN #{obj.username} ",
+           	" </foreach> ",
+	    " END), ",
+	    " userage = (CASE ",
+	        " <foreach collection = 'list' item = 'obj' separator=' '> ",
+	            " WHEN userid=#{obj.userid} THEN #{obj.userage} ",
+	        " </foreach> ",
+        " END) ",
+        " WHERE userid IN ( ", 
+	        " <foreach collection = 'list' item = 'obj' separator=','> ",
+	        	" #{obj.userid} ",
+	        " </foreach> ",
+        " ) ",
+        " </script> "
+	})
+	public int memberUpdateBatch(@Param("list") List<Member> list);
 	
 	
 }
