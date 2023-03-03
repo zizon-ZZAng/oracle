@@ -24,8 +24,20 @@ public interface MemberMapper {
 	
 	
 	//회원정보변경
-	@Update({" UPDATE member2 SET name=#{name}, address=#{address}, gender=#{gender} WHERE id=#{id} AND password=#{password} "})
-	public int updateMember(Member member);
+	@Update({
+		" <script> ",
+		" UPDATE member SET name=#{obj.name} ",
+			" <if test='obj.address != null'> ",
+				" , address=#{obj.address} ",	
+			" </if> ",
+			
+			" <if test='obj.gender != null'> ",
+				" , gender=#{obj.gender}  ",	
+			" </if> ",
+		" WHERE id=#{obj.id} ",
+		" </script> "
+	})
+	public int updateMember(@Param("obj") Member member);
 	
 	
 	//비밀번호변경
