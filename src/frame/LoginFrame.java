@@ -45,7 +45,7 @@ public class LoginFrame extends JFrame {
 		btnNewButton.setBounds(192, 175, 97, 23);
 		getContentPane().add(btnNewButton);
 		
-		this.setSize(400, 300); // 창 사이즈 이거 없으면 새 창 뜰 때 걍 소멸수준임;;;
+		this.setSize(400, 300); 
 		this.setLocationRelativeTo(null); //화면 중앙에 오게 해줌
 		
 		this.setVisible(true);
