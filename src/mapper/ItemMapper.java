@@ -17,7 +17,8 @@ public interface ItemMapper {
 		, " <foreach collection='list' item='obj' separator='UNION ALL' > "
 		, " SELECT  '${obj.name}' name, '${obj.price}' price, '${obj.quantity}' quantity, '${obj.content}' content, CURRENT_DATE regdate FROM DUAL"
 		, " </foreach> "
-		, ") T1;"
+		, ") T1"
+		, " </script> "
 		
 	})
 	public int itemInsertBatch(@Param("list") List<Item> list);

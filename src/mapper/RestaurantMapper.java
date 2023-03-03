@@ -81,8 +81,5 @@ public interface RestaurantMapper {
 	})
 	public int resInsertBatch(@Param("list") List<Restaurant> list);
 	
-	
-	
-	
 
 }
