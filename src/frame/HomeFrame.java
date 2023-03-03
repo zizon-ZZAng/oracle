@@ -18,7 +18,7 @@ public class HomeFrame extends JFrame{	//JFrame 실행되려면 상속되어 있
 		JButton btnNewButton = new JButton("로그인");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new LoginFrame();
+				new LoginFrame();	//로그인 버튼 누르면 로그인 창으로 이동 꺄륶!
 				dispose(); // 새 창 띄우면 기존 창 사라짐 
 			}
 		});
@@ -27,7 +27,7 @@ public class HomeFrame extends JFrame{	//JFrame 실행되려면 상속되어 있
 		JButton btnNewButton_1 = new JButton("회원가입");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new SignUpFrame();
+				new SignUpFrame(); //회원가입 버튼 누르면 회원가입 창으로 이동
 				dispose(); // 새 창 띄우면 기존 창 사라짐 
 			}
 		});
