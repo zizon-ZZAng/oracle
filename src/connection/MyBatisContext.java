@@ -9,6 +9,8 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.ibatis.transaction.TransactionFactory;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 
+import mapper.MemberMapper;
+
 public class MyBatisContext {
 
 	public static SqlSession getSqlSession() {
@@ -29,6 +31,7 @@ public class MyBatisContext {
 			Configuration config = new Configuration(environment);
 
 			// mapper등록
+			config.addMapper(MemberMapper.class);
 
 			SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(config);
 			return factory.openSession(true); // true면 자동으로 commit을 수행함
