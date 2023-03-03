@@ -14,5 +14,7 @@ public class Member {
 	private String address;
 	private int chk;
 	private Date regdate;
+	
+	private String newpw;
 
 }
