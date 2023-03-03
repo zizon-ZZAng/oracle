@@ -107,16 +107,42 @@ class MemberTest {
 	
 	@Test
 	void memberMerge() {
-	
-			Member member = new Member();
-			member.setUserage(101);
-			member.setUsergender("F");
-			member.setUserid("a2003");
-			member.setUsername("머지성공2");
-			member.setUserphone("010-0000-000");
-			member.setUserpw("새암호");
+		Member member = new Member();
+		member.setUserage(101);
+		member.setUsergender("F");
+		member.setUserid("a2003");
+		member.setUsername("머지성공2");
+		member.setUserphone("010-0000-000");
+		member.setUserpw("새암호");
 			
 		int ret = mapper.memberMerge(member);
 		System.out.println(ret);
+	}
+	
+	@Test
+	void memberUpdateOne() {
+		Member member = new Member();
+		member.setUserage(0);
+		member.setUsergender(null);
+		member.setUserid("a");
+		member.setUsername("이름");
+		member.setUserphone("010-0000");
+		
+		int ret = mapper.memberUpdateOne(member);
+		System.out.println(ret);
+	}
+	
+	@Test
+	void memberLikeList() {
+		Map<String, String> map = new HashMap<>();
+		
+		map.put("column","userid");
+		map.put("txt", "a");
+		
+		List<Member> list = mapper.memberLikeList(map);
+		
+		for(Member m : list) {
+			System.out.println(m.toString());
+		}
 	}
 }
