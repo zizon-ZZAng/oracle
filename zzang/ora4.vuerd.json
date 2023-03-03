@@ -1,0 +1,793 @@
+{
+  "canvas": {
+    "version": "2.2.11",
+    "width": 2000,
+    "height": 2000,
+    "scrollTop": 0,
+    "scrollLeft": -35,
+    "zoomLevel": 1,
+    "show": {
+      "tableComment": true,
+      "columnComment": true,
+      "columnDataType": true,
+      "columnDefault": true,
+      "columnAutoIncrement": false,
+      "columnPrimaryKey": true,
+      "columnUnique": false,
+      "columnNotNull": true,
+      "relationship": true
+    },
+    "database": "Oracle",
+    "databaseName": "",
+    "canvasType": "ERD",
+    "language": "GraphQL",
+    "tableCase": "pascalCase",
+    "columnCase": "camelCase",
+    "highlightTheme": "VS2015",
+    "bracketType": "none",
+    "setting": {
+      "relationshipDataTypeSync": true,
+      "relationshipOptimization": false,
+      "columnOrder": [
+        "columnName",
+        "columnDataType",
+        "columnNotNull",
+        "columnUnique",
+        "columnAutoIncrement",
+        "columnDefault",
+        "columnComment"
+      ]
+    },
+    "pluginSerializationMap": {}
+  },
+  "table": {
+    "tables": [
+      {
+        "name": "member1",
+        "comment": "회원테이블",
+        "columns": [
+          {
+            "name": "id",
+            "comment": "pk회원아이디",
+            "dataType": "VARCHAR2(15)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 81.3837890625,
+              "widthDataType": 89.29296875,
+              "widthDefault": 60
+            },
+            "id": "ee0ab54e-5951-403a-aff0-03fbe6da6129"
+          },
+          {
+            "name": "name",
+            "comment": "회원이름",
+            "dataType": "VARCHAR2(15)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 89.29296875,
+              "widthDefault": 60
+            },
+            "id": "b30a4c18-4363-4c89-b941-9c80bdc590e1"
+          },
+          {
+            "name": "password",
+            "comment": "회원비번",
+            "dataType": "VARCHAR2(100)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 96.453125,
+              "widthDefault": 60
+            },
+            "id": "eb2dc318-e71e-4d09-9358-fdd393d11d87"
+          },
+          {
+            "name": "address",
+            "comment": "회원주소",
+            "dataType": "VARCHAR2(100)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 96.453125,
+              "widthDefault": 60
+            },
+            "id": "bca01a79-b92b-478c-9e35-c2f440691b7a"
+          },
+          {
+            "name": "chk",
+            "comment": "탈퇴유무확인용",
+            "dataType": "NUMBER(1)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 93,
+              "widthDataType": 70.31982421875,
+              "widthDefault": 60
+            },
+            "id": "f4aee351-75db-4c8f-a93c-b6252d4c4b4d"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 89,
+          "top": 101,
+          "zIndex": 1,
+          "widthName": 60,
+          "widthComment": 67,
+          "color": "#FF0000"
+        },
+        "visible": true,
+        "id": "2c742b4b-7c73-4819-8fcb-95053aa08968"
+      },
+      {
+        "name": "recommend1",
+        "comment": "추천테이블",
+        "columns": [
+          {
+            "name": "seq",
+            "comment": "pk추천테이블 고유키",
+            "dataType": "NUMBER(10)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 120,
+              "widthDataType": 77.47998046875,
+              "widthDefault": 60
+            },
+            "id": "091d31bd-8d7a-4ce7-9799-47a92cde5ee4"
+          },
+          {
+            "name": "id",
+            "comment": "회원아이디",
+            "dataType": "VARCHAR2(15)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 67,
+              "widthDataType": 89.29296875,
+              "widthDefault": 60
+            },
+            "id": "bcd5e79f-a233-4d4c-b027-41f82e9a0434"
+          },
+          {
+            "name": "no",
+            "comment": "옷번호",
+            "dataType": "NUMBER(10)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 77.47998046875,
+              "widthDefault": 60
+            },
+            "id": "4d120cb3-d5be-4bdd-93f4-59b96eee5bf3"
+          },
+          {
+            "name": "code",
+            "comment": "고유키",
+            "dataType": "number(10)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 70.072265625,
+              "widthDefault": 60
+            },
+            "id": "c95e48a5-1da4-40ca-9a37-7a6282b38aca"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 638,
+          "top": 54,
+          "zIndex": 16,
+          "widthName": 79.63818359375,
+          "widthComment": 67,
+          "color": "#D000FF"
+        },
+        "visible": true,
+        "id": "92c48456-65ed-44f4-ac38-807eb981ef1d"
+      },
+      {
+        "name": "location1",
+        "comment": "지역테이블",
+        "columns": [
+          {
+            "name": "no",
+            "comment": "pk지역넘버",
+            "dataType": "NUMBER(5)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 68.3837890625,
+              "widthDataType": 70.31982421875,
+              "widthDefault": 60
+            },
+            "id": "b48761bb-7963-4768-a3a6-0c48acbc862d"
+          },
+          {
+            "name": "name",
+            "comment": "지역이름",
+            "dataType": "VARCHAR2(20)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 89.29296875,
+              "widthDefault": 60
+            },
+            "id": "47b61507-8bbc-4bef-b87a-961c80988a90"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 111,
+          "top": 376,
+          "zIndex": 2,
+          "widthName": 60,
+          "widthComment": 67,
+          "color": "#13FF00"
+        },
+        "visible": true,
+        "id": "306aad07-388e-40c2-a230-083e4c3bb739"
+      },
+      {
+        "name": "weather1",
+        "comment": "날씨테이블",
+        "columns": [
+          {
+            "name": "code",
+            "comment": "고유키",
+            "dataType": "number(10)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 70.072265625,
+              "widthDefault": 60
+            },
+            "id": "6be404fb-a27f-4b91-b5ca-1ef6f80f433d"
+          },
+          {
+            "name": "regdate",
+            "comment": "날짜",
+            "dataType": "TIMESTAMP",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 71.93212890625,
+              "widthDefault": 60
+            },
+            "id": "1d47726a-efe2-444b-9ae3-308a43d62541"
+          },
+          {
+            "name": "weather",
+            "comment": "날씨",
+            "dataType": "VARCHAR2(50)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 89.29296875,
+              "widthDefault": 60
+            },
+            "id": "2b38522c-690f-4c5e-8da6-654bd227ef03"
+          },
+          {
+            "name": "temperature",
+            "comment": "기온",
+            "dataType": "NUMBER(10)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 74.25537109375,
+              "widthComment": 60,
+              "widthDataType": 77.47998046875,
+              "widthDefault": 60
+            },
+            "id": "66dd4081-0848-4301-9160-7f6345739c2a"
+          },
+          {
+            "name": "no",
+            "comment": "지역넘버",
+            "dataType": "NUMBER(5)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 70.31982421875,
+              "widthDefault": 60
+            },
+            "id": "9a50da94-2ca8-4474-b03e-b600e1a74968"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 726,
+          "top": 431,
+          "zIndex": 15,
+          "widthName": 60,
+          "widthComment": 67,
+          "color": "#00FFF6"
+        },
+        "visible": true,
+        "id": "5bee195a-602b-49b1-bba0-ac57867f4f8d"
+      },
+      {
+        "name": "clothes1",
+        "comment": "의류테이블",
+        "columns": [
+          {
+            "name": "no",
+            "comment": "pk옷번호",
+            "dataType": "NUMBER(10)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 77.47998046875,
+              "widthDefault": 60
+            },
+            "id": "b04c9734-18c7-4b97-bb7d-0ccc5c720cf3"
+          },
+          {
+            "name": "name",
+            "comment": "옷이름",
+            "dataType": "VARCHAR2(20)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 89.29296875,
+              "widthDefault": 60
+            },
+            "id": "dd4ad324-2b4f-424b-b023-49b20c97d568"
+          },
+          {
+            "name": "texture",
+            "comment": "옷재질",
+            "dataType": "VARCHAR2(20)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 89.29296875,
+              "widthDefault": 60
+            },
+            "id": "23165e52-9d2f-43cc-b525-34d67b828d77"
+          },
+          {
+            "name": "thickness",
+            "comment": "옷두께(얇으면 1 두꺼우면 5)",
+            "dataType": "NUMBER(1)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 120,
+              "widthDataType": 70.31982421875,
+              "widthDefault": 60
+            },
+            "id": "26f05e58-ec66-44e5-b22e-6ba9e0f4a883"
+          },
+          {
+            "name": "type",
+            "comment": "상의,하의,신발",
+            "dataType": "VARCHAR2(15)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 85.6875,
+              "widthDataType": 89.29296875,
+              "widthDefault": 60
+            },
+            "id": "817d3b9d-a257-4fd0-9558-7fcdbc6b096c"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 1119,
+          "top": 197,
+          "zIndex": 4,
+          "widthName": 60,
+          "widthComment": 67,
+          "color": "#FFA100"
+        },
+        "visible": true,
+        "id": "b88784e1-a4e3-4d2f-9b4a-6591821dc19c"
+      },
+      {
+        "name": "cate1",
+        "comment": "옷분류",
+        "columns": [
+          {
+            "name": "type",
+            "comment": "pk상의,하의,신발",
+            "dataType": "VARCHAR2(15)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 100.0712890625,
+              "widthDataType": 89.29296875,
+              "widthDefault": 60
+            },
+            "id": "d7155b7d-1121-47e5-b0a0-199a1715a38a"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 1164,
+          "top": 506,
+          "zIndex": 5,
+          "widthName": 60,
+          "widthComment": 60,
+          "color": "#FFA100"
+        },
+        "visible": true,
+        "id": "3bb73512-4473-47fd-a7a8-da0889d46c36"
+      }
+    ],
+    "indexes": []
+  },
+  "memo": {
+    "memos": []
+  },
+  "relationship": {
+    "relationships": [
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "2c742b4b-7c73-4819-8fcb-95053aa08968",
+          "columnIds": [
+            "ee0ab54e-5951-403a-aff0-03fbe6da6129"
+          ],
+          "x": 505.453125,
+          "y": 186.75,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "92c48456-65ed-44f4-ac38-807eb981ef1d",
+          "columnIds": [
+            "bcd5e79f-a233-4d4c-b027-41f82e9a0434"
+          ],
+          "x": 638,
+          "y": 129.5,
+          "direction": "left"
+        },
+        "constraintName": "fk_member_to_recommend",
+        "visible": true,
+        "id": "aaf26e7d-4e06-4b5a-ad3b-103d216dc72f"
+      },
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "306aad07-388e-40c2-a230-083e4c3bb739",
+          "columnIds": [
+            "b48761bb-7963-4768-a3a6-0c48acbc862d"
+          ],
+          "x": 495.6767578125,
+          "y": 431,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "5bee195a-602b-49b1-bba0-ac57867f4f8d",
+          "columnIds": [
+            "9a50da94-2ca8-4474-b03e-b600e1a74968"
+          ],
+          "x": 726,
+          "y": 516.75,
+          "direction": "left"
+        },
+        "constraintName": "fk_location_to_weather",
+        "visible": true,
+        "id": "7cd1ee76-c795-42e0-b044-c9d111f7ec94"
+      },
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "3bb73512-4473-47fd-a7a8-da0889d46c36",
+          "columnIds": [
+            "d7155b7d-1121-47e5-b0a0-199a1715a38a"
+          ],
+          "x": 1372.18212890625,
+          "y": 506,
+          "direction": "top"
+        },
+        "end": {
+          "tableId": "b88784e1-a4e3-4d2f-9b4a-6591821dc19c",
+          "columnIds": [
+            "817d3b9d-a257-4fd0-9558-7fcdbc6b096c"
+          ],
+          "x": 1337.146484375,
+          "y": 368.5,
+          "direction": "bottom"
+        },
+        "constraintName": "fk_cate_to_clothes",
+        "visible": true,
+        "id": "8fc5393f-309b-4fa6-bfb5-352964b6701d"
+      },
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "b88784e1-a4e3-4d2f-9b4a-6591821dc19c",
+          "columnIds": [
+            "b04c9734-18c7-4b97-bb7d-0ccc5c720cf3"
+          ],
+          "x": 1119,
+          "y": 282.75,
+          "direction": "left"
+        },
+        "end": {
+          "tableId": "92c48456-65ed-44f4-ac38-807eb981ef1d",
+          "columnIds": [
+            "4d120cb3-d5be-4bdd-93f4-59b96eee5bf3"
+          ],
+          "x": 1074.29296875,
+          "y": 129.5,
+          "direction": "right"
+        },
+        "constraintName": "fk_clothes_to_recommend",
+        "visible": true,
+        "id": "2b306a16-5f74-4899-9068-66ebe21b5a31"
+      },
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "5bee195a-602b-49b1-bba0-ac57867f4f8d",
+          "columnIds": [
+            "6be404fb-a27f-4b91-b5ca-1ef6f80f433d"
+          ],
+          "x": 921.274169921875,
+          "y": 431,
+          "direction": "top"
+        },
+        "end": {
+          "tableId": "92c48456-65ed-44f4-ac38-807eb981ef1d",
+          "columnIds": [
+            "c95e48a5-1da4-40ca-9a37-7a6282b38aca"
+          ],
+          "x": 856.146484375,
+          "y": 205,
+          "direction": "bottom"
+        },
+        "constraintName": "fk_weather1_to_recommend1",
+        "visible": true,
+        "id": "3b43cba5-3cdb-4d59-8196-3183b16e3c54"
+      }
+    ]
+  }
+}
