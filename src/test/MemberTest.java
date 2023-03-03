@@ -14,6 +14,7 @@ class MemberTest {
 	MemberMapper mapper = MyBatisContext.getSqlSession().getMapper(MemberMapper.class);
 	
 	
+	//비밀번호 암호화
 	public String hashPW(String pw, String id) {
 		try {
 		
@@ -43,20 +44,47 @@ class MemberTest {
 	@Test
 	void singUpMember() {
 		
+		String id="";
+		String pw="";
+		
+		String hash = this.hashPW(pw, id);
+		
 		Member member = new Member();
 		
-		
-		
+		member.setId(id);
+		member.setName("");
+		member.setPassword(hash);
+		member.setGender("");
+		member.setAddress("");
 		
 		int ret = mapper.signUpMember(member);
 		System.out.println(ret);
+	}
+	
+	//회원정보 수정
+	@Test
+	void updateMember() {
+		
+		
+		
 	}
 	
 	
 	//비밀번호 변경
 	@Test
 	void updatePWMember() {
+		String id="";
+		String pw="";
 		
+		String newpw="";
+		
+		String hash = this.hashPW(newpw, id);
+		
+		Member member = new Member();
+		member.setId(id);
+		member.setPassword(pw);
+		
+		member.setNewpw(hash);
 		
 	}
 

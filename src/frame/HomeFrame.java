@@ -7,7 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 
-public class HomeFrame extends JFrame{
+public class HomeFrame extends JFrame{	//JFrame 실행되려면 상속되어 있어야함 ! extends JFrame 꼭 써주기
 	public HomeFrame() {
 		setTitle("지존짱");
 		getContentPane().setLayout(null);
@@ -19,6 +19,7 @@ public class HomeFrame extends JFrame{
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new LoginFrame();
+				dispose(); // 새 창 띄우면 기존 창 사라짐 
 			}
 		});
 		menuBar.add(btnNewButton);
@@ -27,6 +28,7 @@ public class HomeFrame extends JFrame{
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new SignUpFrame();
+				dispose(); // 새 창 띄우면 기존 창 사라짐 
 			}
 		});
 		menuBar.add(btnNewButton_1);
@@ -35,7 +37,7 @@ public class HomeFrame extends JFrame{
 		this.setLocationRelativeTo(null); //화면 중앙에 오게 해줌
 		
 		this.setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // 이건 윈도우 창 종료시 프로세스까지 깔끔하게 닫는거래
+														// 우리는 창을 껐는데 작업관리자에서는 가동중이래 
 	}
 }

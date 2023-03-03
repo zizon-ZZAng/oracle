@@ -10,6 +10,8 @@ import java.awt.event.ActionEvent;
 public class LoginFrame extends JFrame {
 	private JTextField textField;
 	private JTextField textField_1;
+	
+	
 	public LoginFrame() {
 		setTitle("로그인");
 		getContentPane().setLayout(null);
