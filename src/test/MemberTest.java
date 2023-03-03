@@ -109,14 +109,18 @@ class MemberTest {
 //		System.out.println(ret);
 	}
 	
+	
 	//로그인
 	@Test
 	void loginMember() {
 		Member member = new Member();
+		member.setId("");
+		member.setPassword("");
+		
+		System.out.println(member.getName());
 		
 		
 	}
-	
 	
 	
 	
@@ -155,5 +159,27 @@ class MemberTest {
 		member.setNewpw(hash);
 		
 	}
+	
+	//회원탈퇴
+	@Test
+	void unMember() {
+		Member member = new Member();
+		
+		member.setId("");
+		member.setPassword("");
+		
+		member.setName("");
+		member.setAddress("");
+		member.setGender("");
+		member.setPassword("");
+		member.setRegdate(null);
+		member.setChk(0);
+		
+		int ret = mapper.unMember(member);
+		System.out.println(ret);
+		
+		
+	}
+	
 
 }
