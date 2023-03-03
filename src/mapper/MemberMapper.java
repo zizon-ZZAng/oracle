@@ -106,8 +106,36 @@ public interface MemberMapper {
 	public int memberUpsert(@Param("obj") Member obj);
 	
 	
+	// 바꾸고 싶지않은 값엔 0이나 null값넣어서 값 유지하기 한 번에 수정하기
+	@Update({
+		" <script> ",
+		" UPDATE member SET username=#{obj.username} ", 
+			" <if test='obj.userage != 0'> ",
+				" , userage=#{obj.userage} ",	
+			" </if> ",
+			
+			" <if test='obj.userphone != null'> ",
+				" , userphone=#{obj.userphone} ",	
+			" </if> ",
+			
+			" <if test='obj.usergender != null'> ",
+				" , usergender=#{obj.usergender}  ",	
+			" </if> ",
+		" WHERE userid=#{obj.userid} ",
+		" </script> "
+	})
+	public int memberUpdateOne(@Param("obj") Member obj);
 	
 	
+	
+	// 원하는 컬럼명의 값 조회?
+	@Select({
+		
+		"SELECT * FROM member WHERE ${map.column} LIKE '%' || #{map.txt} || '%'"
+	})
+	public List<Member> memberLikeList(@Param("map") Map<String, String> map);
+	
+//	"SELECT * FROM member WHERE ",  "(${map.column} LIKE '%' || #{map.txt} || '%') OR ",  "(${map.column1} LIKE '%' || #{map.txt1} || '%'"
 	
 }
 	

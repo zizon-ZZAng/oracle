@@ -108,5 +108,38 @@ class MemberTest {
 		System.out.println(ret);
 		
 	}
+	
+	//내가 원하는 값만 수정
+	@Test
+	void memberUpdateOne() {
+		
+		Member m = new Member();
+		
+		m.setUserid("a1a2s");
+		m.setUsername("김헤이즐넛");
+		m.setUserage(23);
+		m.setUserphone(null);
+		m.setUsergender("F");
+		
+		
+		int ret = mapper.memberUpdateOne(m);
+		System.out.println(ret);
+	}
+	
+	
+	@Test
+	void memberLikeList() {
+		Map<String, String> map = new HashMap<>();
+		map.put("txt", "a");
+		map.put("column", "userid");
+		
+//		map.put("txt1", "a");
+//		map.put("column1", "userid");
+		
+		List<Member> list = mapper.memberLikeList(map);
+		System.out.println(list.toString());
+	}
+	
+	
 
 }
