@@ -89,4 +89,31 @@ public interface MemberMapper {
 	            " VALUES (#{obj.userid}, #{obj.userpw}, #{obj.username}, #{obj.userage}, #{obj.userphone}, #{obj.usergender}, CURRENT_DATE) "
 	})
 	public int memberUpsert(@Param("obj") Member obj);
+	
+	@Update({
+		" <script> ",
+		" UPDATE member SET username = #{obj.username} ",
+			" <if test = 'obj.userage !=0'> ",
+				" , userage = #{obj.userage} ",
+			" </if> ",
+			
+			" <if test = 'obj.userphone !=null'> ",
+				" , userphone = #{obj.userphone} ",
+			" </if> ",
+			
+			" <if test = 'obj.usergender !=null'> ",
+				" , usergender = #{obj.usergender} ",
+			" </if> ",
+		"WHERE userid = #{obj.userid} ",
+		" </script> "
+			
+	})
+	public int memberUpdateOne (@Param("obj") Member obj);
+	
+	@Select({
+		" SELECT m.* FROM member m WHERE ${map.column} ",
+		" LIKE '%' || #{map.txt} || '%' "
+	})
+	public List<Member> memberLikeList(
+			@Param("map") Map<String, Object> map);
 }
