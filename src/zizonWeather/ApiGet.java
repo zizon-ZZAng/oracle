@@ -10,6 +10,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class ApiGet {
+	
+	// 4. API 호출하고 데이터 받기 (DELETE)
 
 	public static void main(String[] args) {
 		String url = "http://203.247.66.28/url/fct_shrt_reg.php?tmfc=0&authKey=6b89a8e82e7dc3a444ec0d0b0dbbd21ef86bc5c2151e15f9a5629a3ca147bb56cda47ea0a5305014474e1404bd68f65128fb2b80ce121bc85e4909c0b5c175a9";
@@ -80,7 +82,10 @@ class HttpUtils {
 		
 		return conn;
 		
+		
 	}
+	
+	
 	
 	public String getHttpRespons(HttpURLConnection conn) {
 		StringBuilder sb = null;
@@ -132,4 +137,25 @@ class HttpUtils {
 		
 		return sb;
 	}
+	
+	
+	//3. API 호출하고 데이터 받기 (POST)
+
+//	conn.setDoOutput(true); //URL 연결시 데이터를 사용할지에 대한 설정 ( defualt false )
+//	try (DataOutputStream dataOutputStream = new DataOutputStream(conn.getOutputStream());){
+//
+//	  String str = "{\"user\" : \"kimchy\",    "
+//	  + "\"post_date\" : \"2009-11-15T14:12:12\",    "
+//	  + "\"message\" : \"trying out Elasticsearch\"}";
+//
+//	  dataOutputStream.writeBytes(str);
+//	  dataOutputStream.flush();
+//
+//	  result = htppUtils.getHttpRespons(conn);
+//
+//	} catch (IOException e) {
+//	  // TODO Auto-generated catch block
+//	  e.printStackTrace();
+//	}
+	
 }
