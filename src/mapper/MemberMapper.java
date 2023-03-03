@@ -41,12 +41,14 @@ public interface MemberMapper {
 	
 	
 	//비밀번호변경
-	@Update({"UPDATE member2 SET password=#{newpw} WHERE id=#{id} AND password=#{password}"})
-	public int updatePWMember(Member member);
+	@Update({"UPDATE member2 SET password=#{obj.newpw} WHERE id=#{obj.id} AND password=#{obj.password}"})
+	public int updatePWMember(@Param("obj") Member member);
+	
 	
 	//회원탈퇴
-	@Update({"UPDATE member2 SET name=#{name}, "})
-	public int unMember(Member member);
+	@Update({" UPDATE member2 SET name=#{obj.name}, password=#{obj.password}, address=#{obj.address}, gender=#{obj.gender}, chk=#{obj.chk}; regdate=#{obj.regdate} ", 
+			 " WHERE id=#{obj.id} AND password=#{obj.password} "})
+	public int unMember(@Param("obj") Member member);
 	
 	
 	
