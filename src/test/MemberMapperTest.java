@@ -85,4 +85,26 @@ class MemberMapperTest {
 		
 		System.out.println(mMapper.memberMergeBatch(member));
 	}
+	
+	@Test
+	void memberUpdateOne() {
+		Member m = new Member();
+		m.setUserid("aa1003");
+		m.setUsername("aaa");
+		m.setUserage(0);
+		m.setUserphone("010-221");
+		m.setUsergender("M");
+		
+		System.out.println(mMapper.memberUpdateOne(m));
+	}
+	
+	@Test
+	void memberLikeList() {
+		Map<String, String> map = new HashMap<>();
+		map.put("txt", "a");
+		map.put("column", "userpw");
+		
+		List<Member> list = mMapper.memberLikeList(map);
+		System.out.println(list.toString());
+	}
 }
