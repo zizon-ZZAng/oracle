@@ -111,7 +111,14 @@ class MemberTest {
 	
 	//로그인
 	@Test
-	void 
+	void loginMember() {
+		Member member = new Member();
+		
+		
+	}
+	
+	
+	
 	
 	//회원정보 수정
 	@Test
