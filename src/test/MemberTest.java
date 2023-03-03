@@ -109,6 +109,10 @@ class MemberTest {
 //		System.out.println(ret);
 	}
 	
+	//로그인
+	@Test
+	void 
+	
 	//회원정보 수정
 	@Test
 	void updateMember() {
