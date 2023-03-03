@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class Weather {
 
-	private int code;
+	private long code;
 	private Date wdate;
 	private int temperature;
 	private int rain;
