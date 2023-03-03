@@ -91,4 +91,31 @@ class MemberTest {
 
 		System.out.println(Mmapper.memberUpsert(m));
 	}
+
+	@Test
+	void memberUpdateOne() {
+		Member m = new Member();
+		m.setUserid("aaaa");
+		m.setUsername("jjj");
+		m.setUserage(50);
+		m.setUserphone("010-2222");
+		m.setUsergender(null);
+		
+		int ret = Mmapper.memberUpdateOne(m);
+		System.out.println(ret);
+		
+		
+	}
+	
+	@Test
+	void memberLikeList() {
+		Map<String, Object> map = new HashMap<>();
+		map.put("txt", "a");
+		map.put("column", "userpw");
+		
+		List<Member> list = Mmapper.memberLikeList(map);
+		System.out.println(list.toString());
+	}
+	
+
 }
