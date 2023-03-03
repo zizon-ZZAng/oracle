@@ -1,6 +1,8 @@
 package test;
 
 import java.security.MessageDigest;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 
 import org.junit.jupiter.api.Test;
 
@@ -42,30 +44,85 @@ class MemberTest {
 	
 	//회원가입
 	@Test
-	void singUpMember() {
-		
-		String id="";
-		String pw="";
-		
-		String hash = this.hashPW(pw, id);
+	public boolean singUpMember() {
 		
 		Member member = new Member();
 		
-		member.setId(id);
-		member.setName("");
-		member.setPassword(hash);
-		member.setGender("");
-		member.setAddress("");
+		Connection conn = null;
+		PreparedStatement ps = null;
 		
-		int ret = mapper.signUpMember(member);
-		System.out.println(ret);
+		int flag = 0;
+		
+		try {
+			
+			conn = new MyBatisContext().getConn();
+			
+			String sql = " INSERT INTO member2(id, name, gender, password, address) " +
+					 " VALUES(?,?,?,?,?) ";
+			
+			ps = conn.prepareStatement(sql);
+			
+			
+			ps.setString(1, member.getId());
+			ps.setString(2, member.getPassword());
+			ps.setString(3, member.getName());
+			ps.setString(4, member.getAddress());
+			ps.setString(5, member.getGender());
+			
+			//sql문 실행하기 (INSERT, UPDATE, DELETE)
+			flag = ps.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(ps != null)
+					ps.close();
+				if(conn != null)
+					conn.close();
+			} catch (Exception e2) {
+				
+			}
+		}
+		
+		if(flag>0) {
+			return true;
+		}else {
+			return false;
+		}
+	
+		
+//		String id="";
+//		String pw="";
+//		
+//		String hash = this.hashPW(pw, id);
+//		
+//		Member member = new Member();
+//		
+//		member.setId(id);
+//		member.setName("");
+//		member.setPassword(hash);
+//		member.setGender("");
+//		member.setAddress("");
+//		
+//		int ret = mapper.signUpMember(member);
+//		System.out.println(ret);
 	}
 	
 	//회원정보 수정
 	@Test
 	void updateMember() {
+		Member member = new Member();
 		
+		member.setName("");
+		member.setGender("");
+		member.setAddress("");
 		
+		member.setId("");
+		member.setPassword("");
+		
+		int ret = mapper.updateMember(member);
+		System.out.println(ret);	
 		
 	}
 	

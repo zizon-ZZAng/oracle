@@ -1,5 +1,7 @@
 package connection;
 
+import java.sql.Connection;
+
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.ibatis.mapping.Environment;
 import org.apache.ibatis.session.Configuration;
@@ -12,6 +14,8 @@ import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 import mapper.MemberMapper;
 
 public class MyBatisContext {
+	
+	private Connection conn;
 
 	public static SqlSession getSqlSession() {
 		try {
@@ -41,6 +45,12 @@ public class MyBatisContext {
 			return null;
 		}
 
+	}
+	
+	//Connection 객체를 리턴하는 메소드
+	public Connection getConn() {
+		return conn;
+		
 	}
 
 }

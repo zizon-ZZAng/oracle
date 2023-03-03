@@ -65,6 +65,7 @@ public class SignUpFrame extends JFrame{
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new HomeFrame();
+				dispose();
 			}
 		});
 		btnNewButton.setBounds(234, 209, 97, 23);
