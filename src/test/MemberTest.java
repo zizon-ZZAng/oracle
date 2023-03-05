@@ -191,14 +191,18 @@ class MemberTest {
 	
 	//회원탈퇴
 	@Test
-	void unMember() {	//왜 안됨?
+	void unMember() {	//개빡치네///////////////////////////////////
 		
+		String id="a";
+		String pw="a";
+		
+		String hash = this.hashPW(pw, id);
 		
 		
 		Member member = new Member();
 		
-		member.setId("a");
-		member.setPassword("324e8d5716afe4775118fe12256fd3d488cce575e375ce6f8eb16cb4b5bbb5d3");
+		member.setId(id);
+		member.setPassword(hash);
 		
 		member.setName(" ");
 		member.setAddress(" ");
