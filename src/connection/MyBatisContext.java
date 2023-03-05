@@ -13,7 +13,9 @@ import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 
 import mapper.CateMapper;
 import mapper.ClothesMapper;
+import mapper.LocationMapper;
 import mapper.MemberMapper;
+import mapper.WeatherMapper;
 
 public class MyBatisContext {
 	
@@ -40,6 +42,8 @@ public class MyBatisContext {
 			config.addMapper(MemberMapper.class);
 			config.addMapper(ClothesMapper.class);
 			config.addMapper(CateMapper.class);
+			config.addMapper(WeatherMapper.class);
+			config.addMapper(LocationMapper.class);
 
 			SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(config);
 			return factory.openSession(true); // true면 자동으로 commit을 수행함

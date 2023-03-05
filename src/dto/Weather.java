@@ -11,5 +11,5 @@ public class Weather {
 	private Date wdate;
 	private int temperature;
 	private int rain;
-	private String name;
+	private String locname;
 }
