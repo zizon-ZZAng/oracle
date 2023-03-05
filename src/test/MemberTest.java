@@ -116,10 +116,16 @@ class MemberTest {
 	@Test
 	void loginMember() { //개열받네
 		
+		String id="a";
+		String pw="bb";
+		
+		String hash = this.hashPW(pw, id);
+		
+		
 		
 		Member member =new Member();
-		member.setId("a");
-		member.setPassword("bb");
+		member.setId(id);
+		member.setPassword(hash);
 		
 		
 		System.out.println(mapper.loginMember(member));
@@ -134,21 +140,27 @@ class MemberTest {
 	
 	//회원정보 수정
 	@Test
-	void updateMember() {	//why 안바뀜
+	void updateMember() {
+		
+		
+		String id = "a";
+		String pw = "bb";
+				
+		String hash = this.hashPW(pw, id);
+		
 		
 		Member member = new Member();
 		
 
 		member.setId("a");
-		member.setPassword("bb");
+		member.setPassword(hash);
 		
 		
 		member.setName("김철수");
 		member.setGender("M");
-		member.setAddress("서울");
+		member.setAddress("울산");
 		
-		int ret = mapper.updateMember(member);
-		System.out.println(ret);	
+		System.out.println(mapper.updateMember(member));
 		
 	}
 	
@@ -180,14 +192,17 @@ class MemberTest {
 	//회원탈퇴
 	@Test
 	void unMember() {	//왜 안됨?
+		
+		
+		
 		Member member = new Member();
 		
 		member.setId("a");
-		member.setPassword("bb");
+		member.setPassword("324e8d5716afe4775118fe12256fd3d488cce575e375ce6f8eb16cb4b5bbb5d3");
 		
 		member.setName(" ");
-		member.setAddress(null);
-		member.setGender(null);
+		member.setAddress(" ");
+		member.setGender(" ");
 		member.setPassword(" ");
 		member.setRegdate(null);
 		member.setChk(0);
