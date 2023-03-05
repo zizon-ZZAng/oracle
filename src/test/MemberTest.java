@@ -114,7 +114,7 @@ class MemberTest {
 
 	//로그인
 	@Test
-	void loginMember() { //개열받네
+	void loginMember() { 
 		
 		String id="a";
 		String pw="bb";
