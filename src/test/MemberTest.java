@@ -44,97 +44,108 @@ class MemberTest {
 	
 	//회원가입
 	@Test
-	public boolean singUpMember() {
+	void singUpMember() {
+		
+		String id="a";
+		String pw="a";
+		
+		String hash = this.hashPW(pw, id);
 		
 		Member member = new Member();
 		
-		Connection conn = null;
-		PreparedStatement ps = null;
+		member.setId(id);
+		member.setName("김철수");
+		member.setPassword(hash);
+		member.setGender("M");
+		member.setAddress("부산");
 		
-		int flag = 0;
 		
-		try {
-			
-			conn = new MyBatisContext().getConn();
-			
-			String sql = " INSERT INTO member2(id, name, gender, password, address) " +
-					 " VALUES(?,?,?,?,?) ";
-			
-			ps = conn.prepareStatement(sql);
-			
-			
-			ps.setString(1, member.getId());
-			ps.setString(2, member.getPassword());
-			ps.setString(3, member.getName());
-			ps.setString(4, member.getAddress());
-			ps.setString(5, member.getGender());
-			
-			//sql문 실행하기 (INSERT, UPDATE, DELETE)
-			flag = ps.executeUpdate();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if(ps != null)
-					ps.close();
-				if(conn != null)
-					conn.close();
-			} catch (Exception e2) {
-				
-			}
-		}
+		int ret = mapper.signUpMember(member);
+		System.out.println(ret);
 		
-		if(flag>0) {
-			return true;
-		}else {
-			return false;
-		}
+//		Connection conn = null;
+//		PreparedStatement ps = null;
+		
+//		int flag = 0;
+//		
+//		try {
+//			
+//			conn = new MyBatisContext().getConn();
+//			
+//			String sql = " INSERT INTO member2(id, name, gender, password, address) " +
+//					 " VALUES(?,?,?,?,?) ";
+//			
+//			ps = conn.prepareStatement(sql);
+//			
+//			
+//			ps.setString(1, member.getId());
+//			ps.setString(2, member.getPassword());
+//			ps.setString(3, member.getName());
+//			ps.setString(4, member.getAddress());
+//			ps.setString(5, member.getGender());
+//		
+//			//sql문 실행하기 (INSERT, UPDATE, DELETE)
+//			flag = ps.executeUpdate();
+//
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		} finally {
+//			try {
+//				if(ps != null)
+//					ps.close();
+//				if(conn != null)
+//					conn.close();
+//			} catch (Exception e2) {
+//				
+//			}
+//		}
+//		
+//		if(flag>0) {
+//			return true;
+//		}else {
+//			return false;
+//		}
 	
 		
-//		String id="";
-//		String pw="";
-//		
-//		String hash = this.hashPW(pw, id);
-//		
-//		Member member = new Member();
-//		
-//		member.setId(id);
-//		member.setName("");
-//		member.setPassword(hash);
-//		member.setGender("");
-//		member.setAddress("");
-//		
-//		int ret = mapper.signUpMember(member);
-//		System.out.println(ret);
 	}
 	
 	
+	
+
 	//로그인
 	@Test
-	void loginMember() {
-		Member member = new Member();
-		member.setId("");
-		member.setPassword("");
-		
-		System.out.println(member.getName());
+	void loginMember() { //개열받네
 		
 		
-	}
+		Member member =new Member();
+		member.setId("a");
+		member.setPassword("bb");
+		
+		
+		System.out.println(mapper.loginMember(member));
+		
+		
+		
+		//System.out.println(mapper.loginMember("a", "bb"));
 	
+	
+	}
 	
 	
 	//회원정보 수정
 	@Test
-	void updateMember() {
+	void updateMember() {	//why 안바뀜
+		
 		Member member = new Member();
 		
-		member.setName("");
-		member.setGender("");
-		member.setAddress("");
+
+		member.setId("a");
+		member.setPassword("bb");
 		
-		member.setId("");
-		member.setPassword("");
+		
+		member.setName("김철수");
+		member.setGender("M");
+		member.setAddress("서울");
 		
 		int ret = mapper.updateMember(member);
 		System.out.println(ret);	
@@ -145,33 +156,39 @@ class MemberTest {
 	//비밀번호 변경
 	@Test
 	void updatePWMember() {
-		String id="";
-		String pw="";
+		String id="a";
+		String pw="a";
 		
-		String newpw="";
+		String hash = this.hashPW(pw, id);
 		
-		String hash = this.hashPW(newpw, id);
+		
+		String newpw="bb";
+		
+		String newhash = this.hashPW(newpw, id);
 		
 		Member member = new Member();
 		member.setId(id);
-		member.setPassword(pw);
+		member.setPassword(hash);
 		
-		member.setNewpw(hash);
+		member.setNewpw(newhash);
+		
+		int ret =mapper.updatePWMember(member);
+		System.out.println(ret);
 		
 	}
 	
 	//회원탈퇴
 	@Test
-	void unMember() {
+	void unMember() {	//왜 안됨?
 		Member member = new Member();
 		
-		member.setId("");
-		member.setPassword("");
+		member.setId("a");
+		member.setPassword("bb");
 		
-		member.setName("");
-		member.setAddress("");
-		member.setGender("");
-		member.setPassword("");
+		member.setName(" ");
+		member.setAddress(null);
+		member.setGender(null);
+		member.setPassword(" ");
 		member.setRegdate(null);
 		member.setChk(0);
 		
