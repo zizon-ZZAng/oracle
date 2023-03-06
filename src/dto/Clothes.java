@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class Clothes {
   // 옷 번호
-  private String clno;
+  private long clno;
   // 옷 이름
   private String clname;
   // 옷 재질
@@ -13,5 +13,5 @@ public class Clothes {
   // 옷 두께
   private String thickness;
   // 상의,하의,신발
-  private String type;
+  private int type;
 }
