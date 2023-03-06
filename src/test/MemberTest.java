@@ -59,56 +59,8 @@ class MemberTest {
 		
 		
 		int ret = mapper.signUpMember(member);
-		System.out.println(ret);
-		
-//		Connection conn = null;
-//		PreparedStatement ps = null;
-		
-//		int flag = 0;
-//		
-//		try {
-//			
-//			conn = new MyBatisContext().getConn();
-//			
-//			String sql = " INSERT INTO member2(id, name, gender, password, address) " +
-//					 " VALUES(?,?,?,?,?) ";
-//			
-//			ps = conn.prepareStatement(sql);
-//			
-//			
-//			ps.setString(1, member.getId());
-//			ps.setString(2, member.getPassword());
-//			ps.setString(3, member.getName());
-//			ps.setString(4, member.getAddress());
-//			ps.setString(5, member.getGender());
-//		
-//			//sql문 실행하기 (INSERT, UPDATE, DELETE)
-//			flag = ps.executeUpdate();
-//
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		} finally {
-//			try {
-//				if(ps != null)
-//					ps.close();
-//				if(conn != null)
-//					conn.close();
-//			} catch (Exception e2) {
-//				
-//			}
-//		}
-//		
-//		if(flag>0) {
-//			return true;
-//		}else {
-//			return false;
-//		}
-	
-		
+		System.out.println(ret);	
 	}
-	
-	
-	
 
 	//로그인
 	@Test

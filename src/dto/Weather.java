@@ -8,7 +8,7 @@ import lombok.Data;
 public class Weather {
 
 	private long code;
-	private Date wdate;
+	private String wdate;
 	private int temperature;
 	private int rain;
 	private String locname;
