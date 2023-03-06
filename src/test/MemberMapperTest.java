@@ -5,7 +5,7 @@ import java.security.MessageDigest;
 import org.junit.jupiter.api.Test;
 
 import connection.MyBatisContext;
-import dto.Customer;
+import dto.Member;
 import mapper.MemberMapper;
 
 class MemberMapperTest {
@@ -45,7 +45,7 @@ class MemberMapperTest {
 		String hash = this.hashPW("abcde", "hhh1");
 		
 		Member m = new Member();
-		m.setID("hhh1");
+		m.setId("hhh1");
 		m.setName("이름");
 		m.setPassword(hash);
 		m.setSex("F");
