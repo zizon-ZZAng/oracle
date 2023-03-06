@@ -80,10 +80,6 @@ class MemberTest {
 		
 		System.out.println(mapper.loginMember(member));
 		
-		
-		
-		//System.out.println(mapper.loginMember("a", "bb"));
-	
 	
 	}
 	

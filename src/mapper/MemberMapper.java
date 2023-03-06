@@ -23,7 +23,7 @@ public interface MemberMapper {
 //	public Member loginMember(@Param("id") String id, @Param("password") String password);
 	
 	//로그인
-	@Select({" SELECT id, name, chk, gender, address  FROM member2 WHERE id=#{id} AND password=#{password} "})
+	@Select({" SELECT *  FROM member2 WHERE id=#{id} AND password=#{password} "})
 	public Member loginMember(Member member);
 	
 	
