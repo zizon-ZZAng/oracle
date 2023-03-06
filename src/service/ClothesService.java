@@ -11,7 +11,8 @@ import mapper.ClothesMapper;
 
 public interface ClothesService {
 
-	final ClothesMapper mapper = MyBatisContext.getSqlSession().getMapper(ClothesMapper.class);
+	final ClothesMapper mapper 
+		= MyBatisContext.getSqlSession().getMapper(ClothesMapper.class);
 	
 	
 	// 옷 등록
