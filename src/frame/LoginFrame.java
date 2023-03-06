@@ -101,7 +101,7 @@ public class LoginFrame extends JFrame {
 
 				} else if (id.length() == 0 || pw.length() == 0) { // 둘 다 입력 안했을 경우
 
-					JOptionPane.showMessageDialog(null, "다시 입력해");
+					JOptionPane.showMessageDialog(null, "다시");
 				}
 
 				else { // 실패했을 경우
