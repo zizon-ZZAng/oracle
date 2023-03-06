@@ -5,12 +5,19 @@ import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.JCheckBox;
 import javax.swing.JTextField;
+
+import service.MemberService;
+import service.MemberServiceImpl;
+
 import javax.swing.JTextArea;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.DefaultComboBoxModel;
 
 public class SignUpFrame extends JFrame{
+	MemberService mService = new MemberServiceImpl();
+	
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
@@ -58,12 +65,14 @@ public class SignUpFrame extends JFrame{
 		getContentPane().add(comboBox);
 		
 		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(134, 174, 32, 23);
+		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"F", "M"}));
+		comboBox_1.setBounds(134, 174, 57, 23);
 		getContentPane().add(comboBox_1);
 		
 		JButton btnNewButton = new JButton("회원가입");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+//				mService.signUpMember();
 				new HomeFrame();
 				dispose();
 			}

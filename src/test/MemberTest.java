@@ -189,30 +189,20 @@ class MemberTest {
 	
 	//회원탈퇴
 	@Test
-	void unMember() {	//개빡치네///////////////////////////////////
+	void unMember() {
 		
 		String id="a";
-		String pw="bb";
+		String pw="a";
 		
 		String hash = this.hashPW(pw, id);
-		
 		
 		Member member = new Member();
 		
 		member.setId(id);
-		member.setPassword(hash);
-		
-		member.setName("");
-		member.setAddress("");
-		member.setGender("");
-		member.setPassword("");
-		member.setRegdate(null);
-		member.setChk(0);
+		member.setNewpw(hash);
 		
 		int ret = mapper.unMember(member);
 		System.out.println(ret);
-		
-		
 	}
 	
 
