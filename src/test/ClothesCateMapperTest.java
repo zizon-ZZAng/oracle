@@ -17,9 +17,10 @@ public class ClothesCateMapperTest {
 	ClothesCateMapper mapper = MyBatisContext.getSqlSession().getMapper(ClothesCateMapper.class);
 	ClothesCate c = new ClothesCate();
 
+	
 	@Test
 	void insertClothesCate() {
-	
+		
 		c.setType(0);
 		c.setName("옷분류 이름");
 	

@@ -43,9 +43,11 @@ public class ClothesMapperTest {
 	
 	@Test
 	void deleteClothes() {
-		c.setClno(0);
-
-		System.out.println(mapper.deleteClothes(c));
+		
+		for(int i=3; i<=14; i++) {
+			c.setClno((long)(10000+i));
+			System.out.println(mapper.deleteClothes(c));
+		}
 	}
 	
 	

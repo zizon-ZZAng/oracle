@@ -42,7 +42,7 @@ public interface ClothesMapper {
 
 	
 	@Delete({
-		" DELET FROM clothes1 ",
+		" DELETE FROM clothes1 ",
 		" WHERE clno=#{obj.clno} "
 	})
 	public int deleteClothes(@Param("obj") Clothes obj);
