@@ -99,6 +99,8 @@ public class SignUpFrame extends JFrame {
 
 			}
 			
+			
+			//입력하면 데이터저장
 			public void actionPerformed(ActionEvent e) {
 				String id = textField_1.getText();
 				String pw = textField_2.getText();
