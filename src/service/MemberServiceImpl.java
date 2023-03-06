@@ -17,25 +17,48 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public Member loginMember(Member member) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			
+			return mapper.loginMember(member);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	@Override
 	public int updateMember(Member member) {
-		// TODO Auto-generated method stub
-		return 0;
+		try {
+			return mapper.updateMember(member);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return -1;
+		}
 	}
 
 	@Override
 	public int updatePWMember(Member member) {
-		// TODO Auto-generated method stub
-		return 0;
+		try {
+			
+			return mapper.updatePWMember(member);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return -1;
+		}
 	}
 
 	@Override
 	public int unMember(Member member) {
-		// TODO Auto-generated method stub
-		return 0;
+		try {
+			
+			return mapper.unMember(member);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return -1;
+		}
 	}
 }
