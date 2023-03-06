@@ -2,7 +2,10 @@ package frame;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+<<<<<<< Updated upstream
 import java.security.MessageDigest;
+=======
+>>>>>>> Stashed changes
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -16,14 +19,22 @@ import service.MemberService;
 import service.MemberServiceImpl;
 import javax.swing.JToggleButton;
 
+<<<<<<< Updated upstream
 public class SignUpFrame extends JFrame {
+=======
+public class SignUpFrame extends JFrame{
+>>>>>>> Stashed changes
 	MemberService mService = new MemberServiceImpl();
 
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
+<<<<<<< Updated upstream
 	private JTextField textField_3;
 
+=======
+	
+>>>>>>> Stashed changes
 	public SignUpFrame() {
 		setTitle("회원가입");
 		getContentPane().setLayout(null);
@@ -62,12 +73,21 @@ public class SignUpFrame extends JFrame {
 		textField_2.setBounds(161, 104, 116, 21);
 		getContentPane().add(textField_2);
 		textField_2.setColumns(10);
+<<<<<<< Updated upstream
 
 		textField_3 = new JTextField();
 		textField_3.setColumns(10);
 		textField_3.setBounds(161, 140, 116, 21);
 		getContentPane().add(textField_3);
 
+=======
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"광주", "대구", "대전", "부산", "서울", "울산"}));
+		comboBox.setBounds(134, 137, 57, 23);
+		getContentPane().add(comboBox);
+		
+>>>>>>> Stashed changes
 		JComboBox comboBox_1 = new JComboBox();
 		comboBox_1.setModel(new DefaultComboBoxModel(new String[] { "F", "M" }));
 		comboBox_1.setBounds(161, 176, 57, 23);
@@ -128,6 +148,16 @@ public class SignUpFrame extends JFrame {
 		JButton btnNewButton_1 = new JButton("←");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+<<<<<<< Updated upstream
+=======
+				
+		
+				Member member = new Member();
+				mService.signUpMember(member);
+				
+				
+				
+>>>>>>> Stashed changes
 				new HomeFrame();
 				dispose();
 			}
