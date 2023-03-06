@@ -16,7 +16,7 @@ class WeatherTest {
 	@Test
 	void insertWeather() {
 		Weather w = new Weather();
-		w.setWdate(2023-03-06 00:00); // 모르게똬아아ㅏㅏ아
+		w.setWdate("2023-03-07 00:00:00"); 
 		w.setTemperature(8);
 		w.setRain(0);
 		w.setLocname("부산");
