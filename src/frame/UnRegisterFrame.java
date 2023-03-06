@@ -2,14 +2,23 @@ package frame;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
+import service.MemberService;
+import service.MemberServiceImpl;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class UnRegisterFrame extends JFrame {
+	
+	MemberService mService = new MemberServiceImpl();
+	
 	private JTextField textField;
 	private JTextField textField_1;
+	
 	public UnRegisterFrame() {
 		setTitle("회원탈퇴");
 		getContentPane().setLayout(null);
@@ -37,7 +46,10 @@ public class UnRegisterFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				
-				new UnRegisterSuccessFrame();
+				JOptionPane.showMessageDialog(null, "회원 탈퇴 완료");
+				
+				new HomeFrame();
+				dispose();
 				
 			}
 		});

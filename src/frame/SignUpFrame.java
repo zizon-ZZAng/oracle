@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import dto.Member;
@@ -122,7 +123,10 @@ public class SignUpFrame extends JFrame{
 
 				mService.signUpMember(member);
 				
-				new HomeFrame();
+				JOptionPane.showMessageDialog(null, "회원가입 성공");
+				
+				new HomeFrame(); //홈화면으로  ㄱ?
+//				new LoginFrame(); // 로긘창으로 ㄱ?
 
 				dispose();
 			}

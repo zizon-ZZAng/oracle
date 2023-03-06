@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
+import javax.swing.JOptionPane;
 
 public class HomeFrame extends JFrame{	//JFrame 실행되려면 상속되어 있어야함 ! extends JFrame 꼭 써주기
 
