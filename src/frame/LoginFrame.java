@@ -7,13 +7,14 @@ import java.security.MessageDigest;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import dto.Member;
 import service.MemberService;
 import service.MemberServiceImpl;
 
-public class LoginFrame extends JFrame implements ActionListener{
+public class LoginFrame extends JFrame {
 
 	MemberService mService = new MemberServiceImpl();
 
@@ -70,9 +71,7 @@ public class LoginFrame extends JFrame implements ActionListener{
 		JButton btnNewButton = new JButton("로그인");
 		btnNewButton.addActionListener(new ActionListener() {
 
-			
-			
-			
+		
 			public void actionPerformed(ActionEvent e) {
 
 				Member member = new Member();
@@ -85,7 +84,7 @@ public class LoginFrame extends JFrame implements ActionListener{
 				// 싹 다 디져주세요 ㅠㅠ
 
 				// 아이디나 비밀번호 성공했을 때의 경우
-				if (id.equals("a") && pw.equals("a")) {
+				if (id.equals(member.getId()) && pw.equals(member.getPassword())) {
 
 					mService.loginMember(member);
 
@@ -95,17 +94,18 @@ public class LoginFrame extends JFrame implements ActionListener{
 
 				} else if (id.length() == 0 || pw.length() == 0) { // 둘 다 입력 안했을 경우
 
-					new IdPwNullFrame();
+					JOptionPane.showMessageDialog(null, "다시 입력해");
 				}
 
 				else { // 실패했을 경우
 
-					new LoginFailFrame();
+					JOptionPane.showMessageDialog(null, "아이디 또는 비밀번호가 틀렸습니다. ^3<");
 
 				}
 
 			}
 		});
+		
 		btnNewButton.setBounds(208, 175, 97, 23);
 		getContentPane().add(btnNewButton);
 
@@ -120,6 +120,16 @@ public class LoginFrame extends JFrame implements ActionListener{
 		});
 		btnNewButton_1.setBounds(67, 175, 97, 23);
 		getContentPane().add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("＜");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new HomeFrame();
+				dispose();
+			}
+		});
+		btnNewButton_2.setBounds(0, 0, 57, 23);
+		getContentPane().add(btnNewButton_2);
 
 		this.setSize(400, 300);
 		this.setLocationRelativeTo(null); // 화면 중앙에 오게 해줌
@@ -127,12 +137,5 @@ public class LoginFrame extends JFrame implements ActionListener{
 		this.setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		
-			
-		
 	}
 }
