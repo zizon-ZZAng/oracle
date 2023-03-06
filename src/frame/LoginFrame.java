@@ -24,7 +24,7 @@ public class LoginFrame extends JFrame {
 		setTitle("로그인");
 		getContentPane().setLayout(null);
 
-		textField = new JTextField();
+		textField = new JTextField("아이디 입력");
 		textField.setBounds(176, 57, 116, 21);
 		getContentPane().add(textField);
 		textField.setColumns(10);
@@ -36,11 +36,14 @@ public class LoginFrame extends JFrame {
 		JLabel lblNewLabel_1 = new JLabel("비밀번호");
 		lblNewLabel_1.setBounds(74, 115, 57, 15);
 		getContentPane().add(lblNewLabel_1);
+		
 
-		textField_1 = new JTextField();
+		textField_1 = new JTextField("비밀번호 입력");
 		textField_1.setBounds(176, 112, 116, 21);
 		getContentPane().add(textField_1);
 		textField_1.setColumns(10);
+		
+		
 
 		JButton btnNewButton = new JButton("로그인");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -71,29 +74,32 @@ public class LoginFrame extends JFrame {
 			}
 
 			public void actionPerformed(ActionEvent e) {
-				
+
 				
 				String id = textField.getText();
 				String pw = textField_1.getText();
 				
 				String hash = this.hashPW(pw, id);
 				
+				
 				Member member = new Member();
 				member.setId(id);
 				member.setPassword(hash);
 				
-				mService.loginMember(member);
-				
 			
-				
-				
-				
+				// 아이디나 비밀번호 성공했을 때의 경우
+				if (id.equals(textField.getText()) && pw.equals(textField_1.getText())) {
 
-//				if()
-//				//로그인 성공시 홈 화면
-//				else { //로그인 실패시
-//					new LoginFailFrame();
-//				}
+
+//					mService.loginMember(member);
+
+					new LoginSuccessFrame();
+					dispose();
+					
+				} else { //실패했을 경우
+					
+					new LoginFailFrame();
+				}
 
 			}
 		});

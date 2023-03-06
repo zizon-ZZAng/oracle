@@ -7,28 +7,35 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JCheckBoxMenuItem;
+import javax.swing.JLabel;
 
 public class LoginSuccessFrame extends JFrame  {
 	public LoginSuccessFrame() {
+		setTitle("로그인");
+		getContentPane().setLayout(null);
 		
-		JMenuBar menuBar = new JMenuBar();
-		setJMenuBar(menuBar);
+		JLabel lblNewLabel = new JLabel("로그인 성공하셨슴둥~");
+		lblNewLabel.setBounds(85, 67, 148, 24);
+		getContentPane().add(lblNewLabel);
 		
-		JButton btnNewButton = new JButton("로그아웃");
+		JButton btnNewButton = new JButton("확인");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				
-				
+				new MainFrame2();
+				dispose();
 			}
 		});
-		menuBar.add(btnNewButton);
+		btnNewButton.setBounds(95, 124, 97, 23);
+		getContentPane().add(btnNewButton);
 		
-		JMenu mnNewMenu = new JMenu("내정보");
-		menuBar.add(mnNewMenu);
+		this.setSize(310, 242);
+		this.setLocationRelativeTo(null); // 화면 중앙에 오게 해줌
+
+		this.setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JMenuItem mntmNewMenuItem = new JMenuItem("정보변경");
-		mnNewMenu.add(mntmNewMenuItem);
 	}
 	
 	
