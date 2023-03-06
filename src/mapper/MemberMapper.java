@@ -20,10 +20,24 @@ public interface MemberMapper {
 	public Member loginMember(@Param("id") String id, @Param("password") String password);
 	
 	// 고객 회원정보수정
-	@Update({" UPDATE member1 ",
-			 " SET phone = #{phone}, address = #{address} ",
-			 " WHERE id = #{id} AND password = #{password} "})
-	public int updateMember(Member m);
+	@Update({
+		" <script> ",
+		" UPDATE member1 SET name=#{obj.name} ",
+			" <if test='obj.password != null'> ",
+				" ,password=#{obj.password} ",
+			" </if> ",
+			
+			" <if test='obj.sex != null '> ",
+				" , sex=#{obj.sex} ",
+			" </if> ",
+			" <if test='obj.address != null '> ",
+				" , address=#{obj.address} ",
+			" </if> ",
+			" WHERE id=#{obj.id} ",
+			" </script> "
+		
+	})
+	public int member1UpdateOne(@Param("obj") Member obj);
 	
 	// 고객 암호 변경
 	@Update({" UPDATE member1 ",

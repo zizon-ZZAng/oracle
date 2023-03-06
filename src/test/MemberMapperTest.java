@@ -42,7 +42,7 @@ class MemberMapperTest {
 	@Test
 	void insertMember() {
 //		String hash = this.hashPW("암호", "가입할 아이디");
-		String hash = this.hashPW("abcde", "hhh1");
+		String hash = this.hashPW("abcde", "hhh1"); //(비번,아이디)
 		
 		Member m = new Member();
 		m.setId("hhh1");
@@ -58,7 +58,7 @@ class MemberMapperTest {
 	// 고객 로그인
 	@Test
 	void loginMember() {
-		String hash = this.hashPW("abcde", "hhh1");
+		String hash = this.hashPW("abcde", "hhh1"); //(비번,아이디)
 		
 		Member m = mMapper.loginMember("hhh1", hash);
 		System.out.println(m.toString());
@@ -69,7 +69,7 @@ class MemberMapperTest {
 	
 	@Test
 	void updateMember() {
-		String hash = this.hashPW("abcde", "hhh1");
+		String hash = this.hashPW("abcde", "hhh1"); //(비번,아이디)
 		
 		Member m = new Member();
 		m.setName("이름");
@@ -77,20 +77,20 @@ class MemberMapperTest {
 		m.setAddress("주소 수정");
 		m.setPassword(hash);
 		
-		System.out.println(mMapper.updateMember(m));
+		System.out.println(mMapper.member1UpdateOne(m));
 	}
 	
 	// 고객 암호 변경
 	@Test
 	void updateMemberPW() {
-		String oldHash = this.hashPW("abcde", "hhh1"); // 원래 암호
-		String newHash = this.hashPW("abcde2", "hhh1");   // 바꿀 암호
+		String oldHash = this.hashPW("abc123", "tak"); // 원래 암호 (비번,아이디)
+		String newHash = this.hashPW("a", "tak");   // 바꿀 암호
 		
 		Member m = new Member();
 		m.setNewPassword(newHash); // 새로운 암호
 		
-		m.setId("hhh1");
-		m.setPassword(oldHash);	   // 원래 암호
+		m.setId("tak");
+		m.setPassword("abc123");	   // 원래 암호
 		
 		System.out.println(mMapper.updateMemberPW(m));
 	}
