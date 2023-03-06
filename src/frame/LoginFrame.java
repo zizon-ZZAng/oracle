@@ -13,13 +13,14 @@ import javax.swing.JTextField;
 import dto.Member;
 import service.MemberService;
 import service.MemberServiceImpl;
+import javax.swing.JPasswordField;
 
 public class LoginFrame extends JFrame {
 
 	MemberService mService = new MemberServiceImpl();
 
 	private JTextField textField;
-	private JTextField textField_1;
+	private JPasswordField passwordField;
 
 	public LoginFrame() {
 		setTitle("로그인");
@@ -37,11 +38,11 @@ public class LoginFrame extends JFrame {
 		JLabel lblNewLabel_1 = new JLabel("비밀번호");
 		lblNewLabel_1.setBounds(74, 115, 57, 15);
 		getContentPane().add(lblNewLabel_1);
-
-		textField_1 = new JTextField();
-		textField_1.setBounds(176, 112, 116, 21);
-		getContentPane().add(textField_1);
-		textField_1.setColumns(10);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(176, 112, 116, 21);
+		getContentPane().add(passwordField);
+		
 
 		JButton btnNewButton = new JButton("로그인");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -76,7 +77,7 @@ public class LoginFrame extends JFrame {
 				Member member = new Member();
 
 				String id = textField.getText();
-				String pw = textField_1.getText();
+				String pw = passwordField.getText();
 
 				String hash = this.hashPW(pw, id);
 
@@ -121,7 +122,7 @@ public class LoginFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				textField.setText("");
-				textField_1.setText("");
+				passwordField.setText("");
 
 			}
 		});
@@ -137,6 +138,8 @@ public class LoginFrame extends JFrame {
 		});
 		btnNewButton_2.setBounds(0, 0, 57, 23);
 		getContentPane().add(btnNewButton_2);
+		
+		
 
 		this.setSize(400, 300);
 		this.setLocationRelativeTo(null); // 화면 중앙에 오게 해줌
