@@ -72,7 +72,7 @@ public class SignUpFrame extends JFrame{
 		JButton btnNewButton = new JButton("회원가입");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				mService.signUpMember();
+				mService.signUpMember(Member);
 				new HomeFrame();
 				dispose();
 			}
