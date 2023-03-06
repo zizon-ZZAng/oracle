@@ -84,7 +84,7 @@ public class LoginFrame extends JFrame {
 				member.setPassword(hash);
 
 				// 아이디나 비밀번호 성공했을 때의 경우
-				// ""자리에 뭐가 들어가야하는데 싹 다 디져주세요 ㅠㅠ
+				// ""자리에 뭐가 들어가야하는데............ 개같앵... 왕!
 				if (id.equals("a") && pw.equals("a")) {
 
 					mService.loginMember(member);

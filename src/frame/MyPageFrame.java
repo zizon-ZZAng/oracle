@@ -10,11 +10,19 @@ import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import service.MemberService;
+import service.MemberServiceImpl;
+
 public class MyPageFrame extends JFrame {
+	
+	MemberService mService = new MemberServiceImpl();
+	
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
+	
+	
 	public MyPageFrame() {
 		setTitle("나의 정보");
 		
@@ -25,7 +33,7 @@ public class MyPageFrame extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				
+				//어쩌지
 				
 				
 			}
@@ -67,6 +75,13 @@ public class MyPageFrame extends JFrame {
 		JButton btnNewButton_2 = new JButton("비밀번호 변경");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				//비밀번호 변경 Frame 이동
+				
+				
+				
+				
+				
 			}
 		});
 		btnNewButton_2.setBounds(100, 141, 117, 23);
@@ -99,13 +114,18 @@ public class MyPageFrame extends JFrame {
 		JButton btnNewButton_3 = new JButton("회원정보 수정");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				
+				
+				//회원 정보 수정
+				
 			}
 		});
-		btnNewButton_3.setBounds(303, 217, 119, 23);
+		btnNewButton_3.setBounds(255, 205, 119, 23);
 		getContentPane().add(btnNewButton_3);
 		
 		
-		this.setSize(400, 300); // 창 사이즈 이거 없으면 창 뜰 때 걍 소멸수준임;;;
+		this.setSize(426, 309); // 창 사이즈 이거 없으면 창 뜰 때 걍 소멸수준임;;;
 		this.setLocationRelativeTo(null); //화면 중앙에 오게 해줌
 		
 		this.setVisible(true);
