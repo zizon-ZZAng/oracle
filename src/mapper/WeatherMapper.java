@@ -24,7 +24,11 @@ public interface WeatherMapper {
 	public List<Weather> selectWeather();
 	
 	// 지역 하나 날씨 조회?
+	
+	
 	// 날짜 하루 날씨 조회?
+	
+	
 	
 	// 날씨 온도 수정
 	@Update({

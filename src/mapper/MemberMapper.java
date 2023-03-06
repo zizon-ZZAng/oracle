@@ -30,19 +30,19 @@ public interface MemberMapper {
 	//회원정보변경
 	@Update({
 		
-		"UPDATE member2 SET name=#{obj.name}, address=#{obj.address}, gender=#{obj.gender} WHERE id=#{obj.id} AND password=#{obj.password}"
+//		"UPDATE member2 SET name=#{obj.name}, address=#{obj.address}, gender=#{obj.gender} WHERE id=#{obj.id} AND password=#{obj.password}"
 		
-//		" <script> ",
-//		" UPDATE member2 SET name=#{obj.name} ",
-//			" <if test='obj.address != null'> ",
-//				" , address=#{obj.address} ",	
-//			" </if> ",
-//			
-//			" <if test='obj.gender != null'> ",
-//				" , gender=#{obj.gender}  ",	
-//			" </if> ",
-//		" WHERE id=#{obj.id} AND password=#{obj.password} ",
-//		" </script> "
+		" <script> ",
+		" UPDATE member2 SET name=#{obj.name} ",
+			" <if test='obj.address != null'> ",
+				" , address=#{obj.address} ",	
+			" </if> ",
+			
+			" <if test='obj.gender != null'> ",
+				" , gender=#{obj.gender}  ",	
+			" </if> ",
+		" WHERE id=#{obj.id} AND password=#{obj.password} ",
+		" </script> "
 		
 	})
 	public int updateMember(@Param("obj") Member member);

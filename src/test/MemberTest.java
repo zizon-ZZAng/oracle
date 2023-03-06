@@ -1,8 +1,6 @@
 package test;
 
 import java.security.MessageDigest;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 
 import org.junit.jupiter.api.Test;
 
@@ -157,8 +155,8 @@ class MemberTest {
 		
 		
 		member.setName("김철수");
-		member.setGender("M");
-		member.setAddress("울산");
+		member.setGender(null);
+		member.setAddress(null);
 		
 		System.out.println(mapper.updateMember(member));
 		
@@ -194,7 +192,7 @@ class MemberTest {
 	void unMember() {	//개빡치네///////////////////////////////////
 		
 		String id="a";
-		String pw="a";
+		String pw="bb";
 		
 		String hash = this.hashPW(pw, id);
 		
@@ -204,10 +202,10 @@ class MemberTest {
 		member.setId(id);
 		member.setPassword(hash);
 		
-		member.setName(" ");
-		member.setAddress(" ");
-		member.setGender(" ");
-		member.setPassword(" ");
+		member.setName("");
+		member.setAddress("");
+		member.setGender("");
+		member.setPassword("");
 		member.setRegdate(null);
 		member.setChk(0);
 		
