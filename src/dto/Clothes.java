@@ -1,3 +1,5 @@
+package dto;
+
 import lombok.Data;
 
 // 의류테이블
