@@ -44,18 +44,18 @@ class MemberTest {
 	@Test
 	void singUpMember() {
 		
-		String id="a";
-		String pw="a";
+		String id="f";
+		String pw="f";
 		
 		String hash = this.hashPW(pw, id);
 		
 		Member member = new Member();
 		
 		member.setId(id);
-		member.setName("김철수");
+		member.setName("박신나");
 		member.setPassword(hash);
-		member.setGender("M");
-		member.setAddress("부산");
+		member.setGender("F");
+		member.setAddress("광주");
 		
 		
 		int ret = mapper.signUpMember(member);
@@ -167,12 +167,12 @@ class MemberTest {
 	@Test
 	void updatePWMember() {
 		String id="a";
-		String pw="a";
+		String pw="bb";
 		
 		String hash = this.hashPW(pw, id);
 		
 		
-		String newpw="bb";
+		String newpw="a";
 		
 		String newhash = this.hashPW(newpw, id);
 		
