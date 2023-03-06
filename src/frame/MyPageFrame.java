@@ -28,8 +28,6 @@ public class MyPageFrame extends JFrame {
 				
 				
 				
-				
-				
 			}
 		});
 		menuBar.add(btnNewButton);

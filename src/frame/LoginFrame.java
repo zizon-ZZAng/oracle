@@ -13,7 +13,7 @@ import dto.Member;
 import service.MemberService;
 import service.MemberServiceImpl;
 
-public class LoginFrame extends JFrame {
+public class LoginFrame extends JFrame implements ActionListener{
 
 	MemberService mService = new MemberServiceImpl();
 
@@ -127,5 +127,12 @@ public class LoginFrame extends JFrame {
 		this.setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+			
+		
 	}
 }
