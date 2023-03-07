@@ -9,6 +9,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.Font;
+import java.awt.Color;
 
 public class HomeFrame extends JFrame{	//JFrame 실행되려면 상속되어 있어야함 ! extends JFrame 꼭 써주기
 
@@ -18,9 +20,13 @@ public class HomeFrame extends JFrame{	//JFrame 실행되려면 상속되어 있
 		getContentPane().setLayout(new GridLayout(0, 2, 0, 0));
 		
 		JButton btnNewButton = new JButton("로그인");
+		btnNewButton.setBackground(new Color(179, 187, 238));
+		btnNewButton.setFont(new Font("한컴 말랑말랑 Bold", Font.PLAIN, 30));
 		getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("회원가입");
+		btnNewButton_1.setBackground(new Color(237, 199, 237));
+		btnNewButton_1.setFont(new Font("한컴 말랑말랑 Bold", Font.PLAIN, 30));
 		getContentPane().add(btnNewButton_1);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
