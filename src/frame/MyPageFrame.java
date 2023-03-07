@@ -9,28 +9,19 @@ import javax.swing.JLabel;
 import javax.swing.JMenuBar;
 import javax.swing.JTextField;
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 import common.Config;
-
-import dto.Member;
 import service.MemberService;
 import service.MemberServiceImpl;
 
 public class MyPageFrame extends JFrame {
 	
 	MemberService mService = new MemberServiceImpl();
-<<<<<<< Updated upstream
-	
-=======
+
 
 	LoginFrame lf = new LoginFrame();
 	
 	private JTextField textField;
 
->>>>>>> Stashed changes
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
@@ -112,11 +103,7 @@ public class MyPageFrame extends JFrame {
 		textField.setBounds(101, 45, 116, 21);
 		getContentPane().add(textField);
 		textField.setColumns(10);
-<<<<<<< Updated upstream
-=======
 
-
->>>>>>> Stashed changes
 		
 		// 이름
 		textField_1 = new JTextField();
