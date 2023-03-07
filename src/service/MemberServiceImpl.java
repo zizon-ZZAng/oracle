@@ -56,16 +56,14 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public Member loginMember(String id, String password) {
+	public int loginMember(String id, String password) {
 		try {
 			String hash = this.hashPW(password, id); //(비번,아이디)
-				
-			
 			return mMapper.loginMember(id, password);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
-			return null;
+			return 0;
 		}
 	}
 
