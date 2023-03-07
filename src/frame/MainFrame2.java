@@ -28,22 +28,14 @@ public class MainFrame2 extends JFrame{
 				int result = JOptionPane.showConfirmDialog(null,"로그아웃 하시겠습니까?",
 							"Confirm", JOptionPane.YES_NO_OPTION);
 				new LogoutFrame();
-				if(result == JOptionPane.CLOSED_OPTION) {
+				if(result == JOptionPane.YES_OPTION) {
 					new HomeFrame();
-				}
-				else if(result == JOptionPane.YES_OPTION) {
-					new HomeFrame();
-				
 					dispose();
 				}
 				else {
 					new MainFrame2();
+					dispose();
 				}
-					
-
-				
-				dispose(); 
-				
 			}
 		});
 		
@@ -57,8 +49,7 @@ public class MainFrame2 extends JFrame{
 				menuBar.add(btnNewButton);
 				
 				new MyPageFrame();
-				
-				
+				dispose();
 			}
 		});
 		

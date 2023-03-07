@@ -1,11 +1,13 @@
 package frame;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -80,10 +82,9 @@ public class MyPageFrame extends JFrame {
 		textField.setBounds(155, 46, 116, 21);
 		getContentPane().add(textField);
 		textField.setColumns(10);
-
 		
 		// 이름
-		textField_1 = new JTextField();
+		textField_1 = new JTextField(Config.obj.getName());
 		textField_1.setBounds(155, 81, 116, 21);
 		getContentPane().add(textField_1);
 		textField_1.setColumns(10);
@@ -96,7 +97,7 @@ public class MyPageFrame extends JFrame {
 		textField_2.setColumns(10);
 		
 		// 주소
-		textField_3 = new JTextField();
+		textField_3 = new JTextField(Config.obj.getAddress());
 		textField_3.setBounds(155, 180, 116, 21);
 		getContentPane().add(textField_3);
 		textField_3.setColumns(10);
@@ -109,7 +110,17 @@ public class MyPageFrame extends JFrame {
 				member.setName(textField_1.getText());
 				member.setAddress(textField_3.getText());
 				
-				mService.updateMember(member);
+				member.setId(Config.obj.getId());
+				member.setPassword(Config.obj.getPassword());
+				
+				int ret = mService.updateMember(member);
+				
+				if (ret==1) {
+					JOptionPane.showMessageDialog(null, "회원정보 수정 성공");
+				}
+				else if (textField_1.getText().length() == 0 || textField_3.getText().length() == 0) { // 둘 다 입력 안했을 경우
+					JOptionPane.showMessageDialog(null, "이름 또는 주소를 입력하세요.");
+				}
 			}
 		});
 		btnNewButton_3.setBounds(253, 225, 119, 23);
@@ -122,6 +133,18 @@ public class MyPageFrame extends JFrame {
 		passwordField = new JPasswordField(Config.obj.getPassword());
 		passwordField.setBounds(154, 143, 117, 21);
 		getContentPane().add(passwordField);
+		
+		JButton btnNewButton = new JButton("Back");
+		btnNewButton.setBackground(new Color(240, 240, 240)); // 프레임 색을 버튼에 적용(투명해진 척~)
+		btnNewButton.setFocusPainted(false); // 선택되었을 때 생기는 테두리 사용안함
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new MainFrame2();
+				dispose();
+			}
+		});
+		btnNewButton.setBounds(329, 0, 81, 23);
+		getContentPane().add(btnNewButton);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// 회원 탈퇴 버튼

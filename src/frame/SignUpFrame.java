@@ -1,5 +1,6 @@
 package frame;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.security.MessageDigest;
@@ -24,8 +25,6 @@ public class SignUpFrame extends JFrame{
 
 	private JTextField textField;
 	private JTextField textField_1;
-
-	private JTextField textField_3;
 	private JPasswordField passwordField;
 
 
@@ -62,13 +61,11 @@ public class SignUpFrame extends JFrame{
 		textField_1.setBounds(161, 65, 116, 21);
 		getContentPane().add(textField_1);
 		textField_1.setColumns(10);
-
-
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(161, 140, 116, 21);
-		getContentPane().add(textField_3);
 		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"부산", "서울", "대구", "광주", "대전", "울산"}));
+		comboBox.setBounds(161, 139, 116, 23);
+		getContentPane().add(comboBox);
 
 		JComboBox comboBox_1 = new JComboBox();
 		comboBox_1.setModel(new DefaultComboBoxModel(new String[] { "F", "M" }));
@@ -114,15 +111,15 @@ public class SignUpFrame extends JFrame{
 				member.setName(textField.getText());
 				member.setId(id);
 				member.setPassword(hash);
-				member.setAddress(textField_3.getText());
+				member.setAddress(comboBox.getSelectedItem().toString());
 				member.setGender(comboBox_1.getSelectedItem().toString());
 
 				mService.signUpMember(member);
 				
 				JOptionPane.showMessageDialog(null, "회원가입 성공");
-				
-				new HomeFrame(); //홈화면으로  ㄱ?
-//				new LoginFrame(); // 로긘창으로 ㄱ?
+
+				// 회원가입 성공 -> 로그인창으로
+				new LoginFrame();
 
 				dispose();
 			}
@@ -130,7 +127,9 @@ public class SignUpFrame extends JFrame{
 		btnNewButton.setBounds(140, 217, 97, 23);
 		getContentPane().add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("<");
+		JButton btnNewButton_1 = new JButton("Back");
+		btnNewButton_1.setBackground(new Color(240, 240, 240)); // 프레임 색을 버튼에 적용(투명해진 척~)
+		btnNewButton_1.setFocusPainted(false); // 선택되었을 때 생기는 테두리 사용안함
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -138,7 +137,7 @@ public class SignUpFrame extends JFrame{
 				dispose();
 			}
 		});
-		btnNewButton_1.setBounds(0, 0, 45, 23);
+		btnNewButton_1.setBounds(0, 0, 81, 23);
 		getContentPane().add(btnNewButton_1);
 		
 		passwordField = new JPasswordField();

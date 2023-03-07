@@ -15,6 +15,7 @@ import common.Config;
 import dto.Member;
 import service.MemberService;
 import service.MemberServiceImpl;
+import java.awt.Color;
 
 public class LoginFrame extends JFrame {
 	
@@ -129,14 +130,16 @@ public class LoginFrame extends JFrame {
 		btnNewButton_1.setBounds(67, 175, 97, 23);
 		getContentPane().add(btnNewButton_1);
 
-		JButton btnNewButton_2 = new JButton("<");
+		JButton btnNewButton_2 = new JButton("Back");
+		btnNewButton_2.setBackground(new Color(240, 240, 240)); // 프레임 색을 버튼에 적용(투명해진 척~)
+		btnNewButton_2.setFocusPainted(false); // 선택되었을 때 생기는 테두리 사용안함
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new HomeFrame();
 				dispose();
 			}
 		});
-		btnNewButton_2.setBounds(0, 0, 57, 23);
+		btnNewButton_2.setBounds(0, 0, 81, 23);
 		getContentPane().add(btnNewButton_2);
 
 		this.setSize(400, 300);

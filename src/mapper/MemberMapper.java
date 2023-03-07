@@ -39,7 +39,6 @@ public interface MemberMapper {
 			" </if> ",
 		" WHERE id=#{obj.id} AND password=#{obj.password} ",
 		" </script> "
-		
 	})
 	public int updateMember(@Param("obj") Member member);
 	

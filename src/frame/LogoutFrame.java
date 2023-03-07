@@ -27,9 +27,6 @@ public class LogoutFrame extends JFrame{
 		btnNewButton.setBounds(43, 88, 97, 23);
 		getContentPane().add(btnNewButton);
 		
-		new HomeFrame();
-		
-		
 		JButton btnNewButton_1 = new JButton("NO");
 		btnNewButton_1.setBounds(165, 88, 97, 23);
 		getContentPane().add(btnNewButton_1);
