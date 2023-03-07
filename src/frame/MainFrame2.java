@@ -48,10 +48,13 @@ public class MainFrame2 extends JFrame{
 				mnNewMenu.add(mntmNewMenuItem);
 				menuBar.add(btnNewButton);
 				
-				new MyPageFrame();
 				dispose();
+				new MyPageFrame();
 			}
+			
+			
 		});
+		
 		
 		
 		mnNewMenu.add(mntmNewMenuItem);

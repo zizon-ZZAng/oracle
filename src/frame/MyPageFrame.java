@@ -20,8 +20,6 @@ public class MyPageFrame extends JFrame {
 	
 	MemberService mService = new MemberServiceImpl();
 
-
-	LoginFrame lf = new LoginFrame();
 	
 	private JTextField textField;
 
