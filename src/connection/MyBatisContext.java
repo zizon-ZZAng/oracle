@@ -32,8 +32,8 @@ public class MyBatisContext {
 		
 			// 오라클 기준
 			dataSource.setUrl("jdbc:oracle:thin:@1.234.5.158:11521:xe");	// @서버주소:포트번호:SID 
-			dataSource.setUsername("ds204");
-			dataSource.setPassword("pw204");
+			dataSource.setUsername("ds236");
+			dataSource.setPassword("pw236");
 			
 			TransactionFactory transactionFactory = new JdbcTransactionFactory();
 			Environment environment = new Environment("development", transactionFactory, dataSource);
