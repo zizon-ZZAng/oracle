@@ -138,8 +138,6 @@ public class LoginFrame extends JFrame {
 		});
 		btnNewButton_2.setBounds(0, 0, 57, 23);
 		getContentPane().add(btnNewButton_2);
-		
-		
 
 		this.setSize(400, 300);
 		this.setLocationRelativeTo(null); // 화면 중앙에 오게 해줌
