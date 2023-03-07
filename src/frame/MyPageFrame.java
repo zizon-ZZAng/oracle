@@ -9,10 +9,8 @@ import javax.swing.JLabel;
 import javax.swing.JMenuBar;
 import javax.swing.JTextField;
 
-<<<<<<< Updated upstream
 import common.Config;
-=======
->>>>>>> Stashed changes
+
 import dto.Member;
 import service.MemberService;
 import service.MemberServiceImpl;
@@ -20,12 +18,7 @@ import service.MemberServiceImpl;
 public class MyPageFrame extends JFrame {
 	
 	MemberService mService = new MemberServiceImpl();
-<<<<<<< Updated upstream
-=======
-	LoginFrame lf = new LoginFrame();
 	
-	private JTextField textField;
->>>>>>> Stashed changes
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
@@ -68,13 +61,6 @@ public class MyPageFrame extends JFrame {
 		JLabel lblNewLabel_1 = new JLabel("아이디");
 		lblNewLabel_1.setBounds(31, 48, 57, 15);
 		getContentPane().add(lblNewLabel_1);
-
-		//아이디
-		textField = new JTextField();
-		textField.setEnabled(false);
-		textField.setBounds(100, 45, 116, 21);
-		getContentPane().add(textField);
-		textField.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("이름");
 		lblNewLabel_2.setBounds(31, 83, 57, 15);
@@ -107,16 +93,13 @@ public class MyPageFrame extends JFrame {
 		lblNewLabel_5.setBounds(31, 182, 57, 15);
 		getContentPane().add(lblNewLabel_5);
 		
-<<<<<<< Updated upstream
+
 		// id
 		textField = new JTextField(Config.obj.getId());
 		textField.setEnabled(false);
 		textField.setBounds(101, 45, 116, 21);
 		getContentPane().add(textField);
 		textField.setColumns(10);
-=======
-		
->>>>>>> Stashed changes
 		
 		// 이름
 		textField_1 = new JTextField();
@@ -126,7 +109,7 @@ public class MyPageFrame extends JFrame {
 		
 		// 성별
 		textField_2 = new JTextField(Config.obj.getGender());
-		textField.setEnabled(false);
+		textField_2.setEnabled(false);
 		textField_2.setBounds(101, 111, 116, 21);
 		getContentPane().add(textField_2);
 		textField_2.setColumns(10);
