@@ -59,7 +59,8 @@ public class MemberServiceImpl implements MemberService{
 	public int loginMember(String id, String password) {
 		try {
 			String hash = this.hashPW(password, id); //(비번,아이디)
-			return mMapper.loginMember(id, password);
+
+			return mMapper.loginMember(id, hash);
 		}
 		catch(Exception e) {
 			e.printStackTrace();

@@ -56,15 +56,11 @@ public class LoginFrame extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-<<<<<<< HEAD
 
-		if (e.getActionCommand().equals("등록하기")) {
-
-=======
-		
+	
 		if(e.getActionCommand().equals("로그인")) {
 			
->>>>>>> eccbe62a259879534792f266df2ac06d63776416
+
 			// 아이디, 비밀번호 정보 가져오기
 			String id = textField_id.getText();
 			String pw = textField_pw.getText();
@@ -80,11 +76,7 @@ public class LoginFrame extends JFrame implements ActionListener {
 			} else {
 				JOptionPane.showMessageDialog(null, "아이디,비번이 잘못되었습니다.");
 			}
-<<<<<<< HEAD
 
-=======
-		
->>>>>>> eccbe62a259879534792f266df2ac06d63776416
 		}
 	}
 }
