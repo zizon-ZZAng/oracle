@@ -1,13 +1,17 @@
 package frame;
 
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
 
 public class MainFrame2 extends JFrame{
 	
@@ -21,8 +25,23 @@ public class MainFrame2 extends JFrame{
 		JButton btnNewButton = new JButton("로그아웃");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new HomeFrame();	
+				int result = JOptionPane.showConfirmDialog(null,"로그아웃 하시겠습니까?",
+							"Confirm", JOptionPane.YES_NO_OPTION);
+				new LogoutFrame();
+				if(result == JOptionPane.CLOSED_OPTION) {
+					new HomeFrame();
+				}
+				else if(result == JOptionPane.YES_OPTION) {
+					new HomeFrame();
+				}
+				else {
+					new MainFrame2();
+				}
+					
+
+				
 				dispose(); 
+				
 			}
 		});
 		
@@ -32,14 +51,19 @@ public class MainFrame2 extends JFrame{
 		JMenuItem mntmNewMenuItem = new JMenuItem("회원정보");
 		mntmNewMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				mnNewMenu.add(mntmNewMenuItem);
+				menuBar.add(btnNewButton);
 				
 				new MyPageFrame();
 				
 				
 			}
 		});
+		
+		
 		mnNewMenu.add(mntmNewMenuItem);
 		menuBar.add(btnNewButton);
+	
 		
 		this.setSize(400, 300); // 창 사이즈 이거 없으면 창 뜰 때 걍 소멸수준임;;;
 		this.setLocationRelativeTo(null); //화면 중앙에 오게 해줌

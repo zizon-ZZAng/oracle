@@ -7,8 +7,11 @@ import service.MemberServiceImpl;
 import javax.swing.JTextPane;
 import java.awt.BorderLayout;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 
 public class LogoutFrame extends JFrame{
@@ -16,12 +19,15 @@ public class LogoutFrame extends JFrame{
 	MemberService mService = new MemberServiceImpl();
 	
 	public LogoutFrame() {
-		setTitle("로그아웃");
+		setTitle("메세지");
 		getContentPane().setLayout(null);
 		
+			
 		JButton btnNewButton = new JButton("YES");
 		btnNewButton.setBounds(43, 88, 97, 23);
 		getContentPane().add(btnNewButton);
+		
+		new HomeFrame();
 		
 		JButton btnNewButton_1 = new JButton("NO");
 		btnNewButton_1.setBounds(165, 88, 97, 23);
@@ -32,6 +38,11 @@ public class LogoutFrame extends JFrame{
 		lblNewLabel.setFont(new Font("굴림", Font.BOLD, 15));
 		lblNewLabel.setBounds(68, 42, 173, 23);
 		getContentPane().add(lblNewLabel);
+	
+		
+		
+		
+		this.setLocationRelativeTo(null);
 	}
 	
 	
