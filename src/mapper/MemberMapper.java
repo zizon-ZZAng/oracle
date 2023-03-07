@@ -17,7 +17,7 @@ public interface MemberMapper {
 	@Select({" SELECT m.* ",
 			 " FROM member1 m ",
 			 " WHERE id = #{id} AND password = #{password} "})
-	public Member loginMember(@Param("id") String id, @Param("password") String password);
+	public int loginMember(@Param("id") String id, @Param("password") String password);
 	
 	// 고객 회원정보수정
 	@Update({
