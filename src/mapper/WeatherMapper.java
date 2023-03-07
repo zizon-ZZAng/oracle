@@ -22,7 +22,7 @@ public interface WeatherMapper {
 			" UPDATE WEATHER1 SET weather= #{weather}, temperature = #{temperature}, no = #{no} WHERE code = #{code} " })
 	public int weatherUpdate(Weather w);
 
-	@Update({ " UPDATE WEATHER1 SET regdate = TO_DATE('#{regdate2}', 'YYYY-MM-DD-HH24') WHERE no = #{no} " })
+	@Update({ " UPDATE WEATHER1 SET regdate = TO_DATE(#{regdate}, 'YYYY-MM-DD-HH24') WHERE no = #{no} " })
 	public int weatherUpdateHour(Weather w);
 
 	@Update({ " UPDATE WEATHER1 SET temperature = #{temperature} WHERE no = #{no} " })

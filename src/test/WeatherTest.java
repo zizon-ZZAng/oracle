@@ -1,7 +1,6 @@
 package test;
 
 import java.util.Date;
-import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
@@ -62,12 +61,13 @@ class WeatherTest {
 	@Test
 	void weatherUpdateHour() {
 		for(int i = 1; i<=24; i++) {
-			w.setNo(30);
+			w.setNo();
+			
 			if (i<10) {
-				w.setRegdate2("2023-03-06-0"+i);
+				w.setRegdate2(202303060+i);
 			}
 			else {
-				w.setRegdate2("2023-03-06-"+i);
+				w.setRegdate2(20230306+i);
 			}
 			w.getRegdate();
 		System.out.println(mapper.weatherUpdateHour(w));}
@@ -75,7 +75,7 @@ class WeatherTest {
 	
 	// 날씨 업데이트
 	// i는 시간으로 생각하기
-	// 외안돌아가지
+	// 왜안돌아가지
 	@Test
 	void weatherUpdateWea() {
 		for(int i = 1; i<=24; i++) {
