@@ -21,6 +21,7 @@ public class HomeFrame extends JFrame{	//JFrame 실행되려면 상속되어 있
 		
 		JButton btnNewButton = new JButton("로그인");
 		btnNewButton.setBackground(new Color(179, 187, 238));
+
 		btnNewButton.setFont(new Font("한컴 말랑말랑 Bold", Font.PLAIN, 30));
 		getContentPane().add(btnNewButton);
 		
