@@ -49,7 +49,8 @@ public class MyBatisContext {
 			config.addMapper(NNNMapper.class);
 			config.addMapper(ItemMapper.class);
 			config.addMapper(MemberMapper.class);
-			
+			config.addMapper(WeatherMapper.class);
+			config.addMapper(LocationMapper.class);
 			
 			SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(config);
 			return factory.openSession(true); // true이면 자동으로 commit을 수행함.

@@ -1,7 +1,6 @@
 package test;
 
 import java.util.Date;
-import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +11,7 @@ import mapper.WeatherMapper;
 class WeatherTest {
 	
 	WeatherMapper mapper = MyBatisContext.getSqlSession().getMapper(WeatherMapper.class);
-	
+	Weather w = new Weather();
 
 	
 	@Test
@@ -45,18 +44,28 @@ class WeatherTest {
 	@Test
 	void weatherDelete() {
 		Weather w = new Weather();
-		w.setCode(19);
+		w.setCode(22);
 		System.out.println(mapper.weatherDelete(w));
 	}
-
+	
+	
+	// 일단 24행 일괄추가
+	@Test
+	void weatherInsert30() {
+		for(int i = 1; i<=24; i++) {	
+			Weather w = new Weather();
+			w.setWeather("맑음");
+			w.setTemperature(20.5f);
+			w.setNo(31);
+		System.out.println(mapper.weatherInsert(w));}
+	}
 	
 	// 시간 업데이트
 	@Test
 	void weatherUpdateHour() {
-		for(int i = 0; i<=24; i++) {
+		for(int i = 1; i<=24; i++) {
 			Weather w = new Weather();
-			
-			w.setCode(50+i);
+			w.setCode(34+1);
 			
 			if (i<10) {
 				w.setRegdate2("2023-03-06-0"+i);
@@ -67,14 +76,12 @@ class WeatherTest {
 		System.out.println(mapper.weatherUpdateHour(w));}
 	}
 	
-	// 기온 업데이트
-	@Test
-	void weatherUpdateWTemp() {
-		for(int i = 0; i<=24; i++) {
-			Weather w = new Weather();
 
-			w.setCode(50+i);
-			
+	@Test
+	void weatherUpdateTemp() {
+		for(int i = 1; i<=24; i++) {
+			Weather w = new Weather();
+			w.setNo(30);
 			if (i<7) {
 				w.setTemperature(9.7f);
 			}
@@ -89,5 +96,4 @@ class WeatherTest {
 			}
 		System.out.println(mapper.weatherUpdateTemp(w));}
 	}
-	
 }

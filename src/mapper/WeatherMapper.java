@@ -22,13 +22,14 @@ public interface WeatherMapper {
 			" UPDATE WEATHER1 SET weather= #{weather}, temperature = #{temperature}, no = #{no} WHERE code = #{code} " })
 	public int weatherUpdate(Weather w);
 
-	@Update({ " UPDATE WEATHER1 SET regdate = TO_DATE(#{regdate2}, 'YYYY-MM-DD-HH24') WHERE code = #{code}" })
+	// 시간 업데이트
+	@Update({ " UPDATE WEATHER1 SET regdate = TO_DATE(#{regdate}, 'YYYY-MM-DD-HH24') WHERE code = #{code} " })
 	public int weatherUpdateHour(Weather w);
-
-	@Update({ " UPDATE WEATHER1 SET temperature = #{temperature} WHERE code = #{code}" })
+	
+	// 날씨 업데이트
+	@Update({ " UPDATE WEATHER1 SET temperature = #{temperature} WHERE code = #{code} " })
 	public int weatherUpdateTemp(Weather w);
 
-	//
 	@Select({ " SELECT * FROM WEATHER1 WHERE code = #{code} " })
 	public Weather weatherSelect(Weather w);
 
