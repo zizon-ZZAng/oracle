@@ -19,6 +19,7 @@ import service.MemberServiceImpl;
 public class MyPageFrame extends JFrame {
 	
 	MemberService mService = new MemberServiceImpl();
+
 	
 	private JTextField textField;
 

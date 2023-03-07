@@ -130,6 +130,8 @@ public class LoginFrame extends JFrame {
 		btnNewButton_1.setBounds(67, 175, 97, 23);
 		getContentPane().add(btnNewButton_1);
 
+		
+		//뒤로가기
 		JButton btnNewButton_2 = new JButton("Back");
 		btnNewButton_2.setBackground(new Color(240, 240, 240)); // 프레임 색을 버튼에 적용(투명해진 척~)
 		btnNewButton_2.setFocusPainted(false); // 선택되었을 때 생기는 테두리 사용안함
