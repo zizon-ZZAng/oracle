@@ -17,6 +17,8 @@ import service.MemberService;
 import service.MemberServiceImpl;
 
 public class LoginFrame extends JFrame {
+	
+	//ㅁ
 
 	MemberService mService = new MemberServiceImpl();
 
