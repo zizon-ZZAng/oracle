@@ -13,6 +13,7 @@ import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 
 import mapper.ClothesCateMapper;
 import mapper.ClothesMapper;
+import mapper.LocationMapper;
 import mapper.MemberMapper;
 import mapper.RecommendMapper;
 import mapper.WeatherMapper;
@@ -39,6 +40,8 @@ public class MyBatisContext {
 			config.addMapper(ClothesMapper.class);
 			config.addMapper(ClothesCateMapper.class);
 			config.addMapper(WeatherMapper.class);
+			config.addMapper(LocationMapper.class);
+			
 			
 			SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(config);
 			return factory.openSession(true);
