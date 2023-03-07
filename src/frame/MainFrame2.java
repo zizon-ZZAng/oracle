@@ -33,6 +33,8 @@ public class MainFrame2 extends JFrame{
 				}
 				else if(result == JOptionPane.YES_OPTION) {
 					new HomeFrame();
+				
+					dispose();
 				}
 				else {
 					new MainFrame2();
