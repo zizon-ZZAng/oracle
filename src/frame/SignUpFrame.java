@@ -61,5 +61,9 @@ public class SignUpFrame extends JFrame{
 		JButton comButton = new JButton("완료");
 		comButton.setBounds(118, 276, 97, 23);
 		getContentPane().add(comButton);
+		
+		this.setSize(400, 400);	// 사이즈 정하기
+		this.setVisible(true);
+		
 	}
 }

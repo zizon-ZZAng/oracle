@@ -32,6 +32,8 @@ public class WeatherFrame extends JFrame {
 		JButton recButton = new JButton("옷 추천");
 		recButton.setBounds(156, 202, 97, 23);
 		getContentPane().add(recButton);
+		
+		this.setSize(400, 400);	// 사이즈 정하기
+		this.setVisible(true);
 	}
-
 }
