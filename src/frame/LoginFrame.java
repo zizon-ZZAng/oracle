@@ -1,14 +1,18 @@
 package frame;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class LoginFrame extends JFrame{
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
+import service.MemberService;
+import service.MemberServiceImpl;
+
+public class LoginFrame extends JFrame implements ActionListener{
 	private JTextField textField_id;
 	private JTextField textField_pw;
 	public LoginFrame() {
@@ -46,5 +50,29 @@ public class LoginFrame extends JFrame{
 		
 		this.setSize(400, 400);	// 사이즈 정하기
 		this.setVisible(true);
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+if(e.getActionCommand().equals("등록하기")) {
+			
+			// 아이디, 비밀번호 정보 가져오기
+			String id = textField_id.getText();
+			String pw = textField_pw.getText();
+						
+			MemberService s = new MemberServiceImpl();
+							
+			int ret = s.loginMember(id, pw);
+			
+			System.out.println(ret);
+			if(ret ==1) {
+				JOptionPane.showMessageDialog(null, "로그인 되었습니다.");
+				System.exit(0);	// 화면 종료
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "아이디,비번이 잘못되었습니다.");
+			}
+		
 	}
 }
