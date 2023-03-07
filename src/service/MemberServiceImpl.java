@@ -35,17 +35,7 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public int insertMember(Member m) {
 		try {
-			String hash = this.hashPW(m.getPassword(), m.getId()); //(비번,아이디)
-			
-			
-			Member member = new Member();
-			member.getId().toString();
-			member.getPassword().toString();
-			member.getName().toString();
-			member.getSex().toString();
-			member.setChk(1);
-			
-			m.setChk(1);
+
 			
 			return mMapper.insertMember(m);
 		}
@@ -56,15 +46,15 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public int loginMember(String id, String password) {
+	public Member loginMember(String id, String password) {
 		try {
-			String hash = this.hashPW(password, id); //(비번,아이디)
+			
 
-			return mMapper.loginMember(hashPW(password, id), hash);
+			return mMapper.loginMember(id, password);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
-			return 0;
+			return null;
 		}
 	}
 
