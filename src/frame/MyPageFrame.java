@@ -1,26 +1,26 @@
 package frame;
 
-import javax.swing.JFrame;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenuBar;
 import javax.swing.JTextField;
 
+import common.Config;
+import dto.Member;
 import service.MemberService;
 import service.MemberServiceImpl;
 
 public class MyPageFrame extends JFrame {
 	
 	MemberService mService = new MemberServiceImpl();
-	
-	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
+	private JTextField textField;
 	
 	
 	public MyPageFrame() {
@@ -91,21 +91,27 @@ public class MyPageFrame extends JFrame {
 		lblNewLabel_5.setBounds(31, 182, 57, 15);
 		getContentPane().add(lblNewLabel_5);
 		
-		textField = new JTextField();
-		textField.setBounds(100, 45, 116, 21);
+		// id
+		textField = new JTextField(Config.obj.getId());
+		textField.setEnabled(false);
+		textField.setBounds(101, 45, 116, 21);
 		getContentPane().add(textField);
 		textField.setColumns(10);
 		
+		// 이름
 		textField_1 = new JTextField();
 		textField_1.setBounds(101, 80, 116, 21);
 		getContentPane().add(textField_1);
 		textField_1.setColumns(10);
 		
-		textField_2 = new JTextField();
+		// 성별
+		textField_2 = new JTextField(Config.obj.getGender());
+		textField.setEnabled(false);
 		textField_2.setBounds(101, 111, 116, 21);
 		getContentPane().add(textField_2);
 		textField_2.setColumns(10);
 		
+		// 주소
 		textField_3 = new JTextField();
 		textField_3.setBounds(101, 179, 116, 21);
 		getContentPane().add(textField_3);
@@ -123,7 +129,6 @@ public class MyPageFrame extends JFrame {
 		});
 		btnNewButton_3.setBounds(255, 205, 119, 23);
 		getContentPane().add(btnNewButton_3);
-		
 		
 		this.setSize(426, 309); // 창 사이즈 이거 없으면 창 뜰 때 걍 소멸수준임;;;
 		this.setLocationRelativeTo(null); //화면 중앙에 오게 해줌

@@ -57,7 +57,4 @@ public interface MemberMapper {
 	@Update({" UPDATE member2 SET name=null, password=null, address=null, gender=null, chk=0, regdate=null ", 
 			 " WHERE id=#{obj.id} AND password=#{obj.newpw} "})
 	public int unMember(@Param("obj") Member member);
-	
-	
-	
 }
