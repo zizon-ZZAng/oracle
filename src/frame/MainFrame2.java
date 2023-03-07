@@ -52,7 +52,7 @@ public class MainFrame2 extends JFrame {
 //				}
 //			}
 //		});
-
+ 
 		JMenu mnNewMenu_1 = new JMenu("로그아웃");
 		mnNewMenu_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
