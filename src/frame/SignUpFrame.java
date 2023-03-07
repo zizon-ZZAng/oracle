@@ -7,10 +7,10 @@ import javax.swing.JComboBox;
 import javax.swing.JButton;
 
 public class SignUpFrame extends JFrame{
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField textField_id;
+	private JTextField textField_name;
+	private JTextField textField_pw;
+	private JTextField textField_add;
 	public SignUpFrame() {
 		getContentPane().setLayout(null);
 		
@@ -34,32 +34,32 @@ public class SignUpFrame extends JFrame{
 		lblNewLabel_4.setBounds(46, 208, 57, 15);
 		getContentPane().add(lblNewLabel_4);
 		
-		textField = new JTextField();
-		textField.setBounds(155, 37, 116, 21);
-		getContentPane().add(textField);
-		textField.setColumns(10);
+		textField_id = new JTextField();
+		textField_id.setBounds(155, 37, 116, 21);
+		getContentPane().add(textField_id);
+		textField_id.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(155, 81, 116, 21);
-		getContentPane().add(textField_1);
-		textField_1.setColumns(10);
+		textField_name = new JTextField();
+		textField_name.setBounds(155, 81, 116, 21);
+		getContentPane().add(textField_name);
+		textField_name.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(155, 126, 116, 21);
-		getContentPane().add(textField_2);
-		textField_2.setColumns(10);
+		textField_pw = new JTextField();
+		textField_pw.setBounds(155, 126, 116, 21);
+		getContentPane().add(textField_pw);
+		textField_pw.setColumns(10);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(155, 166, 116, 21);
-		getContentPane().add(textField_3);
-		textField_3.setColumns(10);
+		textField_add = new JTextField();
+		textField_add.setBounds(155, 166, 116, 21);
+		getContentPane().add(textField_add);
+		textField_add.setColumns(10);
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setBounds(155, 204, 116, 23);
 		getContentPane().add(comboBox);
 		
-		JButton btnNewButton = new JButton("완료");
-		btnNewButton.setBounds(118, 276, 97, 23);
-		getContentPane().add(btnNewButton);
+		JButton comButton = new JButton("완료");
+		comButton.setBounds(118, 276, 97, 23);
+		getContentPane().add(comButton);
 	}
 }
