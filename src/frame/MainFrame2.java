@@ -35,6 +35,8 @@ public class MainFrame2 extends JFrame {
 		});
 
 		mnNewMenu.add(mntmNewMenuItem);
+		
+		// ㄷ되나
 
 //		JButton btnNewButton = new JButton("로그아웃");
 //		btnNewButton.setBackground(new Color(240, 240, 240));
