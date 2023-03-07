@@ -129,7 +129,7 @@ public class LoginFrame extends JFrame {
 		btnNewButton_1.setBounds(67, 175, 97, 23);
 		getContentPane().add(btnNewButton_1);
 
-		JButton btnNewButton_2 = new JButton("＜");
+		JButton btnNewButton_2 = new JButton("<");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new HomeFrame();

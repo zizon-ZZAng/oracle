@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 import dto.Member;
 import service.MemberService;
 import service.MemberServiceImpl;
+import javax.swing.JPasswordField;
 
 
 public class SignUpFrame extends JFrame{
@@ -23,9 +24,9 @@ public class SignUpFrame extends JFrame{
 
 	private JTextField textField;
 	private JTextField textField_1;
-	private JTextField textField_2;
 
 	private JTextField textField_3;
+	private JPasswordField passwordField;
 
 
 	public SignUpFrame() {
@@ -61,11 +62,6 @@ public class SignUpFrame extends JFrame{
 		textField_1.setBounds(161, 65, 116, 21);
 		getContentPane().add(textField_1);
 		textField_1.setColumns(10);
-
-		textField_2 = new JTextField();
-		textField_2.setBounds(161, 104, 116, 21);
-		getContentPane().add(textField_2);
-		textField_2.setColumns(10);
 
 
 		textField_3 = new JTextField();
@@ -110,7 +106,7 @@ public class SignUpFrame extends JFrame{
 			//입력하면 데이터저장
 			public void actionPerformed(ActionEvent e) {
 				String id = textField_1.getText();
-				String pw = textField_2.getText();
+				String pw = passwordField.getText();
 				
 				String hash = this.hashPW(pw, id);
 				
@@ -134,7 +130,7 @@ public class SignUpFrame extends JFrame{
 		btnNewButton.setBounds(140, 217, 97, 23);
 		getContentPane().add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("←");
+		JButton btnNewButton_1 = new JButton("<");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -144,6 +140,10 @@ public class SignUpFrame extends JFrame{
 		});
 		btnNewButton_1.setBounds(0, 0, 45, 23);
 		getContentPane().add(btnNewButton_1);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(161, 104, 116, 21);
+		getContentPane().add(passwordField);
 
 		this.setSize(400, 300);
 		this.setLocationRelativeTo(null); // 화면 중앙에 오게 해줌
