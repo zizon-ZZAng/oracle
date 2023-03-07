@@ -15,6 +15,7 @@ import mapper.CateMapper;
 import mapper.ClothesMapper;
 import mapper.LocationMapper;
 import mapper.MemberMapper;
+import mapper.RecommendMapper;
 import mapper.WeatherMapper;
 
 public class MyBatisContext {
@@ -44,6 +45,7 @@ public class MyBatisContext {
 			config.addMapper(CateMapper.class);
 			config.addMapper(WeatherMapper.class);
 			config.addMapper(LocationMapper.class);
+			config.addMapper(RecommendMapper.class);
 
 			SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(config);
 			return factory.openSession(true); // true면 자동으로 commit을 수행함
