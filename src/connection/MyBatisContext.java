@@ -9,12 +9,11 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.ibatis.transaction.TransactionFactory;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 
-import dto.Purchase;
-import dto.Rider;
 import mapper.CustomerMapper;
 import mapper.DeliveryInfoViewMapper;
 import mapper.DeliveryMapper;
 import mapper.ItemMapper;
+import mapper.LocationMapper;
 import mapper.MemberMapper;
 import mapper.MenuMapper;
 import mapper.NNNMapper;
@@ -22,6 +21,7 @@ import mapper.OrderTblMapper;
 import mapper.PurchaseMapper;
 import mapper.RestaurantMapper;
 import mapper.RiderMapper;
+import mapper.WeatherMapper;
 
 public class MyBatisContext {
 
