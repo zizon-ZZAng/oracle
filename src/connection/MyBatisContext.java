@@ -15,6 +15,7 @@ import mapper.ClothesCateMapper;
 import mapper.ClothesMapper;
 import mapper.MemberMapper;
 import mapper.RecommendMapper;
+import mapper.WeatherMapper;
 
 //MyBatisContext.getSqlSession();
 public class MyBatisContext {
@@ -37,7 +38,7 @@ public class MyBatisContext {
 			config.addMapper(RecommendMapper.class);
 			config.addMapper(ClothesMapper.class);
 			config.addMapper(ClothesCateMapper.class);
-
+			config.addMapper(WeatherMapper.class);
 			
 			SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(config);
 			return factory.openSession(true);
