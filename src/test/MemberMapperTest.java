@@ -60,7 +60,7 @@ class MemberMapperTest {
 	void loginMember() {
 		String hash = this.hashPW("abcde", "hhh1"); //(비번,아이디)
 		
-		Member m = mMapper.loginMember("hhh1", hash);
+		Member m = mMapper.loginMember("hhh1","abcede");
 		System.out.println(m.toString());
 	}
 

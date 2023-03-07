@@ -60,7 +60,7 @@ public class MemberServiceImpl implements MemberService{
 		try {
 			String hash = this.hashPW(password, id); //(비번,아이디)
 
-			return mMapper.loginMember(id, hash);
+			return mMapper.loginMember(hashPW(password, id), hash);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
