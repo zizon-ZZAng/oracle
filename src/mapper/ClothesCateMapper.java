@@ -30,7 +30,7 @@ public interface ClothesCateMapper {
 	
 	
 	@Delete({
-		" DELET FROM clothescate1 ",
+		" DELETE FROM clothescate1 ",
 		" WHERE type=#{obj.type} "
 	})
 	public int deleteClothesCate(@Param("obj") ClothesCate obj);
