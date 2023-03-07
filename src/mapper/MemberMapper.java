@@ -37,10 +37,6 @@ public interface MemberMapper {
 			" <if test='obj.address != null'> ",
 				" , address=#{obj.address} ",	
 			" </if> ",
-			
-			" <if test='obj.gender != null'> ",
-				" , gender=#{obj.gender}  ",	
-			" </if> ",
 		" WHERE id=#{obj.id} AND password=#{obj.password} ",
 		" </script> "
 		
