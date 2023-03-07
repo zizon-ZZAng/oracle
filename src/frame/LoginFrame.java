@@ -8,14 +8,17 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import common.Config;
 import dto.Member;
 import service.MemberService;
 import service.MemberServiceImpl;
-import javax.swing.JPasswordField;
 
 public class LoginFrame extends JFrame {
+	
+	//ㅁ
 
 	MemberService mService = new MemberServiceImpl();
 
@@ -84,12 +87,10 @@ public class LoginFrame extends JFrame {
 				member.setId(id);
 				member.setPassword(hash);
 				
-				Member loginm = mService.loginMember(member);
+				Config.obj = mService.loginMember(member);
 
 				// 아이디나 비밀번호 성공했을 때의 경우
-				// ""자리에 뭐가 들어가야하는데............ 개같앵... 왕!
-				// id.equals(member.getId()) && pw.equals(member.getPassword())
-				if (loginm != null) {
+				if (Config.obj != null) {
 
 					// JOptionPane 이용시 사용자 입력창, 확인창, 알림창 만들 수 있음
 					// showMessageDialog 알림창 띄우는 함수
@@ -137,8 +138,6 @@ public class LoginFrame extends JFrame {
 		});
 		btnNewButton_2.setBounds(0, 0, 57, 23);
 		getContentPane().add(btnNewButton_2);
-		
-		
 
 		this.setSize(400, 300);
 		this.setLocationRelativeTo(null); // 화면 중앙에 오게 해줌

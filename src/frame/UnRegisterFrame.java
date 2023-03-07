@@ -96,6 +96,13 @@ public class UnRegisterFrame extends JFrame {
 		});
 		btnNewButton.setBounds(167, 192, 97, 23);
 		getContentPane().add(btnNewButton);
+		
+		this.setSize(400, 300);
+		this.setLocationRelativeTo(null); // 화면 중앙에 오게 해줌
+
+		this.setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 	}
 
 }
