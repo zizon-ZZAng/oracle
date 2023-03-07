@@ -1,6 +1,8 @@
 package test;
 
-import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
@@ -39,8 +41,7 @@ class WeatherTest {
 		w.setCode(22);
 		System.out.println(mapper.weatherSelect(w));
 	}
-	
-	
+
 	@Test
 	void weatherDelete() {
 		Weather w = new Weather();
@@ -76,7 +77,7 @@ class WeatherTest {
 		System.out.println(mapper.weatherUpdateHour(w));}
 	}
 	
-
+	// 기온 업데이트
 	@Test
 	void weatherUpdateTemp() {
 		for(int i = 1; i<=24; i++) {
