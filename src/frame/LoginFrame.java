@@ -83,12 +83,13 @@ public class LoginFrame extends JFrame {
 
 				member.setId(id);
 				member.setPassword(hash);
+				
+				Member loginm = mService.loginMember(member);
 
 				// 아이디나 비밀번호 성공했을 때의 경우
 				// ""자리에 뭐가 들어가야하는데............ 개같앵... 왕!
-				if (id.equals("a") && pw.equals("a")) {
-
-					mService.loginMember(member);
+				// id.equals(member.getId()) && pw.equals(member.getPassword())
+				if (loginm != null) {
 
 					// JOptionPane 이용시 사용자 입력창, 확인창, 알림창 만들 수 있음
 					// showMessageDialog 알림창 띄우는 함수
@@ -98,11 +99,9 @@ public class LoginFrame extends JFrame {
 
 					dispose(); // 기존 창 종료
 
-					// System.exit(0); //화면을 종료 시키기. 0이 정상종료임 // 아무래도 모든 창이 종료되는 듯
-
 				} else if (id.length() == 0 || pw.length() == 0) { // 둘 다 입력 안했을 경우
 
-					JOptionPane.showMessageDialog(null, "다시");
+					JOptionPane.showMessageDialog(null, "아이디 또는 비밀번호를 입력해주세요.");
 				}
 
 				else { // 실패했을 경우
