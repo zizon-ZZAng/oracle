@@ -14,14 +14,14 @@ public interface RecommendMapper {
 	
 	// 추천목록 삭제
 	@Delete({
-		" DELETE FROM recommend WHERE reno = #{reno} "
+		" DELETE FROM recommend1 WHERE reno = #{reno} "
 	})
 	public int deleteRecommend(int reno);
 	
 	
 	//추천목록 삽입
 	@Insert({
-		" INSERT INTO recommend(reno,id,code,setno) ", 
+		" INSERT INTO recommend1(reno,id,code,setno) ", 
 	    " VALUES(SEQ_RECOMMEND_NO1.NEXTVAL,#{id},#{code},#{setno}) "
 	    
 	})
@@ -48,6 +48,14 @@ public interface RecommendMapper {
 	})
 	public List<Recommend> selectRecommendCode(int code);
 	
+	
+	//아이디별 시간별 추천옷 보기
+	@Select({
+		" SELECT r.* ",
+		" FROM recommend1 r ",
+		" WHERE id=#{id.id} AND code=#{obj.code} "
+	})
+	public Recommend selectRecommendSetno(@Param("id")String id, @Param("obj")int code);
 	
 	
 	@Update({
