@@ -18,6 +18,7 @@ class RecommendTest {
 	//옷추천
 	@Test
 	void clothesRecommend() {
+	
 		Map<String, Object> map = new HashMap<>();
 		map.put("wdate", "2023-03-07 10:00:00");
 		map.put("id", "b");
@@ -29,10 +30,49 @@ class RecommendTest {
 			System.out.println(m.toString());
 		}
 		
+	}
+	
+	//상의 추천
+	@Test
+	void clothesRecommendTop() {
+		
+		Map<String, Object> map = new HashMap<>();
+		
+		map.put("wdate", "2023-03-07 10:00:00");
+		map.put("id", "b");
+		
+		System.out.println(mapper.clothesRecommendTop(map)); 
 		
 	}
 	
 
+	
+	//하의 추천
+	@Test
+	void clothesRecommendBottom() {
+		
+		Map<String, Object> map = new HashMap<>();
+		
+		map.put("wdate", "2023-03-07 10:00:00");
+		map.put("id", "b");
+		
+		System.out.println(mapper.clothesRecommendBottom(map)); 
+		
+	}
+	
+	
+	//액세서리 추천
+	@Test
+	void clothesRecommendShoes() {
+		
+		Map<String, Object> map = new HashMap<>();
+		
+		map.put("wdate", "2023-03-07 10:00:00");
+		map.put("id", "b");
+		
+		System.out.println(mapper.clothesRecommendShoes(map)); 
+		
+	}
 	
 	
 
