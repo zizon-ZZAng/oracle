@@ -97,6 +97,7 @@ public class MainFrame2 extends JFrame {
 		getContentPane().add(textField_1);
 		
 		textField_2 = new JTextField();
+		textField_2.setEditable(false);
 		textField_2.setBounds(91, 170, 116, 21);
 		getContentPane().add(textField_2);
 		textField_2.setColumns(10);
@@ -106,11 +107,9 @@ public class MainFrame2 extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Weather weather = new Weather();
 				weather.setLocname(Config.obj.getAddress());
-				weather.setWdate(textField_1.getText() + " " + comboBox.getSelectedItem().toString());
-				
-				Config.weather = wService.selectWeatherTemp(weather);
-				
-				textField_2.setText(Integer.toString(Config.weather.getTemperature()));
+				weather.setWdate(textField_1.getText() + " " + comboBox.getSelectedItem().toString().substring(0, 2));
+
+				textField_2.setText(Integer.toString(wService.selectWeatherTemp(weather)));
 			}
 		});
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"00시", "01시", "02시", "03시", "04시", "05시", "06시", "07시", "08시", "09시", "10시", "11시", "12시", "13시", "14시", "15시", "16시", "17시", "18시", "19시", "20시", "21시", "22시", "23시"}));

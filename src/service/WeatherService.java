@@ -21,5 +21,5 @@ public interface WeatherService {
 	public int updateWeather();
 
 	// 해당 날씨, 시간, 지역에 맞는 온도 조회
-	public Weather selectWeatherTemp(Weather weather);
+	public int selectWeatherTemp(Weather weather);
 }
