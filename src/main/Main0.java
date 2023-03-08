@@ -1,23 +1,14 @@
 package main;
 
-<<<<<<< Updated upstream
 import java.util.List;
 
 import connection.MyBatisContext;
 import dto.Menu;
 import mapper.MenuMapper;
-=======
-<<<<<<< Updated upstream
-import frame.LoginFrame;
-import frame.RecommendFrame;
-import frame.SignUpFrame;
-import frame.WeatherFrame;
->>>>>>> Stashed changes
 
-public class Main {
+public class Main0 {
 
 	public static void main(String[] args) {
-<<<<<<< Updated upstream
 //		MenuMapper mMapper =  
 //				MyBatisContext.getSqlSession().getMapper(MenuMapper.class);
 //		
@@ -94,18 +85,6 @@ public class Main {
 //		int ret = rMapper.insertRestaurant(obj);
 //		System.out.println(ret);
 		
-=======
-		new SignUpFrame();
-		//new LoginFrame();
-		//new WeatherFrame();
-		//new RecommendFrame();
-=======
-public class Main {
-
-	public static void main(String[] args) {
-		
->>>>>>> Stashed changes
->>>>>>> Stashed changes
 	}
 
 }
