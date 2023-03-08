@@ -96,7 +96,7 @@ public class UnRegisterFrame extends JFrame {
 					dispose();
 				}
 				else if (textField_1.getText().length() == 0) {
-					JOptionPane.showMessageDialog(null, "비밀번호를 입력해주세요.");
+					JOptionPane.showMessageDialog(null, "비밀번호를 입력해주세요.", "비밀번호 오류", JOptionPane.WARNING_MESSAGE);
 				}
 				// 탈퇴 실패 (비밀번호 틀림)
 				else {
