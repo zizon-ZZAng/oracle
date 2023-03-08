@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-import dto.Member;
+import dto.Member2;
 import dto.Restaurant;
 
 @Mapper

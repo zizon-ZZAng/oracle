@@ -8,12 +8,12 @@ import java.util.Map;
 import org.junit.jupiter.api.Test;
 
 import connection.MyBatisContext;
-import dto.Member;
-import mapper.MemberMapper;
+import dto.Member2;
+import mapper.Member2Mapper;
 
 class MemberTest {
 	
-	MemberMapper mapper = MyBatisContext.getSqlSession().getMapper(MemberMapper.class);
+	Member2Mapper mapper = MyBatisContext.getSqlSession().getMapper(Member2Mapper.class);
 
 	@Test
 	void ProcMemberInsert() {
@@ -52,9 +52,9 @@ class MemberTest {
 	//시퀀스가 없는 데이터 추가
 	@Test
 	void memberInsertBatch() {
-		List<Member> list = new ArrayList<Member>();
+		List<Member2> list = new ArrayList<Member2>();
 		for(int i=0; i<=3;i++) {
-			Member member = new Member();
+			Member2 member = new Member2();
 			member.setUserid("qad"+i);
 			member.setUserpw("qad"+i);
 			member.setUserage(22);
@@ -74,10 +74,10 @@ class MemberTest {
 	//일괄 수정
 	@Test
 	void memberUpdateBatch() {
-		List<Member> list = new ArrayList<>();
+		List<Member2> list = new ArrayList<>();
 		
 		for(int i=1; i<=2;i++) {
-			Member member = new Member();
+			Member2 member = new Member2();
 			
 			member.setUserid("a"+i);
 			
@@ -96,7 +96,7 @@ class MemberTest {
 	//해당 아이디가 있으면 update 없으면 insert 수행
 	@Test
 	void memberUpsert() {
-		Member m = new Member();
+		Member2 m = new Member2();
 		m.setUserid("aaa");
 		m.setUsername("종이");
 		m.setUserpw("aaa");
@@ -113,7 +113,7 @@ class MemberTest {
 	@Test
 	void memberUpdateOne() {
 		
-		Member m = new Member();
+		Member2 m = new Member2();
 		
 		m.setUserid("a1a2s");
 		m.setUsername("김헤이즐넛");
@@ -136,7 +136,7 @@ class MemberTest {
 //		map.put("txt1", "a");
 //		map.put("column1", "userid");
 		
-		List<Member> list = mapper.memberLikeList(map);
+		List<Member2> list = mapper.memberLikeList(map);
 		System.out.println(list.toString());
 	}
 	

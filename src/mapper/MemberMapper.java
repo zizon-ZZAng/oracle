@@ -13,7 +13,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.apache.ibatis.mapping.StatementType;
 
-import dto.Member;
+import dto.Member2;
 
 @Mapper
 public interface MemberMapper {
@@ -38,7 +38,7 @@ public interface MemberMapper {
 	
 	
 	@Results(id="memberMap")
-	@ResultType(Member.class)	
+	@ResultType(Member2.class)	
 	@Select({
 		" { call proc_member_select( ",
 			" #{map.usergender, mode=IN, jdbcType=VARCHAR, javaType=String }, ",
@@ -64,7 +64,7 @@ public interface MemberMapper {
 	    " SELECT * FROM DUAL ",
 	    " </script> "
 	})
-	public int memberInsertBatch(@Param("list") List<Member> list);
+	public int memberInsertBatch(@Param("list") List<Member2> list);
 	
 	
 	//일괄 수정
@@ -88,7 +88,7 @@ public interface MemberMapper {
         " ) ",
         " </script> "
 	})
-	public int memberUpdateBatch(@Param("list") List<Member> list);
+	public int memberUpdateBatch(@Param("list") List<Member2> list);
 	
 	
 	
@@ -103,7 +103,7 @@ public interface MemberMapper {
                 " VALUES(#{obj.userid},#{obj.userpw},#{obj.username},#{obj.userage},#{obj.userphone},#{obj.usergender},CURRENT_DATE) "
 	           
 	})
-	public int memberUpsert(@Param("obj") Member obj);
+	public int memberUpsert(@Param("obj") Member2 obj);
 	
 	
 	// 바꾸고 싶지않은 값엔 0이나 null값넣어서 값 유지하기 한 번에 수정하기
@@ -124,7 +124,7 @@ public interface MemberMapper {
 		" WHERE userid=#{obj.userid} ",
 		" </script> "
 	})
-	public int memberUpdateOne(@Param("obj") Member obj);
+	public int memberUpdateOne(@Param("obj") Member2 obj);
 	
 	
 	
@@ -133,7 +133,7 @@ public interface MemberMapper {
 		
 		"SELECT * FROM member WHERE ${map.column} LIKE '%' || #{map.txt} || '%'"
 	})
-	public List<Member> memberLikeList(@Param("map") Map<String, String> map);
+	public List<Member2> memberLikeList(@Param("map") Map<String, String> map);
 	
 //	"SELECT * FROM member WHERE ",  "(${map.column} LIKE '%' || #{map.txt} || '%') OR ",  "(${map.column1} LIKE '%' || #{map.txt1} || '%'"
 	
