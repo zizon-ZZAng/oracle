@@ -14,7 +14,7 @@ import service.RecommendService;
 import service.RecommendServiceImpl;
 
 public class RecommendFrame extends JFrame {
-	RecommendService rservice = new RecommendServiceImpl();
+	RecommendService rservice = new RecommendServiceImpl(); 
 
 	private JTextField textField;
 	private JTextField textField_1;
