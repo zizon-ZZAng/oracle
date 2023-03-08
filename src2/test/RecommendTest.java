@@ -7,6 +7,7 @@ import java.util.Map;
 import org.junit.jupiter.api.Test;
 
 import connection.MyBatisContext;
+import dto.Recommend;
 import mapper.RecommendMapper;
 
 class RecommendTest {
@@ -19,7 +20,6 @@ class RecommendTest {
 	void clothesRecommend() {
 		Map<String, Object> map = new HashMap<>();
 		map.put("wdate", "2023-03-07 10:00:00");
-//		map.put("address", "부산");
 		map.put("id", "b");
 		
 		List<Map<String, Object>> list = mapper.clothesRecommend(map);
@@ -32,18 +32,7 @@ class RecommendTest {
 		
 	}
 	
-	//상의
-	void clothesTopRecommend() {
-		
-		
 
-		
-		
-	}
-	
-	
-	
-	//하의
 	
 	
 
