@@ -13,22 +13,9 @@ import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 
 import mapper.CateMapper;
 import mapper.ClothesMapper;
-<<<<<<< Updated upstream
 import mapper.LocationMapper;
 import mapper.MemberMapper;
 import mapper.RecommendMapper;
-=======
-import mapper.CustomerMapper;
-import mapper.ItemMapper;
-import mapper.LocationMapper;
-import mapper.Member2Mapper;
-import mapper.MenuMapper;
-import mapper.OrdertblMapper;
-import mapper.PurchaseMapper;
-import mapper.RecommendMapper;
-import mapper.RestaurantMapper;
-import mapper.RiderDeliveryMapper;
->>>>>>> Stashed changes
 import mapper.WeatherMapper;
 
 public class MyBatisContext {
@@ -47,45 +34,19 @@ public class MyBatisContext {
 			dataSource.setUrl("jdbc:oracle:thin:@1.234.5.158:11521:xe");
 			dataSource.setUsername("ds236");
 			dataSource.setPassword("pw236");
-<<<<<<< Updated upstream
 
 			TransactionFactory transactionFactory = new JdbcTransactionFactory();
 			Environment environment = new Environment("development", transactionFactory, dataSource);
 			Configuration config = new Configuration(environment);
-
-			// mapper등록
-			config.addMapper(MemberMapper.class);
-=======
-			
-			TransactionFactory tansactionFactory = new JdbcTransactionFactory();
-			Environment environment = new Environment("development", tansactionFactory, dataSource);
-			Configuration config = new Configuration(environment);
 			
 			// 만든 매퍼 등록
-//			config.addMapper(RestaurantMapper.class);
-//			config.addMapper(MenuMapper.class);	
-//			config.addMapper(PurchaseMapper.class);	
-//			config.addMapper(CustomerMapper.class);
-//			config.addMapper(OrdertblMapper.class);
-//			config.addMapper(RiderDeliveryMapper.class);
-//			config.addMapper(MemberMapper.class);
-//			config.addMapper(ItemMapper.class);
-			
-			
-			
-			//236  mapper
-			config.addMapper(Member2Mapper.class);
->>>>>>> Stashed changes
+			config.addMapper(MemberMapper.class);
 			config.addMapper(ClothesMapper.class);
 			config.addMapper(CateMapper.class);
 			config.addMapper(WeatherMapper.class);
 			config.addMapper(LocationMapper.class);
 			config.addMapper(RecommendMapper.class);
-<<<<<<< Updated upstream
 
-=======
-			
->>>>>>> Stashed changes
 			SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(config);
 			return factory.openSession(true); // true면 자동으로 commit을 수행함
 
