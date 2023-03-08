@@ -13,6 +13,8 @@ class RecommendTest {
 
 	RecommendMapper mapper = MyBatisContext.getSqlSession().getMapper(RecommendMapper.class);
 	
+	
+	//옷추천
 	@Test
 	void clothesRecommend() {
 		Map<String, Object> map = new HashMap<>();
@@ -29,5 +31,20 @@ class RecommendTest {
 		
 		
 	}
+	
+	//상의
+	void clothesTopRecommend() {
+		
+		
+
+		
+		
+	}
+	
+	
+	
+	//하의
+	
+	
 
 }
