@@ -16,6 +16,11 @@ import java.util.List;
 import java.util.Map;
 
 import javax.swing.DefaultComboBoxModel;
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
 
 public class RecommendFrame extends JFrame {
 	RecommendService rservice = new RecommendServiceImpl();
@@ -25,7 +30,6 @@ public class RecommendFrame extends JFrame {
 
 	public RecommendFrame() {
 		setTitle("옷 추천");
-		getContentPane().setLayout(null);
 		
 		
 		Map<String, Object> map = new HashMap<>();
@@ -37,10 +41,11 @@ public class RecommendFrame extends JFrame {
 
 		}
 
-		this.setSize(462, 300);
+		this.setSize(520, 349);
 		this.setLocationRelativeTo(null);
 
 		this.setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getContentPane().setLayout(null);
 	}
 }
