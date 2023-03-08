@@ -91,4 +91,16 @@ public class MemberServiceImpl implements MemberService {
 			return -1;
 		}
 	}
+	
+	// 회원 1명 조회(회원가입시 아이디 중복 확인용)
+	@Override
+	public Member selectMemberOne(String id) {
+		try {
+			return mapper.selectMemberOne(id);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 }
