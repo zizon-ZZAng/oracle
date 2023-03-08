@@ -2,6 +2,7 @@ package mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -11,14 +12,21 @@ import dto.Recommend;
 
 public interface RecommendMapper {
 	
+	// 추천목록 삭제
+	@Delete({
+		" DELETE FROM recommend WHERE reno = #{reno} "
+	})
+	public int deleteRecommend(int reno);
+	
 	
 	//추천목록 삽입
 	@Insert({
-		" INSERT INTO recommend1(no,id,clno,code) ", 
-	    " VALUES(SEQ_RECOMMEND_NO1.NEXTVAL,#{id},#{clno}, #{code}) "
+		" INSERT INTO recommend(reno,id,code,setno) ", 
+	    " VALUES(SEQ_RECOMMEND_NO1.NEXTVAL,#{id},#{code},#{setno}) "
 	    
 	})
 	public int insertRecommend(Recommend r);
+	
 	
 	//id별 추천목록 보기
 	@Select({
@@ -26,11 +34,13 @@ public interface RecommendMapper {
 	})
 	public List<Recommend> selectRecommendId();
 	
+	
 	//특정 옷 추천목록 보기
 	@Select({
 		" SELECT r.* FROM recommend1 r where no=#{no} "
 	})
 	public List<Recommend> selectRecommendNo(int no);
+	
 	
 	//특정날씨 추천목록 보기
 	@Select({
@@ -55,5 +65,6 @@ public interface RecommendMapper {
 		
 	})
 	public int Recommend1UpdateOne(@Param("obj") Recommend obj);
+	
 	
 }
