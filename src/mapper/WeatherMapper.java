@@ -60,7 +60,7 @@ public interface WeatherMapper {
 			" SELECT temperature ",
 			" from WEATHER1_LOCATION1_VIEW ",
 			" WHERE name = #{name} and w_date = #{w_date} and w_hour = #{w_hour} " })
-	public Map<String, Object> weatherSelectWVTemp(Map<String, Object> map);
+	public float weatherSelectWVTemp(Map<String, Object> map);
 	
 	
 	

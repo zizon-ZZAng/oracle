@@ -70,13 +70,13 @@ public class WeatherServiceImpl implements WeatherService{
 	}
 
 	@Override
-	public Map<String, Object> weatherSelectWVTemp(Map<String, Object> map) 
+	public float weatherSelectWVTemp(Map<String, Object> map) 
 	{
 		try {
 			return mapper.weatherSelectWVTemp(map);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return null;
+			return 0;
 		}
 	}
 
