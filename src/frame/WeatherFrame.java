@@ -8,7 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-<<<<<<< HEAD
+
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import javax.swing.JPopupMenu;
@@ -19,17 +19,17 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-=======
+
 
 import dto.Location;
->>>>>>> f024e3827967d7aac1c15410b16339ca6006b66b
+
 
 public class WeatherFrame extends JFrame {
 	private JTextField textField;
 	public WeatherFrame() {
 		getContentPane().setLayout(null);
 		
-<<<<<<< HEAD
+
 		JLabel lblNewLabel = new JLabel("지역");
 		lblNewLabel.setBounds(29, 68, 57, 15);
 		getContentPane().add(lblNewLabel);
@@ -50,11 +50,11 @@ public class WeatherFrame extends JFrame {
 		
 		JButton myPageButton = new JButton("마이페이지");
 		myPageButton.setBounds(12, 10, 97, 23);
-=======
+
 		
 		JButton myPageButton = new JButton("마이페이지");
 		myPageButton.setBounds(22, 22, 97, 23);
->>>>>>> f024e3827967d7aac1c15410b16339ca6006b66b
+
 		getContentPane().add(myPageButton);
 		
 		
@@ -87,7 +87,7 @@ public class WeatherFrame extends JFrame {
 		
 
 		JButton recButton = new JButton("옷 추천");
-<<<<<<< HEAD
+
 		recButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new RecommendFrame();
@@ -107,7 +107,7 @@ public class WeatherFrame extends JFrame {
 		textField.setColumns(10);
 		
 		this.setSize(400, 400);	// 사이즈 정하기
-=======
+
 		recButton.setBounds(162, 298, 97, 23);
 		getContentPane().add(recButton);
 		
@@ -123,7 +123,7 @@ public class WeatherFrame extends JFrame {
 		
 		
 		this.setSize(434, 400);	// 사이즈 정하기
->>>>>>> f024e3827967d7aac1c15410b16339ca6006b66b
+
 		this.setVisible(true);
 	}
 	private static void addPopup(Component component, final JPopupMenu popup) {
