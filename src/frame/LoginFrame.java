@@ -13,10 +13,11 @@ import javax.swing.JTextField;
 import dto.Member;
 import service.MemberService;
 import service.MemberServiceImpl;
+import javax.swing.JPasswordField;
 
 public class LoginFrame extends JFrame {
 	private JTextField textField_id;
-	private JTextField textField_pw;
+	private JPasswordField passwordField;
 
 	public LoginFrame() {
 
@@ -29,11 +30,6 @@ public class LoginFrame extends JFrame {
 		getContentPane().add(textField_id);
 		textField_id.setColumns(10);
 
-		textField_pw = new JTextField();
-		textField_pw.setBounds(175, 133, 116, 21);
-		getContentPane().add(textField_pw);
-		textField_pw.setColumns(10);
-
 		JLabel lblNewLabel = new JLabel("아이디");
 		lblNewLabel.setBounds(66, 91, 57, 15);
 		getContentPane().add(lblNewLabel);
@@ -42,6 +38,10 @@ public class LoginFrame extends JFrame {
 		lblNewLabel_1.setBounds(66, 139, 57, 15);
 		getContentPane().add(lblNewLabel_1);
 
+		passwordField = new JPasswordField();
+		passwordField.setBounds(175, 136, 116, 21);
+		getContentPane().add(passwordField);
+		
 		JButton loginButton = new JButton("로그인");
 		loginButton.addActionListener(new ActionListener() {
 			
@@ -79,14 +79,14 @@ public class LoginFrame extends JFrame {
 
 					// 아이디, 비밀번호 정보 가져오기
 					String id = textField_id.getText();
-					String pw = textField_pw.getText();
+					String pw = passwordField.getText();
 					
 					String hash = this.hashPW(pw, id);
 					
 					mem.setId(id);
 					mem.setPassword(hash);
 					
-					mem = s.loginMember(id, pw);
+					mem = s.loginMember(id, hash);
 					
 					if (mem != null) {
 						JOptionPane.showMessageDialog(null, "로그인 되었습니다.");
@@ -116,11 +116,10 @@ public class LoginFrame extends JFrame {
 		});
 		signUpButton.setBounds(219, 220, 97, 23);
 		getContentPane().add(signUpButton);
+		
+
 
 		this.setSize(400, 400); // 사이즈 정하기
 		this.setVisible(true);
 	}
-
-	
-	
 }

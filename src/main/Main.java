@@ -1,16 +1,16 @@
 package main;
 
-import frame.WeatherFrame;
+import frame.MyPageFrame;
 
 public class Main {
 
 	public static void main(String[] args) {
-		//new SignUpFrame();
+//		new SignUpFrame();
+		new MyPageFrame();
+//		new WeatherFrame();
 
-		new WeatherFrame();
-
-		//new LoginFrame();
+//	new LoginFrame();
 		
-		//new RecommendFrame();
+//		new RecommendFrame();
 	}
 }

@@ -5,25 +5,36 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.Map;
+
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 import service.WeatherService;
 import service.WeatherServiceImpl;
-import javax.swing.JTextField;
+import java.awt.Font;
 
 public class WeatherFrame extends JFrame {
 	WeatherService mapper = new WeatherServiceImpl();
 	private JTextField textField;
+
 	public WeatherFrame() {
 		
 		getContentPane().setLayout(null);
 
 		JButton myPageButton = new JButton("마이페이지");
+		myPageButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				new MyPageFrame();
+				dispose();
+			}
+		});
 		myPageButton.setBounds(22, 22, 97, 23);
 
 		getContentPane().add(myPageButton);
@@ -33,8 +44,7 @@ public class WeatherFrame extends JFrame {
 		getContentPane().add(lblNewLabel_loca);
 
 		JComboBox comboBox_loca = new JComboBox();
-		comboBox_loca
-				.setModel(new DefaultComboBoxModel(new String[] { "서울특별시", "부산광역시", "대구광역시", "인천광역시", "광주광역시", "대전광역시",
+		comboBox_loca.setModel(new DefaultComboBoxModel(new String[] { "서울특별시", "부산광역시", "대구광역시", "인천광역시", "광주광역시", "대전광역시",
 						"울산광역시", "세종특별자치시", "경기도", "강원도", "충청북도", "충청남도", "전라북도", "전라남도", "경상북도", "경상남도", "제주특별자치도" }));
 		comboBox_loca.setBounds(62, 64, 87, 23);
 		getContentPane().add(comboBox_loca);
@@ -53,7 +63,9 @@ public class WeatherFrame extends JFrame {
 		getContentPane().add(lblNewLabel_time);
 		
 		textField = new JTextField();
-		textField.setBounds(247, 165, 116, 21);
+		textField.setFont(new Font("굴림", Font.BOLD, 30));
+		textField.setEditable(false);
+		textField.setBounds(250, 164, 73, 68);
 		getContentPane().add(textField);
 		textField.setColumns(10);
 		
@@ -69,39 +81,21 @@ public class WeatherFrame extends JFrame {
 				map.put("w_date", comboBox_date.getSelectedItem().toString());
 				map.put("w_hour", comboBox_time.getSelectedItem().toString());
 				
-				float ret = mapper.weatherSelectWVTemp(map);
-				
-<<<<<<< HEAD
-//				textField.setText(
-//				ret.get("temperature").toString();
-//
-//				System.out.println(ret.get("temperature").toString());
+				textField.setText(Float.toString(mapper.weatherSelectWVTemp(map)));
 				
 				ImageIcon icon = new ImageIcon();
-				Image img = icon.getImage();
-				Image changeImg= img.getScaledInstance(150,150, Image.SCALE_SMOOTH);
-				ImageIcon changeIcon = new ImageIcon(changeImg);
-				JLabel lbl = new JLabel(changeIcon);
-				
-				getContentPane().add(lbl);
+
 				
 	
 
-=======
-				}
 		
->>>>>>> b37a1c9128a09cc2503fc96a485a02e659045860
-			}
 
-		});
-<<<<<<< HEAD
-		comboBox_time.setModel(new DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08",
-				"09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "00" }));
-=======
-		
-		comboBox_time.setModel(new DefaultComboBoxModel(new String[] {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "00"}));
->>>>>>> b37a1c9128a09cc2503fc96a485a02e659045860
-		comboBox_time.setBounds(330, 64, 50, 23);
+		}
+	});
+
+		comboBox_time.setModel(new DefaultComboBoxModel(new String[]
+			{"01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","00"}));
+		comboBox_time.setBounds(330,64,50,23);
 
 		getContentPane().add(comboBox_time);
 
@@ -121,24 +115,27 @@ public class WeatherFrame extends JFrame {
 		recButton.setBounds(162, 298, 97, 23);
 		getContentPane().add(recButton);
 		
-<<<<<<< HEAD
+		JLabel lblNewLabel = new JLabel("ºC");
+		lblNewLabel.setFont(new Font("굴림", Font.BOLD, 30));
+		lblNewLabel.setBounds(330, 182, 50, 48);
+		getContentPane().add(lblNewLabel);
+		
 
-=======
-		JPanel panel_Pic = new JPanel();
-		panel_Pic.setBounds(32, 118, 150, 150);
-		getContentPane().add(panel_Pic);
-		ImageIcon icon = new ImageIcon(
-				WeatherFrame.class.getResource("C:/Users/Administrator/Desktop/weather_icon.png"));
->>>>>>> b37a1c9128a09cc2503fc96a485a02e659045860
+
+
+//		JPanel panel_Pic = new JPanel();
+//		panel_Pic.setBounds(32, 118, 150, 150);
+//		getContentPane().add(panel_Pic);
+//		ImageIcon icon = new ImageIcon(
+//				WeatherFrame.class.getResource("C:/Users/Administrator/Desktop/weather_icon.png"));
+
 
 		
 
-<<<<<<< HEAD
 
 		this.setSize(434, 400); // 사이즈 정하기
-=======
-		this.setSize(434, 400);	// 사이즈 정하기
->>>>>>> b37a1c9128a09cc2503fc96a485a02e659045860
+
+
 
 		this.setVisible(true);
 	}

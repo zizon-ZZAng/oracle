@@ -12,6 +12,7 @@ import service.MemberServiceImpl;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.security.MessageDigest;
 import java.awt.event.ActionEvent;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JPasswordField;
@@ -23,7 +24,7 @@ public class SignUpFrame extends JFrame{
 	private JTextField textField_name;
 	private JPasswordField passwordField;
 	public SignUpFrame() {
-		
+	
 		
 		getContentPane().setLayout(null);
 		
@@ -74,13 +75,46 @@ public class SignUpFrame extends JFrame{
 		JButton comButton = new JButton("완료");
 		//insertMember
 		comButton.addActionListener(new ActionListener() {
+			
+			public String hashPW(String pw, String id) {
+				try {
+					// 1. Hash 알고리즘 SHA-256, 단방향 aa => dlkfjafkajl
+					MessageDigest md = MessageDigest.getInstance("SHA-256");
+					
+					// ex) 1234(암호) + salt(고유한 값, userid)
+					md.update((pw + id).getBytes());
+					
+					// byte to String 으로 변경
+					byte[] pwdSalt = md.digest();
+					
+					StringBuffer sb = new StringBuffer();
+					for (byte b : pwdSalt) {
+						sb.append(String.format("%02x", b));
+					}
+					
+					String result = sb.toString();
+					
+					return result;
+				}
+				catch (Exception e) {
+					e.printStackTrace();
+					return null;
+				}
+			}
+			
+			
 			public void actionPerformed(ActionEvent e) {
+				String id = textField_id.getText();
+				String pw = passwordField.getText();
+				
+				String hash = this.hashPW(pw, id);
+				
 				
 				Member m = new Member();
 				
 				m.setId(textField_id.getText());
 				m.setName(textField_name.getText()); 
-				m.setPassword(passwordField.getText());
+				m.setPassword(hash);
 				m.setAddress(comboBox_Add.getSelectedItem().toString());
 				m.setSex(comboBox_Sex.getSelectedItem().toString());
 				
@@ -99,7 +133,6 @@ public class SignUpFrame extends JFrame{
 		comButton.setBounds(151, 287, 97, 23);
 		getContentPane().add(comButton);
 		
-
 		
 		this.setSize(400, 400);	// 사이즈 정하기
 		this.setVisible(true);
