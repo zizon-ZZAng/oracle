@@ -1,5 +1,7 @@
 package service;
 
+import java.util.List;
+
 import dto.Weather;
 
 public class WeatherServiceImpl implements WeatherService{
@@ -25,9 +27,9 @@ public class WeatherServiceImpl implements WeatherService{
 	}
 
 	@Override
-	public Weather weatherSelect(Weather w) {
+	public List<Weather> weatherSelect() {
 		try {
-			return mapper.weatherSelect(w);
+			return mapper.weatherSelect();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -41,6 +43,26 @@ public class WeatherServiceImpl implements WeatherService{
 		} catch (Exception e) {
 			e.printStackTrace();
 			return 0;
+		}
+	}
+
+	@Override
+	public List<Weather> weatherSelectHOUR(Weather w) {
+		try {
+			return mapper.weatherSelectHOUR(w);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	@Override
+	public List<Weather> weatherSelectDATE(Weather w) {
+		try {
+			return mapper.weatherSelectDATE(w);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
 		}
 	}
 
