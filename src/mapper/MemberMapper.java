@@ -27,6 +27,11 @@ public interface MemberMapper {
 	// 회원 1명 조회(회원가입시 아이디 중복 확인용)
 	@Select({ " SELECT * FROM member2 WHERE id = #{id} " })
 	public Member selectMemberOne(String id);
+	
+	// 아이디 중복 쳌 다른 버전
+	@Select({ " SELECT COUNT(*) cnt FROM member2 WHERE id = #{id} " })
+	public Member selectMemberIdChk(String id);
+	
 
 	// 회원정보변경
 	@Update({

@@ -106,7 +106,7 @@ public class LoginFrame extends JFrame {
 
 				else { // 실패했을 경우
 
-					JOptionPane.showMessageDialog(null, "아이디 또는 비밀번호가 틀렸습니다. ^3<");
+					JOptionPane.showMessageDialog(null, "아이디 또는 비밀번호가 틀렸습니다.");
 
 				}
 

@@ -78,4 +78,20 @@ public class MemberServiceImpl implements MemberService {
 			return null;
 		}
 	}
+
+	//아이디 중복확인 (2)
+	@Override
+	public Member selectMemberIdChk(String id) {
+		
+		try {
+			
+			return mapper.selectMemberIdChk(id);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+		
+	}
 }

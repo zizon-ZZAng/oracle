@@ -11,22 +11,21 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import common.Config;
 import dto.Member;
 import service.MemberService;
 import service.MemberServiceImpl;
-import javax.swing.JPasswordField;
 
-
-public class SignUpFrame extends JFrame{
+public class SignUpFrame extends JFrame {
 
 	MemberService mService = new MemberServiceImpl();
 
 	private JTextField textField;
 	private JTextField textField_1;
 	private JPasswordField passwordField;
-
 
 	public SignUpFrame() {
 		setTitle("회원가입");
@@ -52,18 +51,20 @@ public class SignUpFrame extends JFrame{
 		lblNewLabel_5.setBounds(98, 30, 57, 15);
 		getContentPane().add(lblNewLabel_5);
 
+		// 이름
 		textField = new JTextField();
 		textField.setBounds(161, 27, 116, 21);
 		getContentPane().add(textField);
 		textField.setColumns(10);
 
+		// 아이디
 		textField_1 = new JTextField();
 		textField_1.setBounds(161, 65, 116, 21);
 		getContentPane().add(textField_1);
 		textField_1.setColumns(10);
-		
+
 		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"부산", "서울", "대구", "광주", "대전", "울산"}));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] { "부산", "서울", "대구", "광주", "대전", "울산" }));
 		comboBox.setBounds(161, 139, 116, 23);
 		getContentPane().add(comboBox);
 
@@ -98,15 +99,14 @@ public class SignUpFrame extends JFrame{
 				}
 
 			}
-			
-			
-			//입력하면 데이터저장
+
+			// 입력하면 데이터저장
 			public void actionPerformed(ActionEvent e) {
 				String id = textField_1.getText();
 				String pw = passwordField.getText();
-				
+
 				String hash = this.hashPW(pw, id);
-				
+
 				Member member = new Member();
 				member.setName(textField.getText());
 				member.setId(id);
@@ -115,36 +115,73 @@ public class SignUpFrame extends JFrame{
 				member.setGender(comboBox_1.getSelectedItem().toString());
 
 				mService.signUpMember(member);
-				
-				JOptionPane.showMessageDialog(null, "회원가입 성공");
 
-				// 회원가입 성공 -> 로그인창으로
-				new LoginFrame();
+				if (id.length() == 0 && pw.length() == 0) {
+					JOptionPane.showMessageDialog(null, "아이디와 비밀번호를 입력해주세요");
+				} else {
 
-				dispose();
+					// 회원가입 성공 -> 로그인창으로
+					JOptionPane.showMessageDialog(null, "회원가입 성공");
+
+					new LoginFrame();
+
+					dispose();
+				}
+
 			}
 		});
 		btnNewButton.setBounds(140, 217, 97, 23);
 		getContentPane().add(btnNewButton);
-		
+
+		// Back 버튼
 		JButton btnNewButton_1 = new JButton("Back");
 		btnNewButton_1.setBackground(new Color(240, 240, 240)); // 프레임 색을 버튼에 적용(투명해진 척~)
 		btnNewButton_1.setFocusPainted(false); // 선택되었을 때 생기는 테두리 사용안함
+
+		// Back 버튼 눌렀을 때 이전 페이지로 돌아감
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				new HomeFrame();
 				dispose();
 			}
 		});
 		btnNewButton_1.setBounds(0, 0, 81, 23);
 		getContentPane().add(btnNewButton_1);
-		
+
 		passwordField = new JPasswordField();
 		passwordField.setBounds(161, 104, 116, 21);
 		getContentPane().add(passwordField);
 
-		this.setSize(400, 300);
+		// 아이디 중복 확인 버튼 눌렀을 때
+		JButton btnNewButton_2 = new JButton("확인");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				String id = textField_1.getText();
+
+				Config.obj = mService.selectMemberIdChk(id);
+
+				if (Config.obj.getCnt() > 0) {
+
+					JOptionPane.showMessageDialog(null, "존재하는 아이디입니다");
+
+				} else if (id.length() == 0) {
+
+					JOptionPane.showMessageDialog(null, "아이디를 입력해주세요");
+					
+				} else {
+
+					JOptionPane.showMessageDialog(null, "사용가능한 아이디입니다.");
+
+				}
+
+			}
+		});
+		btnNewButton_2.setBounds(292, 64, 64, 23);
+		getContentPane().add(btnNewButton_2);
+
+		this.setSize(401, 306);
 		this.setLocationRelativeTo(null); // 화면 중앙에 오게 해줌
 
 		this.setVisible(true);

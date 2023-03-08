@@ -50,6 +50,7 @@ public class MainFrame2 extends JFrame {
 
 		mnNewMenu.add(mntmNewMenuItem);
 
+		//로그아웃
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("로그아웃");
 		mntmNewMenuItem_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -91,7 +92,7 @@ public class MainFrame2 extends JFrame {
 		textField.setBounds(91, 36, 116, 21);
 		getContentPane().add(textField);
 
-		textField_1 = new JTextField("yyyy-mm-dd");
+		textField_1 = new JTextField("");
 		textField_1.setColumns(10);
 		textField_1.setBounds(91, 82, 116, 21);
 		getContentPane().add(textField_1);
@@ -126,7 +127,18 @@ public class MainFrame2 extends JFrame {
 		btnNewButton.setFocusPainted(false);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new RecommendFrame();
+				
+				String date = textField_1.getText();
+				
+				if(date.length() == 0) {
+					JOptionPane.showMessageDialog(null, "날짜를 기입해주세요");
+				} else {
+					
+					new RecommendFrame();
+					
+				}
+				
+				
 			}
 		});
 		btnNewButton.setBounds(263, 81, 97, 68);

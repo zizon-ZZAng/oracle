@@ -153,5 +153,12 @@ class MemberTest {
       System.out.println(ret);
    }
    
+   //회원 1명 조회
+   @Test
+   void selectMemberOne() {
+	 
+	  System.out.println(mapper.selectMemberOne("b")); 
+   }
+   
 
 }
