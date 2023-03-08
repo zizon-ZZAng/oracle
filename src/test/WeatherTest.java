@@ -47,6 +47,18 @@ class WeatherTest {
 		System.out.println(ret);
 	}
 	
+	//날짜 and 지역 조회
+	@Test
+	void insertWeatherOne() {
+		
+		Weather w = new Weather();
+		
+		w.setWdate("2023-03-07 06:00:00");
+		w.setLocname("부산");
+		
+		System.out.println(wMapper.selectWeatherOne(w));
+	}
+	
 	
 
 }
