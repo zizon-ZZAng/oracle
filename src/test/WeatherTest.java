@@ -60,5 +60,12 @@ class WeatherTest {
 	}
 	
 	
-
+	// 해당 날씨, 시간, 지역에 맞는 온도 조회
+	@Test
+	void selectWeatherTemp() {
+		Weather w = new Weather();
+		w.setWdate("2023-03-07 07%");
+		w.setLocname("부산");
+		System.out.println(wMapper.selectWeatherTemp(w));
+	}
 }

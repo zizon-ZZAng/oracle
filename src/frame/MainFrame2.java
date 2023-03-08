@@ -1,6 +1,5 @@
 package frame;
 
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -16,11 +15,17 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import common.Config;
+import dto.Weather;
+import service.WeatherService;
+import service.WeatherServiceImpl;
 
 public class MainFrame2 extends JFrame {
+	WeatherService wService = new WeatherServiceImpl();
+	
 	private JTextField textField;
 	private JTextField textField_1;
-
+	private JTextField textField_2;
+	
 	public MainFrame2() {
 		setTitle("지존짱");
 		getContentPane().setLayout(null);
@@ -65,41 +70,59 @@ public class MainFrame2 extends JFrame {
 		getContentPane().setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("지역");
-		lblNewLabel.setBounds(31, 62, 57, 15);
+		lblNewLabel.setBounds(33, 39, 57, 15);
 		getContentPane().add(lblNewLabel);
 
 		JLabel lblNewLabel_1 = new JLabel("날짜");
-		lblNewLabel_1.setBounds(31, 108, 57, 15);
+		lblNewLabel_1.setBounds(33, 85, 57, 15);
 		getContentPane().add(lblNewLabel_1);
 
 		JLabel lblNewLabel_2 = new JLabel("시간");
-		lblNewLabel_2.setBounds(31, 152, 57, 15);
+		lblNewLabel_2.setBounds(33, 129, 57, 15);
 		getContentPane().add(lblNewLabel_2);
 
+		JLabel lblNewLabel_3 = new JLabel("온도");
+		lblNewLabel_3.setBounds(33, 173, 57, 15);
+		getContentPane().add(lblNewLabel_3);
+		
 		textField = new JTextField(Config.obj.getAddress());
 		textField.setEnabled(false);
 		textField.setColumns(10);
-		textField.setBounds(89, 59, 116, 21);
+		textField.setBounds(91, 36, 116, 21);
 		getContentPane().add(textField);
 
 		textField_1 = new JTextField("yyyy-mm-dd");
 		textField_1.setColumns(10);
-		
-		
-		
-		textField_1.setBounds(89, 105, 116, 21);
+		textField_1.setBounds(91, 82, 116, 21);
 		getContentPane().add(textField_1);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(91, 170, 116, 21);
+		getContentPane().add(textField_2);
+		textField_2.setColumns(10);
 
 		JComboBox comboBox = new JComboBox();
+		comboBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Weather weather = new Weather();
+				weather.setLocname(Config.obj.getAddress());
+				weather.setWdate(textField_1.getText() + " " + comboBox.getSelectedItem().toString());
+				
+				Config.weather = wService.selectWeatherTemp(weather);
+				
+				textField_2.setText(Integer.toString(Config.weather.getTemperature()));
+			}
+		});
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"00시", "01시", "02시", "03시", "04시", "05시", "06시", "07시", "08시", "09시", "10시", "11시", "12시", "13시", "14시", "15시", "16시", "17시", "18시", "19시", "20시", "21시", "22시", "23시"}));
 		comboBox.setToolTipText("");
-		comboBox.setBounds(89, 148, 116, 23);
+		comboBox.setBounds(91, 125, 116, 23);
 		getContentPane().add(comboBox);
 
 		JButton btnNewButton = new JButton("추천 시작");
 		btnNewButton.setFocusPainted(false);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				new RecommendFrame();
 			}
 		});
 		btnNewButton.setBounds(263, 81, 97, 68);

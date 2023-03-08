@@ -18,8 +18,6 @@ import service.MemberServiceImpl;
 import java.awt.Color;
 
 public class LoginFrame extends JFrame {
-	
-	//ㅁ
 
 	MemberService mService = new MemberServiceImpl();
 

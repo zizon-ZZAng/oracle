@@ -12,7 +12,7 @@ public class WeatherServiceImpl implements WeatherService {
 			return mapper.insertWeather(weather);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return 0;
+			return -1;
 		}
 
 	}
@@ -35,7 +35,18 @@ public class WeatherServiceImpl implements WeatherService {
 			return mapper.updateWeather();
 		} catch (Exception e) {
 			e.printStackTrace();
-			return 0;
+			return -1;
+		}
+	}
+
+	@Override
+	public Weather selectWeatherTemp(Weather weather) {
+		try {
+			return mapper.selectWeatherTemp(weather);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			return null;
 		}
 	}
 

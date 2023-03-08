@@ -34,5 +34,8 @@ public interface WeatherMapper {
 		" UPDATE weather2 SET temperature = #{temperature} WHERE code = #{code} "
 	})
 	public int updateWeather();
-
+	
+	// 해당 날씨, 시간, 지역에 맞는 온도 조회
+	@Select({" SELECT temperature FROM weather2 WHERE wdate like #{wdate} || '%' AND locname=#{locname} "})
+	public Weather selectWeatherTemp(Weather weather);
 }
