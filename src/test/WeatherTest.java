@@ -131,9 +131,9 @@ class WeatherTest {
 		map.put("name", "서울특별시");
 		map.put("w_date", "2023-03-06");
 		map.put("w_hour", "02");
-		Map<String, Object> map1 = mapper.weatherSelectWVTemp(map);
+		float map1 = mapper.weatherSelectWVTemp(map);
 		
-			System.out.println(map1.toString());
+			System.out.println(map1);
 			
 	}
 }

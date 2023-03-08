@@ -104,7 +104,7 @@ public class MyPageFrame extends JFrame {
 				
 			}
 		});
-		btnNewButton_1.setBounds(215, 253, 91, 23);
+		btnNewButton_1.setBounds(215, 253, 109, 23);
 		getContentPane().add(btnNewButton_1);
 		this.setVisible(true);
 	}
