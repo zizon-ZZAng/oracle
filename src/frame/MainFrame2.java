@@ -102,9 +102,16 @@ public class MainFrame2 extends JFrame {
 		getContentPane().add(textField_2);
 		textField_2.setColumns(10);
 
+		
+		
+		
 		JComboBox comboBox = new JComboBox();
+		
+		//시간 설정하면 그 날 그 시간대의 기온이 뜸
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				
 				Weather weather = new Weather();
 				weather.setLocname(Config.obj.getAddress());
 				weather.setWdate(textField_1.getText() + " " + comboBox.getSelectedItem().toString().substring(0, 2));
