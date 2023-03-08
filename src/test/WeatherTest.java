@@ -37,16 +37,21 @@ class WeatherTest {
 
 	@Test
 	void weatherSelectHOUR() {
-		List<Weather> list = mapper.weatherSelectHOUR(30);
-				for(Weather w : list) {
-			System.out.println(w);}
+		Weather w = new Weather();
+		w.setNo(30);
+			List<Weather> list =mapper.weatherSelectHOUR(w);
+			for(Weather obj : list) {
+			System.out.println(obj);}
 		}
 	
 	@Test
 	void weatherSelectDATE() {
-		List<Weather> list = mapper.weatherSelectDATE(30);
-		for(Weather w : list) {
-			System.out.println(w);}
+	
+		Weather w = new Weather();
+		w.setNo(30);
+			List<Weather> list = mapper.weatherSelectDATE(w);
+			for(Weather obj : list) {
+			System.out.println(obj);}
 	}
 	
 	@Test
