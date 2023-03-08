@@ -6,7 +6,6 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -32,12 +31,31 @@ public interface WeatherMapper {
 	@Update({ " UPDATE WEATHER1 SET temperature = #{temperature} WHERE code = #{code} " })
 	public int weatherUpdateTemp(Weather w);
 
-	@Select({ " SELECT * FROM WEATHER1 WHERE code = #{code} " })
-	public Weather weatherSelect(Weather w);
+	@Select({ " SELECT * FROM WEATHER1  " })
+	public List<Weather> weatherSelect();
 
-	@Select({ " SELECT * FROM WEATHER1 where regdate LIKE  '%'||#{regdate}||'%' AND no = #{no} " })
-	public List<Weather> weatherSelectDate(Weather w);
+	
+	
+	// 시간가져오기
+	// no는 넣거나 빼거나 필요에 따라
+	@Select({ " SELECT no, TO_CHAR(regdate, 'HH24') regdate2 FROM WEATHER1 WHERE no = #{no} " })
+	public List<Weather> weatherSelectHOUR(Weather w);
 
+	// 날짜가져오기
+	// no는 넣거나 빼거나 필요에 따라
+	@Select({ 
+		" SELECT no, TO_CHAR(regdate, 'YYYY-MM-DD') regdate2 ",
+		" FROM WEATHER1 ",
+		" WHERE no = #{no} " 
+		})
+	public List<Weather> weatherSelectDATE(Weather w);
+	
+	// 뷰가져오기?
+	@Select({ " SELECT wv.* FROM WEATHER1_LOCATION1_VIEW wv " })
+	public List<Map<String, Object>> weatherSelectWV();
+	
+	
+	
 	
 	@Delete({ " DELETE FROM WEATHER1 WHERE code = #{code} " })
 	public int weatherDelete(Weather w);
