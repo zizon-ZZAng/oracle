@@ -67,13 +67,11 @@ public class WeatherFrame extends JFrame {
 				list.add(map);
 				WeatherServiceImpl.mapper.weatherSelectWVTemp(map);
 				
-				
-				
 				}
-				
-			
+		
 			}
 		});
+		
 		comboBox_time.setModel(new DefaultComboBoxModel(new String[] {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "00"}));
 		comboBox_time.setBounds(330, 64, 50, 23);
 		getContentPane().add(comboBox_time);
@@ -95,8 +93,6 @@ public class WeatherFrame extends JFrame {
 		recButton.setBounds(162, 298, 97, 23);
 		getContentPane().add(recButton);
 		
-		
-		
 		JPanel panel_Pic = new JPanel();
 		panel_Pic.setBounds(32, 118, 150, 150);
 		getContentPane().add(panel_Pic);
@@ -109,7 +105,6 @@ public class WeatherFrame extends JFrame {
 		getContentPane().add(panel_Temp);
 		
 
-		
 		this.setSize(434, 400);	// 사이즈 정하기
 
 		this.setVisible(true);
