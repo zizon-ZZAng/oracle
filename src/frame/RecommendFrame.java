@@ -4,7 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import common.Config;
@@ -13,22 +15,18 @@ import service.RecommendServiceImpl;
 
 public class RecommendFrame extends JFrame {
 	RecommendService rservice = new RecommendServiceImpl();
-	
+
 	private JTextField textField;
 	private JTextField textField_1;
 
 	public RecommendFrame() {
 		setTitle("옷 추천");
 		
-		
-		Map<String, Object> map = new HashMap<>();
-		map.put("wdate", textField_1.getText());
-		map.put("id", Config.obj.getId());
+		ImageIcon image = new ImageIcon("image/1006.png");
+		JLabel lblNewLabel = new JLabel(image);
 
-		List<Map<String, Object>> list = rservice.clothesRecommend(map);
-		for (Map<String, Object> ret : list) {
-
-		}
+		lblNewLabel.setBounds(177, 75, 261, 190);
+		getContentPane().add(lblNewLabel);
 
 		this.setSize(520, 349);
 		this.setLocationRelativeTo(null);
@@ -36,5 +34,6 @@ public class RecommendFrame extends JFrame {
 		this.setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
+
 	}
 }

@@ -11,5 +11,5 @@ public interface RecommendService {
 		= MyBatisContext.getSqlSession().getMapper(RecommendMapper.class);
 	
 	// 옷추천
-	public List<Map<String, Object>> clothesRecommend(Map<String, Object> map);
+	public Map<String, Object> clothesRecommendTop(Map<String, Object> map);
 }
