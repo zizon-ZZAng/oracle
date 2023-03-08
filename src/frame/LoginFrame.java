@@ -25,21 +25,21 @@ public class LoginFrame extends JFrame {
 		getContentPane().setLayout(null);
 
 		textField_id = new JTextField();
-		textField_id.setBounds(165, 52, 116, 21);
+		textField_id.setBounds(175, 85, 116, 21);
 		getContentPane().add(textField_id);
 		textField_id.setColumns(10);
 
 		textField_pw = new JTextField();
-		textField_pw.setBounds(165, 100, 116, 21);
+		textField_pw.setBounds(175, 133, 116, 21);
 		getContentPane().add(textField_pw);
 		textField_pw.setColumns(10);
 
 		JLabel lblNewLabel = new JLabel("아이디");
-		lblNewLabel.setBounds(60, 55, 57, 15);
+		lblNewLabel.setBounds(66, 91, 57, 15);
 		getContentPane().add(lblNewLabel);
 
 		JLabel lblNewLabel_1 = new JLabel("비밀번호");
-		lblNewLabel_1.setBounds(60, 103, 57, 15);
+		lblNewLabel_1.setBounds(66, 139, 57, 15);
 		getContentPane().add(lblNewLabel_1);
 
 		JButton loginButton = new JButton("로그인");
@@ -90,7 +90,7 @@ public class LoginFrame extends JFrame {
 					
 					if (mem != null) {
 						JOptionPane.showMessageDialog(null, "로그인 되었습니다.");
-						new RecommendFrame(); // 화면 종료
+						new WeatherFrame(); // 화면 종료
 						dispose();
 						
 					} else if (id.length()==0 || pw.length()==0){
@@ -104,11 +104,17 @@ public class LoginFrame extends JFrame {
 				
 			}
 		});
-		loginButton.setBounds(55, 184, 97, 23);
+		loginButton.setBounds(61, 220, 97, 23);
 		getContentPane().add(loginButton);
 
 		JButton signUpButton = new JButton("회원가입");
-		signUpButton.setBounds(213, 184, 97, 23);
+		signUpButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new SignUpFrame();
+				dispose();
+			}
+		});
+		signUpButton.setBounds(219, 220, 97, 23);
 		getContentPane().add(signUpButton);
 
 		this.setSize(400, 400); // 사이즈 정하기
