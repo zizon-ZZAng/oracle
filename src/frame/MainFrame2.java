@@ -77,6 +77,7 @@ public class MainFrame2 extends JFrame {
 		JLabel lblNewLabel_1 = new JLabel("날짜");
 		lblNewLabel_1.setBounds(33, 85, 57, 15);
 		getContentPane().add(lblNewLabel_1);
+		
 
 		JLabel lblNewLabel_2 = new JLabel("시간");
 		lblNewLabel_2.setBounds(33, 129, 57, 15);
@@ -86,17 +87,25 @@ public class MainFrame2 extends JFrame {
 		lblNewLabel_3.setBounds(33, 173, 57, 15);
 		getContentPane().add(lblNewLabel_3);
 		
+		
+		//지역
 		textField = new JTextField(Config.obj.getAddress());
 		textField.setEnabled(false);
 		textField.setColumns(10);
 		textField.setBounds(91, 36, 116, 21);
 		getContentPane().add(textField);
 
-		textField_1 = new JTextField("");
+		
+		//날짜
+		textField_1 = new JTextField();
 		textField_1.setColumns(10);
 		textField_1.setBounds(91, 82, 116, 21);
 		getContentPane().add(textField_1);
 		
+		
+		
+		
+		//기온
 		textField_2 = new JTextField();
 		textField_2.setEditable(false);
 		textField_2.setBounds(91, 170, 116, 21);

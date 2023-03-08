@@ -154,10 +154,17 @@ class MemberTest {
    }
    
    //회원 1명 조회
+//   @Test
+//   void selectMemberOne() {
+//	 
+//	  System.out.println(mapper.selectMemberOne("b")); 
+//   }
+   
+   
+   // 아이디 있는지 체크
    @Test
-   void selectMemberOne() {
-	 
-	  System.out.println(mapper.selectMemberOne("b")); 
+   void selectMemberIdChk() {
+	   System.out.println(mapper.selectMemberIdChk("c"));
    }
    
 
