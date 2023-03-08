@@ -61,10 +61,6 @@ public class MyPageFrame extends JFrame {
 				// 비밀번호 변경 Frame 이동
 				new PwUpdateFrame();
 				dispose();
-				
-				
-				
-				
 			}
 		});
 		btnNewButton_2.setBounds(283, 142, 67, 23);

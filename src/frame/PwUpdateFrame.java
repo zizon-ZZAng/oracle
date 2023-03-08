@@ -108,6 +108,8 @@ public class PwUpdateFrame extends JFrame {
 				else {
 					mService.updatePWMember(member);
 					JOptionPane.showMessageDialog(null, "성공", "비밀번호 변경", JOptionPane.PLAIN_MESSAGE);
+					new MyPageFrame();
+					dispose();
 				}
 
 			}
