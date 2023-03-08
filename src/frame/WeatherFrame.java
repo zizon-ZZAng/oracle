@@ -71,6 +71,7 @@ public class WeatherFrame extends JFrame {
 				
 				float ret = mapper.weatherSelectWVTemp(map);
 				
+<<<<<<< HEAD
 //				textField.setText(
 //				ret.get("temperature").toString();
 //
@@ -86,11 +87,20 @@ public class WeatherFrame extends JFrame {
 				
 	
 
+=======
+				}
+		
+>>>>>>> b37a1c9128a09cc2503fc96a485a02e659045860
 			}
 
 		});
+<<<<<<< HEAD
 		comboBox_time.setModel(new DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08",
 				"09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "00" }));
+=======
+		
+		comboBox_time.setModel(new DefaultComboBoxModel(new String[] {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "00"}));
+>>>>>>> b37a1c9128a09cc2503fc96a485a02e659045860
 		comboBox_time.setBounds(330, 64, 50, 23);
 
 		getContentPane().add(comboBox_time);
@@ -111,12 +121,24 @@ public class WeatherFrame extends JFrame {
 		recButton.setBounds(162, 298, 97, 23);
 		getContentPane().add(recButton);
 		
+<<<<<<< HEAD
 
+=======
+		JPanel panel_Pic = new JPanel();
+		panel_Pic.setBounds(32, 118, 150, 150);
+		getContentPane().add(panel_Pic);
+		ImageIcon icon = new ImageIcon(
+				WeatherFrame.class.getResource("C:/Users/Administrator/Desktop/weather_icon.png"));
+>>>>>>> b37a1c9128a09cc2503fc96a485a02e659045860
 
 		
 
+<<<<<<< HEAD
 
 		this.setSize(434, 400); // 사이즈 정하기
+=======
+		this.setSize(434, 400);	// 사이즈 정하기
+>>>>>>> b37a1c9128a09cc2503fc96a485a02e659045860
 
 		this.setVisible(true);
 	}
