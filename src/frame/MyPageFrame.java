@@ -59,7 +59,8 @@ public class MyPageFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// 비밀번호 변경 버튼
 				// 비밀번호 변경 Frame 이동
-				
+				new PwUpdateFrame();
+				dispose();
 				
 				
 				

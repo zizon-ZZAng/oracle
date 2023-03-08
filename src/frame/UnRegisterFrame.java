@@ -15,13 +15,14 @@ import common.Config;
 import dto.Member;
 import service.MemberService;
 import service.MemberServiceImpl;
+import javax.swing.JPasswordField;
 
 public class UnRegisterFrame extends JFrame {
 
 	MemberService mService = new MemberServiceImpl();
 
 	private JTextField textField;
-	private JTextField textField_1;
+	private JPasswordField passwordField;
 
 	public UnRegisterFrame() {
 		setTitle("회원탈퇴");
@@ -40,11 +41,10 @@ public class UnRegisterFrame extends JFrame {
 		textField.setBounds(186, 65, 116, 21);
 		getContentPane().add(textField);
 		textField.setColumns(10);
-
-		textField_1 = new JTextField();
-		textField_1.setBounds(186, 117, 116, 21);
-		getContentPane().add(textField_1);
-		textField_1.setColumns(10);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(186, 117, 116, 21);
+		getContentPane().add(passwordField);
 
 		JButton btnNewButton = new JButton("회원탈퇴");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -78,7 +78,7 @@ public class UnRegisterFrame extends JFrame {
 				
 
 				String id = Config.obj.getId();
-				String pw = textField_1.getText();
+				String pw = passwordField.getText();
 
 				String hash = this.hashPW(pw, id);
 
@@ -95,7 +95,7 @@ public class UnRegisterFrame extends JFrame {
 					new HomeFrame();
 					dispose();
 				}
-				else if (textField_1.getText().length() == 0) {
+				else if (passwordField.getText().length() == 0) {
 					JOptionPane.showMessageDialog(null, "비밀번호를 입력해주세요.", "비밀번호 오류", JOptionPane.WARNING_MESSAGE);
 				}
 				// 탈퇴 실패 (비밀번호 틀림)
