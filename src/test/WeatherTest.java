@@ -1,5 +1,6 @@
 package test;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -118,5 +119,21 @@ class WeatherTest {
 			}
 			System.out.println(mapper.weatherUpdateTemp(w));
 		}
+	}
+	
+	@Test
+	void weatherSelectWVTemp() {
+//		Weather w = new Weather();
+//		w.setName("서울특별시");
+//		w.setW_date("2023-03-06");
+//		w.setW_hour("02");
+		Map<String, Object> map = new HashMap<>();
+		map.put("name", "서울특별시");
+		map.put("w_date", "2023-03-06");
+		map.put("w_hour", "02");
+		Map<String, Object> map1 = mapper.weatherSelectWVTemp(map);
+		
+			System.out.println(map1.toString());
+			
 	}
 }

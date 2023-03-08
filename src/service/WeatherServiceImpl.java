@@ -1,6 +1,9 @@
 package service;
 
 import java.util.List;
+import java.util.Map;
+
+import org.apache.ibatis.annotations.Param;
 
 import dto.Weather;
 
@@ -66,4 +69,16 @@ public class WeatherServiceImpl implements WeatherService{
 		}
 	}
 
+	@Override
+	public Map<String, Object> weatherSelectWVTemp(Map<String, Object> map) 
+	{
+		try {
+			return mapper.weatherSelectWVTemp(map);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	
 }

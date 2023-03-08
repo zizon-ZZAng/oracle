@@ -2,33 +2,25 @@ package frame;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
-import javax.swing.JComboBox;
-import javax.swing.JButton;
-import javax.swing.JPopupMenu;
-import java.awt.Component;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JTextField;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-
-
-import dto.Location;
+import dto.Weather;
 import service.WeatherServiceImpl;
 
 
 public class WeatherFrame extends JFrame {
 	public WeatherFrame() {
 		getContentPane().setLayout(null);
-		
 
 		
 		JButton myPageButton = new JButton("마이페이지");
@@ -47,35 +39,40 @@ public class WeatherFrame extends JFrame {
 		getContentPane().add(comboBox_loca);
 		
 		JLabel lblNewLabel_date = new JLabel("날짜");
-		lblNewLabel_date.setBounds(180, 68, 30, 15);
+		lblNewLabel_date.setBounds(160, 68, 30, 15);
 		getContentPane().add(lblNewLabel_date);
 
 		JComboBox comboBox_date = new JComboBox();
-		comboBox_date.setModel(new DefaultComboBoxModel(new String[] {"2023-03-06", "2023-03-06", "2023-03-06", "2023-03-06", "2023-03-06", "2023-03-06", "2023-03-06", "2023-03-06", "2023-03-06", "2023-03-06", "2023-03-06", "2023-03-06", "2023-03-06", "2023-03-06", "2023-03-06", "2023-03-06", "2023-03-06", "2023-03-06", "2023-03-06", "2023-03-06", "2023-03-06", "2023-03-06", "2023-03-06", "2023-03-07"}));
-		comboBox_date.setBounds(210, 64, 87, 23);
+		comboBox_date.setModel(new DefaultComboBoxModel(new String[] {"2023-03-06", "2023-03-07", "2023-03-08"}));
+		comboBox_date.setBounds(190, 64, 100, 23);
 		getContentPane().add(comboBox_date);
 		
 		JLabel lblNewLabel_time = new JLabel("시간");
 		lblNewLabel_time.setBounds(300, 68, 30, 15);
 		getContentPane().add(lblNewLabel_time);
 		
+
+		
 		JComboBox comboBox_time = new JComboBox();
 		comboBox_time.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-//				 if (e.getSource() == comboBox_time) {
-//		                System.out.println("CENTER 클릭됨");
-//		            } else if (e.getSource() ==  ) {
-//		                System.out.println("NORTH 클릭됨");
-//		            } else if (e.getSource() == btnSouth) {
-//		                System.out.println("South 클릭됨");
-//		            } else if (e.getSource() == btnEast) {
-//		                System.out.println("East 클릭됨");
-//		            } else if (e.getSource() == btnWest) {
-//		                System.out.println("West 클릭됨");
-//		            }
-		        }
+				List<Map<String, Object>> list = new ArrayList<>();
+				for(Map<String, Object> map : list ) {
+				Weather w = new Weather();
+				 
+				w.setName(comboBox_loca.getSelectedItem().toString());
+				w.setW_date(comboBox_date.getSelectedItem().toString());
+				w.setW_hour(comboBox_time.getSelectedItem().toString());
+				list.add(map);
+				WeatherServiceImpl.mapper.weatherSelectWVTemp(map);
+				
+				
+				
+				}
+				
 			
+			}
 		});
 		comboBox_time.setModel(new DefaultComboBoxModel(new String[] {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "00"}));
 		comboBox_time.setBounds(330, 64, 50, 23);
@@ -97,38 +94,25 @@ public class WeatherFrame extends JFrame {
 
 		recButton.setBounds(162, 298, 97, 23);
 		getContentPane().add(recButton);
-	
-		//
-		
-		recButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-			
-			//네 ?
-		});
 		
 		
 		
+		JPanel panel_Pic = new JPanel();
+		panel_Pic.setBounds(32, 118, 150, 150);
+		getContentPane().add(panel_Pic);
+		ImageIcon icon = new ImageIcon(
+				WeatherFrame.class.getResource("C:/Users/Administrator/Desktop/weather_icon.png"));
+
+		
+		JPanel panel_Temp = new JPanel();
+		panel_Temp.setBounds(230, 118, 150, 150);
+		getContentPane().add(panel_Temp);
+		
+
 		
 		this.setSize(434, 400);	// 사이즈 정하기
 
 		this.setVisible(true);
 	}
-	private static void addPopup(Component component, final JPopupMenu popup) {
-		component.addMouseListener(new MouseAdapter() {
-			public void mousePressed(MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					showMenu(e);
-				}
-			}
-			public void mouseReleased(MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					showMenu(e);
-				}
-			}
-			private void showMenu(MouseEvent e) {
-				popup.show(e.getComponent(), e.getX(), e.getY());
-			}
-		});
-	}
+
 }

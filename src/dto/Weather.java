@@ -26,5 +26,12 @@ public class Weather {
 
 	private String regdate2;
 	// 임시변수
+	
+	private String w_date;
+	// 임시변수
+	private String w_hour;
+	// 임시변수
+	private String name;
+	// 임시변수
 }
 

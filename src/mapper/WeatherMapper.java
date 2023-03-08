@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -53,6 +54,13 @@ public interface WeatherMapper {
 	// 뷰가져오기?
 	@Select({ " SELECT wv.* FROM WEATHER1_LOCATION1_VIEW wv " })
 	public List<Map<String, Object>> weatherSelectWV();
+	
+	// 뷰로(지역이름,날짜,시간으로) 기온 가져오기
+	@Select({ 
+			" SELECT temperature ",
+			" from WEATHER1_LOCATION1_VIEW ",
+			" WHERE name = #{name} and w_date = #{w_date} and w_hour = #{w_hour} " })
+	public Map<String, Object> weatherSelectWVTemp(Map<String, Object> map);
 	
 	
 	
