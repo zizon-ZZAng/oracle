@@ -56,8 +56,7 @@ class WeatherTest {
 		w.setWdate("2023-03-07 06:00:00");
 		w.setLocname("부산");
 		
-		int ret = wMapper.selectWeatherOne(w);
-		System.out.println(ret);
+		System.out.println(wMapper.selectWeatherOne(w));
 	}
 	
 	

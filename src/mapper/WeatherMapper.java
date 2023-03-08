@@ -23,9 +23,10 @@ public interface WeatherMapper {
 	})
 	public List<Weather> selectWeather();
 	
+	
 	// 지역 and 날짜 하나 조회
 	@Select({" SELECT * FROM weather2 WHERE wdate=#{wdate} AND locname=#{locname} "})
-	public int selectWeatherOne(Weather weather);
+	public Weather selectWeatherOne(Weather weather);
 	
 	
 	// 날씨 온도 수정
