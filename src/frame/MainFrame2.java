@@ -36,7 +36,6 @@ public class MainFrame2 extends JFrame {
 		mntmNewMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				mnNewMenu.add(mntmNewMenuItem);
-//            menuBar.add(btnNewButton);
 
 				dispose();
 				new MyPageFrame();
