@@ -82,8 +82,9 @@ public class MainFrame2 extends JFrame {
 		textField.setBounds(89, 59, 116, 21);
 		getContentPane().add(textField);
 
-		textField_1 = new HintTextField("yyyy-mm-dd");
+		textField_1 = new JTextField("yyyy-mm-dd");
 		textField_1.setColumns(10);
+		
 		
 		
 		textField_1.setBounds(89, 105, 116, 21);
