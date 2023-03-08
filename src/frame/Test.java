@@ -21,11 +21,11 @@ public class Test extends JFrame {
 
 	public Test() {
 
-		JLabel lblNewLabel = new JLabel("             15°C");
+		JLabel lblNewLabel = new JLabel("                   15°C");
 		lblNewLabel.setFont(new Font("Impact", Font.BOLD, 60));
 		getContentPane().add(lblNewLabel, BorderLayout.SOUTH);
 
-		JLabel lblNewLabel_1 = new JLabel("15°C");
+		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setLabelFor(lblNewLabel_1);
 		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Administrator\\Desktop\\weather_icon\\sun.png"));
 		getContentPane().add(lblNewLabel_1, BorderLayout.CENTER);
