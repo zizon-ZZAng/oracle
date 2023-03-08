@@ -17,7 +17,7 @@ public interface LocationService {
 	public int locationUpdate (Location l);
 	
 	// Select
-	public Location locationSelect (Location l);
+	public Location locationSelect();
 	
 	// Delete
 	public int locationDelete (Location l);
