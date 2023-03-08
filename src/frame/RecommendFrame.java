@@ -1,26 +1,15 @@
 package frame;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import common.Config;
 import service.RecommendService;
 import service.RecommendServiceImpl;
-
-import javax.swing.JComboBox;
-import javax.swing.JButton;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.swing.DefaultComboBoxModel;
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
 
 public class RecommendFrame extends JFrame {
 	RecommendService rservice = new RecommendServiceImpl();
