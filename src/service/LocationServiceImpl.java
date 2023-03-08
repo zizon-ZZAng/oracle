@@ -25,9 +25,9 @@ public class LocationServiceImpl implements LocationService{
 	}
 
 	@Override
-	public Location locationSelect(Location l) {
+	public Location locationSelect() {
 		try {
-			return mapper.locationSelect(l);
+			return mapper.locationSelect();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;		
