@@ -52,6 +52,9 @@ public interface MemberMapper {
 	@Select({" SELECT *  FROM member2 WHERE id=#{id} AND password=#{password} "})
 	public Member loginMember(Member member);
 	
+	// 회원 1명 조회(회원가입시 아이디 중복 확인용)
+	@Select({" SELECT * FROM member2 WHERE id = #{id} "})
+	public Member selectMemberOne(String id);
 	
 	//회원정보변경
 	@Update({
@@ -75,9 +78,9 @@ public interface MemberMapper {
 	public int updatePWMember(@Param("obj") Member member);
 	
 	
-	//회원탈퇴
-	@Update({" UPDATE member2 SET name=null, password=null, address=null, gender=null, chk=0, regdate=null ", 
-			 " WHERE id=#{obj.id} AND password=#{obj.newpw} "})
+	//회원탈퇴 -> 탈퇴시 회원 정보는 공백으로 처리해서 삭제함 (chk : 탈퇴완료 0)
+	@Update({" UPDATE member2 SET name=' ', password=' ', address=' ', gender=' ', chk=0, regdate=null ", 
+			 " WHERE id=#{obj.id} AND password=#{obj.password} "})
 	public int unMember(@Param("obj") Member member);
 =======
 	public int memberUpdateBatch(@Param("list") List<Member2> list);
