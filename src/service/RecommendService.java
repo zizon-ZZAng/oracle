@@ -2,6 +2,8 @@ package service;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import connection.MyBatisContext;
 import dto.Recommend;
 import mapper.RecommendMapper;
@@ -16,10 +18,12 @@ public interface RecommendService {
 	//특정 id 추천목록 보기
 	public List<Recommend> selectRecommendId(String id);
 	
-	
 	//특정 옷 추천목록 보기
 	public List<Recommend> selectRecommendNo(int no);
 	
 	//특정 날씨 추천목록 보기
 	public List<Recommend> selectRecommendCode(int code);
+	
+	//아이디별 시간별 추천옷 보기
+	public Recommend selectRecommendSetno(String id_num, int code_num);
 }

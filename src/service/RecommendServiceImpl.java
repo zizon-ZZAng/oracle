@@ -51,4 +51,15 @@ public class RecommendServiceImpl implements RecommendService {
 		}
 	}
 
+	@Override
+	public Recommend selectRecommendSetno(String id_num, int code_num) {
+		try {
+			return rMapper.selectRecommendSetno(id_num, code_num);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
 }

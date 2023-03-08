@@ -53,9 +53,9 @@ public interface RecommendMapper {
 	@Select({
 		" SELECT r.* ",
 		" FROM recommend1 r ",
-		" WHERE id=#{id.id} AND code=#{obj.code} "
+		" WHERE r.id=#{id} AND r.code=#{code} "
 	})
-	public Recommend selectRecommendSetno(@Param("id")String id, @Param("obj")int code);
+	public Recommend selectRecommendSetno(@Param("id")String id_num, @Param("code")int code_num);
 	
 	
 	@Update({

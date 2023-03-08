@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Update;
 import dto.Member;
 
 public interface MemberMapper {
+	
 	// 고객 회원가입
 	@Insert({" INSERT INTO member1(id, name, password, sex, address, chk) ",
 			 " VALUES(#{id}, #{name}, #{password}, #{sex}, #{address}, #{chk}) "})
