@@ -8,15 +8,10 @@ import connection.MyBatisContext;
 import dto.Member2;
 import mapper.Member2Mapper;
 
-class MemberTest {
+class Member2Test {
 
-<<<<<<< Updated upstream
-=======
-	Member2Mapper mMapper 
-	= MyBatisContext.getSqlSession().getMapper(Member2Mapper.class);
->>>>>>> Stashed changes
 	
-	MemberMapper mapper = MyBatisContext.getSqlSession().getMapper(MemberMapper.class);
+	Member2Mapper mapper = MyBatisContext.getSqlSession().getMapper(Member2Mapper.class);
 	
 	
 	//비밀번호 암호화
@@ -54,7 +49,7 @@ class MemberTest {
 		
 		String hash = this.hashPW(pw, id);
 		
-		Member member = new Member();
+		Member2 member = new Member2();
 		
 		member.setId(id);
 		member.setName("박신나");
@@ -69,49 +64,7 @@ class MemberTest {
 
 	//로그인
 	@Test
-<<<<<<< Updated upstream
 	void loginMember() { 
-=======
-	void memberInsertBatch() {
-		List<Member2> list = new ArrayList<Member2>();
-		for(int i=0; i<3; i++) {
-			Member2 member = new Member2();
-			member.setUserid("aaa100"+i);
-			member.setUserpw("암호");
-			member.setUsername("이름");
-			member.setUserage(23);
-			member.setUserphone("010-0000-000"+i);
-			member.setUsergender("M");
-			list.add(member);
-		}
-		int ret = mMapper.memberInsertBatch(list);
-		System.out.println(ret); // 숫자 3이 출력됨.
-	}
-	
-	@Test
-	void memberUpdateBatch() {
-		List<Member2> list = new ArrayList<Member2>();
-		for(int i=0; i<2; i++) {
-			Member2 member = new Member2();
-			member.setUserid("a9");
-			member.setUsername("바뀐 이름");
-			member.setUserage(45);
-			list.add(member);
-		}
-			int ret = mMapper.memberUpdateBatch(list);
-			System.out.println(ret);
-	}
-	
-	@Test
-	void memberUpsert() {
-		Member2 m = new Member2();
-		m.setUserid("e10");
-		m.setUsername("도로롱");
-		m.setUserpw("aaaa");
-		m.setUserage(17);
-		m.setUserphone("010-1004-1004");
-		m.setUsergender("M");
->>>>>>> Stashed changes
 		
 		String id="a";
 		String pw="bb";
@@ -120,7 +73,7 @@ class MemberTest {
 		
 		
 		
-		Member member =new Member();
+		Member2 member =new Member2();
 		member.setId(id);
 		member.setPassword(hash);
 		
@@ -133,7 +86,6 @@ class MemberTest {
 	
 	//회원정보 수정
 	@Test
-<<<<<<< Updated upstream
 	void updateMember() {
 		
 		
@@ -143,16 +95,7 @@ class MemberTest {
 		String hash = this.hashPW(pw, id);
 		
 		
-		Member member = new Member();
-=======
-	void memberUpdateOne() {
 		Member2 member = new Member2();
-		member.setUserid("s");
-		member.setUsername("바닐라라떼");
-		member.setUserage(20);
-		member.setUserphone(null);
-		member.setUsergender(null);
->>>>>>> Stashed changes
 		
 
 		member.setId("a");
@@ -181,7 +124,7 @@ class MemberTest {
 		
 		String newhash = this.hashPW(newpw, id);
 		
-		Member member = new Member();
+		Member2 member = new Member2();
 		member.setId(id);
 		member.setPassword(hash);
 		
@@ -201,7 +144,7 @@ class MemberTest {
 		
 		String hash = this.hashPW(pw, id);
 		
-		Member member = new Member();
+		Member2 member = new Member2();
 		
 		member.setId(id);
 		member.setNewpw(hash);
@@ -210,17 +153,5 @@ class MemberTest {
 		System.out.println(ret);
 	}
 	
-<<<<<<< Updated upstream
 
-=======
-	@Test
-	void memberLikeList() {
-		Map<String, Object> map = new HashMap<>();
-		map.put("txt", "a");
-		map.put("column", "userid");
-		
-		List<Member2> list = mMapper.memberLikeList(map);
-		System.out.println(list);
-	}
->>>>>>> Stashed changes
 }
