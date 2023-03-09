@@ -126,6 +126,7 @@ public class MyPageFrame extends JFrame {
 		getContentPane().add(btnNewButton_1);
 		
 		passwordField = new JPasswordField(Config.obj.getPassword());
+		passwordField.setEnabled(false);
 		passwordField.setBounds(154, 143, 117, 21);
 		getContentPane().add(passwordField);
 		

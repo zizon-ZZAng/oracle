@@ -90,7 +90,7 @@ public class MainFrame2 extends JFrame {
 		
 		//지역
 		textField = new JTextField(Config.obj.getAddress());
-		textField.setEnabled(false);
+		textField.setEditable(false);
 		textField.setColumns(10);
 		textField.setBounds(91, 36, 116, 21);
 		getContentPane().add(textField);
