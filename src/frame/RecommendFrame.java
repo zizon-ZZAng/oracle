@@ -1,11 +1,20 @@
 package frame;
 
-import javax.swing.JFrame;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+import dto.Weather;
+import service.WeatherService;
+import service.WeatherServiceImpl;
+import session.Config;
 
 public class RecommendFrame extends JFrame{
+	
+	WeatherService wsv = new WeatherServiceImpl();
+	
 	public RecommendFrame() {
 		getContentPane().setLayout(null);
 		
@@ -13,9 +22,17 @@ public class RecommendFrame extends JFrame{
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new WeatherFrame();
+				Weather weather = new Weather();
 				
+				//String date = Config.weather.getW_date().toString();
+				float tem = Config.weather.getTemperature();
+				//String hour = Config.weather.getW_hour().toString();
 				
+				//weather.setW_date(date);
+				//weather.setW_hour(hour);
+				weather.setTemperature(tem);
 				
+				Config.weather = 	
 				dispose();
 			}
 		});

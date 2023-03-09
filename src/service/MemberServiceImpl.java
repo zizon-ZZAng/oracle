@@ -37,8 +37,6 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public int insertMember(Member m) {
 		try {
-
-			
 			return mMapper.insertMember(m);
 		}
 		catch(Exception e) {
@@ -50,8 +48,6 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public Member loginMember(Member m) {
 		try {
-			
-
 			return mMapper.loginMember(m);
 		}
 		catch(Exception e) {
