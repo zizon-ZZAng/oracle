@@ -24,7 +24,7 @@ public class RecommendFrame extends JFrame {
 		
 		// 상의
 		Map<String, Object> map = new HashMap<>();
-		map.put("wdate", Config.wdate.toString());
+		map.put("wdate", Config.wdate);
 		map.put("id", Config.obj.getId());
 		
 		Map<String, Object> ret = rservice.clothesRecommendTop(map);
