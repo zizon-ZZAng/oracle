@@ -13,6 +13,6 @@ private String clname;
 private String texture;
 // 옷 두께
 private String thickness;
-// 상의,하의,신발
-private int type;
+// 옷 종류 이름
+private String name;
 }
