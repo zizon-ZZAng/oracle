@@ -90,26 +90,32 @@ public class RecommendFrame extends JFrame {
 		// --------------------------------------------
 		
 		textField = new JTextField(rett.get("CLONAME").toString());
+		textField.setHorizontalAlignment(SwingConstants.CENTER);
 		textField.setEditable(false);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField(retb.get("CLONAME").toString());
+		textField_1.setHorizontalAlignment(SwingConstants.CENTER);
 		textField_1.setEditable(false);
 		textField_1.setColumns(10);
 		
 		textField_2 = new JTextField(rets.get("CLONAME").toString());
+		textField_2.setHorizontalAlignment(SwingConstants.CENTER);
 		textField_2.setEditable(false);
 		textField_2.setColumns(10);
 		
 		textField_3 = new JTextField(rett.get("PRICE").toString());
+		textField_3.setHorizontalAlignment(SwingConstants.CENTER);
 		textField_3.setEditable(false);
 		textField_3.setColumns(10);
 		
 		textField_4 = new JTextField(retb.get("PRICE").toString());
+		textField_4.setHorizontalAlignment(SwingConstants.CENTER);
 		textField_4.setEditable(false);
 		textField_4.setColumns(10);
 		
 		textField_5 = new JTextField(rets.get("PRICE").toString());
+		textField_5.setHorizontalAlignment(SwingConstants.CENTER);
 		textField_5.setEditable(false);
 		textField_5.setColumns(10);
 		
