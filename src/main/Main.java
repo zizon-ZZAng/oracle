@@ -11,8 +11,8 @@ public class Main {
 
 //		new WeatherFrame();
 
-		new LoginFrame();
-//		new WeatherFrame();
+//		new LoginFrame();
+		new WeatherFrame();
 
 //		new LoginFrame();
 		
