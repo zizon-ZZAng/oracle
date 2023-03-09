@@ -22,9 +22,17 @@ public class RecommendFrame extends JFrame {
 	public RecommendFrame() {
 		setTitle("옷 추천");
 		
+		Map<String, Object> map = new HashMap<>();
+		map.put("wdate", Config.wdate.toString());
+		map.put("id", Config.obj.getId());
 		
+		Map<String, Object> ret = rservice.clothesRecommendTop(map);
 		
-		ImageIcon image = new ImageIcon("image/1006.png");
+		System.out.println(ret.get("CLONO").toString());
+		
+		String imagecode = "image/" + ret.get("CLONO").toString() + ".png";
+		
+		ImageIcon image = new ImageIcon(imagecode);
 		JLabel lblNewLabel = new JLabel(image);
 
 		lblNewLabel.setBounds(177, 75, 261, 190);

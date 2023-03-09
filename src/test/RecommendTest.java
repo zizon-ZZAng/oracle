@@ -41,8 +41,8 @@ class RecommendTest {
 		map.put("wdate", "2023-03-07 10:00:00");
 		map.put("id", "b");
 		
-		System.out.println(mapper.clothesRecommendTop(map)); 
-		
+		System.out.println(mapper.clothesRecommendTop(map));
+
 	}
 	
 
