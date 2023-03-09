@@ -15,30 +15,30 @@ import dto.ClothesCate;
 @Mapper
 public interface ClothesCateMapper {
 
+	// 삽입
 	@Insert({
-		" INSERT INTO clothescate0(type, name) ",
-	    " VALUES(#{type}, #{name}) "	
+		" INSERT INTO clothescate0(name) ",
+	    " VALUES(#{name}) "	
 	})
 	public int insertClothesCate(ClothesCate c);
 	
-	
+	// 업데이트
 	@Update({
-		" UPDATE clothescate1 SET name =#{name} ",
+		" UPDATE clothescate0 SET name =#{name} ",
 		" WHERE type =#{type} "
 	})
 	public int updateClothesCate(ClothesCate c);
 	
-	
+	// 삭제
 	@Delete({
-		" DELETE FROM clothescate1 ",
+		" DELET FROM clothescate0 ",
 		" WHERE type=#{obj.type} "
 	})
 	public int deleteClothesCate(@Param("obj") ClothesCate obj);
 	
-	
+	// 출력
 	@Select({
-		" SELECT * FROM clothescate1 "
+		" SELECT * FROM clothescate0 "
 	})
 	public List<ClothesCate> selectClothesCateList();
 }
-
