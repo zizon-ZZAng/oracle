@@ -72,6 +72,36 @@ public class SignUpFrame extends JFrame {
 		comboBox_1.setModel(new DefaultComboBoxModel(new String[] { "F", "M" }));
 		comboBox_1.setBounds(161, 176, 57, 23);
 		getContentPane().add(comboBox_1);
+		
+		
+		// 아이디 중복 확인 버튼 눌렀을 때
+				JButton btnNewButton_2 = new JButton("확인");
+				btnNewButton_2.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+
+						String id = textField_1.getText();
+
+						Config.obj = mService.selectMemberIdChk(id);
+
+						if (Config.obj.getCnt() > 0) {
+
+							JOptionPane.showMessageDialog(null, "존재하는 아이디입니다");
+
+						} else if (id.length() == 0) {
+
+							JOptionPane.showMessageDialog(null, "아이디를 입력해주세요");
+							
+						} else {
+
+							JOptionPane.showMessageDialog(null, "사용가능한 아이디입니다.");
+
+						}
+
+					}
+				});
+				btnNewButton_2.setBounds(292, 64, 64, 23);
+				getContentPane().add(btnNewButton_2);
+
 
 		JButton btnNewButton = new JButton("회원가입");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -114,13 +144,16 @@ public class SignUpFrame extends JFrame {
 				member.setAddress(comboBox.getSelectedItem().toString());
 				member.setGender(comboBox_1.getSelectedItem().toString());
 
-				mService.signUpMember(member);
-
-				if (id.length() == 0 && pw.length() == 0) {
+				if (id.length() == 0 || pw.length() == 0) {
 					JOptionPane.showMessageDialog(null, "아이디와 비밀번호를 입력해주세요");
-				} else {
-
+				} 
+//				else if{
+//					dsfklasdf;
+//				}
+				else {
 					// 회원가입 성공 -> 로그인창으로
+					mService.signUpMember(member);
+					
 					JOptionPane.showMessageDialog(null, "회원가입 성공");
 
 					new LoginFrame();
@@ -153,34 +186,7 @@ public class SignUpFrame extends JFrame {
 		passwordField.setBounds(161, 104, 116, 21);
 		getContentPane().add(passwordField);
 
-		// 아이디 중복 확인 버튼 눌렀을 때
-		JButton btnNewButton_2 = new JButton("확인");
-		btnNewButton_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				String id = textField_1.getText();
-
-				Config.obj = mService.selectMemberIdChk(id);
-
-				if (Config.obj.getCnt() > 0) {
-
-					JOptionPane.showMessageDialog(null, "존재하는 아이디입니다");
-
-				} else if (id.length() == 0) {
-
-					JOptionPane.showMessageDialog(null, "아이디를 입력해주세요");
-					
-				} else {
-
-					JOptionPane.showMessageDialog(null, "사용가능한 아이디입니다.");
-
-				}
-
-			}
-		});
-		btnNewButton_2.setBounds(292, 64, 64, 23);
-		getContentPane().add(btnNewButton_2);
-
+		
 		this.setSize(401, 306);
 		this.setLocationRelativeTo(null); // 화면 중앙에 오게 해줌
 
