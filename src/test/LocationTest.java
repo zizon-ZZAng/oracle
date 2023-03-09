@@ -25,8 +25,8 @@ class LocationTest {
 	// 지역 전체 조회
 	@Test
 	void selectLocation() {
-		List<Location> list = lMapper.selectLocation();
-		for(Location location : list) {
+		Object[] list = lMapper.selectLocation();
+		for(Object location : list) {
 			System.out.println(location);
 		}
 	}
