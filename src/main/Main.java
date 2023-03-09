@@ -9,7 +9,7 @@ public class Main {
 		new MyPageFrame();
 //		new WeatherFrame();
 
-//	new LoginFrame();
+//		new LoginFrame();
 		
 //		new RecommendFrame();
 	}
