@@ -25,12 +25,16 @@ public interface WeatherMapper {
 	public int weatherUpdate(Weather w);
 
 	// 시간 업데이트
-	@Update({ " UPDATE WEATHER1 SET regdate = TO_DATE(#{regdate}, 'YYYY-MM-DD-HH24') WHERE code = #{code} " })
+	@Update({ " UPDATE WEATHER1 SET regdate = TO_DATE(#{regdate2}, 'YYYY-MM-DD-HH24') WHERE code = #{code} " })
 	public int weatherUpdateHour(Weather w);
 
-	// 날씨 업데이트
+	// 기온 업데이트
 	@Update({ " UPDATE WEATHER1 SET temperature = #{temperature} WHERE code = #{code} " })
 	public int weatherUpdateTemp(Weather w);
+	
+	// 날씨 업데이트
+	@Update({ " UPDATE WEATHER1 SET weather = #{weather} WHERE code = #{code} " })
+	public int weatherUpdateWTH(Weather w);
 
 	@Select({ " SELECT * FROM WEATHER1  " })
 	public List<Weather> weatherSelect();

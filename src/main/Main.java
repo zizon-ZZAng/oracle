@@ -1,6 +1,9 @@
 package main;
 
+
+import frame.LoginFrame;
 import frame.WeatherFrame;
+
 
 public class Main {
 
@@ -9,12 +12,12 @@ public class Main {
 		
 //		new MyPageFrame();
 
-		new WeatherFrame();
 
-//		new LoginFrame();
+		new WeatherFrame();
+		new LoginFrame();
 		
 //		new RecommendFrame();
 		
-//		new ImageFrame();
+
 	}
 }
