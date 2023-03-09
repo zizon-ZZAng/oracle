@@ -99,6 +99,7 @@ public class LoginFrame extends JFrame {
 					new MainFrame2();
 
 					dispose(); // 기존 창 종료
+					//뭐지
 
 				} else if (id.length() == 0 || pw.length() == 0) { // 둘 다 입력 안했을 경우
 
