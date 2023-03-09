@@ -9,9 +9,9 @@ public class Main {
 //		new SignUpFrame();
 //		new MyPageFrame();
 
-		new WeatherFrame();
+//		new WeatherFrame();
 
-//		new LoginFrame();
+		new LoginFrame();
 //		new WeatherFrame();
 
 //		new LoginFrame();
