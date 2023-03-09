@@ -17,6 +17,9 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class RecommendFrame extends JFrame {
 	RecommendService rservice = new RecommendServiceImpl();
@@ -119,28 +122,41 @@ public class RecommendFrame extends JFrame {
 		textField_5.setEditable(false);
 		textField_5.setColumns(10);
 		
+		JButton btnNewButton = new JButton("확인");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new MainFrame2();
+				dispose();
+			}
+		});
+		
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(32)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
-						.addComponent(lblNewLabel_1, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(lblNewLabel_1_1, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
-						.addComponent(textField)
-						.addComponent(textField_3))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
-						.addComponent(lblNewLabel_2, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(lblNewLabel_2_1, GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
-						.addComponent(textField_1)
-						.addComponent(textField_4))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
-						.addComponent(lblNewLabel_3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(lblNewLabel_3_1, GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
-						.addComponent(textField_2)
-						.addComponent(textField_5))
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(32)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+								.addComponent(lblNewLabel_1, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(lblNewLabel_1_1, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
+								.addComponent(textField)
+								.addComponent(textField_3))
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+								.addComponent(lblNewLabel_2, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(lblNewLabel_2_1, GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
+								.addComponent(textField_1)
+								.addComponent(textField_4))
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+								.addComponent(lblNewLabel_3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(lblNewLabel_3_1, GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
+								.addComponent(textField_2)
+								.addComponent(textField_5)))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(481)
+							.addComponent(btnNewButton)))
 					.addContainerGap(81, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
@@ -166,13 +182,15 @@ public class RecommendFrame extends JFrame {
 						.addComponent(textField_5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(243, Short.MAX_VALUE))
+					.addPreferredGap(ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+					.addComponent(btnNewButton)
+					.addGap(48))
 		);
 		getContentPane().setLayout(groupLayout);
 
 		// --------------------------------------------
 
-		this.setSize(1076, 814);
+		this.setSize(1076, 700);
 		this.setLocationRelativeTo(null);
 
 		this.setVisible(true);
