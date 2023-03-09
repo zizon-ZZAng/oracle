@@ -3,7 +3,9 @@ package frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -11,15 +13,16 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import dto.Member;
+import service.LocationService;
+import service.LocationServiceImpl;
 import service.MemberService;
 import service.MemberServiceImpl;
 import session.Config;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
 
 public class MyPageFrame extends JFrame {
 
 	MemberService msv = new MemberServiceImpl();
+	LocationService lsv = new LocationServiceImpl();
 
 	private JTextField textField_id;
 	private JPasswordField passwordField;
@@ -65,8 +68,8 @@ public class MyPageFrame extends JFrame {
 		
 		
 		JComboBox comboBox_add = new JComboBox();
-		comboBox_add.setModel(new DefaultComboBoxModel(new String[] { "서울특별시", "부산광역시", "대구광역시", "인천광역시", "광주광역시", "대전광역시",
-				"울산광역시", "세종특별자치시", "경기도", "강원도", "충청북도", "충청남도", "전라북도", "전라남도", "경상북도", "경상남도", "제주특별자치도" }));
+		comboBox_add.setModel(new DefaultComboBoxModel(lsv.locationSelect()));
+
 		comboBox_add.setBounds(192, 183, 96, 23);
 		getContentPane().add(comboBox_add);
 		this.setVisible(true);

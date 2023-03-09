@@ -154,14 +154,14 @@ class WeatherTest {
 	@Test
 	void weatherSelectWVTemp() {
 //		Weather w = new Weather();
-//		w.setName("서울특별시");
+//		w.setName("서울특별시");ㄴ
 //		w.setW_date("2023-03-06");
 //		w.setW_hour("02");
 		
 		Map<String, Object> map = new HashMap<>();
-		map.put("name", "서울특별시");
-		map.put("w_date", "2023-03-06");
-		map.put("w_hour", "02");
+		map.put("address" , "대구");
+		map.put("week", "2023/03/13");
+		map.put("hour", "02");
 		
 		Map<String, Object> list = mapper.weatherSelectWVTemp(map);
 		
