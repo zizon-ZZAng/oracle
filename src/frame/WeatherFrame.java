@@ -25,6 +25,7 @@ import java.awt.Font;
 public class WeatherFrame extends JFrame {
 	WeatherService mapper = new WeatherServiceImpl();
 	private JTextField textField;
+	private JTextField textField_add;
 
 	public WeatherFrame() {
 
@@ -42,15 +43,8 @@ public class WeatherFrame extends JFrame {
 		getContentPane().add(myPageButton);
 
 		JLabel lblNewLabel_loca = new JLabel("지역");
-		lblNewLabel_loca.setBounds(32, 68, 30, 15);
+		lblNewLabel_loca.setBounds(22, 68, 30, 15);
 		getContentPane().add(lblNewLabel_loca);
-
-		JComboBox comboBox_loca = new JComboBox();
-		comboBox_loca
-				.setModel(new DefaultComboBoxModel(new String[] { "서울특별시", "부산광역시", "대구광역시", "인천광역시", "광주광역시", "대전광역시",
-						"울산광역시", "세종특별자치시", "경기도", "강원도", "충청북도", "충청남도", "전라북도", "전라남도", "경상북도", "경상남도", "제주특별자치도" }));
-		comboBox_loca.setBounds(62, 64, 87, 23);
-		getContentPane().add(comboBox_loca);
 
 		JLabel lblNewLabel_date = new JLabel("날짜");
 		lblNewLabel_date.setBounds(160, 68, 30, 15);
@@ -64,6 +58,14 @@ public class WeatherFrame extends JFrame {
 		JLabel lblNewLabel_time = new JLabel("시간");
 		lblNewLabel_time.setBounds(300, 68, 30, 15);
 		getContentPane().add(lblNewLabel_time);
+		
+		
+		textField_add = new JTextField(Config.member.getAddress().toString());
+		textField_add.setEditable(false);
+		textField_add.setBounds(64, 65, 86, 21);
+		getContentPane().add(textField_add);
+		textField_add.setColumns(10);
+		
 
 		textField = new JTextField();
 		textField.setFont(new Font("굴림", Font.BOLD, 30));
@@ -81,7 +83,7 @@ public class WeatherFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				Map<String, Object> map = new HashMap<>();
-				map.put("name", comboBox_loca.getSelectedItem().toString());
+				map.put("name", textField_add.getText());
 				map.put("w_date", comboBox_date.getSelectedItem().toString());
 				map.put("w_hour", comboBox_time.getSelectedItem().toString());
 
@@ -232,6 +234,8 @@ public class WeatherFrame extends JFrame {
 		lblNewLabel.setFont(new Font("굴림", Font.BOLD, 30));
 		lblNewLabel.setBounds(330, 182, 50, 48);
 		getContentPane().add(lblNewLabel);
+		
+
 
 //		JPanel panel_Pic = new JPanel();
 //		panel_Pic.setBounds(32, 118, 150, 150);
