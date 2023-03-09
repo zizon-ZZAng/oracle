@@ -2,6 +2,7 @@ package service;
 
 import java.util.List;
 
+import connection.MyBatisContext;
 import dto.Recommend;
 
 public class RecommendServiceImpl implements RecommendService {
@@ -14,6 +15,7 @@ public class RecommendServiceImpl implements RecommendService {
 		}
 		catch(Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return 0;
 		}
 	}
@@ -25,6 +27,7 @@ public class RecommendServiceImpl implements RecommendService {
 		}
 		catch(Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return null;
 		}
 	}
@@ -36,6 +39,7 @@ public class RecommendServiceImpl implements RecommendService {
 		}
 		catch(Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return null;
 		}
 	}
@@ -47,6 +51,7 @@ public class RecommendServiceImpl implements RecommendService {
 		}
 		catch(Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return null;
 		}
 	}
@@ -58,6 +63,7 @@ public class RecommendServiceImpl implements RecommendService {
 		}
 		catch(Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return null;
 		}
 	}

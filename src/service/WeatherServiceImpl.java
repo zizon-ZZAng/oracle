@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
+import connection.MyBatisContext;
 import dto.Weather;
 
 public class WeatherServiceImpl implements WeatherService {
@@ -15,6 +16,7 @@ public class WeatherServiceImpl implements WeatherService {
 			return mapper.weatherInsert(w);
 		} catch (Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return 0;
 		}
 	}
@@ -25,6 +27,7 @@ public class WeatherServiceImpl implements WeatherService {
 			return mapper.weatherUpdate(w);
 		} catch (Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return 0;
 		}
 	}
@@ -35,6 +38,7 @@ public class WeatherServiceImpl implements WeatherService {
 			return mapper.weatherSelect();
 		} catch (Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return null;
 		}
 	}
@@ -45,6 +49,7 @@ public class WeatherServiceImpl implements WeatherService {
 			return mapper.weatherDelete(w);
 		} catch (Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return 0;
 		}
 	}
@@ -55,6 +60,7 @@ public class WeatherServiceImpl implements WeatherService {
 			return mapper.weatherSelectHOUR(w);
 		} catch (Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return null;
 		}
 	}
@@ -65,6 +71,7 @@ public class WeatherServiceImpl implements WeatherService {
 			return mapper.weatherSelectDATE(w);
 		} catch (Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return null;
 		}
 	}
@@ -75,6 +82,7 @@ public class WeatherServiceImpl implements WeatherService {
 			return mapper.weatherSelectWeather();
 		} catch (Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return null;
 		}
 	}
@@ -85,6 +93,7 @@ public class WeatherServiceImpl implements WeatherService {
 //			return mapper.weatherSelectWVTemp(map);
 //		} catch (Exception e) {
 //			e.printStackTrace();
+//	 		MyBatisContext.getSqlSession().close();
 //			return null;
 //		}
 //	}
@@ -97,6 +106,7 @@ public class WeatherServiceImpl implements WeatherService {
 			return mapper.weatherSelectWVTemp(map);
 		} catch (Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return null;
 		}
 
