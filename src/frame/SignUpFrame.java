@@ -117,6 +117,7 @@ public class SignUpFrame extends JFrame{
 				m.setPassword(hash);
 				m.setAddress(comboBox_Add.getSelectedItem().toString());
 				m.setSex(comboBox_Sex.getSelectedItem().toString());
+				m.setChk(1);
 				
 				int ret = s.insertMember(m);
 				
