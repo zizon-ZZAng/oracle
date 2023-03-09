@@ -85,18 +85,7 @@ public class MyPageFrame extends JFrame {
 //				config session 만들기(id, password)
 //				mem.setId(textField_id.getText());
 
-<<<<<<< HEAD
-				Member mem = new Member();
-				
-				mem.setId(Config.member.getId());
-				mem.setPassword(Config.member.getPassword());
-				mem.setName(textField_name.getText());
-				mem.setAddress(comboBox_add.getSelectedItem().toString());
-
-
-=======
->>>>>>> a35384a8a7427aa0a6c31b5c599498099b2bb5a7
-					
+									
 					String id = Config.member.getId().toString();
 					String password = Config.member.getPassword().toString();
 					String name = textField_name.getText();
