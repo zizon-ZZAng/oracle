@@ -83,12 +83,16 @@ public class WeatherFrame extends JFrame {
 				map.put("w_date", comboBox_date.getSelectedItem().toString());
 				map.put("w_hour", comboBox_time.getSelectedItem().toString());
 				
-				textField.setText(Float.toString(mapper.weatherSelectWVTemp(map)));
+				mapper.weatherSelectWVTemp(map.get("temperauture"));
+				
+				textField.setText(Float.toString(mapper.weatherSelectWVTemp(map.get("temperauture"))));
 				
 				
 				ImageIcon[] icon = new ImageIcon[9];
 				
-				if()
+				if(map.get("weather").equals("맑음")) {
+					
+				}
 					
 					
 //				ImageIcon icon = new ImageIcon(ImageFrame.class.getResource("sun.png"));
