@@ -21,7 +21,7 @@ public class Weather {
 	private float temperature;
 	// 기온
 	
-	private int no;
+	private String name;
 	// 지역넘버(외래키)
 
 	private String regdate2;
@@ -31,7 +31,7 @@ public class Weather {
 	// 임시변수
 	private String w_hour;
 	// 임시변수
-	private String name;
+	private String name2;
 	// 임시변수
 }
 
