@@ -17,7 +17,6 @@ import session.Config;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
-
 public class MyPageFrame extends JFrame {
 
 	MemberService msv = new MemberServiceImpl();
@@ -28,12 +27,7 @@ public class MyPageFrame extends JFrame {
 
 	public MyPageFrame() {
 
-
 		this.setSize(400, 400); // 사이즈 정하기
-		
-		
-		this.setSize(400, 400);	// 사이즈 정하기
-
 		getContentPane().setLayout(null);
 
 		textField_id = new JTextField();
@@ -84,7 +78,6 @@ public class MyPageFrame extends JFrame {
 		JButton btnNewButton = new JButton("변경하기");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
 				if (e.getActionCommand().equals("변경하기")) {
 
 					Member mem = new Member();
@@ -92,6 +85,7 @@ public class MyPageFrame extends JFrame {
 //				config session 만들기(id, password)
 //				mem.setId(textField_id.getText());
 
+<<<<<<< HEAD
 				Member mem = new Member();
 				
 				mem.setId(Config.member.getId());
@@ -100,6 +94,8 @@ public class MyPageFrame extends JFrame {
 				mem.setAddress(comboBox_add.getSelectedItem().toString());
 
 
+=======
+>>>>>>> a35384a8a7427aa0a6c31b5c599498099b2bb5a7
 					
 					String id = Config.member.getId().toString();
 					String password = Config.member.getPassword().toString();
