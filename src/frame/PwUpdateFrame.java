@@ -106,7 +106,7 @@ public class PwUpdateFrame extends JFrame {
 					JOptionPane.showMessageDialog(null, "새 비밀번호를 확인해주세요", "비밀번호 변경", JOptionPane.ERROR_MESSAGE);
 				}
 				else {
-					mService.updatePWMember(member);
+					mService.updatePWMember(member); //성공할 곳에 얘가 존재해야함 그래야 sql 실행되니깐
 					JOptionPane.showMessageDialog(null, "성공", "비밀번호 변경", JOptionPane.PLAIN_MESSAGE);
 					new MyPageFrame();
 					dispose();

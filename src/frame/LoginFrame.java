@@ -86,6 +86,7 @@ public class LoginFrame extends JFrame {
 				member.setId(id);
 				member.setPassword(hash);
 				
+				
 				Config.obj = mService.loginMember(member);
 
 				// 아이디나 비밀번호 성공했을 때의 경우
