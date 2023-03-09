@@ -4,6 +4,7 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.swing.DefaultComboBoxModel;
@@ -83,10 +84,11 @@ public class WeatherFrame extends JFrame {
 				map.put("w_date", comboBox_date.getSelectedItem().toString());
 				map.put("w_hour", comboBox_time.getSelectedItem().toString());
 				
-				mapper.weatherSelectWVTemp(map.get("temperauture"));
+				List<Map<String, Object>> list = mapper.weatherSelectWVTemp(map);
 				
-				textField.setText(Float.toString(mapper.weatherSelectWVTemp(map.get("temperauture"))));
-				
+				for(int i=0; i< list.size(); i++) {
+					textField.setText(list.get(i).get("temperature").toString());
+				}
 				
 				ImageIcon[] icon = new ImageIcon[9];
 				

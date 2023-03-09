@@ -16,6 +16,10 @@ import service.MemberServiceImpl;
 import session.Config;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8bea7e1b4f5ded9cf969ac2b1f4ec2178fc443f8
 
 public class MyPageFrame extends JFrame {
 
@@ -26,8 +30,18 @@ public class MyPageFrame extends JFrame {
 	private JTextField textField_name;
 
 	public MyPageFrame() {
+<<<<<<< HEAD
 
 		this.setSize(400, 400); // 사이즈 정하기
+=======
+
+
+		this.setSize(400, 400); // 사이즈 정하기
+		
+		
+		this.setSize(400, 400);	// 사이즈 정하기
+
+>>>>>>> 8bea7e1b4f5ded9cf969ac2b1f4ec2178fc443f8
 		getContentPane().setLayout(null);
 
 		textField_id = new JTextField();
@@ -78,12 +92,28 @@ public class MyPageFrame extends JFrame {
 		JButton btnNewButton = new JButton("변경하기");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8bea7e1b4f5ded9cf969ac2b1f4ec2178fc443f8
 				if (e.getActionCommand().equals("변경하기")) {
 
 					Member mem = new Member();
 
 //				config session 만들기(id, password)
 //				mem.setId(textField_id.getText());
+<<<<<<< HEAD
+=======
+
+				
+				Member mem = new Member();
+				
+				mem.setId(Config.member.getId());
+				mem.setPassword(Config.member.getPassword());
+				mem.setName(textField_name.getText());
+				mem.setAddress(comboBox_add.getSelectedItem().toString());
+
+>>>>>>> 8bea7e1b4f5ded9cf969ac2b1f4ec2178fc443f8
 
 					
 					String id = Config.member.getId().toString();

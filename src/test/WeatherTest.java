@@ -139,6 +139,7 @@ class WeatherTest {
 		map.put("name", "서울특별시");
 		map.put("w_date", "2023-03-06");
 		map.put("w_hour", "02");
+		
 		List<Map<String, Object>> list = mapper.weatherSelectWVTemp(map);
 		System.out.println(list.toString());
 //		for(Map<String, Object> m : list) {
