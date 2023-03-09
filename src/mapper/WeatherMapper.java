@@ -17,26 +17,34 @@ import dto.Weather;
 public interface WeatherMapper {
 
 	@Insert({
-			" INSERT INTO WEATHER1 (code, regdate, weather, temperature, no) VALUES(func_SEQ_WEATHER1_CODE_nextval, CURRENT_DATE, #{weather}, #{temperature}, #{no}) " })
+			" INSERT INTO WEATHER0 (code, regdate, weather, temperature, name) VALUES(func_seq_weather0_code_nextval, CURRENT_DATE, #{weather}, #{temperature}, #{name}) " })
 	public int weatherInsert(Weather w);
+	
+//	@Insert({
+//	" INSERT INTO WEATHER0 (code, regdate, weather, temperature, name) VALUES(func_seq_weather0_code_nextval, CURRENT_DATE, #{weather}, #{temperature}, #{name}) " })
+//	public int weatherInsert24(Weather w);
 
 	@Update({
-			" UPDATE WEATHER1 SET weather= #{weather}, temperature = #{temperature}, no = #{no} WHERE code = #{code} " })
+			" UPDATE WEATHER0 SET weather= #{weather}, temperature = #{temperature}, no = #{no} WHERE code = #{code} " })
 	public int weatherUpdate(Weather w);
 
 	// 시간 업데이트
-	@Update({ " UPDATE WEATHER1 SET regdate = TO_DATE(#{regdate2}, 'YYYY-MM-DD-HH24') WHERE code = #{code} " })
+	@Update({ " UPDATE WEATHER0 SET regdate = TO_DATE(#{regdate2}, 'YYYY-MM-DD-HH24') WHERE code = #{code} " })
 	public int weatherUpdateHour(Weather w);
 
 	// 기온 업데이트
-	@Update({ " UPDATE WEATHER1 SET temperature = #{temperature} WHERE code = #{code} " })
+	@Update({ " UPDATE WEATHER0 SET temperature = #{temperature} WHERE code = #{code} " })
 	public int weatherUpdateTemp(Weather w);
 	
 	// 날씨 업데이트
-	@Update({ " UPDATE WEATHER1 SET weather = #{weather} WHERE code = #{code} " })
+	@Update({ " UPDATE WEATHER0 SET weather = #{weather} WHERE code = #{code} " })
 	public int weatherUpdateWTH(Weather w);
+	
+	// 지역 업데이트
+		@Update({ " UPDATE WEATHER0 SET name = #{name} WHERE code = #{code} " })
+		public int weatherUpdateLoc(Weather w);
 
-	@Select({ " SELECT * FROM WEATHER1  " })
+	@Select({ " SELECT * FROM WEATHER0  " })
 	public List<Weather> weatherSelect();
 
 	
@@ -49,14 +57,14 @@ public interface WeatherMapper {
 	// no는 넣거나 빼거나 필요에 따라
 	@Select({ 
 		" SELECT no, TO_CHAR(regdate, 'YYYY-MM-DD') regdate2 ",
-		" FROM WEATHER1 ",
+		" FROM WEATHER0 ",
 		" WHERE no = #{no} " 
 		})
 	public List<Weather> weatherSelectDATE(Weather w);
 	
 	
 	// 날씨 가져오기
-	@Select({ " SELECT weather from weather1 " })
+	@Select({ " SELECT weather from weather0 " })
 	public List<Weather> weatherSelectWeather();
 
 	
@@ -89,6 +97,8 @@ public interface WeatherMapper {
 		" from tem_clothesset_final_view ",
 		" WHERE temperature =#{temperature} " })
 	public Weather select_tem_clothesset_final_view(Weather w);
+	
+	
 	
 
 }
