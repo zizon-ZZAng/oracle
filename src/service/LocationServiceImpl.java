@@ -39,7 +39,7 @@ public class LocationServiceImpl implements LocationService{
 	}
 
 	@Override
-	public Location locationSelect() {
+	public Object[] locationSelect() {
 		try {
 			return mapper.locationSelect();
 		} catch (Exception e) {

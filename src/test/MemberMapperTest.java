@@ -42,26 +42,39 @@ class MemberMapperTest {
 	@Test
 	void insertMember() {
 //		String hash = this.hashPW("암호", "가입할 아이디");
-		String hash = this.hashPW("abcde", "hhh1"); //(비번,아이디)
 		
-		Member m = new Member();
-		m.setId("hhh1");
-		m.setName("이름");
-		m.setPassword(hash);
-		m.setSex("F");
-		m.setAddress("회원가입주소");
-		m.setChk(1);
-		
-		System.out.println(mMapper.insertMember(m));
+		for(int i=7; i<10; i++) {
+			Member m = new Member();
+			
+			String password = "pw"+i;
+			String id = "id" + i;
+			String name = "이름" + i;
+			
+			String hash = this.hashPW(password, id); //(비번,아이디)
+			m.setId(id);
+			m.setName(name);
+			m.setPassword(hash);
+			m.setSex("F");
+			m.setAddress("대구");
+			m.setChk(1);
+			
+			System.out.println(mMapper.insertMember(m));
+		}
 	}
 	
 	// 고객 로그인
 	@Test
 	void loginMember() {
-		String hash = this.hashPW("abcde", "hhh1"); //(비번,아이디)
+		String id = "id1";
+		String pw = "pw1";
 		
-		Member m = mMapper.loginMember("hhh1","abcede");
-		System.out.println(m.toString());
+		String hash = this.hashPW(pw,id ); //(비번,아이디)
+		Member m = new Member();
+		m.setId(id);
+		m.setPassword(hash);
+		
+		Member m1 = mMapper.loginMember(m);
+		System.out.println(m1.toString());
 	}
 
 	
@@ -77,7 +90,7 @@ class MemberMapperTest {
 		m.setAddress("주소 수정");
 		m.setPassword(hash);
 		
-		System.out.println(mMapper.member1UpdateOne(m));
+		System.out.println(mMapper.memberUpdateOne(m));
 	}
 	
 	// 고객 암호 변경

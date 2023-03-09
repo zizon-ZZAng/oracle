@@ -98,8 +98,8 @@ public class MyPageFrame extends JFrame {
 
 					Config.member = msv.loginMember(mem);
 
-					if (msv.member1UpdateOne(mem) == 1) {
-						msv.member1UpdateOne(mem);
+					if (msv.memberUpdateOne(mem) == 1) {
+						msv.memberUpdateOne(mem);
 						JOptionPane.showMessageDialog(null, "변경되었습니다.");
 						new WeatherFrame(); // 화면 종료
 						dispose();

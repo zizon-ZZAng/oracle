@@ -72,10 +72,9 @@ class RecommendMapperTest {
 	@Test
 	void selectRecommendSetno() {
 		
-		Recommend r = new Recommend();
-		r = rMapper.selectRecommendSetno("yoon",45);
+		int r = rMapper.selectRecommendSetno(45.f);
 		
-		System.out.println(r.toString());
+		System.out.println(r);
 
 	}
 

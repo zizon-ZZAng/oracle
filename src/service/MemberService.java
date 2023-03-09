@@ -17,7 +17,7 @@ public interface MemberService {
 	public Member loginMember(Member m);
 	
 	// 고객 회원정보수정
-	public int member1UpdateOne(@Param("obj") Member obj);
+	public int memberUpdateOne(@Param("obj") Member obj);
 	
 	//암호 변경
 	public int updateMemberPW(Member m);

@@ -26,8 +26,7 @@ class LocationTest {
 	
 	@Test
 	void locationSelect() {
-		l.setNo(48);
-		System.out.println(mapper.locationSelect(l));
+		System.out.println(mapper.locationSelect());
 	}
 	
 	@Test
