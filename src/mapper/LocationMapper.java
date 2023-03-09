@@ -17,8 +17,8 @@ public interface LocationMapper {
 	
 	// 지역 조회
 	@Select({
-		" SELECT l.* FROM location2 l "
+		" SELECT * FROM location2 "
 	})
-	public List<Location> selectLocation();
+	public Object[] selectLocation();
 
 }
