@@ -14,15 +14,15 @@ public interface RecommendMapper {
 	
 	// 추천목록 삭제
 	@Delete({
-		" DELETE FROM recommend1 WHERE reno = #{reno} "
+		" DELETE FROM recommend0 WHERE reno = #{reno} "
 	})
 	public int deleteRecommend(int reno);
 	
 	
 	//추천목록 삽입
 	@Insert({
-		" INSERT INTO recommend1(reno,id,code,setno) ", 
-	    " VALUES(SEQ_RECOMMEND_NO1.NEXTVAL,#{id},#{code},#{setno}) "
+		" INSERT INTO recommend0(reno,id,code,clno) ", 
+	    " VALUES(SEQ_RECOMMEND_NO1.NEXTVAL,#{id},#{code},#{clno}) "
 	    
 	})
 	public int insertRecommend(Recommend r);
@@ -30,29 +30,29 @@ public interface RecommendMapper {
 	
 	//id별 추천목록 보기
 	@Select({
-		" SELECT r.* FROM recommend1 r where id=#{id} "
+		" SELECT r.* FROM recommend0 r where id=#{id} "
 	})
 	public List<Recommend> selectRecommendId();
 	
 	
 	//특정 옷 추천목록 보기
 	@Select({
-		" SELECT r.* FROM recommend1 r where no=#{no} "
+		" SELECT r.* FROM recommend0 r where clno=#{clno} "
 	})
 	public List<Recommend> selectRecommendNo(int no);
 	
 	
 	//특정날씨 추천목록 보기
 	@Select({
-		" SELECT r.* FROM recommend1 r where code=#{code} "
+		" SELECT r.* FROM recommend0 r where code=#{code} "
 	})
 	public List<Recommend> selectRecommendCode(int code);
 	
 	
 	//아이디별 시간별 추천옷 보기
 	@Select({
-		" SELECT setno ",
-		" FROM recommend1 r ",
+		" SELECT clno ",
+		" FROM recommend0 r ",
 		" WHERE r.temperature=#{temperature} "
 	})
 	public int selectRecommendSetno(float temperature);
@@ -60,7 +60,7 @@ public interface RecommendMapper {
 	
 	@Update({
 		" <script> ",
-		" UPDATE recommend1 SET no=#{obj.no} ",
+		" UPDATE recommend0 SET clno=#{obj.clno} ",
 			" <if test='obj.id != id'> ",
 				" ,id=#{obj.id} ",
 			" </if> ",

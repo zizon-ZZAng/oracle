@@ -12,21 +12,20 @@ import org.apache.ibatis.annotations.Update;
 
 import dto.Clothes;
 import dto.ClothesCate;
-import dto.Member;
 
 @Mapper
 public interface ClothesMapper {
 	
 	@Insert({
-		" INSERT INTO clothes1(clno, clname, texture, thickness, type) ",
-	    " VALUES(#{clno}, #{clname}, #{texture}, #{thickness},#{type}) "	
+		" INSERT INTO clothes0(clno, clname, texture, thickness, name) ",
+	    " VALUES(#{clno}, #{clname}, #{texture}, #{thickness},#{name}) "	
 	})
 	public int insertClothes(Clothes c);
 	
 	
 	@Update({
 		" <script> ",
-		" UPDATE clothes1 SET clname=#{obj.clname} ",
+		" UPDATE clothes0 SET clname=#{obj.clname} ",
 			" <if test='obj.texture != null'> ",
 				", texture=#{obj.texture} ",
 			" </if> ",
@@ -42,23 +41,22 @@ public interface ClothesMapper {
 
 	
 	@Delete({
-		" DELETE FROM clothes1 ",
+		" DELET FROM clothes0 ",
 		" WHERE clno=#{obj.clno} "
 	})
 	public int deleteClothes(@Param("obj") Clothes obj);
 	
 	
 	@Select({
-		" SELECT * FROM clothes1 "
+		" SELECT * FROM clothes0 "
 	})
 	public List<Clothes> selectClothesList();
 	
 	
 	// 문자를 포함한 옷 출력
 	@Select({
-		" SELECT c.* FROM clothes1 c WHERE ${map.column} ",
+		" SELECT c.* FROM clothes0 c WHERE ${map.column} ",
 		" LIKE '%' || #{map.txt} || '%' "
 	})
 	public List<Clothes> clothesLikeList( @Param("map") Map<String, String> map);
 }
-

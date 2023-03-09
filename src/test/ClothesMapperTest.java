@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 
 import connection.MyBatisContext;
 import dto.Clothes;
-import dto.Member;
 import mapper.ClothesMapper;
 
 public class ClothesMapperTest {
@@ -23,7 +22,6 @@ public class ClothesMapperTest {
 		c.setClname("옷이름");
 		c.setTexture("옷텍스처");
 		c.setThickness("옷두께");
-		c.setType(0);
 
 		System.out.println(mapper.insertClothes(c));
 	}
@@ -35,7 +33,6 @@ public class ClothesMapperTest {
 		c.setClname("옷이름");
 		c.setTexture("옷텍스처");
 		c.setThickness("옷두께");
-		c.setType(0);
 
 		System.out.println(mapper.UpdateClothesOne(c));
 	}
@@ -43,11 +40,9 @@ public class ClothesMapperTest {
 	
 	@Test
 	void deleteClothes() {
-		
-		for(int i=3; i<=14; i++) {
-			c.setClno((long)(10000+i));
-			System.out.println(mapper.deleteClothes(c));
-		}
+		c.setClno(0);
+
+		System.out.println(mapper.deleteClothes(c));
 	}
 	
 	
@@ -77,3 +72,4 @@ public class ClothesMapperTest {
 	}
 	
 }
+

@@ -2,9 +2,6 @@ package service;
 
 import java.security.MessageDigest;
 
-import org.apache.ibatis.annotations.Param;
-
-import connection.MyBatisContext;
 import dto.Member;
 
 public class MemberServiceImpl implements MemberService{
@@ -31,7 +28,6 @@ public class MemberServiceImpl implements MemberService{
 		}
 		catch (Exception e) {
 			e.printStackTrace();
-			MyBatisContext.getSqlSession().close();
 			return null;
 		}
 	}
@@ -39,11 +35,15 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public int insertMember(Member m) {
 		try {
+//			if(m.getId()==)
+			String hash = this.hashPW(m.getPassword(), m.getId()); //(비번,아이디)
+			Member member = new Member();
+			member.setPassword(hash);
+			
 			return mMapper.insertMember(m);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
-			MyBatisContext.getSqlSession().close();
 			return 0;
 		}
 	}
@@ -51,23 +51,32 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public Member loginMember(Member m) {
 		try {
-			return mMapper.loginMember(m);
+			Member m1 = new Member();
+			String id = m.getId();
+			String password = m.getPassword();
+			String hash = this.hashPW(password, id); //(비번,아이디)
+			m1.setId(id);
+			m1.setPassword(password);
+			
+			return mMapper.loginMember(m1);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
-			MyBatisContext.getSqlSession().close();
 			return null;
 		}
 	}
 
 	@Override
+<<<<<<< HEAD
 	public int memberUpdateOne(@Param("obj") Member obj) {
+=======
+	public int memberUpdateOne(Member obj) {
+>>>>>>> 236144ea53d7932aabc578522091155555198be0
 		try {
 			return mMapper.memberUpdateOne(obj);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
-			MyBatisContext.getSqlSession().close();
 			return 0;
 		}
 	}
@@ -79,7 +88,6 @@ public class MemberServiceImpl implements MemberService{
 		}
 		catch(Exception e) {
 			e.printStackTrace();
-			MyBatisContext.getSqlSession().close();
 			return 0;
 		}
 	}
