@@ -106,7 +106,9 @@ public class LoginFrame extends JFrame {
 					}
 
 //				}
-				
+					
+				//Config.member.setId(id);
+				//Config.member.setPassword(hash);
 			}
 		});
 		loginButton.setBounds(61, 220, 97, 23);

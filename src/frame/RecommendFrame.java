@@ -13,6 +13,9 @@ public class RecommendFrame extends JFrame{
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new WeatherFrame();
+				
+				
+				
 				dispose();
 			}
 		});

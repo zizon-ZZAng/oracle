@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Param;
 
 import dto.Weather;
 
-public class WeatherServiceImpl implements WeatherService{
+public class WeatherServiceImpl implements WeatherService {
 
 	@Override
 	public int weatherInsert(Weather w) {
@@ -70,15 +70,23 @@ public class WeatherServiceImpl implements WeatherService{
 	}
 
 	@Override
-	public float weatherSelectWVTemp(Map<String, Object> map) 
-	{
+	public List<Weather> weatherSelectWeather() {
+		try {
+			return mapper.weatherSelectWeather();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	@Override
+	public List<Map<String, Object>> weatherSelectWVTemp(Map<String, Object> map) {
 		try {
 			return mapper.weatherSelectWVTemp(map);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return 0;
+			return null;
 		}
-	}
 
-	
+	}
 }
