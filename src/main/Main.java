@@ -18,6 +18,7 @@ public class Main {
 
 	public static void main(String[] args) {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 //		MenuMapper mMapper =  
 //				MyBatisContext.getSqlSession().getMapper(MenuMapper.class);
 //		
@@ -34,6 +35,17 @@ public class Main {
 //		catch (Exception e) {
 //			e.printStackTrace();
 //		}
+=======
+//		new SignUpFrame();
+//		new MyPageFrame();
+
+//		new WeatherFrame();
+
+		//new LoginFrame();
+		new WeatherFrame();
+
+//		new LoginFrame();
+>>>>>>> Stashed changes
 		
 		
 //		Menu menu = new Menu();

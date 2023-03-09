@@ -75,11 +75,55 @@ public class WeatherFrame extends JFrame {
 				
 				int ret = s.insertMember(m);
 
+<<<<<<< Updated upstream
 		        }
 			
 		});
 		comboBox_time.setModel(new DefaultComboBoxModel(new String[] {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "00"}));
 		comboBox_time.setBounds(330, 64, 50, 23);
+=======
+				Map<String, Object> map = new HashMap<>();
+				map.put("name", comboBox_loca.getSelectedItem().toString());
+				map.put("w_date", comboBox_date.getSelectedItem().toString());
+				map.put("w_hour", comboBox_time.getSelectedItem().toString());
+				
+				List<Map<String, Object>> list = mapper.weatherSelectWVTemp(map);
+				
+				System.out.println("1");
+				System.out.println(list.toString());
+				System.out.println("2");
+				//for(int i=0; i<= list.size(); i++) {
+				
+//					textField.setText(list.get(0).toString());
+			//	}
+				
+				ImageIcon[] icon = new ImageIcon[9];
+				
+				if(map.get("weather").equals("맑음")) {
+					
+				}
+					
+					
+//				ImageIcon icon = new ImageIcon(ImageFrame.class.getResource("sun.png"));
+//				
+//				Image img = icon.getImage();
+//				Image updateImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+//				ImageIcon updateIcon = new ImageIcon(updateImg);
+//				
+//				icon_label.setIcon(updateIcon);
+//				
+//				icon_label.setBounds(50,120,165,150);
+//				icon_label.setHorizontalAlignment(JLabel.CENTER);
+				
+				
+		}
+	});
+
+		comboBox_time.setModel(new DefaultComboBoxModel(new String[]
+			{"01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","00"}));
+		comboBox_time.setBounds(330,64,50,23);
+
+>>>>>>> Stashed changes
 		getContentPane().add(comboBox_time);
 		
 
