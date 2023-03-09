@@ -82,7 +82,7 @@ public class SignUpFrame extends JFrame {
 
 				Config.obj = mService.selectMemberIdChk(id);
 
-				if (Config.obj.getCnt() > 0) {
+				if (Config.obj.getCnt() == 1) {
 
 					JOptionPane.showMessageDialog(null, "존재하는 아이디입니다");
 
@@ -142,12 +142,16 @@ public class SignUpFrame extends JFrame {
 				member.setAddress(comboBox.getSelectedItem().toString());
 				member.setGender(comboBox_1.getSelectedItem().toString());
 
+				
+				Config.obj = mService.selectMemberIdChk(id);
+				
 				if (id.length() == 0 || pw.length() == 0) {
 					JOptionPane.showMessageDialog(null, "아이디와 비밀번호를 입력해주세요");
 				}
-//				else if{
-//					dsfklasdf;
-//				}
+				else if (Config.obj.getCnt() == 1) {
+
+					JOptionPane.showMessageDialog(null, "존재하는 아이디입니다");
+				}
 				else {
 					// 회원가입 성공 -> 로그인창으로
 					mService.signUpMember(member);
