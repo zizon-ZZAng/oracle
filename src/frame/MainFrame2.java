@@ -18,6 +18,8 @@ import common.Config;
 import dto.Weather;
 import service.WeatherService;
 import service.WeatherServiceImpl;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class MainFrame2 extends JFrame {
 	WeatherService wService = new WeatherServiceImpl();
@@ -97,7 +99,15 @@ public class MainFrame2 extends JFrame {
 
 		
 		//날짜
-		textField_1 = new JTextField();
+		textField_1 = new JTextField("yyyy-mm-dd");
+		textField_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				textField_1.setText("");
+			}
+		});
+		
+		
 		textField_1.setColumns(10);
 		textField_1.setBounds(91, 82, 116, 21);
 		getContentPane().add(textField_1);
@@ -115,6 +125,9 @@ public class MainFrame2 extends JFrame {
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (textField_1.getText().length() == 0) {
+					JOptionPane.showMessageDialog(null, "날짜를 기입해주세요");
+				}
+				else if(textField_1.getText().equals("yyyy-mm-dd")) {
 					JOptionPane.showMessageDialog(null, "날짜를 기입해주세요");
 				}
 				else {
@@ -142,7 +155,11 @@ public class MainFrame2 extends JFrame {
 				
 				if(date.length() == 0) {
 					JOptionPane.showMessageDialog(null, "날짜를 기입해주세요");
-				} else {
+				}
+				else if(textField_1.getText().equals("yyyy-mm-dd")) {
+					JOptionPane.showMessageDialog(null, "날짜를 기입해주세요");
+				}
+				else {
 					
 					new RecommendFrame();
 					
