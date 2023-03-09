@@ -25,7 +25,6 @@ public class ClothesTest {
 		c.setClname("옷이름");
 		c.setTexture("옷텍스처");
 		c.setThickness("옷두께");
-		c.setType(0);
 
 		System.out.println(mapper.insertClothes(c));
 	}
@@ -37,7 +36,6 @@ public class ClothesTest {
 		c.setClname("옷이름");
 		c.setTexture("옷텍스처");
 		c.setThickness("옷두께");
-		c.setType(0);
 
 		System.out.println(mapper.UpdateClothesOne(c));
 	}

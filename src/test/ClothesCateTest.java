@@ -21,7 +21,6 @@ public class ClothesCateTest {
 	@Test
 	void insertClothesCate() {
 	
-		c.setType(0);
 		c.setName("옷분류 이름");
 	
 		System.out.println(mapper.insertClothesCate(c));
@@ -39,7 +38,6 @@ public class ClothesCateTest {
 	
 	@Test
 	void deleteClothesCate() {
-		c.setType(0);
 
 		System.out.println(mapper.deleteClothesCate(c));
 	}
