@@ -84,6 +84,7 @@ class WeatherTest {
 	}
 
 	// 일단 24행 일괄추가
+	// 수정필요
 	@Test
 	void weatherInsert30() {
 		for (int i = 1; i <= 24; i++) {
@@ -98,9 +99,9 @@ class WeatherTest {
 	// 시간 업데이트
 	@Test
 	void weatherUpdateHour() {
-		for (int i = 1; i <= 24; i++) {
+		for (int i = 0; i <= 24; i++) {
 			Weather w = new Weather();
-			w.setCode(34 + i);
+			w.setCode(154 + i);
 
 			if (i < 10) {
 				w.setRegdate2("2023-03-06-0" + i);
@@ -113,17 +114,17 @@ class WeatherTest {
 
 	@Test
 	void weatherUpdateTemp() {
-		for (int i = 1; i <= 24; i++) {
+		for (int i = 0; i <= 24; i++) {
 			Weather w = new Weather();
-			w.setCode(34+i);
+			w.setCode(154+i);
 			if (i < 7) {
-				w.setTemperature(9.7f);
+				w.setTemperature(11f);
 			} else if (i >= 7 && i <= 12) {
-				w.setTemperature(18f);
+				w.setTemperature(20f);
 			} else if (i >= 11 && i <= 18) {
 				w.setTemperature(22.9f);
 			} else if (i >= 19 && i <= 24) {
-				w.setTemperature(15f);
+				w.setTemperature(15.7f);
 			}
 			System.out.println(mapper.weatherUpdateTemp(w));
 		}
