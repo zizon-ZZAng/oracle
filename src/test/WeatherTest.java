@@ -119,13 +119,13 @@ class WeatherTest {
 			Weather w = new Weather();
 			w.setCode(202 +i);
 			if (i < 7) {
-				w.setTemperature(11f);
+				w.setTemperature(10f);
 			} else if (i >= 7 && i <= 12) {
-				w.setTemperature(20f);
+				w.setTemperature(30f);
 			} else if (i >= 11 && i <= 18) {
 				w.setTemperature(22.9f);
 			} else if (i >= 19 && i <= 24) {
-				w.setTemperature(15.7f);
+				w.setTemperature(19f);
 			}
 			System.out.println(mapper.weatherUpdateTemp(w));
 		}
