@@ -22,6 +22,8 @@ public class RecommendFrame extends JFrame {
 	public RecommendFrame() {
 		setTitle("옷 추천");
 		
+		
+		
 		ImageIcon image = new ImageIcon("image/1006.png");
 		JLabel lblNewLabel = new JLabel(image);
 
