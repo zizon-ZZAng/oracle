@@ -1,10 +1,10 @@
 package frame;
 
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.swing.DefaultComboBoxModel;
@@ -13,17 +13,14 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import service.WeatherService;
 import service.WeatherServiceImpl;
 import session.Config;
 
-import java.awt.Font;
-
 public class WeatherFrame extends JFrame {
-	WeatherService mapper = new WeatherServiceImpl();
+	WeatherService w = new WeatherServiceImpl();
 	private JTextField textField;
 	private JTextField textField_add;
 
@@ -51,7 +48,7 @@ public class WeatherFrame extends JFrame {
 		getContentPane().add(lblNewLabel_date);
 
 		JComboBox comboBox_date = new JComboBox();
-		comboBox_date.setModel(new DefaultComboBoxModel(new String[] { "2023-03-06", "2023-03-07", "2023-03-08" }));
+		comboBox_date.setModel(new DefaultComboBoxModel(w.weatherSelectDATE()));
 		comboBox_date.setBounds(190, 64, 100, 23);
 		getContentPane().add(comboBox_date);
 
@@ -88,7 +85,7 @@ public class WeatherFrame extends JFrame {
 				map.put("w_hour", comboBox_time.getSelectedItem().toString());
 
 				//List<Map<String, Object>> list = mapper.weatherSelectWVTemp(map);
-				Map<String, Object> list = mapper.weatherSelectWVTemp(map);
+				Map<String, Object> list = w.weatherSelectWVTemp(map);
 				
 				//textField.setText(list.get(i).get("TEMPERATURE").toString());
 				

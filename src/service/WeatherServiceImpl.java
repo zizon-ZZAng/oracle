@@ -65,16 +65,7 @@ public class WeatherServiceImpl implements WeatherService {
 		}
 	}
 
-	@Override
-	public List<Weather> weatherSelectDATE(Weather w) {
-		try {
-			return mapper.weatherSelectDATE(w);
-		} catch (Exception e) {
-			e.printStackTrace();
-			MyBatisContext.getSqlSession().close();
-			return null;
-		}
-	}
+
 
 	@Override
 	public List<Weather> weatherSelectWeather() {
@@ -110,18 +101,21 @@ public class WeatherServiceImpl implements WeatherService {
 
 	}
 
-	
 	@Override
-	public Weather select_tem_clothesset_final_view(Weather w) {
-		try {
-			return mapper.select_tem_clothesset_final_view(w);
-		} catch (Exception e) {
-			e.printStackTrace();
-			MyBatisContext.getSqlSession().close();
-			return null;
+	public Object[] weatherSelectDATE() {
+			try {
+				return mapper.weatherSelectDATE();
+			} catch (Exception e) {
+				e.printStackTrace();
+				MyBatisContext.getSqlSession().close();
+				return null;
+			}
 		}
 	}
+
+	
+
+
 	
 	
 	
-}
