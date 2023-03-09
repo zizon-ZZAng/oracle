@@ -30,7 +30,6 @@ public class WeatherFrame extends JFrame {
 		JButton myPageButton = new JButton("마이페이지");
 		myPageButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				new MyPageFrame();
 				dispose();
 			}
@@ -68,13 +67,16 @@ public class WeatherFrame extends JFrame {
 		textField.setBounds(250, 164, 73, 68);
 		getContentPane().add(textField);
 		textField.setColumns(10);
+			
+		
+		JLabel icon_label = new JLabel("");
+		icon_label.setBounds(47, 145, 122, 112);
+		getContentPane().add(icon_label);
 		
 
 		JComboBox comboBox_time = new JComboBox();
 		comboBox_time.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
-
 
 				Map<String, Object> map = new HashMap<>();
 				map.put("name", comboBox_loca.getSelectedItem().toString());
@@ -83,13 +85,24 @@ public class WeatherFrame extends JFrame {
 				
 				textField.setText(Float.toString(mapper.weatherSelectWVTemp(map)));
 				
-				ImageIcon icon = new ImageIcon();
-
 				
-	
-
-		
-
+				ImageIcon[] icon = new ImageIcon[9];
+				
+				if()
+					
+					
+//				ImageIcon icon = new ImageIcon(ImageFrame.class.getResource("sun.png"));
+//				
+//				Image img = icon.getImage();
+//				Image updateImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+//				ImageIcon updateIcon = new ImageIcon(updateImg);
+//				
+//				icon_label.setIcon(updateIcon);
+//				
+//				icon_label.setBounds(50,120,165,150);
+//				icon_label.setHorizontalAlignment(JLabel.CENTER);
+				
+				
 		}
 	});
 
@@ -99,6 +112,7 @@ public class WeatherFrame extends JFrame {
 
 		getContentPane().add(comboBox_time);
 
+		
 		JButton recButton = new JButton("옷 추천");
 
 		recButton.addActionListener(new ActionListener() {
@@ -121,8 +135,6 @@ public class WeatherFrame extends JFrame {
 		getContentPane().add(lblNewLabel);
 		
 
-
-
 //		JPanel panel_Pic = new JPanel();
 //		panel_Pic.setBounds(32, 118, 150, 150);
 //		getContentPane().add(panel_Pic);
@@ -130,13 +142,7 @@ public class WeatherFrame extends JFrame {
 //				WeatherFrame.class.getResource("C:/Users/Administrator/Desktop/weather_icon.png"));
 
 
-		
-
-
 		this.setSize(434, 400); // 사이즈 정하기
-
-
-
 		this.setVisible(true);
 	}
 }

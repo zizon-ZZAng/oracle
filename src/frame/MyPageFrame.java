@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 import dto.Member;
 import service.MemberService;
 import service.MemberServiceImpl;
+import session.Config;
 
 public class MyPageFrame extends JFrame {
 	
@@ -23,9 +24,6 @@ public class MyPageFrame extends JFrame {
 	private JTextField textField_name;
 	private JTextField textField_add;
 	public MyPageFrame() {
-		
-		
-		
 		
 		
 		this.setSize(400, 400);	// 사이즈 정하기
@@ -70,12 +68,10 @@ public class MyPageFrame extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				
-				
 				Member mem = new Member();
 				
-//				config session 만들기(id, password)
-//				mem.setId(textField_id.getText());
+				mem.setId(Config.member.getId());
+				mem.setPassword(Config.member.getPassword());
 				mem.setName(textField_name.getText());
 				mem.setAddress(textField_add.getText());
 
