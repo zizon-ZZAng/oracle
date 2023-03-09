@@ -79,6 +79,14 @@ public class WeatherServiceImpl implements WeatherService {
 		}
 	}
 
+	@Override
+	public List<Map<String, Object>> weatherSelectWVTemp(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+
 //	@Override
 //	public List<Map<String, Object>> weatherSelectWVTemp(Map<String, Object> map) {
 //		try {
@@ -91,14 +99,5 @@ public class WeatherServiceImpl implements WeatherService {
 //	}
 	
 	
-	@Override
-	public List<Map<String, Object>> weatherSelectWVTemp(Map<String, Object> map) {
-		try {
-			return mapper.weatherSelectWVTemp(map);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
-
-	}
+	
 }
