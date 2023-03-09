@@ -102,9 +102,6 @@ public class MainFrame2 extends JFrame {
 		textField_1.setBounds(91, 82, 116, 21);
 		getContentPane().add(textField_1);
 		
-		
-		
-		
 		//기온
 		textField_2 = new JTextField();
 		textField_2.setEditable(false);
@@ -117,14 +114,18 @@ public class MainFrame2 extends JFrame {
 		//시간 설정하면 그 날 그 시간대의 기온이 뜸
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Config.wdate = textField_1.getText() + " " + comboBox.getSelectedItem().toString().substring(0, 2);
-				
-				Weather weather = new Weather();
-				weather.setLocname(Config.obj.getAddress());
-//				weather.setWdate(textField_1.getText() + " " + comboBox.getSelectedItem().toString().substring(0, 2)); 
-				weather.setWdate(Config.wdate);
-				
-				textField_2.setText(Integer.toString(wService.selectWeatherTemp(weather)));
+				if (textField_1.getText().length() == 0) {
+					JOptionPane.showMessageDialog(null, "날짜를 기입해주세요");
+				}
+				else {
+					Config.wdate = textField_1.getText() + " " + comboBox.getSelectedItem().toString().substring(0, 2);
+					
+					Weather weather = new Weather();
+					weather.setLocname(Config.obj.getAddress());
+					weather.setWdate(Config.wdate);
+					
+					textField_2.setText(Integer.toString(wService.selectWeatherTemp(weather)));
+				}
 			}
 		});
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"00시", "01시", "02시", "03시", "04시", "05시", "06시", "07시", "08시", "09시", "10시", "11시", "12시", "13시", "14시", "15시", "16시", "17시", "18시", "19시", "20시", "21시", "22시", "23시"}));
