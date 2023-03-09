@@ -67,7 +67,6 @@ public class SignUpFrame extends JFrame {
 		textField_1.setColumns(10);
 
 		JComboBox comboBox = new JComboBox();
-//		comboBox.setModel(new DefaultComboBoxModel(new String[] { "부산", "서울", "대구", "광주", "대전", "울산" }));
 		comboBox.setModel(new DefaultComboBoxModel(lService.selectLocation()));
 		comboBox.setBounds(161, 139, 116, 23);
 		getContentPane().add(comboBox);
