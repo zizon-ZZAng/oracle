@@ -79,7 +79,7 @@ public class RecommendFrame extends JFrame {
 		ImageIcon images = new ImageIcon(imagecodes);
 
 		Image imagesho = images.getImage();
-		Image updateImgs = imagesho.getScaledInstance(300, 300, Image.SCALE_SMOOTH);
+		Image updateImgs = imagesho.getScaledInstance(150, 150, Image.SCALE_SMOOTH);
 
 		ImageIcon updatesho = new ImageIcon(updateImgs);
 		JLabel lblNewLabel_3_1 = new JLabel(updatesho);
@@ -89,7 +89,7 @@ public class RecommendFrame extends JFrame {
 		
 		// --------------------------------------------
 		
-		this.setSize(1118, 814);
+		this.setSize(1170, 814);
 		this.setLocationRelativeTo(null);
 
 		this.setVisible(true);
