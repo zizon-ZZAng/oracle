@@ -2,6 +2,7 @@ package service;
 
 import java.util.List;
 
+import connection.MyBatisContext;
 import dto.Recommend;
 
 public class RecommendServiceImpl implements RecommendService {
@@ -14,6 +15,7 @@ public class RecommendServiceImpl implements RecommendService {
 		}
 		catch(Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return 0;
 		}
 	}
@@ -25,6 +27,7 @@ public class RecommendServiceImpl implements RecommendService {
 		}
 		catch(Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return null;
 		}
 	}
@@ -36,6 +39,7 @@ public class RecommendServiceImpl implements RecommendService {
 		}
 		catch(Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return null;
 		}
 	}
@@ -47,18 +51,20 @@ public class RecommendServiceImpl implements RecommendService {
 		}
 		catch(Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return null;
 		}
 	}
 
 	@Override
-	public Recommend selectRecommendSetno(String id_num, int code_num) {
+	public int selectRecommendSetno(float temperature) {
 		try {
-			return rMapper.selectRecommendSetno(id_num, code_num);
+			return rMapper.selectRecommendSetno(temperature);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
-			return null;
+			MyBatisContext.getSqlSession().close();
+			return 0;
 		}
 	}
 

@@ -197,17 +197,6 @@ public class WeatherFrame extends JFrame {
 
 				}
 
-//				ImageIcon icon = new ImageIcon(ImageFrame.class.getResource("sun.png"));
-//				
-//				Image img = icon.getImage();
-//				Image updateImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-//				ImageIcon updateIcon = new ImageIcon(updateImg);
-//				
-//				icon_label.setIcon(updateIcon);
-//				
-//				icon_label.setBounds(50,120,165,150);
-//				icon_label.setHorizontalAlignment(JLabel.CENTER);
-
 			}
 		});
 

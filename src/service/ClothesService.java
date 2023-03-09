@@ -19,16 +19,16 @@ public interface ClothesService {
 	public int insertClothes(Clothes c);
 	
 	// 옷 수정
-	public int UpdateClothesOne(@Param("obj") Clothes obj);
+	public int UpdateClothesOne(Clothes obj);
 	
 	// 옷 삭제
-	public int deleteClothes(@Param("obj") Clothes obj);
+	public int deleteClothes(Clothes obj);
 	
 	// 옷 조회
 	public List<Clothes> selectClothesList();
 	
 	// 문자를 포함한 옷 검색
-	public List<Clothes> clothesLikeList( @Param("map") Map<String, String> map);
+	public List<Clothes> clothesLikeList(Map<String, String> map);
 	
 	
 }

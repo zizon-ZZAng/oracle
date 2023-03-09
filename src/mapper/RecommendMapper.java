@@ -51,11 +51,11 @@ public interface RecommendMapper {
 	
 	//아이디별 시간별 추천옷 보기
 	@Select({
-		" SELECT r.* ",
+		" SELECT setno ",
 		" FROM recommend1 r ",
-		" WHERE r.id=#{id} AND r.code=#{code} "
+		" WHERE r.temperature=#{temperature} "
 	})
-	public Recommend selectRecommendSetno(@Param("id")String id_num, @Param("code")int code_num);
+	public int selectRecommendSetno(float temperature);
 	
 	
 	@Update({
@@ -73,6 +73,5 @@ public interface RecommendMapper {
 		
 	})
 	public int Recommend1UpdateOne(@Param("obj") Recommend obj);
-	
 	
 }
