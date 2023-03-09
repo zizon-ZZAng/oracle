@@ -46,11 +46,11 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public Member loginMember(String id, String password) {
+	public Member loginMember(Member m) {
 		try {
 			
 
-			return mMapper.loginMember(id, password);
+			return mMapper.loginMember(m);
 		}
 		catch(Exception e) {
 			e.printStackTrace();

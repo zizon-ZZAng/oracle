@@ -88,9 +88,12 @@ public class LoginFrame extends JFrame {
 					mem.setId(id);
 					mem.setPassword(hash);
 					
-					mem = s.loginMember(id, hash);
 					
-					if (mem != null) {
+					
+					
+					Config.member = s.loginMember(mem);
+				
+					if (Config.member != null) {
 						JOptionPane.showMessageDialog(null, "로그인 되었습니다.");
 						new WeatherFrame(); // 화면 종료
 						dispose();
