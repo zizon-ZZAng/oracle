@@ -111,6 +111,18 @@ public class WeatherServiceImpl implements WeatherService {
 		}
 
 	}
+
+	
+	@Override
+	public Weather select_tem_clothesset_final_view(Weather w) {
+		try {
+			return mapper.select_tem_clothesset_final_view(w);
+		} catch (Exception e) {
+			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
+			return null;
+		}
+	}
 	
 	
 	

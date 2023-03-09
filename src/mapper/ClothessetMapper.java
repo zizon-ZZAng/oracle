@@ -10,5 +10,5 @@ import dto.Clothesset;
 public interface ClothessetMapper {
 
 	@Select({ " SELECT * FROM clothesset " })
-	public List<Clothesset> clothessetSelect();
+	public List<Clothesset> selectClothesset();
 }

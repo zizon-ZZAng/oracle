@@ -24,6 +24,6 @@ public interface RecommendService {
 	//특정 날씨 추천목록 보기
 	public List<Recommend> selectRecommendCode(int code);
 	
-	//아이디별 시간별 추천옷 보기
-	public Recommend selectRecommendSetno(String id_num, int code_num);
+	//온도별 추천옷 보기
+	public int selectRecommendSetno(float temperature);
 }

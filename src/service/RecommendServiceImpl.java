@@ -57,14 +57,14 @@ public class RecommendServiceImpl implements RecommendService {
 	}
 
 	@Override
-	public Recommend selectRecommendSetno(String id_num, int code_num) {
+	public int selectRecommendSetno(float temperature) {
 		try {
-			return rMapper.selectRecommendSetno(id_num, code_num);
+			return rMapper.selectRecommendSetno(temperature);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
 			MyBatisContext.getSqlSession().close();
-			return null;
+			return 0;
 		}
 	}
 

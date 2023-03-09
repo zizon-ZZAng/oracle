@@ -36,7 +36,6 @@ public interface WeatherMapper {
 	public List<Weather> weatherSelect();
 
 	
-	
 	// 시간가져오기
 	// no는 넣거나 빼거나 필요에 따라
 	@Select({ " SELECT no, TO_CHAR(regdate, 'HH24') regdate2 FROM WEATHER1 WHERE no = #{no} " })
@@ -79,5 +78,13 @@ public interface WeatherMapper {
 	
 	@Delete({ " DELETE FROM WEATHER1 WHERE code = #{code} " })
 	public int weatherDelete(Weather w);
+	
+	
+	@Select({ 
+		" SELECT temperature ",
+		" from tem_clothesset_final_view ",
+		" WHERE temperature =#{temperature} " })
+	public Weather select_tem_clothesset_final_view(Weather w);
+	
 
 }

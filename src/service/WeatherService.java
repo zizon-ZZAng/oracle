@@ -38,7 +38,9 @@ public interface WeatherService {
 	// 날씨 가져오기
 	public List<Weather> weatherSelectWeather();
 
-
+	
+	// 뷰에서 웨더 가져오기
+	public Weather select_tem_clothesset_final_view(Weather w);
 
 
 	
