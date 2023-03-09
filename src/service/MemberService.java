@@ -14,7 +14,7 @@ public interface MemberService {
 	public int insertMember(Member m);
 	
 	//로그인
-	public Member loginMember(@Param("id") String id, @Param("password") String password);
+	public Member loginMember(Member m);
 	
 	// 고객 회원정보수정
 	public int member1UpdateOne(@Param("obj") Member obj);
