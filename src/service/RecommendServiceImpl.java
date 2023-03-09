@@ -3,6 +3,8 @@ package service;
 import java.util.List;
 import java.util.Map;
 
+import connection.MyBatisContext;
+
 public class RecommendServiceImpl implements RecommendService {
 	// 옷추천
 	@Override
@@ -12,6 +14,7 @@ public class RecommendServiceImpl implements RecommendService {
 		}
 		catch (Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return null;
 		}
 	}
@@ -24,6 +27,7 @@ public class RecommendServiceImpl implements RecommendService {
 		}
 		catch (Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return null;
 		}
 	}
@@ -36,6 +40,7 @@ public class RecommendServiceImpl implements RecommendService {
 		}
 		catch (Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return null;
 		}
 	}
@@ -48,6 +53,7 @@ public class RecommendServiceImpl implements RecommendService {
 		}
 		catch (Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return null;
 		}
 	}

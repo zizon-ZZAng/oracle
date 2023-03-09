@@ -19,5 +19,6 @@ public class Recommend {
 	private int rain;
 	private String locname;
 	
+	private int rank;
 
 }

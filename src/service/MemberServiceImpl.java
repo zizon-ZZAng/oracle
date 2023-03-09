@@ -11,6 +11,7 @@ public class MemberServiceImpl implements MemberService {
 			return mapper.signUpMember(member);
 		} catch (Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return -1;
 		}
 	}
@@ -37,6 +38,7 @@ public class MemberServiceImpl implements MemberService {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return -1;
 		}
 	}
@@ -63,6 +65,7 @@ public class MemberServiceImpl implements MemberService {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return -1;
 		}
 	}
@@ -89,6 +92,7 @@ public class MemberServiceImpl implements MemberService {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return null;
 		}
 		
