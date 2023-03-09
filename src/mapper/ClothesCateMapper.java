@@ -16,7 +16,7 @@ import dto.ClothesCate;
 public interface ClothesCateMapper {
 
 	@Insert({
-		" INSERT INTO clothescate1(type, name) ",
+		" INSERT INTO clothescate0(type, name) ",
 	    " VALUES(#{type}, #{name}) "	
 	})
 	public int insertClothesCate(ClothesCate c);
