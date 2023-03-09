@@ -13,6 +13,8 @@ import javax.swing.JTextField;
 import dto.Member;
 import service.MemberService;
 import service.MemberServiceImpl;
+import session.Config;
+
 import javax.swing.JPasswordField;
 
 public class LoginFrame extends JFrame {
@@ -101,7 +103,9 @@ public class LoginFrame extends JFrame {
 					}
 
 //				}
-				
+					
+				//Config.member.setId(id);
+				//Config.member.setPassword(hash);
 			}
 		});
 		loginButton.setBounds(61, 220, 97, 23);
