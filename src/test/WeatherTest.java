@@ -21,7 +21,7 @@ class WeatherTest {
 		Weather w = new Weather();
 		w.setWeather("흐림");
 		w.setTemperature(25.3f);
-		w.setNo(33);
+		w.setName("서울");
 		System.out.println(mapper.weatherInsert(w));
 	}
 
@@ -30,7 +30,7 @@ class WeatherTest {
 		Weather w = new Weather();
 		w.setWeather("맑음");
 		w.setTemperature(25.3f);
-		w.setNo(33);
+		w.setName("서울");
 		w.setCode(22);
 		System.out.println(mapper.weatherUpdate(w));
 	}
@@ -38,7 +38,7 @@ class WeatherTest {
 	@Test
 	void weatherSelectHOUR() {
 		Weather w = new Weather();
-		w.setNo(30);
+		w.setName("서울");
 			List<Weather> list =mapper.weatherSelectHOUR(w);
 			for(Weather obj : list) {
 			System.out.println(obj);}
@@ -48,7 +48,7 @@ class WeatherTest {
 	void weatherSelectDATE() {
 	
 		Weather w = new Weather();
-		w.setNo(30);
+		w.setName("서울");
 			List<Weather> list = mapper.weatherSelectDATE(w);
 			for(Weather obj : list) {
 			System.out.println(obj);}
@@ -91,7 +91,7 @@ class WeatherTest {
 			Weather w = new Weather();
 			w.setWeather("맑음");
 			w.setTemperature(20.5f);
-			w.setNo(31);
+			w.setName("서울");
 			System.out.println(mapper.weatherInsert(w));
 		}
 	}

@@ -12,22 +12,22 @@ import dto.Location;
 public interface LocationMapper {
 
 	@Insert({
-		"INSERT INTO location1 (no, name) VALUES (seq_location1_no.NEXTVAL, #{name})"
+		"INSERT INTO location0 (name) VALUES (#{name})"
 	})
 	public int locationInsert (Location l);
 	
 	@Update({
-		"UPDATE location1 SET name = #{name} WHERE no = #{no}"
+		"UPDATE location0 SET name = #{name} WHERE name = #{name}"
 	})
 	public int locationUpdate (Location l);
 	
 	@Select({
-		"SELECT * FROM location1 "
+		"SELECT * FROM location0 "
 	})
 	public Location locationSelect ();
 	
 	@Delete({
-		"DELETE FROM location1 WHERE no = #{no}"
+		"DELETE FROM location0 WHERE name = #{name}"
 	})
 	public int locationDelete (Location l);
 	

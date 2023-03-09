@@ -63,7 +63,7 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public int member1UpdateOne(@Param("obj") Member obj) {
 		try {
-			return mMapper.member1UpdateOne(obj);
+			return mMapper.memberUpdateOne(obj);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
