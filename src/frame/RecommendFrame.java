@@ -82,18 +82,17 @@ public class RecommendFrame extends JFrame {
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(20)
-							.addComponent(lblNewLabel_1_1, GroupLayout.PREFERRED_SIZE, 250, GroupLayout.PREFERRED_SIZE)
-							.addGap(74)
-							.addComponent(lblNewLabel_2_1, GroupLayout.PREFERRED_SIZE, 259, GroupLayout.PREFERRED_SIZE)
-							.addGap(64)
-							.addComponent(lblNewLabel_3_1, GroupLayout.PREFERRED_SIZE, 250, GroupLayout.PREFERRED_SIZE))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 57, GroupLayout.PREFERRED_SIZE)
-							.addGap(322)
-							.addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 57, GroupLayout.PREFERRED_SIZE)
-							.addGap(240)
-							.addComponent(lblNewLabel_3, GroupLayout.PREFERRED_SIZE, 57, GroupLayout.PREFERRED_SIZE)))
-					.addGap(131))
+							.addComponent(lblNewLabel_1_1, GroupLayout.PREFERRED_SIZE, 250, GroupLayout.PREFERRED_SIZE))
+						.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 57, GroupLayout.PREFERRED_SIZE))
+					.addGap(75)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 57, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblNewLabel_2_1, GroupLayout.PREFERRED_SIZE, 259, GroupLayout.PREFERRED_SIZE))
+					.addGap(62)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblNewLabel_3, GroupLayout.PREFERRED_SIZE, 57, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblNewLabel_3_1, GroupLayout.PREFERRED_SIZE, 250, GroupLayout.PREFERRED_SIZE))
+					.addGap(132))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -101,23 +100,20 @@ public class RecommendFrame extends JFrame {
 					.addGap(26)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblNewLabel_1)
-						.addComponent(lblNewLabel_2)
-						.addComponent(lblNewLabel_3))
+						.addComponent(lblNewLabel_3)
+						.addComponent(lblNewLabel_2))
+					.addGap(53)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(53)
-							.addComponent(lblNewLabel_1_1, GroupLayout.PREFERRED_SIZE, 274, GroupLayout.PREFERRED_SIZE))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(69)
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblNewLabel_3_1, GroupLayout.PREFERRED_SIZE, 274, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblNewLabel_2_1, GroupLayout.PREFERRED_SIZE, 274, GroupLayout.PREFERRED_SIZE)))))
+						.addComponent(lblNewLabel_2_1, GroupLayout.PREFERRED_SIZE, 274, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblNewLabel_1_1, GroupLayout.PREFERRED_SIZE, 274, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblNewLabel_3_1, GroupLayout.PREFERRED_SIZE, 274, GroupLayout.PREFERRED_SIZE))
+					.addGap(16))
 		);
 		getContentPane().setLayout(groupLayout);
 
 		// --------------------------------------------
 
-		this.setSize(1076, 814);
+		this.setSize(969, 637);
 		this.setLocationRelativeTo(null);
 
 		this.setVisible(true);
