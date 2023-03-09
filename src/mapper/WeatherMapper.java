@@ -60,20 +60,20 @@ public interface WeatherMapper {
 	@Select({ " SELECT wv.* FROM WEATHER1_LOCATION1_VIEW wv " })
 	public List<Map<String, Object>> weatherSelectWV();
 	
-	// 뷰로(지역이름,날짜,시간으로) 기온 가져오기
-	@Select({ 
-			" SELECT temperature, weather",
-			" from WEATHER1_LOCATION1_VIEW ",
-			" WHERE name = #{name} and w_date = #{w_date} and w_hour = #{w_hour} " })
-	public List<Map<String, Object>> weatherSelectWVTemp(Map<String, Object> map);
-	
-	
-//// 뷰로(지역이름,날짜,시간으로) 기온 가져오기
+//	// 뷰로(지역이름,날짜,시간으로) 기온 가져오기
 //	@Select({ 
 //			" SELECT temperature, weather",
 //			" from WEATHER1_LOCATION1_VIEW ",
 //			" WHERE name = #{name} and w_date = #{w_date} and w_hour = #{w_hour} " })
-//	public Map<String, Object> weatherSelectWVTemp(Map<String, Object> map);
+//	public List<Map<String, Object>> weatherSelectWVTemp(Map<String, Object> map);
+	
+	
+// 뷰로(지역이름,날짜,시간으로) 기온 가져오기
+	@Select({ 
+			" SELECT temperature, weather",
+			" from WEATHER1_LOCATION1_VIEW ",
+			" WHERE name = #{name} and w_date = #{w_date} and w_hour = #{w_hour} " })
+	public Map<String, Object> weatherSelectWVTemp(Map<String, Object> map);
 	
 	
 	@Delete({ " DELETE FROM WEATHER1 WHERE code = #{code} " })

@@ -88,9 +88,6 @@ public class LoginFrame extends JFrame {
 					mem.setId(id);
 					mem.setPassword(hash);
 					
-					
-					
-					
 					Config.member = s.loginMember(mem);
 				
 					if (Config.member != null) {

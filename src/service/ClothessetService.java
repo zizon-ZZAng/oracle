@@ -11,7 +11,9 @@ public interface ClothessetService{
 	final ClothessetMapper mapper 
 	= MyBatisContext.getSqlSession().getMapper(ClothessetMapper.class);
 	
-	// 옷 세트 출력
-	public List<Clothesset> selectClothesset(int num);
+	// 번호를 받으면 옷 세트 출력
+	public List<Clothesset> selectClothessetOne(int num);
 	
+	// 옷 세트 출력
+	public List<Clothesset> selectClothesset();
 }

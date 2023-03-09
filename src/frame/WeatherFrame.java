@@ -18,6 +18,8 @@ import javax.swing.JTextField;
 
 import service.WeatherService;
 import service.WeatherServiceImpl;
+import session.Config;
+
 import java.awt.Font;
 
 public class WeatherFrame extends JFrame {
@@ -83,11 +85,15 @@ public class WeatherFrame extends JFrame {
 				map.put("w_date", comboBox_date.getSelectedItem().toString());
 				map.put("w_hour", comboBox_time.getSelectedItem().toString());
 
-				List<Map<String, Object>> list = mapper.weatherSelectWVTemp(map);
-
-				for (int i = 0; i < list.size(); i++) {
-					textField.setText(list.get(i).get("TEMPERATURE").toString());
-				}
+				//List<Map<String, Object>> list = mapper.weatherSelectWVTemp(map);
+				Map<String, Object> list = mapper.weatherSelectWVTemp(map);
+				
+				//textField.setText(list.get(i).get("TEMPERATURE").toString());
+				
+				textField.setText(list.get(i).get("TEMPERATURE").toString());
+					
+				//Config.weather.setTemperature(Float.parseFloat(list.get(i).get("TEMPERATURE").toString()));
+				
 
 				ImageIcon[] icon = new ImageIcon[9];
 
