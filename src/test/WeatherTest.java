@@ -64,6 +64,14 @@ class WeatherTest {
 	}
 
 	@Test
+	void weatherSelectWeather() {
+		List<Weather> list = mapper.weatherSelectWeather();
+		for(Weather w : list) {
+			System.out.println(w);
+			}
+	}
+	
+	@Test
 	void weatherSelect() {
 		System.out.println(mapper.weatherSelect());
 	}

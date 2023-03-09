@@ -80,5 +80,15 @@ public class WeatherServiceImpl implements WeatherService{
 		}
 	}
 
+	@Override
+	public List<Weather> weatherSelectWeather() {
+		try {
+			return mapper.weatherSelectWeather();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
 	
 }

@@ -51,6 +51,11 @@ public interface WeatherMapper {
 		})
 	public List<Weather> weatherSelectDATE(Weather w);
 	
+	// 날씨 가져오기
+	@Select({ " SELECT weather from weather1 " })
+	public List<Weather> weatherSelectWeather();
+
+	
 	// 뷰가져오기?
 	@Select({ " SELECT wv.* FROM WEATHER1_LOCATION1_VIEW wv " })
 	public List<Map<String, Object>> weatherSelectWV();
