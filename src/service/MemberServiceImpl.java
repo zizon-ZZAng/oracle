@@ -1,5 +1,6 @@
 package service;
 
+import connection.MyBatisContext;
 import dto.Member;
 
 public class MemberServiceImpl implements MemberService {
@@ -10,6 +11,7 @@ public class MemberServiceImpl implements MemberService {
 			return mapper.signUpMember(member);
 		} catch (Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return -1;
 		}
 	}
@@ -22,6 +24,7 @@ public class MemberServiceImpl implements MemberService {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return null;
 		}
 	}
@@ -35,6 +38,7 @@ public class MemberServiceImpl implements MemberService {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return -1;
 		}
 	}
@@ -61,6 +65,7 @@ public class MemberServiceImpl implements MemberService {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return -1;
 		}
 	}
@@ -87,6 +92,7 @@ public class MemberServiceImpl implements MemberService {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return null;
 		}
 		

@@ -2,6 +2,7 @@ package service;
 
 import java.util.List;
 
+import connection.MyBatisContext;
 import dto.Clothes;
 
 public class ClothesServiceImpl implements ClothesService {
@@ -13,6 +14,7 @@ public class ClothesServiceImpl implements ClothesService {
 		}
 		catch (Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return -1;
 		}
 	}
@@ -25,6 +27,7 @@ public class ClothesServiceImpl implements ClothesService {
 		}
 		catch (Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return null;
 		}
 	}
@@ -37,6 +40,7 @@ public class ClothesServiceImpl implements ClothesService {
 		}
 		catch (Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return null;
 		}
 	}
@@ -49,6 +53,7 @@ public class ClothesServiceImpl implements ClothesService {
 		}
 		catch (Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return -1;
 		}
 	}
@@ -61,6 +66,7 @@ public class ClothesServiceImpl implements ClothesService {
 		}
 		catch (Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return -1;
 		}
 	}

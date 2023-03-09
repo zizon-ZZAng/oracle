@@ -2,6 +2,7 @@ package service;
 
 import java.util.List;
 
+import connection.MyBatisContext;
 import dto.Weather;
 
 public class WeatherServiceImpl implements WeatherService {
@@ -12,6 +13,7 @@ public class WeatherServiceImpl implements WeatherService {
 			return mapper.insertWeather(weather);
 		} catch (Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return -1;
 		}
 
@@ -24,6 +26,7 @@ public class WeatherServiceImpl implements WeatherService {
 			return mapper.selectWeather();
 		} catch (Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return null;
 		}
 	}
@@ -35,6 +38,7 @@ public class WeatherServiceImpl implements WeatherService {
 			return mapper.updateWeather();
 		} catch (Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return -1;
 		}
 	}
@@ -46,6 +50,7 @@ public class WeatherServiceImpl implements WeatherService {
 		}
 		catch (Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return -1;
 		}
 	}
