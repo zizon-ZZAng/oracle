@@ -24,7 +24,7 @@ public interface LocationMapper {
 	@Select({
 		"SELECT * FROM location1 "
 	})
-	public Location locationSelect (Location l);
+	public Location locationSelect ();
 	
 	@Delete({
 		"DELETE FROM location1 WHERE no = #{no}"

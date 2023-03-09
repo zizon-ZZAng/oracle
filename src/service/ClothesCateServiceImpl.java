@@ -2,6 +2,7 @@ package service;
 
 import java.util.List;
 
+import connection.MyBatisContext;
 import dto.ClothesCate;
 
 public class ClothesCateServiceImpl implements ClothesCateService{
@@ -12,6 +13,7 @@ public class ClothesCateServiceImpl implements ClothesCateService{
 			return mapper.insertClothesCate(c);
 		} catch (Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return 0;
 		}
 	}
@@ -22,6 +24,7 @@ public class ClothesCateServiceImpl implements ClothesCateService{
 			return mapper.updateClothesCate(c);
 		} catch (Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return 0;
 		}
 	}
@@ -32,6 +35,7 @@ public class ClothesCateServiceImpl implements ClothesCateService{
 			return mapper.deleteClothesCate(obj);
 		} catch (Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return 0;
 		}
 	}
@@ -42,6 +46,7 @@ public class ClothesCateServiceImpl implements ClothesCateService{
 			return mapper.selectClothesCateList();
 		} catch (Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return null;
 		}
 	}

@@ -1,5 +1,6 @@
 package service;
 
+import connection.MyBatisContext;
 import dto.Location;
 
 public class LocationServiceImpl implements LocationService{
@@ -10,6 +11,7 @@ public class LocationServiceImpl implements LocationService{
 			return mapper.locationInsert(l);
 		} catch (Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return 0;
 		}
 	}
@@ -20,6 +22,18 @@ public class LocationServiceImpl implements LocationService{
 			return mapper.locationUpdate(l);
 		} catch (Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
+			return 0;
+		}
+	}
+
+	@Override
+	public int locationDelete(Location l) {
+		try {
+			return mapper.locationDelete(l);
+		} catch (Exception e) {
+			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return 0;
 		}
 	}
@@ -30,17 +44,8 @@ public class LocationServiceImpl implements LocationService{
 			return mapper.locationSelect();
 		} catch (Exception e) {
 			e.printStackTrace();
-			return null;		
-			}
-	}
-
-	@Override
-	public int locationDelete(Location l) {
-		try {
-			return mapper.locationDelete(l);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return 0;
+			MyBatisContext.getSqlSession().close();
+			return null;
 		}
 	}
 

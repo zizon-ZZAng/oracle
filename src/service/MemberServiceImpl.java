@@ -4,6 +4,7 @@ import java.security.MessageDigest;
 
 import org.apache.ibatis.annotations.Param;
 
+import connection.MyBatisContext;
 import dto.Member;
 
 public class MemberServiceImpl implements MemberService{
@@ -30,6 +31,7 @@ public class MemberServiceImpl implements MemberService{
 		}
 		catch (Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return null;
 		}
 	}
@@ -37,12 +39,11 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public int insertMember(Member m) {
 		try {
-
-			
 			return mMapper.insertMember(m);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return 0;
 		}
 	}
@@ -50,12 +51,11 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public Member loginMember(Member m) {
 		try {
-			
-
 			return mMapper.loginMember(m);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return null;
 		}
 	}
@@ -67,6 +67,7 @@ public class MemberServiceImpl implements MemberService{
 		}
 		catch(Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return 0;
 		}
 	}
@@ -78,6 +79,7 @@ public class MemberServiceImpl implements MemberService{
 		}
 		catch(Exception e) {
 			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
 			return 0;
 		}
 	}
