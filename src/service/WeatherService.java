@@ -29,7 +29,7 @@ public interface WeatherService {
 	public List<Weather> weatherSelectHOUR(Weather w);
 	
 	// 날짜가져오기
-	public List<Weather> weatherSelectDATE(Weather w);
+	public Object[] weatherSelectDATE();
 	
 //	// 뷰로(지역이름,날짜,시간으로) 기온 가져오기
 //	public List<Map<String, Object>> weatherSelectWVTemp(Map<String, Object> map);
@@ -41,8 +41,7 @@ public interface WeatherService {
 	public List<Weather> weatherSelectWeather();
 
 	
-	// 뷰에서 웨더 가져오기
-	public Weather select_tem_clothesset_final_view(Weather w);
+
 
 
 	

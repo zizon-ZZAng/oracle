@@ -122,7 +122,6 @@ public class LoginFrame extends JFrame {
 		getContentPane().add(signUpButton);
 		
 
-
 		this.setSize(400, 400); // 사이즈 정하기
 		this.setVisible(true);
 	}

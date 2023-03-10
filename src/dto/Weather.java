@@ -31,7 +31,7 @@ public class Weather {
 	// 임시변수
 	private String w_hour;
 	// 임시변수
-	private String name1;
+	private String name2;
 	// 임시변수
 }
 

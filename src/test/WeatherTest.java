@@ -21,7 +21,7 @@ class WeatherTest {
 		Weather w = new Weather();
 		w.setWeather("흐림");
 		w.setTemperature(25.3f);
-		w.setName("서울");
+		w.setName("서울특별시");
 		System.out.println(mapper.weatherInsert(w));
 	}
 
@@ -30,7 +30,7 @@ class WeatherTest {
 		Weather w = new Weather();
 		w.setWeather("맑음");
 		w.setTemperature(25.3f);
-		w.setName("서울");
+		w.setName("서울특별시");
 		w.setCode(22);
 		System.out.println(mapper.weatherUpdate(w));
 	}
@@ -38,7 +38,7 @@ class WeatherTest {
 	@Test
 	void weatherSelectHOUR() {
 		Weather w = new Weather();
-		w.setName("서울");
+		w.setName("서울특별시");
 			List<Weather> list =mapper.weatherSelectHOUR(w);
 			for(Weather obj : list) {
 			System.out.println(obj);}
@@ -48,7 +48,7 @@ class WeatherTest {
 	void weatherSelectDATE() {
 	
 		Weather w = new Weather();
-		w.setName("서울");
+		w.setName("서울특별시");
 			List<Weather> list = mapper.weatherSelectDATE(w);
 			for(Weather obj : list) {
 			System.out.println(obj);}
@@ -83,25 +83,25 @@ class WeatherTest {
 		System.out.println(mapper.weatherDelete(w));
 	}
 
-	// 일단 24행 일괄추가
-	// 수정필요
-	@Test
-	void weatherInsert30() {
-		for (int i = 1; i <= 24; i++) {
-			Weather w = new Weather();
-			w.setWeather("맑음");
-			w.setTemperature(20.5f);
-			w.setName("서울");
-			System.out.println(mapper.weatherInsert(w));
-		}
-	}
+//	// 일단 24행 일괄추가
+//	// 수정필요
+//	@Test
+//	void weatherInsert24() {
+//		for (int i = 0; i <= 24; i++) {
+//			Weather w = new Weather();
+//			w.setWeather("맑음");
+//			w.setTemperature(20.5f);
+//			w.setName("서울특별시");
+//			System.out.println(mapper.weatherInsert(w));
+//		}
+//	}
 
 	// 시간 업데이트
 	@Test
 	void weatherUpdateHour() {
 		for (int i = 0; i <= 24; i++) {
 			Weather w = new Weather();
-			w.setCode(202 + i);
+			w.setCode(147 + i);
 
 			if (i < 10) {
 				w.setRegdate2("2023-03-13-0" + i);
@@ -117,7 +117,7 @@ class WeatherTest {
 	void weatherUpdateTemp() {
 		for (int i = 0; i <= 24; i++) {
 			Weather w = new Weather();
-			w.setCode(202 +i);
+			w.setCode(130 +i);
 			if (i < 7) {
 				w.setTemperature(10f);
 			} else if (i >= 7 && i <= 12) {
@@ -136,7 +136,7 @@ class WeatherTest {
 	void weatherUpdateWTH() {
 		for (int i = 0; i <= 24; i++) {
 			Weather w = new Weather();
-			w.setCode(154 +i);
+			w.setCode(123 +i);
 			if (i < 7) {
 				w.setWeather("맑음");
 			} else if (i >= 7 && i <= 12) {
@@ -150,26 +150,31 @@ class WeatherTest {
 		}
 	}
 
+	@Test
+	void weatherUpdateLoc() {
+		w.setName("서울");
+		w.setCode(22);
+		System.out.println(mapper.weatherUpdate(w));
+	}
+	
 	
 	@Test
 	void weatherSelectWVTemp() {
 //		Weather w = new Weather();
-//		w.setName("서울특별시");
+//		w.setName("서울특별시");ㄴ
 //		w.setW_date("2023-03-06");
 //		w.setW_hour("02");
 		
 		Map<String, Object> map = new HashMap<>();
-		map.put("name", "서울특별시");
-		map.put("w_date", "2023-03-06");
-		map.put("w_hour", "02");
+		map.put("address" , "대구");
+		map.put("week", "2023/03/13");
+		map.put("hour", "02");
 		
-		Map<String, Object> list = mapper.weatherSelectWVTemp(map);
+		List<Map<String, Object>> list = mapper.weatherSelectWVTemp(map);
+		//System.out.println(list.toString());
 		
-		//List<Map<String, Object>> list = mapper.weatherSelectWVTemp(map);
-		System.out.println(list.toString());
-		
-//		for(Map<String, Object> m : list) {
-//			System.out.println(list.toString());
-//		}
+		for(Map<String, Object> m : list) {
+			System.out.println(list.toString());
+		}
 	}
 }
