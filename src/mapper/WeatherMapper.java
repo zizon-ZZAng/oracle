@@ -17,15 +17,11 @@ import dto.Weather;
 public interface WeatherMapper {
 
 	@Insert({
-			" INSERT INTO WEATHER0 (code, regdate, weather, temperature, name) VALUES(func_seq_weather0_code_nextval, CURRENT_DATE, #{weather}, #{temperature}, #{name}) " })
+			" INSERT INTO WEATHER0 (code, regdate, weather, temperature, name) VALUES(func_SEQ_WEATHER1_CODE_nextval, CURRENT_DATE, #{weather}, #{temperature}, #{no}) " })
 	public int weatherInsert(Weather w);
-	
-//	@Insert({
-//	" INSERT INTO WEATHER0 (code, regdate, weather, temperature, name) VALUES(func_seq_weather0_code_nextval, CURRENT_DATE, #{weather}, #{temperature}, #{name}) " })
-//	public int weatherInsert24(Weather w);
 
 	@Update({
-			" UPDATE WEATHER0 SET weather= #{weather}, temperature = #{temperature}, no = #{no} WHERE code = #{code} " })
+			" UPDATE WEATHER0 SET weather= #{weather}, temperature = #{temperature}, name = #{name} WHERE code = #{code} " })
 	public int weatherUpdate(Weather w);
 
 	// 시간 업데이트
@@ -39,10 +35,6 @@ public interface WeatherMapper {
 	// 날씨 업데이트
 	@Update({ " UPDATE WEATHER0 SET weather = #{weather} WHERE code = #{code} " })
 	public int weatherUpdateWTH(Weather w);
-	
-	// 지역 업데이트
-		@Update({ " UPDATE WEATHER0 SET name = #{name} WHERE code = #{code} " })
-		public int weatherUpdateLoc(Weather w);
 
 	@Select({ " SELECT * FROM WEATHER0  " })
 	public List<Weather> weatherSelect();
@@ -50,17 +42,18 @@ public interface WeatherMapper {
 	
 	// 시간가져오기
 	// no는 넣거나 빼거나 필요에 따라
-	@Select({ " SELECT no, TO_CHAR(regdate, 'HH24') regdate2 FROM WEATHER1 WHERE no = #{no} " })
+	@Select({ " SELECT no, TO_CHAR(regdate, 'HH24') regdate2 FROM WEATHER0 WHERE name = #{name} " })
 	public List<Weather> weatherSelectHOUR(Weather w);
 
+	
 	// 날짜가져오기
 	// no는 넣거나 빼거나 필요에 따라
 	@Select({ 
-		" SELECT no, TO_CHAR(regdate, 'YYYY-MM-DD') regdate2 ",
+		" SELECT TO_CHAR(regdate, 'YYYY-MM-DD') regdate2 ",
 		" FROM WEATHER0 ",
-		" WHERE no = #{no} " 
+		" WHERE name = #{name} " 
 		})
-	public List<Weather> weatherSelectDATE(Weather w);
+	public Object[] weatherSelectDATE();
 	
 	
 	// 날씨 가져오기
@@ -68,37 +61,32 @@ public interface WeatherMapper {
 	public List<Weather> weatherSelectWeather();
 
 	
-	// 뷰가져오기?
-	@Select({ " SELECT wv.* FROM WEATHER1_LOCATION1_VIEW wv " })
+	// 뷰 가져오기
+	@Select({ " SELECT * FROM wea_clo_mem_view " })
 	public List<Map<String, Object>> weatherSelectWV();
 	
-	// 뷰로(지역이름,날짜,시간으로) 기온 가져오기
-	@Select({ 
-			" SELECT temperature, weather",
-			" from WEATHER1_LOCATION1_VIEW ",
-			" WHERE name = #{name} and w_date = #{w_date} and w_hour = #{w_hour} " })
-	public List<Map<String, Object>> weatherSelectWVTemp(Map<String, Object> map);
-	
-	
-//// 뷰로(지역이름,날짜,시간으로) 기온 가져오기
+//	// 뷰로(지역이름,날짜,시간으로) 기온 가져오기
 //	@Select({ 
 //			" SELECT temperature, weather",
 //			" from WEATHER1_LOCATION1_VIEW ",
 //			" WHERE name = #{name} and w_date = #{w_date} and w_hour = #{w_hour} " })
-//	public Map<String, Object> weatherSelectWVTemp(Map<String, Object> map);
+//	public List<Map<String, Object>> weatherSelectWVTemp(Map<String, Object> map);
 	
 	
-	@Delete({ " DELETE FROM WEATHER1 WHERE code = #{code} " })
+// 뷰로 기온과 날씨 가져오기 
+	@Select({ 
+			
+			" select temperature, weather from wea_clo_mem_view ",
+			" where address=#{address} and week=#{week} and hour =#{hour} "
+	
+		})
+	public Map<String, Object> weatherSelectWVTemp(Map<String, Object> map);
+	
+	
+	@Delete({ " DELETE FROM WEATHER0 WHERE code = #{code} " })
 	public int weatherDelete(Weather w);
 	
-	
-	@Select({ 
-		" SELECT temperature ",
-		" from tem_clothesset_final_view ",
-		" WHERE temperature =#{temperature} " })
-	public Weather select_tem_clothesset_final_view(Weather w);
-	
-	
+
 	
 
 }

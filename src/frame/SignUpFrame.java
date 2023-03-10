@@ -13,17 +13,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-<<<<<<< Updated upstream
 import dto.Member;
 import service.LocationService;
 import service.LocationServiceImpl;
 import service.MemberService;
 import service.MemberServiceImpl;
-=======
-import dto1.Member;
-import service1.MemberService;
-import service1.MemberServiceImpl;
->>>>>>> Stashed changes
 
 public class SignUpFrame extends JFrame{
 	LocationService l = new LocationServiceImpl();

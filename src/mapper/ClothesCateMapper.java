@@ -1,4 +1,4 @@
-package mapper1;
+package mapper;
 
 import java.util.List;
 

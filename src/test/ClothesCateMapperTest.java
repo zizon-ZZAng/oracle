@@ -1,4 +1,4 @@
-package test1;
+package test;
 
 import java.util.List;
 
@@ -8,15 +8,9 @@ import org.apache.ibatis.annotations.Select;
 import org.junit.jupiter.api.Test;
 
 import connection.MyBatisContext;
-<<<<<<<< Updated upstream:src/test/ClothesCateMapperTest.java
 import dto.Clothes;
 import dto.ClothesCate;
 import mapper.ClothesCateMapper;
-========
-import dto1.Clothes;
-import dto1.ClothesCate;
-import mapper1.ClothesCateMapper;
->>>>>>>> Stashed changes:1조/test1/ClothesCateMapperTest.java
 
 public class ClothesCateMapperTest {
 	

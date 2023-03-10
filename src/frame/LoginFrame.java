@@ -10,15 +10,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-<<<<<<< Updated upstream
 import dto.Member;
 import service.MemberService;
 import service.MemberServiceImpl;
 import session.Config;
-=======
-import service1.MemberService;
-import service1.MemberServiceImpl;
->>>>>>> Stashed changes
 
 import javax.swing.JPasswordField;
 

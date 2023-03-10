@@ -1,11 +1,10 @@
-package service1;
+package service;
 
 import java.util.List;
 import java.util.Map;
 
 import connection.MyBatisContext;
 import dto.Clothes;
-import service.ClothesService;
 
 public class ClothesServiceImpl implements ClothesService {
 

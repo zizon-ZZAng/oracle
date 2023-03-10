@@ -1,4 +1,4 @@
-package test1;
+package test;
 
 import java.util.HashMap;
 import java.util.List;
@@ -7,13 +7,8 @@ import java.util.Map;
 import org.junit.jupiter.api.Test;
 
 import connection.MyBatisContext;
-<<<<<<<< Updated upstream:src/test/ClothesMapperTest.java
 import dto.Clothes;
 import mapper.ClothesMapper;
-========
-import dto1.Clothes;
-import mapper1.ClothesMapper;
->>>>>>>> Stashed changes:1조/test1/ClothesMapperTest.java
 
 public class ClothesMapperTest {
 
