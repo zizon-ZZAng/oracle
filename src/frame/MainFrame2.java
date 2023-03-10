@@ -94,7 +94,7 @@ public class MainFrame2 extends JFrame {
       
       
       //지역
-      // 로그인된 아이디를 회원정보 수정 후 한번 더 조회
+      // 로그인된 아이디를 회원정보 수정 후 한번 더 조회 해서 MainFrame2로 갔을 때 변경되어 있게 했음
       textField = new JTextField(mService.selectMemberOne(Config.obj.getId()).getAddress());
       textField.setEditable(false);
       textField.setColumns(10);
