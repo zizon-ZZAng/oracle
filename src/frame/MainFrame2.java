@@ -94,7 +94,9 @@ public class MainFrame2 extends JFrame {
       
       
       //지역
-      // 로그인된 아이디를 회원정보 수정 후 한번 더 조회 해서 MainFrame2로 갔을 때 변경되어 있게 했음
+      // 로그인된 아이디를 회원정보 수정 후 한번 더 조회 해서 MainFrame2로 갔을 때 값이 변경되어 있게 했음
+      // (Config.obj.getAddress() 였을 땐 회원정보에서 변경했는데 MainFrame2에서 변경 안됐었음. 예전값이 유지됐었음)
+      // 그래서 mService.selectMemberOne(Config.obj.getId()) 여기서 조회하고 주소를 뽑아왔음
       textField = new JTextField(mService.selectMemberOne(Config.obj.getId()).getAddress());
       textField.setEditable(false);
       textField.setColumns(10);
