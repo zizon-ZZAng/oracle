@@ -89,8 +89,8 @@ class MemberTest {
    void updateMember() {
       
       
-      String id = "a";
-      String pw = "bb";
+      String id = "s";
+      String pw = "s";
             
       String hash = this.hashPW(pw, id);
       
@@ -98,13 +98,11 @@ class MemberTest {
       Member member = new Member();
       
 
-      member.setId("a");
+      member.setId("s");
       member.setPassword(hash);
       
-      
-      member.setName("김철수");
-      member.setGender(null);
-      member.setAddress(null);
+      member.setName("김변경");
+      member.setAddress("부산");
       
       System.out.println(mapper.updateMember(member));
       
@@ -154,11 +152,11 @@ class MemberTest {
    }
    
    //회원 1명 조회
-//   @Test
-//   void selectMemberOne() {
-//	 
-//	  System.out.println(mapper.selectMemberOne("b")); 
-//   }
+   @Test
+   void selectMemberOne() {
+	 
+	  System.out.println(mapper.selectMemberOne("s")); 
+   }
    
    
    // 아이디 있는지 체크

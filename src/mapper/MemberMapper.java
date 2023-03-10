@@ -24,20 +24,17 @@ public interface MemberMapper {
 	@Select({ " SELECT *  FROM member2 WHERE id=#{id} AND password=#{password} " })
 	public Member loginMember(Member member);
 
-	// 회원 1명 조회(회원가입시 아이디 중복 확인용)
-//	@Select({ " SELECT * FROM member2 WHERE id = #{id} " })
-//	public Member selectMemberOne(String id);
+	// 회원 1명 조회
+	@Select({ " SELECT * FROM member2 WHERE id = #{id} " })
+	public Member selectMemberOne(String id);
 	
-	// 아이디 중복 쳌 다른 버전
+	// 아이디 중복 체크
 	@Select({ " SELECT COUNT(*) cnt FROM member2 WHERE id = #{id} " })
 	public Member selectMemberIdChk(String id);
 	
 
 	// 회원정보변경
 	@Update({
-
-//      "UPDATE member2 SET name=#{obj.name}, address=#{obj.address}, gender=#{obj.gender} WHERE id=#{obj.id} AND password=#{obj.password}"
-
 			" <script> ", " UPDATE member2 SET name=#{obj.name} ", " <if test='obj.address != null'> ",
 			" , address=#{obj.address} ", " </if> ", " WHERE id=#{obj.id} AND password=#{obj.password} ",
 			" </script> " })
