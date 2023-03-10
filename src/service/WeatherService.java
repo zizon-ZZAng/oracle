@@ -23,6 +23,6 @@ public interface WeatherService {
 	// 해당 날씨, 시간, 지역에 맞는 온도 조회
 	public int selectWeatherTemp(Weather weather);
 	
-	// 날짜에서 시간만 조회(임의로 서울의 230307 선택) => MainFrame2에서 시간 콤보박스용
+	// 날짜에서 시간만 조회 => MainFrame2에서 시간 콤보박스용
 	public Object[] selectDayTime();
 }
