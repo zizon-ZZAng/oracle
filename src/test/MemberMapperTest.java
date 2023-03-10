@@ -65,10 +65,12 @@ class MemberMapperTest {
 	// 고객 로그인
 	@Test
 	void loginMember() {
-		String id = "id1";
-		String pw = "pw1";
+		String id = "id2";
+		String pw = "pw2";
 		
 		String hash = this.hashPW(pw,id ); //(비번,아이디)
+		
+		
 		Member m = new Member();
 		m.setId(id);
 		m.setPassword(hash);

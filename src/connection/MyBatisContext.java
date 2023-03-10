@@ -22,6 +22,7 @@ import mapper.WeatherMapper;
 public class MyBatisContext {
 	public static SqlSession getSqlSession() {
 		try {
+			
 			//DB접속용 dataSource 객체 생성
 			BasicDataSource dataSource = new BasicDataSource();
 			dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
@@ -44,9 +45,11 @@ public class MyBatisContext {
 			
 			
 			SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(config);
+			
 			return factory.openSession(true);
 		}
 		catch (Exception e) {
+			
 			e.printStackTrace();
 			return null;
 		}

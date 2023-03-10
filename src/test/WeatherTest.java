@@ -159,13 +159,13 @@ class WeatherTest {
 //		w.setW_hour("02");
 		
 		Map<String, Object> map = new HashMap<>();
-		map.put("address" , "대구");
+		map.put("address" , "서울");
 		map.put("week", "2023/03/13");
 		map.put("hour", "02");
 		
-		Map<String, Object> list = mapper.weatherSelectWVTemp(map);
+		//Map<String, Object> list = mapper.weatherSelectWVTemp(map);
 		
-		//List<Map<String, Object>> list = mapper.weatherSelectWVTemp(map);
+		List<Map<String, Object>> list = mapper.weatherSelectWVTemp(map);
 		System.out.println(list.toString());
 		
 //		for(Map<String, Object> m : list) {

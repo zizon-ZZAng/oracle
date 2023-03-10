@@ -78,19 +78,8 @@ public class WeatherServiceImpl implements WeatherService {
 		}
 	}
 
-//	@Override
-//	public List<Map<String, Object>> weatherSelectWVTemp(Map<String, Object> map) {
-//		try {
-//			return mapper.weatherSelectWVTemp(map);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			MyBatisContext.getSqlSession().close();
-//			return null;
-//		}
-//	}
-	
 	@Override
-	public Map<String, Object> weatherSelectWVTemp(Map<String, Object> map) {
+	public List<Map<String, Object>> weatherSelectWVTemp(Map<String, Object> map) {
 		try {
 			return mapper.weatherSelectWVTemp(map);
 		} catch (Exception e) {
@@ -98,11 +87,22 @@ public class WeatherServiceImpl implements WeatherService {
 			MyBatisContext.getSqlSession().close();
 			return null;
 		}
-
 	}
+	
+//	@Override
+//	public Map<String, Object> weatherSelectWVTemp(Map<String, Object> map) {
+//		try {
+//			return mapper.weatherSelectWVTemp(map);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			MyBatisContext.getSqlSession().close();
+//			return null;
+//		}
+//
+//	}
 
 	@Override
-	public Object[] weatherSelectDATE() {
+	public String[] weatherSelectDATE() {
 			try {
 				return mapper.weatherSelectDATE();
 			} catch (Exception e) {
