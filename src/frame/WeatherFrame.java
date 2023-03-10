@@ -100,8 +100,8 @@ public class WeatherFrame extends JFrame {
 					textField.setText(list.get(i).get("TEMPERATURE").toString());
 					
 					String s = list.get(i).get("TEMPERATURE").toString();
+					
 					//Config.weather.setTemperature(Float.parseFloat(list.get(i).get("TEMPERATURE").toString()));
-					System.out.println(list.get(i).get("TEMPERATURE").toString());
 				}
 				
 //				textField.setText(list.get("TEMPERATURE").toString());

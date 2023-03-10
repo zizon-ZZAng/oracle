@@ -1,6 +1,7 @@
 package service;
 
 import java.util.List;
+import java.util.Map;
 
 import connection.MyBatisContext;
 import dto.Recommend;
@@ -57,9 +58,33 @@ public class RecommendServiceImpl implements RecommendService {
 	}
 
 	@Override
-	public int selectRecommendSetno(float temperature) {
+	public int selectClothesTop(Map<String, Object> map) {
 		try {
-			return rMapper.selectRecommendSetno(temperature);
+			return rMapper.selectClothesTop(map);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
+			return 0;
+		}
+	}
+
+	@Override
+	public int selectClothesBottom(Map<String, Object> map) {
+		try {
+			return rMapper.selectClothesBottom(map);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
+			return 0;
+		}
+	}
+
+	@Override
+	public int selectClothesShoes(Map<String, Object> map) {
+		try {
+			return rMapper.selectClothesShoes(map);
 		}
 		catch(Exception e) {
 			e.printStackTrace();

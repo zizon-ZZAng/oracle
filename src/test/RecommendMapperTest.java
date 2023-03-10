@@ -1,6 +1,8 @@
 package test;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
@@ -10,6 +12,48 @@ import mapper.RecommendMapper;
 
 class RecommendMapperTest {
 	RecommendMapper rMapper = MyBatisContext.getSqlSession().getMapper(RecommendMapper.class);
+
+	@Test
+	void selectClothesTop() {
+		Map<String, Object> map = new HashMap<>();
+
+		map.put("id", "id1");
+		map.put("address", "서울");
+		map.put("week", "2023/03/13");
+		map.put("hour", "08");
+		map.put("rank", 1);
+		map.put("cltype", "상의");
+
+		System.out.println(rMapper.selectClothesTop(map));
+	}
+
+	@Test
+	void selectClothesBottom() {
+		Map<String, Object> map = new HashMap<>();
+
+		map.put("id", "id1");
+		map.put("address", "서울");
+		map.put("week", "2023/03/13");
+		map.put("hour", "08");
+		map.put("rank", 1);
+		map.put("cltype", "하의");
+
+		System.out.println(rMapper.selectClothesBottom(map));
+	}
+
+	@Test
+	void selectClothesShoes() {
+		Map<String, Object> map = new HashMap<>();
+
+		map.put("id", "id1");
+		map.put("address", "서울");
+		map.put("week", "2023/03/13");
+		map.put("hour", "08");
+		map.put("rank", 1);
+		map.put("cltype", "신발");
+
+		System.out.println(rMapper.selectClothesShoes(map));
+	}
 
 	@Test
 	void deleteRecommend() {
@@ -28,7 +72,6 @@ class RecommendMapperTest {
 
 			r.setId("lee");
 			r.setCode(i);
-			r.setSetno(7);
 
 			System.out.println(rMapper.insertRecommend(r));
 
@@ -66,16 +109,6 @@ class RecommendMapperTest {
 		for (Recommend r : list) {
 			System.out.println(r.toString());
 		}
-	}
-
-	// 날씨별 추천목록 보기
-	@Test
-	void selectRecommendSetno() {
-		
-		int r = rMapper.selectRecommendSetno(45.f);
-		
-		System.out.println(r);
-
 	}
 
 }

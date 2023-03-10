@@ -1,6 +1,7 @@
 package service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -11,6 +12,18 @@ import mapper.RecommendMapper;
 public interface RecommendService {
 	final RecommendMapper rMapper
 		=MyBatisContext.getSqlSession().getMapper(RecommendMapper.class);
+	
+	
+	// 상의 추천
+	public int selectClothesTop(Map<String, Object> map);
+	
+	// 하의 추천
+	public int selectClothesBottom(Map<String, Object> map);
+	
+	// 신발 추천
+	public int selectClothesShoes(Map<String, Object> map);
+	
+	
 	
 	//추천 목록 삽입
 	public int insertRecommend(Recommend r);
@@ -24,6 +37,4 @@ public interface RecommendService {
 	//특정 날씨 추천목록 보기
 	public List<Recommend> selectRecommendCode(int code);
 	
-	//온도별 추천옷 보기
-	public int selectRecommendSetno(float temperature);
 }

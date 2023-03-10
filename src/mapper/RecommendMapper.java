@@ -1,6 +1,7 @@
 package mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
@@ -11,6 +12,36 @@ import org.apache.ibatis.annotations.Update;
 import dto.Recommend;
 
 public interface RecommendMapper {
+	
+	
+	// 상의 추천
+	@Select({
+		" SELECT clno ",
+		" FROM wea_clo_mem_rank_view ",
+		" WHERE id=#{id} AND address=#{address} AND week=#{week} AND hour=#{hour} AND rank=#{rank} AND cltype=#{cltype} "
+	})
+	public int selectClothesTop(Map<String, Object> map);
+	
+	
+	// 하의 추천
+	@Select({
+		" SELECT clno ",
+		" FROM wea_clo_mem_rank_view ",
+		" WHERE id=#{id} AND address=#{address} AND week=#{week} AND hour=#{hour} AND rank=#{rank} AND cltype=#{cltype} "
+	})
+	public int selectClothesBottom(Map<String, Object> map);
+	
+	
+	// 신발 추천
+	@Select({
+		" SELECT clno ",
+		" FROM wea_clo_mem_rank_view ",
+		" WHERE id=#{id} AND address=#{address} AND week=#{week} AND hour=#{hour} AND rank=#{rank} AND cltype=#{cltype} "
+	})
+	public int selectClothesShoes(Map<String, Object> map);
+	
+	
+	
 	
 	// 추천목록 삭제
 	@Delete({
@@ -47,15 +78,6 @@ public interface RecommendMapper {
 		" SELECT r.* FROM recommend0 r where code=#{code} "
 	})
 	public List<Recommend> selectRecommendCode(int code);
-	
-	
-	//아이디별 시간별 추천옷 보기
-	@Select({
-		" SELECT clno ",
-		" FROM recommend0 r ",
-		" WHERE r.temperature=#{temperature} "
-	})
-	public int selectRecommendSetno(float temperature);
 	
 	
 	@Update({
