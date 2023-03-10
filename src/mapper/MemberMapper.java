@@ -8,6 +8,8 @@ import org.apache.ibatis.annotations.Update;
 
 import dto.Member;
 
+//이힝~
+
 @Mapper
 public interface MemberMapper {
 
