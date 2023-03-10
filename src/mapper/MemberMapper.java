@@ -17,7 +17,7 @@ public interface MemberMapper {
 	public int signUpMember(@Param("obj") Member member);
 
 	// 로그인
-//   @Select({" SELECT id, name  FROM member2 WHERE id=#{id} AND password=#{password} "})
+//   @Select({" SELECT id, name  FROM member2 WHERE id=#{id.id} AND password=#{password.password} "})
 //   public Member loginMember(@Param("id") String id, @Param("password") String password);
 
 	// 로그인
