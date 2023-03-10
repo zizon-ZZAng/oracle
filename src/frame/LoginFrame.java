@@ -47,6 +47,7 @@ public class LoginFrame extends JFrame {
 		
 
 		JButton btnNewButton = new JButton("로그인");
+		btnNewButton.setFocusPainted(false);
 		btnNewButton.addActionListener(new ActionListener() {
 
 			// 비밀번호 암호화
