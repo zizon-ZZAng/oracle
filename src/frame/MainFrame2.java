@@ -57,7 +57,7 @@ public class MainFrame2 extends JFrame {
       mntmNewMenuItem_1.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
             int result = JOptionPane.showConfirmDialog(null, "로그아웃 하시겠습니까?", "Confirm", JOptionPane.YES_NO_OPTION);
-            new LogoutFrame();
+
             if (result == JOptionPane.YES_OPTION) {
                new HomeFrame();
                dispose();
@@ -119,7 +119,7 @@ public class MainFrame2 extends JFrame {
       getContentPane().add(textField_2);
       textField_2.setColumns(10);
 
-      JComboBox comboBox = new JComboBox();
+      JComboBox comboBox = new JComboBox(); 
       
       //시간 설정하면 그 날 그 시간대의 기온이 뜸
       comboBox.addActionListener(new ActionListener() {

@@ -111,7 +111,7 @@ public class MyPageFrame extends JFrame {
             int ret = mService.updateMember(member);
             
             if (ret==1) {
-               JOptionPane.showMessageDialog(null, "회원정보 수정 성공");
+            	JOptionPane.showMessageDialog(null, "회원정보 수정 성공");   
             }
             else if (textField_1.getText().length() == 0 || textField_3.getText().length() == 0) { // 둘 다 입력 안했을 경우
                JOptionPane.showMessageDialog(null, "이름 또는 주소를 입력하세요.");
