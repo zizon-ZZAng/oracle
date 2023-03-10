@@ -94,7 +94,8 @@ public class MainFrame2 extends JFrame {
       
       
       //지역
-      textField = new JTextField(Config.obj.getAddress());
+      // 로그인된 아이디를 회원정보 수정 후 한번 더 조회
+      textField = new JTextField(mService.selectMemberOne(Config.obj.getId()).getAddress());
       textField.setEditable(false);
       textField.setColumns(10);
       textField.setBounds(91, 36, 116, 21);
@@ -109,8 +110,7 @@ public class MainFrame2 extends JFrame {
             textField_1.setText("");
          }
       });
-      
-      
+
       textField_1.setColumns(10);
       textField_1.setBounds(91, 82, 116, 21);
       getContentPane().add(textField_1);
@@ -137,7 +137,7 @@ public class MainFrame2 extends JFrame {
                Config.wdate = textField_1.getText() + " " + comboBox.getSelectedItem().toString().substring(0, 2);
                
                Weather weather = new Weather();
-               weather.setLocname(Config.obj.getAddress());
+               weather.setLocname(mService.selectMemberOne(Config.obj.getId()).getAddress());
                weather.setWdate(Config.wdate);
                
                textField_2.setText(Integer.toString(wService.selectWeatherTemp(weather)));

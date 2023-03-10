@@ -96,7 +96,7 @@ public class PwUpdateFrame extends JFrame {
 				member.setPassword(hash);
 				member.setNewpw(newhash);
 
-				if (!hash.equals(Config.obj.getPassword())) {
+				if (!hash.equals(mService.selectMemberOne(Config.obj.getId()).getPassword())) {
 					JOptionPane.showMessageDialog(null, "현재 비밀번호가 틀렸습니다", "비밀번호 변경", JOptionPane.ERROR_MESSAGE);
 				}
 				else if (hash.equals(newhash)) {

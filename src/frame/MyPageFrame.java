@@ -81,7 +81,7 @@ public class MyPageFrame extends JFrame {
       textField.setColumns(10);
       
       // 이름
-      textField_1 = new JTextField(Config.obj.getName());
+      textField_1 = new JTextField(mService.selectMemberOne(Config.obj.getId()).getName());
       textField_1.setBounds(155, 81, 116, 21);
       getContentPane().add(textField_1);
       textField_1.setColumns(10);
@@ -94,7 +94,7 @@ public class MyPageFrame extends JFrame {
       textField_2.setColumns(10);
       
       // 주소
-      textField_3 = new JTextField(Config.obj.getAddress());
+      textField_3 = new JTextField(mService.selectMemberOne(Config.obj.getId()).getAddress());
       textField_3.setBounds(155, 180, 116, 21);
       getContentPane().add(textField_3);
       textField_3.setColumns(10);
@@ -127,7 +127,7 @@ public class MyPageFrame extends JFrame {
       btnNewButton_1.setBounds(31, 225, 119, 23);
       getContentPane().add(btnNewButton_1);
       
-      passwordField = new JPasswordField(Config.obj.getPassword());
+      passwordField = new JPasswordField(mService.selectMemberOne(Config.obj.getId()).getPassword());
       passwordField.setEnabled(false);
       passwordField.setBounds(154, 143, 117, 21);
       getContentPane().add(passwordField);
@@ -143,6 +143,7 @@ public class MyPageFrame extends JFrame {
       });
       btnNewButton.setBounds(329, 0, 81, 23);
       getContentPane().add(btnNewButton);
+      
       btnNewButton_1.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
             // 회원 탈퇴 버튼
