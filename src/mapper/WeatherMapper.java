@@ -42,7 +42,17 @@ public interface WeatherMapper {
 	
 	// 시간가져오기
 	// no는 넣거나 빼거나 필요에 따라
+<<<<<<< HEAD
+<<<<<<< HEAD
+
 	@Select({ " SELECT no, TO_CHAR(regdate, 'HH24') regdate2 FROM WEATHER0 WHERE name = #{name} " })
+
+=======
+	@Select({ " SELECT no, TO_CHAR(regdate, 'HH24') regdate2 FROM WEATHER1 WHERE no = #{no} " })
+>>>>>>> 1a8b01f6aae430994516fdbb77d90c867764f352
+=======
+	@Select({ " SELECT no, TO_CHAR(regdate, 'HH24') regdate2 FROM WEATHER0 WHERE name = #{name} " })
+>>>>>>> e3fa68755a4b8b17daea83006f8108785a3a3182
 	public List<Weather> weatherSelectHOUR(Weather w);
 
 	
@@ -51,7 +61,15 @@ public interface WeatherMapper {
 	@Select({ 
 		" SELECT TO_CHAR(regdate, 'YYYY-MM-DD') regdate2 ",
 		" FROM WEATHER0 ",
+<<<<<<< HEAD
+<<<<<<< HEAD
 		" WHERE name = #{name} " 
+=======
+		" WHERE no = #{no} " 
+>>>>>>> 1a8b01f6aae430994516fdbb77d90c867764f352
+=======
+		" WHERE name = #{name} " 
+>>>>>>> e3fa68755a4b8b17daea83006f8108785a3a3182
 		})
 	public Object[] weatherSelectDATE();
 	

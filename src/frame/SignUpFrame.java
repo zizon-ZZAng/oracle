@@ -20,6 +20,9 @@ import service.MemberService;
 import service.MemberServiceImpl;
 
 public class SignUpFrame extends JFrame{
+	
+	
+	
 	LocationService l = new LocationServiceImpl();
 	MemberService s = new MemberServiceImpl();
 	private JTextField textField_id;
