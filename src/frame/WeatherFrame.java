@@ -49,7 +49,7 @@ public class WeatherFrame extends JFrame {
 		getContentPane().add(lblNewLabel_date);
 
 		JComboBox comboBox_date = new JComboBox();
-		comboBox_date.setModel(new DefaultComboBoxModel(new String[] {"2023/03/13"}));
+		comboBox_date.setModel(new DefaultComboBoxModel(new String[] {"2023/03/14"}));
 		comboBox_date.setBounds(190, 64, 100, 23);
 		getContentPane().add(comboBox_date);
 
@@ -82,8 +82,6 @@ public class WeatherFrame extends JFrame {
 		getContentPane().add(icon_label);
 		
 		
-
-		
 		comboBox_time.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -95,13 +93,13 @@ public class WeatherFrame extends JFrame {
 				List<Map<String, Object>> list = w.weatherSelectWVTemp(map);
 				//Map<String, Object> list = w.weatherSelectWVTemp(map);
 				
+				Config.conMap.put("address", textField_add.getText());
+				Config.conMap.put("week", comboBox_date.getSelectedItem());
+				Config.conMap.put("hour", comboBox_time.getSelectedItem());
+				
 				
 				for(int i=0; i<list.size(); i++) {
 					textField.setText(list.get(i).get("TEMPERATURE").toString());
-					
-					String s = list.get(i).get("TEMPERATURE").toString();
-					
-					//Config.weather.setTemperature(Float.parseFloat(list.get(i).get("TEMPERATURE").toString()));
 				}
 				
 //				textField.setText(list.get("TEMPERATURE").toString());
@@ -215,105 +213,6 @@ public class WeatherFrame extends JFrame {
 					}
 
 				}
-
-				
-				
-				
-//					if (list.get("WEATHER").toString().equals("흐림")) {
-//
-//						Image img = icon[0].getImage();
-//						Image updateImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-//						ImageIcon updateIcon = new ImageIcon(updateImg);
-//
-//						icon_label.setIcon(updateIcon);
-//
-//						icon_label.setBounds(50, 120, 165, 150);
-//						icon_label.setHorizontalAlignment(JLabel.CENTER);
-//
-//					} else if (list.get("WEATHER").toString().equals("구름조금")) {
-//
-//						Image img = icon[1].getImage();
-//						Image updateImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-//						ImageIcon updateIcon = new ImageIcon(updateImg);
-//
-//						icon_label.setIcon(updateIcon);
-//
-//						icon_label.setBounds(50, 120, 165, 150);
-//						icon_label.setHorizontalAlignment(JLabel.CENTER);
-//					} else if (list.get("WEATHER").toString().equals("구름많음")) {
-//
-//						Image img = icon[2].getImage();
-//						Image updateImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-//						ImageIcon updateIcon = new ImageIcon(updateImg);
-//
-//						icon_label.setIcon(updateIcon);
-//
-//						icon_label.setBounds(50, 120, 165, 150);
-//						icon_label.setHorizontalAlignment(JLabel.CENTER);
-//					} else if (list.get("WEATHER").toString().equals("안개")) {
-//
-//						Image img = icon[3].getImage();
-//						Image updateImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-//						ImageIcon updateIcon = new ImageIcon(updateImg);
-//
-//						icon_label.setIcon(updateIcon);
-//
-//						icon_label.setBounds(50, 120, 165, 150);
-//						icon_label.setHorizontalAlignment(JLabel.CENTER);
-//					} else if (list.get("WEATHER").toString().equals("비")) {
-//
-//						Image img = icon[4].getImage();
-//						Image updateImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-//						ImageIcon updateIcon = new ImageIcon(updateImg);
-//
-//						icon_label.setIcon(updateIcon);
-//
-//						icon_label.setBounds(50, 120, 165, 150);
-//						icon_label.setHorizontalAlignment(JLabel.CENTER);
-//					} else if (list.get("WEATHER").toString().equals("황사")) {
-//
-//						Image img = icon[5].getImage();
-//						Image updateImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-//						ImageIcon updateIcon = new ImageIcon(updateImg);
-//
-//						icon_label.setIcon(updateIcon);
-//
-//						icon_label.setBounds(50, 120, 165, 150);
-//						icon_label.setHorizontalAlignment(JLabel.CENTER);
-//					} else if (list.get("WEATHER").toString().equals("눈")) {
-//
-//						Image img = icon[6].getImage();
-//						Image updateImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-//						ImageIcon updateIcon = new ImageIcon(updateImg);
-//
-//						icon_label.setIcon(updateIcon);
-//
-//						icon_label.setBounds(50, 120, 165, 150);
-//						icon_label.setHorizontalAlignment(JLabel.CENTER);
-//					} else if (list.get("WEATHER").toString().equals("맑음")) {
-//
-//						Image img = icon[7].getImage();
-//						Image updateImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-//						ImageIcon updateIcon = new ImageIcon(updateImg);
-//
-//						icon_label.setIcon(updateIcon);
-//
-//						icon_label.setBounds(50, 120, 165, 150);
-//						icon_label.setHorizontalAlignment(JLabel.CENTER);
-//					} else if (list.get("WEATHER").toString().equals("천둥번개")) {
-//
-//						Image img = icon[8].getImage();
-//						Image updateImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-//						ImageIcon updateIcon = new ImageIcon(updateImg);
-//
-//						icon_label.setIcon(updateIcon);
-//
-//						icon_label.setBounds(50, 120, 165, 150);
-//						icon_label.setHorizontalAlignment(JLabel.CENTER);
-//					}
-
-				
-				
 				
 			}
 		});
@@ -341,14 +240,6 @@ public class WeatherFrame extends JFrame {
 		lblNewLabel.setBounds(330, 182, 50, 48);
 		getContentPane().add(lblNewLabel);
 		
-
-
-//		JPanel panel_Pic = new JPanel();
-//		panel_Pic.setBounds(32, 118, 150, 150);
-//		getContentPane().add(panel_Pic);
-//		ImageIcon icon = new ImageIcon(
-//				WeatherFrame.class.getResource("C:/Users/Administrator/Desktop/weather_icon.png"));
-
 		this.setSize(434, 400); // 사이즈 정하기
 		this.setVisible(true);
 	}

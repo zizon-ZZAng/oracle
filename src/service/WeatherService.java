@@ -39,10 +39,5 @@ public interface WeatherService {
 	
 	// 날씨 가져오기
 	public List<Weather> weatherSelectWeather();
-
-	
-
-
-
 	
 }

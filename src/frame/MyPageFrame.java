@@ -84,10 +84,6 @@ public class MyPageFrame extends JFrame {
 				if (e.getActionCommand().equals("변경하기")) {
 
 					Member mem = new Member();
-
-//				config session 만들기(id, password)
-//				mem.setId(textField_id.getText());
-
 									
 					String id = Config.member.getId().toString();
 					String password = Config.member.getPassword().toString();

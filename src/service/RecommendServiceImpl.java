@@ -57,40 +57,43 @@ public class RecommendServiceImpl implements RecommendService {
 		}
 	}
 
+	// 상의추천
 	@Override
-	public int selectClothesTop(Map<String, Object> map) {
+	public List<Map<String,Object>> selectClothesTop(Map<String, Object> map) {
 		try {
 			return rMapper.selectClothesTop(map);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
 			MyBatisContext.getSqlSession().close();
-			return 0;
+			return null;
 		}
 	}
 
-	@Override
-	public int selectClothesBottom(Map<String, Object> map) {
-		try {
-			return rMapper.selectClothesBottom(map);
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-			MyBatisContext.getSqlSession().close();
-			return 0;
-		}
-	}
-
-	@Override
-	public int selectClothesShoes(Map<String, Object> map) {
-		try {
-			return rMapper.selectClothesShoes(map);
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-			MyBatisContext.getSqlSession().close();
-			return 0;
-		}
-	}
+//	// 하의추천
+//	@Override
+//	public int selectClothesBottom(Map<String, Object> map) {
+//		try {
+//			return rMapper.selectClothesBottom(map);
+//		}
+//		catch(Exception e) {
+//			e.printStackTrace();
+//			MyBatisContext.getSqlSession().close();
+//			return 0;
+//		}
+//	}
+//
+//	// 신발추천
+//	@Override
+//	public int selectClothesShoes(Map<String, Object> map) {
+//		try {
+//			return rMapper.selectClothesShoes(map);
+//		}
+//		catch(Exception e) {
+//			e.printStackTrace();
+//			MyBatisContext.getSqlSession().close();
+//			return 0;
+//		}
+//	}
 
 }

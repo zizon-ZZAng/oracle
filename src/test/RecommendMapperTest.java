@@ -13,47 +13,52 @@ import mapper.RecommendMapper;
 class RecommendMapperTest {
 	RecommendMapper rMapper = MyBatisContext.getSqlSession().getMapper(RecommendMapper.class);
 
+	// 상의 추천
 	@Test
 	void selectClothesTop() {
 		Map<String, Object> map = new HashMap<>();
 
-		map.put("id", "id1");
-		map.put("address", "서울");
-		map.put("week", "2023/03/13");
-		map.put("hour", "08");
-		map.put("rank", 1);
-		map.put("cltype", "상의");
+		map.put("id", "id2");
+		//map.put("address", "서울");
+		map.put("week", "2023/03/15");
+		map.put("hour", "09");
+		//map.put("column_rank", 1);
+		//map.put("column_cltype", "하의");
 
-		System.out.println(rMapper.selectClothesTop(map));
+		List<Map<String,Object>> list = rMapper.selectClothesTop(map); 
+		
+		for(Map<String,Object> map2 : list) {
+			System.out.println(map2);
+		}
 	}
 
-	@Test
-	void selectClothesBottom() {
-		Map<String, Object> map = new HashMap<>();
+//	@Test
+//	void selectClothesBottom() {
+//		Map<String, Object> map = new HashMap<>();
+//
+//		map.put("id", "id1");
+//		map.put("address", "서울");
+//		map.put("week", "2023/03/16");
+//		map.put("hour", "12");
+//		map.put("rank", 1);
+//		map.put("cltype", "하의");
+//
+//		System.out.println(rMapper.selectClothesBottom(map));
+//	}
 
-		map.put("id", "id1");
-		map.put("address", "서울");
-		map.put("week", "2023/03/13");
-		map.put("hour", "08");
-		map.put("rank", 1);
-		map.put("cltype", "하의");
-
-		System.out.println(rMapper.selectClothesBottom(map));
-	}
-
-	@Test
-	void selectClothesShoes() {
-		Map<String, Object> map = new HashMap<>();
-
-		map.put("id", "id1");
-		map.put("address", "서울");
-		map.put("week", "2023/03/13");
-		map.put("hour", "08");
-		map.put("rank", 1);
-		map.put("cltype", "신발");
-
-		System.out.println(rMapper.selectClothesShoes(map));
-	}
+//	@Test
+//	void selectClothesShoes() {
+//		Map<String, Object> map = new HashMap<>();
+//
+//		map.put("id", "id1");
+//		map.put("address", "서울");
+//		map.put("week", "2023/03/16");
+//		map.put("hour", "12");
+//		map.put("rank", 1);
+//		map.put("cltype", "신발");
+//
+//		System.out.println(rMapper.selectClothesShoes(map));
+//	}
 
 	@Test
 	void deleteRecommend() {

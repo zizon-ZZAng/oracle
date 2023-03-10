@@ -15,13 +15,13 @@ public interface RecommendService {
 	
 	
 	// 상의 추천
-	public int selectClothesTop(Map<String, Object> map);
+	public List<Map<String,Object>> selectClothesTop(Map<String, Object> map);
 	
-	// 하의 추천
-	public int selectClothesBottom(Map<String, Object> map);
-	
-	// 신발 추천
-	public int selectClothesShoes(Map<String, Object> map);
+//	// 하의 추천
+//	public int selectClothesBottom(Map<String, Object> map);
+//	
+//	// 신발 추천
+//	public int selectClothesShoes(Map<String, Object> map);
 	
 	
 	

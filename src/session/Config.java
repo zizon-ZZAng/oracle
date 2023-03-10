@@ -1,11 +1,13 @@
 package session;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import dto.Member;
-import dto.Weather;
 
 public class Config {
 
 	public static Member member = null;
-	public static Weather weather = null;
+	public static Map<String, Object> conMap= new HashMap<>();
 	
 }
