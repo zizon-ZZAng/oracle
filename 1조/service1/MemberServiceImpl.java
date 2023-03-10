@@ -1,9 +1,9 @@
-package service;
+package service1;
 
 import java.security.MessageDigest;
 
-import dto1.Member;
-import service1.MemberService;
+import dto.Member;
+import service.MemberService;
 
 public class MemberServiceImpl implements MemberService{
 

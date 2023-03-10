@@ -1,0 +1,48 @@
+package service1;
+
+import java.util.List;
+import java.util.Map;
+
+import connection.MyBatisContext;
+import dto1.Weather;
+import mapper1.WeatherMapper;
+
+public interface WeatherService {
+	
+	
+	final WeatherMapper mapper 
+	= MyBatisContext.getSqlSession().getMapper(WeatherMapper.class);
+	
+	// Insert
+	public int weatherInsert(Weather w);
+	
+	// Update
+	public int weatherUpdate(Weather w);
+	
+	// Select
+	public List<Weather> weatherSelect();
+	
+	// Delete
+	public int weatherDelete(Weather w);
+	
+	// 시간가져오기
+	public List<Weather> weatherSelectHOUR(Weather w);
+	
+	// 날짜가져오기
+	public Object[] weatherSelectDATE();
+	
+//	// 뷰로(지역이름,날짜,시간으로) 기온 가져오기
+//	public List<Map<String, Object>> weatherSelectWVTemp(Map<String, Object> map);
+	
+	// 뷰로(지역이름,날짜,시간으로) 기온 가져오기
+	public Map<String, Object> weatherSelectWVTemp(Map<String, Object> map);
+	
+	// 날씨 가져오기
+	public List<Weather> weatherSelectWeather();
+
+	
+
+
+
+	
+}

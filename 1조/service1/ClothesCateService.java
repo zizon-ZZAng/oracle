@@ -1,12 +1,12 @@
-package service;
+package service1;
 
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
 import connection.MyBatisContext;
-import dto.ClothesCate;
-import mapper.ClothesCateMapper;
+import dto1.ClothesCate;
+import mapper1.ClothesCateMapper;
 
 
 public interface ClothesCateService {

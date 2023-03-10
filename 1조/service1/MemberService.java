@@ -1,10 +1,10 @@
-package service;
+package service1;
 
 import org.apache.ibatis.annotations.Param;
 
 import connection.MyBatisContext;
-import dto1.Member;
-import mapper1.MemberMapper;
+import dto.Member;
+import mapper.MemberMapper;
 
 public interface MemberService {
 	final MemberMapper mMapper 

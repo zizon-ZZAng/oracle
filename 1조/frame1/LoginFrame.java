@@ -1,4 +1,4 @@
-package frame;
+package frame1;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,15 +10,11 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-<<<<<<< Updated upstream
-import dto.Member;
-import service.MemberService;
-import service.MemberServiceImpl;
-import session.Config;
-=======
+import dto1.Member;
+import frame.SignUpFrame;
 import service1.MemberService;
 import service1.MemberServiceImpl;
->>>>>>> Stashed changes
+import session1.Config;
 
 import javax.swing.JPasswordField;
 
