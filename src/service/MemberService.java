@@ -24,8 +24,7 @@ public interface MemberService {
 	public int unMember(Member member);
 	
 	// 회원 1명 조회(회원가입시 아이디 중복 확인용)
-//	public Member selectMemberOne(String id);
-	
+	//	public Member selectMemberOne(String id);
 	
 	//아이디 중복 체크 확인용 다른버전임
 	public Member selectMemberIdChk(String id);

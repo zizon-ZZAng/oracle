@@ -43,6 +43,7 @@ public class WeatherServiceImpl implements WeatherService {
 		}
 	}
 
+	// 해당 날씨, 시간, 지역에 맞는 온도 조회
 	@Override
 	public int selectWeatherTemp(Weather weather) {
 		try {
@@ -52,6 +53,19 @@ public class WeatherServiceImpl implements WeatherService {
 			e.printStackTrace();
 			MyBatisContext.getSqlSession().close();
 			return -1;
+		}
+	}
+
+	// 날짜에서 시간만 조회(임의로 서울의 230307 선택) => MainFrame2에서 시간 콤보박스용
+	@Override
+	public Object[] selectDayTime() {
+		try {
+			return mapper.selectDayTime();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
+			return null;
 		}
 	}
 

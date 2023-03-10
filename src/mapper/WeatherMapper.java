@@ -38,4 +38,10 @@ public interface WeatherMapper {
 	// 해당 날씨, 시간, 지역에 맞는 온도 조회
 	@Select({" SELECT temperature FROM weather2 WHERE wdate like #{wdate} || '%' AND locname=#{locname} "})
 	public int selectWeatherTemp(Weather weather);
+	
+	// 날짜에서 시간만 조회(임의로 서울의 230307 선택) => MainFrame2에서 시간 콤보박스용
+	@Select({" select concat(substr(wdate, 12, 2), '시') from weather2 ",
+			 " where locname = '서울' and wdate like '2023-03-07' || '%' ",
+			 " order by wdate "})
+	public Object[] selectDayTime();
 }
