@@ -2,6 +2,8 @@ package service;
 
 import java.security.MessageDigest;
 
+import org.apache.ibatis.annotations.Param;
+
 import dto.Member;
 
 public class MemberServiceImpl implements MemberService{
@@ -67,11 +69,9 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-<<<<<<< HEAD
+
 	public int memberUpdateOne(@Param("obj") Member obj) {
-=======
-	public int memberUpdateOne(Member obj) {
->>>>>>> 236144ea53d7932aabc578522091155555198be0
+
 		try {
 			return mMapper.memberUpdateOne(obj);
 		}
