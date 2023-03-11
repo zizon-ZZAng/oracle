@@ -133,10 +133,11 @@ public class RecommendFrame extends JFrame{
 
 	// 문제가 있음
 	private String[] reRecommend(int num) {
-		
+		int k=0;
 		for (int i=0; i <list.size(); i++) {
 			if (Integer.parseInt(list.get(i).get("RANK").toString()) == num) {
-				for(int j=0; j<3; j++) {
+				for(int j=k; j<3; j++) {
+					k++;
 					reNum[j] = list.get(i).get("CLNO").toString();
 //					if(reNum[j]!=null)
 //						continue;
