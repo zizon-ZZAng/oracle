@@ -14,11 +14,20 @@ import dto.Recommend;
 public interface RecommendMapper {
 	
 	
+//	// 상의 추천
+//			@Select({
+//				" SELECT w.clno, DENSE_RANK() OVER(PARTITION BY cltype ORDER BY clno ASC) rank ", 
+//				" FROM wea_clo_mem_view w ",
+//				" WHERE week=#{week} AND hour=#{hour} and id=#{id} and cltype=#{cltype}"
+//			})
+//			public List<Integer> selectClothesTop(Map<String, Object> map);
+		
+	
 	// 상의 추천
 		@Select({
 			" SELECT w.*, DENSE_RANK() OVER(PARTITION BY cltype ORDER BY clno ASC) rank ", 
 			" FROM wea_clo_mem_view w ",
-			" WHERE week=#{week} AND hour=#{hour} and id=#{id} "
+			" WHERE week=#{week} AND hour=#{hour} and id=#{id} and address=#{address} "
 		})
 		public List<Map<String,Object>> selectClothesTop(Map<String, Object> map);
 	
