@@ -22,8 +22,11 @@ import session.Config;
 
 public class RecommendFrame extends JFrame {
 
-	WeatherService wsv = new WeatherServiceImpl();
-	RecommendService rsv = new RecommendServiceImpl();
+	private WeatherService wsv = new WeatherServiceImpl();
+	private RecommendService rsv = new RecommendServiceImpl();
+	private ImageIcon[] icon;
+	private ImageIcon[] reIcon;
+	private JLabel[] rec_label = new JLabel[3];
 
 	public RecommendFrame() {
 		getContentPane().setLayout(null);
@@ -31,18 +34,6 @@ public class RecommendFrame extends JFrame {
 		JPanel clothes_panel = new JPanel();
 		clothes_panel.setBounds(22, 25, 350, 237);
 		getContentPane().add(clothes_panel);
-		
-		JLabel top_label = new JLabel("");
-		top_label.setBounds(50, 50, 50, 50);
-		clothes_panel.add(top_label);
-		
-		JLabel bottom_label = new JLabel("bottom");
-		bottom_label.setBounds(50, 50, 50, 50);
-		clothes_panel.add(bottom_label);
-		
-		JLabel shoes_label = new JLabel("shoes");
-		shoes_label.setBounds(50, 50, 50, 50);
-		clothes_panel.add(shoes_label);	
 		
 		String id = Config.member.getId();
 		String add = Config.conMap.get("address").toString();
@@ -60,7 +51,13 @@ public class RecommendFrame extends JFrame {
 //		for(int i=0; i<list.size(); i++)
 //			System.out.println(Integer.parseInt(list.get(i).get("RANK").toString()));
 
-		ImageIcon[] icon = new ImageIcon[17];
+		for(int i=0; i<3; i++) {
+			rec_label[i] = new JLabel("");
+			rec_label[i].setBounds(50+i*20, 50+i*20, 50+i*20, 50+i*20);
+			clothes_panel.add(rec_label[i]);
+		}
+		
+		icon = new ImageIcon[17];
 		for (int i = 0; i < 17; i++) {
 			icon[i] = new ImageIcon(ImageFrame.class.getResource((101 + i) + ".png"));
 		}
@@ -77,7 +74,8 @@ public class RecommendFrame extends JFrame {
 			}
 		}
 		
-		ImageIcon[] reIcon = new ImageIcon[3];
+		// 이미지 아이콘 배열에 각각 옷 사진 넣기
+		reIcon = new ImageIcon[3];
 		for (int i=0; i <3; i++) {
 			for(int j=0; j<17-i; j++) {
 				if (Integer.parseInt(reNum[i]) == j + 101) {	
@@ -87,45 +85,12 @@ public class RecommendFrame extends JFrame {
 		}
 		
 //		for(int i=0;i<3;i++) {
-//			System.out.println(reIcon.toString());
+//			System.out.println(i);
+//			System.out.println(reIcon[i]);
 //		}
 		
-		top_label.setIcon(icon[0]);
-		bottom_label.setIcon(icon[1]);
-		shoes_label.setIcon(icon[2]);
-						
-						
-//							Image updateImg0 = listImage.get(0).getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-//							ImageIcon updateIcon0 = new ImageIcon(updateImg0);
-//							
-//							top_label.setIcon(icon[j]);
-							
-							
-//							top_label.setBounds(50, 120, 165, 150);
-//							top_label.setHorizontalAlignment(JLabel.CENTER);
-//							
-//							Image updateImg1 = listImage.get(1).getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-//							ImageIcon updateIcon1 = new ImageIcon(updateImg1);
-//							
-//							bottom_label.setIcon(updateIcon1);
-//							bottom_label.setBounds(20, 180, 165, 150);
-//							bottom_label.setHorizontalAlignment(JLabel.CENTER);
-//							
-//							Image updateImg2 = listImage.get(2).getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-//							ImageIcon updateIcon2 = new ImageIcon(updateImg1);
-//							
-//							shoes_label.setIcon(updateIcon2);
-//							shoes_label.setBounds(20, 180, 165, 150);
-//							shoes_label.setHorizontalAlignment(JLabel.CENTER);
-										
-						
-//					}
-//				}	
-//
-//			}
+		image();
 		
-
-
 		JButton btnNewButton = new JButton("확인");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -141,8 +106,21 @@ public class RecommendFrame extends JFrame {
 		btnNewButton_1.setBounds(218, 290, 121, 23);
 		getContentPane().add(btnNewButton_1);
 		
-		
 		this.setSize(400, 400); // 사이즈 정하기
 		this.setVisible(true);
 	}
+	
+	
+	private void image() {
+		for(int j =0; j<3; j++) {
+			Image img = reIcon[j].getImage();
+			Image updateImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+			ImageIcon updateIcon = new ImageIcon(updateImg);
+	
+			rec_label[j].setIcon(updateIcon);
+			rec_label[j].setBounds(50+j*20, 120+j*40, 165+j*20, 150+j*40);
+			rec_label[j].setHorizontalAlignment(JLabel.CENTER);
+		}
+	}
+	
 }

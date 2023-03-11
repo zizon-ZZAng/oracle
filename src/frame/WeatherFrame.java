@@ -24,6 +24,9 @@ public class WeatherFrame extends JFrame {
 	WeatherService w = new WeatherServiceImpl();
 	private JTextField textField;
 	private JTextField textField_add;
+	private ImageIcon[] icon = new ImageIcon[9];
+	private JLabel icon_label;
+	
 
 	public WeatherFrame() {
 
@@ -77,7 +80,7 @@ public class WeatherFrame extends JFrame {
 		getContentPane().add(textField);
 		textField.setColumns(10);
 
-		JLabel icon_label = new JLabel("");
+		icon_label = new JLabel("");
 		icon_label.setBounds(47, 145, 122, 112);
 		getContentPane().add(icon_label);
 		
@@ -106,8 +109,6 @@ public class WeatherFrame extends JFrame {
 //				Config.weather.setTemperature(Float.parseFloat(list.get("TEMPERATURE").toString()));
 				
 
-				ImageIcon[] icon = new ImageIcon[9];
-
 				icon[0] = new ImageIcon(ImageFrame.class.getResource("cloudy.png"));
 				icon[1] = new ImageIcon(ImageFrame.class.getResource("cloudy1.png"));
 				icon[2] = new ImageIcon(ImageFrame.class.getResource("cloudy2.png"));
@@ -120,104 +121,29 @@ public class WeatherFrame extends JFrame {
 
 				for (int i = 0; i < list.size(); i++) {
 					if (list.get(i).get("WEATHER").toString().equals("흐림")) {
-
-						Image img = icon[0].getImage();
-						Image updateImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-						ImageIcon updateIcon = new ImageIcon(updateImg);
-
-						icon_label.setIcon(updateIcon);
-
-						icon_label.setBounds(50, 120, 165, 150);
-						icon_label.setHorizontalAlignment(JLabel.CENTER);
-
+						image(0);
 					} else if (list.get(i).get("WEATHER").toString().equals("구름조금")) {
-
-						Image img = icon[1].getImage();
-						Image updateImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-						ImageIcon updateIcon = new ImageIcon(updateImg);
-
-						icon_label.setIcon(updateIcon);
-
-						icon_label.setBounds(50, 120, 165, 150);
-						icon_label.setHorizontalAlignment(JLabel.CENTER);
+						image(1);
 					} else if (list.get(i).get("WEATHER").toString().equals("구름많음")) {
-
-						Image img = icon[2].getImage();
-						Image updateImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-						ImageIcon updateIcon = new ImageIcon(updateImg);
-
-						icon_label.setIcon(updateIcon);
-
-						icon_label.setBounds(50, 120, 165, 150);
-						icon_label.setHorizontalAlignment(JLabel.CENTER);
+						image(2);
 					} else if (list.get(i).get("WEATHER").toString().equals("안개")) {
-
-						Image img = icon[3].getImage();
-						Image updateImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-						ImageIcon updateIcon = new ImageIcon(updateImg);
-
-						icon_label.setIcon(updateIcon);
-
-						icon_label.setBounds(50, 120, 165, 150);
-						icon_label.setHorizontalAlignment(JLabel.CENTER);
+						image(3);
 					} else if (list.get(i).get("WEATHER").toString().equals("비")) {
-
-						Image img = icon[4].getImage();
-						Image updateImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-						ImageIcon updateIcon = new ImageIcon(updateImg);
-
-						icon_label.setIcon(updateIcon);
-
-						icon_label.setBounds(50, 120, 165, 150);
-						icon_label.setHorizontalAlignment(JLabel.CENTER);
+						image(4);
 					} else if (list.get(i).get("WEATHER").toString().equals("황사")) {
-
-						Image img = icon[5].getImage();
-						Image updateImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-						ImageIcon updateIcon = new ImageIcon(updateImg);
-
-						icon_label.setIcon(updateIcon);
-
-						icon_label.setBounds(50, 120, 165, 150);
-						icon_label.setHorizontalAlignment(JLabel.CENTER);
+						image(5);
 					} else if (list.get(i).get("WEATHER").toString().equals("눈")) {
-
-						Image img = icon[6].getImage();
-						Image updateImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-						ImageIcon updateIcon = new ImageIcon(updateImg);
-
-						icon_label.setIcon(updateIcon);
-
-						icon_label.setBounds(50, 120, 165, 150);
-						icon_label.setHorizontalAlignment(JLabel.CENTER);
+						image(6);
 					} else if (list.get(i).get("WEATHER").toString().equals("맑음")) {
-
-						Image img = icon[7].getImage();
-						Image updateImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-						ImageIcon updateIcon = new ImageIcon(updateImg);
-
-						icon_label.setIcon(updateIcon);
-
-						icon_label.setBounds(50, 120, 165, 150);
-						icon_label.setHorizontalAlignment(JLabel.CENTER);
+						image(7);
 					} else if (list.get(i).get("WEATHER").toString().equals("천둥번개")) {
-
-						Image img = icon[8].getImage();
-						Image updateImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-						ImageIcon updateIcon = new ImageIcon(updateImg);
-
-						icon_label.setIcon(updateIcon);
-
-						icon_label.setBounds(50, 120, 165, 150);
-						icon_label.setHorizontalAlignment(JLabel.CENTER);
+						image(8);
 					}
 
 				}
 				
 			}
 		});
-
-
 
 		JButton recButton = new JButton("옷 추천");
 
@@ -242,5 +168,17 @@ public class WeatherFrame extends JFrame {
 		
 		this.setSize(434, 400); // 사이즈 정하기
 		this.setVisible(true);
+		
+	}
+	
+	private void image(int i) {
+		Image img = icon[i].getImage();
+		Image updateImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+		ImageIcon updateIcon = new ImageIcon(updateImg);
+
+		icon_label.setIcon(updateIcon);
+
+		icon_label.setBounds(50, 120, 165, 150);
+		icon_label.setHorizontalAlignment(JLabel.CENTER);
 	}
 }
