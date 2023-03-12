@@ -89,6 +89,8 @@ public class MainFrame2 extends JFrame {
 		textField.setColumns(10);
 		textField.setBounds(91, 36, 116, 21);
 		getContentPane().add(textField);
+		
+		
 
 		// 날짜
 		JLabel lblNewLabel_1 = new JLabel("날짜");
@@ -106,6 +108,8 @@ public class MainFrame2 extends JFrame {
 		textField_1.setColumns(10);
 		textField_1.setBounds(91, 82, 116, 21);
 		getContentPane().add(textField_1);
+		
+		
 
 		// 온도
 		JLabel lblNewLabel_3 = new JLabel("온도");
@@ -149,6 +153,7 @@ public class MainFrame2 extends JFrame {
 		comboBox.setToolTipText("");
 		comboBox.setBounds(91, 125, 116, 23);
 		getContentPane().add(comboBox);
+		
 
 		// 옷 추천시작 버튼
 		JButton btnNewButton = new JButton("추천 시작");
@@ -157,15 +162,23 @@ public class MainFrame2 extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				String date = textField_1.getText();
-
+				String tmp = textField_2.getText();
+			//	int cmb = comboBox.getSelectedIndex();
+				
+				
+				
 				if (date.length() == 0) { // 날짜 미 입력시
 					JOptionPane.showMessageDialog(null, "날짜를 기입해주세요");
 				} else if (textField_1.getText().equals("YYYY-MM-DD")) { // YYYY-MM-DD 이 글자 그대로 입력되어 있을 경우
 					JOptionPane.showMessageDialog(null, "날짜를 기입해주세요");
 				}
-				// else if (!comboBox.getSelectedItem().toString().contentEquals(Config.wdate)) {	//시간 선택 안됐을 경우
-				// JOptionPane.showMessageDialog(null, "시간을 설정해주세요");
+			//	 else if (cmb == -1) {	//시간 선택 안됐을 경우
+				//	 JOptionPane.showMessageDialog(null, "시간을 설정해주세요");
 				// }
+				else if(tmp.length() == 0) { //시간 선택 안됐을 경우
+					JOptionPane.showMessageDialog(null, "시간을 설정해주세요");
+				}
+				
 				else {
 
 					new RecommendFrame();
