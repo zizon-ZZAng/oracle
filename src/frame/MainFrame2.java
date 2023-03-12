@@ -75,6 +75,8 @@ public class MainFrame2 extends JFrame {
 		setTitle("옷 추천");
 		getContentPane().setLayout(null);
 
+		
+		
 		// 지역
 		JLabel lblNewLabel = new JLabel("지역");
 		lblNewLabel.setBounds(33, 39, 57, 15);
@@ -89,6 +91,7 @@ public class MainFrame2 extends JFrame {
 		textField.setColumns(10);
 		textField.setBounds(91, 36, 116, 21);
 		getContentPane().add(textField);
+		
 		
 		
 
@@ -110,6 +113,7 @@ public class MainFrame2 extends JFrame {
 		getContentPane().add(textField_1);
 		
 		
+		
 
 		// 온도
 		JLabel lblNewLabel_3 = new JLabel("온도");
@@ -122,6 +126,9 @@ public class MainFrame2 extends JFrame {
 		textField_2.setBounds(91, 170, 116, 21);
 		getContentPane().add(textField_2);
 		textField_2.setColumns(10);
+		
+		
+		
 
 		// 시간
 		JLabel lblNewLabel_2 = new JLabel("시간");
@@ -153,8 +160,9 @@ public class MainFrame2 extends JFrame {
 		comboBox.setToolTipText("");
 		comboBox.setBounds(91, 125, 116, 23);
 		getContentPane().add(comboBox);
-		
 
+		
+		
 		// 옷 추천시작 버튼
 		JButton btnNewButton = new JButton("추천 시작");
 		btnNewButton.setFocusPainted(false);
@@ -163,22 +171,20 @@ public class MainFrame2 extends JFrame {
 
 				String date = textField_1.getText();
 				String tmp = textField_2.getText();
-			//	int cmb = comboBox.getSelectedIndex();
-				
-				
-				
+//				int cmb = comboBox.getSelectedIndex();
+
 				if (date.length() == 0) { // 날짜 미 입력시
 					JOptionPane.showMessageDialog(null, "날짜를 기입해주세요");
 				} else if (textField_1.getText().equals("YYYY-MM-DD")) { // YYYY-MM-DD 이 글자 그대로 입력되어 있을 경우
 					JOptionPane.showMessageDialog(null, "날짜를 기입해주세요");
 				}
-			//	 else if (cmb == -1) {	//시간 선택 안됐을 경우
-				//	 JOptionPane.showMessageDialog(null, "시간을 설정해주세요");
+				// else if (cmb < -1) { //시간 선택 안됐을 경우
+				// JOptionPane.showMessageDialog(null, "시간을 설정해주세요");
 				// }
-				else if(tmp.length() == 0) { //시간 선택 안됐을 경우
+				else if (tmp.length() == 0) { // 시간 선택 안됐을 경우
 					JOptionPane.showMessageDialog(null, "시간을 설정해주세요");
 				}
-				
+
 				else {
 
 					new RecommendFrame();
@@ -190,6 +196,8 @@ public class MainFrame2 extends JFrame {
 		btnNewButton.setBounds(263, 81, 97, 68);
 		getContentPane().add(btnNewButton);
 		textField_1.setColumns(10);
+		
+		
 
 		// 화면 설정
 		this.setSize(400, 300); // 창 사이즈 이거 없으면 창 뜰 때 사이즈가 말도안되게 줄어들어있음
