@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import service.RecommendService;
@@ -138,8 +139,9 @@ public class RecommendFrame extends JFrame {
 		image();
 		}
 		else {
-			new NoMoreRecommendFrame();
+			JOptionPane.showMessageDialog(null, "더 이상 추천목록이 없습니다 :)");
 			dispose();
+			new WeatherFrame();
 		}
 	}
 
