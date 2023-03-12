@@ -120,6 +120,7 @@ public class PwUpdateFrame extends JFrame {
 		JButton btnNewButton_1 = new JButton("취소");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				new MyPageFrame();
 				dispose();
 			}

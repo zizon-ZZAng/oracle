@@ -24,165 +24,166 @@ import service.WeatherService;
 import service.WeatherServiceImpl;
 
 public class MainFrame2 extends JFrame {
-   WeatherService wService = new WeatherServiceImpl();
-   MemberService mService = new MemberServiceImpl();
-   
-   private JTextField textField;
-   private JTextField textField_1;
-   private JTextField textField_2;
-   
-   public MainFrame2() {
-      setTitle("지존짱");
-      getContentPane().setLayout(null);
+	WeatherService wService = new WeatherServiceImpl();
+	MemberService mService = new MemberServiceImpl();
 
-      JMenuBar menuBar = new JMenuBar();
-      setJMenuBar(menuBar);
-      ;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
 
-      JMenu mnNewMenu = new JMenu("마이페이지");
-      menuBar.add(mnNewMenu);
+	public MainFrame2() {
+		setTitle("지존짱");
+		getContentPane().setLayout(null);
 
-      JMenuItem mntmNewMenuItem = new JMenuItem("회원정보");
-      mntmNewMenuItem.addActionListener(new ActionListener() {
-         public void actionPerformed(ActionEvent e) {
-            mnNewMenu.add(mntmNewMenuItem);
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		;
 
-            dispose();
-            new MyPageFrame();
-         }
+		JMenu mnNewMenu = new JMenu("마이페이지");
+		menuBar.add(mnNewMenu);
 
-      });
+		JMenuItem mntmNewMenuItem = new JMenuItem("회원정보");
+		mntmNewMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mnNewMenu.add(mntmNewMenuItem);
 
-      mnNewMenu.add(mntmNewMenuItem);
+				dispose();
+				new MyPageFrame();
+			}
 
-      //로그아웃
-      JMenuItem mntmNewMenuItem_1 = new JMenuItem("로그아웃");
-      mntmNewMenuItem_1.addActionListener(new ActionListener() {
-         public void actionPerformed(ActionEvent e) {
-            int result = JOptionPane.showConfirmDialog(null, "로그아웃 하시겠습니까?", "Confirm", JOptionPane.YES_NO_OPTION);
+		});
 
-            if (result == JOptionPane.YES_OPTION) {
-               new HomeFrame();
-               dispose();
-            } else {
-               new MainFrame2();
-               dispose();
-            }
-         }
-      });
-      mnNewMenu.add(mntmNewMenuItem_1);
+		mnNewMenu.add(mntmNewMenuItem);
 
-      setTitle("옷 추천");
-      getContentPane().setLayout(null);
+		// 로그아웃
+		JMenuItem mntmNewMenuItem_1 = new JMenuItem("로그아웃");
+		mntmNewMenuItem_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int result = JOptionPane.showConfirmDialog(null, "로그아웃 하시겠습니까?", "Confirm", JOptionPane.YES_NO_OPTION);
 
-      JLabel lblNewLabel = new JLabel("지역");
-      lblNewLabel.setBounds(33, 39, 57, 15);
-      getContentPane().add(lblNewLabel);
+				if (result == JOptionPane.YES_OPTION) {
+					new HomeFrame();
+					dispose();
+				} else {
+					new MainFrame2();
+					dispose();
+				}
+			}
+		});
+		mnNewMenu.add(mntmNewMenuItem_1);
 
-      JLabel lblNewLabel_1 = new JLabel("날짜");
-      lblNewLabel_1.setBounds(33, 85, 57, 15);
-      getContentPane().add(lblNewLabel_1);
-      
+		setTitle("옷 추천");
+		getContentPane().setLayout(null);
 
-      JLabel lblNewLabel_2 = new JLabel("시간");
-      lblNewLabel_2.setBounds(33, 129, 57, 15);
-      getContentPane().add(lblNewLabel_2);
+		// 지역
+		JLabel lblNewLabel = new JLabel("지역");
+		lblNewLabel.setBounds(33, 39, 57, 15);
+		getContentPane().add(lblNewLabel);
 
-      JLabel lblNewLabel_3 = new JLabel("온도");
-      lblNewLabel_3.setBounds(33, 173, 57, 15);
-      getContentPane().add(lblNewLabel_3);
-      
-      
-      //지역
-      // 로그인된 아이디를 회원정보 수정 후 한번 더 조회 해서 MainFrame2로 갔을 때 값이 변경되어 있게 했음
-      // (Config.obj.getAddress() 였을 땐 회원정보에서 변경했는데 MainFrame2에서 변경 안됐었음. 예전값이 유지됐었음)
-      // 그래서 mService.selectMemberOne(Config.obj.getId()) 여기서 조회하고 주소를 뽑아왔음
-      textField = new JTextField(mService.selectMemberOne(Config.obj.getId()).getAddress());
-      textField.setEditable(false);
-      textField.setColumns(10);
-      textField.setBounds(91, 36, 116, 21);
-      getContentPane().add(textField);
+		// 지역 (회원 주소를 받아와서 고정)
+		// 로그인된 아이디를 회원정보 수정 후 한번 더 조회 해서 MainFrame2로 갔을 때 값이 변경되어 있게 했음
+		// (Config.obj.getAddress() 였을 땐 회원정보에서 변경했는데 MainFrame2에서 변경 안됐었음. 예전값이 유지됐었음)
+		// 그래서 mService.selectMemberOne(Config.obj.getId()) 여기서 조회하고 주소를 뽑아왔음
+		textField = new JTextField(mService.selectMemberOne(Config.obj.getId()).getAddress());
+		textField.setEditable(false);
+		textField.setColumns(10);
+		textField.setBounds(91, 36, 116, 21);
+		getContentPane().add(textField);
 
-      
-      //날짜
-      textField_1 = new JTextField("yyyy-mm-dd");
-      textField_1.addMouseListener(new MouseAdapter() {
-         @Override
-         public void mouseClicked(MouseEvent e) {
-            textField_1.setText("");
-         }
-      });
+		// 날짜
+		JLabel lblNewLabel_1 = new JLabel("날짜");
+		lblNewLabel_1.setBounds(33, 85, 57, 15);
+		getContentPane().add(lblNewLabel_1);
 
-      textField_1.setColumns(10);
-      textField_1.setBounds(91, 82, 116, 21);
-      getContentPane().add(textField_1);
-      
-      //기온
-      textField_2 = new JTextField();
-      textField_2.setEditable(false);
-      textField_2.setBounds(91, 170, 116, 21);
-      getContentPane().add(textField_2);
-      textField_2.setColumns(10);
+		// 날짜 입력 방식(힌트)과 텍스트 필드 클릭했을 때의 변화
+		textField_1 = new JTextField("YYYY-MM-DD");
+		textField_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				textField_1.setText("");
+			}
+		});
+		textField_1.setColumns(10);
+		textField_1.setBounds(91, 82, 116, 21);
+		getContentPane().add(textField_1);
 
-      JComboBox comboBox = new JComboBox(); 
-      
-      //시간 설정하면 그 날 그 시간대의 기온이 뜸
-      comboBox.addActionListener(new ActionListener() {
-         public void actionPerformed(ActionEvent e) {
-            if (textField_1.getText().length() == 0) {
-               JOptionPane.showMessageDialog(null, "날짜를 기입해주세요");
-            }
-            else if(textField_1.getText().equals("yyyy-mm-dd")) {
-               JOptionPane.showMessageDialog(null, "날짜를 기입해주세요");
-            }
-            else {
-               Config.wdate = textField_1.getText() + " " + comboBox.getSelectedItem().toString().substring(0, 2);
-               
-               Weather weather = new Weather();
-               weather.setLocname(mService.selectMemberOne(Config.obj.getId()).getAddress());
-               weather.setWdate(Config.wdate);
-               
-               textField_2.setText(Integer.toString(wService.selectWeatherTemp(weather)));
-            }
-         }
-      });
+		// 온도
+		JLabel lblNewLabel_3 = new JLabel("온도");
+		lblNewLabel_3.setBounds(33, 173, 57, 15);
+		getContentPane().add(lblNewLabel_3);
 
-      comboBox.setModel(new DefaultComboBoxModel(wService.selectDayTime()));
-      comboBox.setToolTipText("");
-      comboBox.setBounds(91, 125, 116, 23);
-      getContentPane().add(comboBox);
+		// 온도 회원 거주지역 + 날짜 + 시간에 맞는 온도 띄움 (고정)
+		textField_2 = new JTextField();
+		textField_2.setEditable(false);
+		textField_2.setBounds(91, 170, 116, 21);
+		getContentPane().add(textField_2);
+		textField_2.setColumns(10);
 
-      JButton btnNewButton = new JButton("추천 시작");
-      btnNewButton.setFocusPainted(false);
-      btnNewButton.addActionListener(new ActionListener() {
-         public void actionPerformed(ActionEvent e) {
-            
-            String date = textField_1.getText();
-            
-            if(date.length() == 0) {
-               JOptionPane.showMessageDialog(null, "날짜를 기입해주세요");
-            }
-            else if(textField_1.getText().equals("yyyy-mm-dd")) {
-               JOptionPane.showMessageDialog(null, "날짜를 기입해주세요");
-            }
-            else {
-               
-               new RecommendFrame();
-               
-            }
-            
-            
-         }
-      });
-      btnNewButton.setBounds(263, 81, 97, 68);
-      getContentPane().add(btnNewButton);
-      textField_1.setColumns(10);
+		// 시간
+		JLabel lblNewLabel_2 = new JLabel("시간");
+		lblNewLabel_2.setBounds(33, 129, 57, 15);
+		getContentPane().add(lblNewLabel_2);
 
-      this.setSize(400, 300); // 창 사이즈 이거 없으면 창 뜰 때 걍 소멸수준임;;;
-      this.setLocationRelativeTo(null); // 화면 중앙에 오게 해줌
+		JComboBox comboBox = new JComboBox();
 
-      this.setVisible(true);
-      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // 이건 윈도우 창 종료시 프로세스까지 깔끔하게 닫는거래
-      // 우리는 창을 껐는데 작업관리자에서는 가동중이래
-   }
+		// 시간 설정하면 그 날 그 시간대의 기온이 뜸
+		comboBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (textField_1.getText().length() == 0) {
+					JOptionPane.showMessageDialog(null, "날짜를 기입해주세요");
+				} else if (textField_1.getText().equals("yyyy-mm-dd")) {
+					JOptionPane.showMessageDialog(null, "날짜를 기입해주세요");
+				} else {
+					Config.wdate = textField_1.getText() + " " + comboBox.getSelectedItem().toString().substring(0, 2);
+
+					Weather weather = new Weather();
+					weather.setLocname(mService.selectMemberOne(Config.obj.getId()).getAddress());
+					weather.setWdate(Config.wdate);
+
+					textField_2.setText(Integer.toString(wService.selectWeatherTemp(weather)));
+				}
+			}
+		});
+
+		comboBox.setModel(new DefaultComboBoxModel(wService.selectDayTime()));
+		comboBox.setToolTipText("");
+		comboBox.setBounds(91, 125, 116, 23);
+		getContentPane().add(comboBox);
+
+		// 옷 추천시작 버튼
+		JButton btnNewButton = new JButton("추천 시작");
+		btnNewButton.setFocusPainted(false);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				String date = textField_1.getText();
+
+				if (date.length() == 0) { // 날짜 미 입력시
+					JOptionPane.showMessageDialog(null, "날짜를 기입해주세요");
+				} else if (textField_1.getText().equals("YYYY-MM-DD")) { // YYYY-MM-DD 이 글자 그대로 입력되어 있을 경우
+					JOptionPane.showMessageDialog(null, "날짜를 기입해주세요");
+				}
+				// else if (!comboBox.getSelectedItem().toString().contentEquals(Config.wdate)) {	//시간 선택 안됐을 경우
+				// JOptionPane.showMessageDialog(null, "시간을 설정해주세요");
+				// }
+				else {
+
+					new RecommendFrame();
+
+				}
+
+			}
+		});
+		btnNewButton.setBounds(263, 81, 97, 68);
+		getContentPane().add(btnNewButton);
+		textField_1.setColumns(10);
+
+		// 화면 설정
+		this.setSize(400, 300); // 창 사이즈 이거 없으면 창 뜰 때 사이즈가 말도안되게 줄어들어있음
+		this.setLocationRelativeTo(null); // 화면 중앙에 오게 해줌
+
+		this.setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // 이건 윈도우 창 종료시 프로세스까지 깔끔하게 닫는거래
+														// 우리는 창을 껐는데 작업관리자에서는 가동중이래
+	}
 }

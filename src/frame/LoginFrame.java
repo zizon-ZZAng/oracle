@@ -24,23 +24,31 @@ public class LoginFrame extends JFrame {
 	private JTextField textField;
 	private JPasswordField passwordField;
 
+	
+	//로그인
 	public LoginFrame() {
 		setTitle("로그인");
 		getContentPane().setLayout(null);
 
+		
+		//아이디
+		JLabel lblNewLabel = new JLabel("아이디");
+		lblNewLabel.setBounds(74, 60, 57, 15);
+		getContentPane().add(lblNewLabel);
+		
+		//아이디 입력칸
 		textField = new JTextField();
 		textField.setBounds(176, 57, 116, 21);
 		getContentPane().add(textField);
 		textField.setColumns(10);
-
-		JLabel lblNewLabel = new JLabel("아이디");
-		lblNewLabel.setBounds(74, 60, 57, 15);
-		getContentPane().add(lblNewLabel);
-
+		
+		
+		//비밀번호
 		JLabel lblNewLabel_1 = new JLabel("비밀번호");
 		lblNewLabel_1.setBounds(74, 115, 57, 15);
 		getContentPane().add(lblNewLabel_1);
 		
+		//비밀번호 입력칸
 		passwordField = new JPasswordField();
 		passwordField.setBounds(176, 112, 116, 21);
 		getContentPane().add(passwordField);

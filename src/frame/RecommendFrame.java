@@ -130,6 +130,7 @@ public class RecommendFrame extends JFrame {
 			}
 		});
 		
+		//그룹 레이아웃 사용
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -188,7 +189,7 @@ public class RecommendFrame extends JFrame {
 		);
 		getContentPane().setLayout(groupLayout);
 
-		// --------------------------------------------
+// --------------------------------------------------------------------
 
 		this.setSize(1076, 700);
 		this.setLocationRelativeTo(null);

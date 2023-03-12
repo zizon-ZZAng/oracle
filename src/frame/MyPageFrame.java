@@ -57,6 +57,7 @@ public class MyPageFrame extends JFrame {
       getContentPane().add(lblNewLabel_4);
       
       JButton btnNewButton_2 = new JButton("변경");
+      btnNewButton_2.setFocusPainted(false);
       btnNewButton_2.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
             // 비밀번호 변경 버튼
@@ -100,6 +101,7 @@ public class MyPageFrame extends JFrame {
       textField_3.setColumns(10);
       
       JButton btnNewButton_3 = new JButton("회원정보 수정");
+      btnNewButton_3.setFocusPainted(false);
       btnNewButton_3.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
             // 회원 정보 수정 버튼
@@ -124,6 +126,7 @@ public class MyPageFrame extends JFrame {
       getContentPane().add(btnNewButton_3);
       
       JButton btnNewButton_1 = new JButton("회원탈퇴");
+      btnNewButton_1.setFocusPainted(false);
       btnNewButton_1.setBounds(31, 225, 119, 23);
       getContentPane().add(btnNewButton_1);
       
@@ -137,6 +140,7 @@ public class MyPageFrame extends JFrame {
       btnNewButton.setFocusPainted(false); // 선택되었을 때 생기는 테두리 사용안함
       btnNewButton.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
+        	 
             new MainFrame2();
             dispose();
          }
