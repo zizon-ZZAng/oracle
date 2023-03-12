@@ -16,12 +16,16 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import dto.Member;
+import service.MemberService;
+import service.MemberServiceImpl;
 import service.WeatherService;
 import service.WeatherServiceImpl;
 import session.Config;
 
 public class WeatherFrame extends JFrame {
 	WeatherService w = new WeatherServiceImpl();
+	MemberService m = new MemberServiceImpl();
 	private JTextField textField;
 	private JTextField textField_add;
 	private ImageIcon[] icon = new ImageIcon[9];
@@ -52,7 +56,7 @@ public class WeatherFrame extends JFrame {
 		getContentPane().add(lblNewLabel_date);
 
 		JComboBox comboBox_date = new JComboBox();
-		comboBox_date.setModel(new DefaultComboBoxModel(new String[] {"2023/03/14"}));
+		comboBox_date.setModel(new DefaultComboBoxModel(new String[] {"2023/03/13","2023/03/14","2023/03/15","2023/03/15"}));
 		comboBox_date.setBounds(190, 64, 100, 23);
 		getContentPane().add(comboBox_date);
 
@@ -61,14 +65,17 @@ public class WeatherFrame extends JFrame {
 		getContentPane().add(lblNewLabel_time);
 		
 		
-		textField_add = new JTextField(Config.member.getAddress().toString());
+//		textField_add = new JTextField(Config.member.getAddress().toString());
+		
+		//변경된 주소값 받아옴
+		textField_add = new JTextField(m.selectMember(Config.member.getId()).getAddress());
 		textField_add.setEditable(false);
 		textField_add.setBounds(64, 65, 86, 21);
 		getContentPane().add(textField_add);
 		textField_add.setColumns(10);
 		
 		JComboBox comboBox_time = new JComboBox();
-		comboBox_time.setModel(new DefaultComboBoxModel(new String[] {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"}));
+		comboBox_time.setModel(new DefaultComboBoxModel(w.weatherSelectHOUR()));
 		comboBox_time.setBounds(330, 64, 50, 23);
 
 		getContentPane().add(comboBox_time);

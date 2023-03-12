@@ -45,4 +45,10 @@ public interface MemberMapper {
 			 " SET password = #{newPassword} ",
 			 " WHERE id = #{id} AND password = #{password} "})
 	public int updateMemberPW(Member m);	
+	
+	
+	@Select({
+		" SELECT * FROM member0 WHERE id=#{id} "
+	})
+	public Member selectMember(String m);
 }

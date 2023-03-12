@@ -55,9 +55,9 @@ public class WeatherServiceImpl implements WeatherService {
 	}
 
 	@Override
-	public List<Weather> weatherSelectHOUR(Weather w) {
+	public Object[] weatherSelectHOUR() {
 		try {
-			return mapper.weatherSelectHOUR(w);
+			return mapper.weatherSelectHOUR();
 		} catch (Exception e) {
 			e.printStackTrace();
 			MyBatisContext.getSqlSession().close();

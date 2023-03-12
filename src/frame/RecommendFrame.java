@@ -19,6 +19,7 @@ import service.RecommendServiceImpl;
 import service.WeatherService;
 import service.WeatherServiceImpl;
 import session.Config;
+import javax.swing.JScrollPane;
 
 public class RecommendFrame extends JFrame {
 
@@ -89,6 +90,7 @@ public class RecommendFrame extends JFrame {
 			}
 			
 			clothes_panel.add(rec_label[i]);
+			
 		}
 		
 		// 사진 집어넣기
@@ -125,17 +127,11 @@ public class RecommendFrame extends JFrame {
 			for (int j = 0; j < 29; j++) {
 				if (Integer.parseInt(reNum[i]) == j + 101) {
 					reIcon[i] = icon[j];
-					//System.out.println(reIcon[i]);
+					
 				}
 			}
 			k++;
 		}
-
-//		for(int i=0;i<3;i++) {
-//			System.out.println(i);
-//			System.out.println(reIcon[i]);
-//		}
-		
 		image();
 		}
 		else {
