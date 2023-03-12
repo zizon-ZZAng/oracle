@@ -81,7 +81,7 @@ public class WeatherFrame extends JFrame {
 		textField.setColumns(10);
 
 		icon_label = new JLabel("");
-		icon_label.setBounds(47, 145, 122, 112);
+		//icon_label.setBounds(47, 145, 122, 112);
 		getContentPane().add(icon_label);
 		
 		

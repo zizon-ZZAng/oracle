@@ -19,7 +19,7 @@ import service.WeatherService;
 import service.WeatherServiceImpl;
 import session.Config;
 
-public class RecommendFrame extends JFrame{
+public class RecommendFrame extends JFrame {
 
 	private WeatherService wsv = new WeatherServiceImpl();
 	private RecommendService rsv = new RecommendServiceImpl();
@@ -29,15 +29,14 @@ public class RecommendFrame extends JFrame{
 	private JButton btnNewButton_1;
 	private List<Map<String, Object>> list;
 	private String[] reNum = new String[3];
-	//private int k=1;
-	
+
 	public RecommendFrame() {
 		getContentPane().setLayout(null);
 
 		JPanel clothes_panel = new JPanel();
 		clothes_panel.setBounds(22, 25, 350, 237);
 		getContentPane().add(clothes_panel);
-		
+
 		JButton btnNewButton = new JButton("확인");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -53,7 +52,7 @@ public class RecommendFrame extends JFrame{
 		btnNewButton_1.setBounds(218, 290, 121, 23);
 		getContentPane().add(btnNewButton_1);
 		btnNewButton_1.addActionListener(new MyListener());
-		
+
 		String id = Config.member.getId();
 		String add = Config.conMap.get("address").toString();
 		String week = Config.conMap.get("week").toString();
@@ -65,19 +64,29 @@ public class RecommendFrame extends JFrame{
 		recMap.put("week", week);
 		recMap.put("hour", hour);
 		recMap.put("address", add);
-		
-		list = rsv.selectClothesTop(recMap);	
-		
+
+		list = rsv.selectClothesTop(recMap);
+
 //		for(Map<String, Object> map:list) {
 //			System.out.println(map.toString());
 //		}
-		
+
 //		for(int i=0; i<list.size(); i++)
 //			System.out.println(Integer.parseInt(list.get(i).get("RANK").toString()));
 
-		for(int i=0; i<3; i++) {
+		for (int i = 0; i < 3; i++) {
 			rec_label[i] = new JLabel("");
-			rec_label[i].setBounds(50+i*20, 50+i*20, 50+i*20, 50+i*20);
+			//rec_label[i].setBounds(50 + i * 20, 50 + i * 20, 50 + i * 20, 50 + i * 20);
+			
+			switch (i) {
+			case 0:
+				rec_label[i].setBounds(50, 10, 165, 150);
+			case 1:
+				rec_label[i].setBounds(10, 100, 165, 150);
+			case 2:
+				rec_label[i].setBounds(100, 100, 165, 150);
+			}
+			
 			clothes_panel.add(rec_label[i]);
 		}
 		
@@ -85,39 +94,55 @@ public class RecommendFrame extends JFrame{
 		icon = new ImageIcon[29];
 		for (int i = 0; i < 29; i++) {
 			icon[i] = new ImageIcon(ImageFrame.class.getResource((101 + i) + ".png"));
-			//System.out.println(icon[i]);
+			// System.out.println(icon[i]);
+		}
+
+		reNum = reRecommend(Config.rankNum);
+		// System.out.println(Config.rankNum);
+
+		
+		for (int j = 0; j < 3; j++)
+			System.out.println(reNum[j]);
+
+		
+		// 동일한 사진이 있는지 확인 => 손 봐야됨....
+		int count=0;
+		for(int i=0; i<2; i++) {
+			if(reNum[i] == reNum[i+1] || reNum[i]==null) {
+				count++;
+			}
 		}
 		
-		reNum = reRecommend(1);
-		//System.out.println(k);
+		this.setSize(400, 400); // 사이즈 정하기
+		this.setVisible(true);
 		
-		
-		for(int j=0; j<3; j++)
-		System.out.println(reNum[j]);
-		
+		if(count==0) {
 		// 이미지 아이콘 배열에 각각 옷 사진 넣기
 		reIcon = new ImageIcon[3];
-		for (int i=0; i <3; i++) {
-			for(int j=0; j<29-j; j++) {
-				if (Integer.parseInt(reNum[i]) == j + 101) {	
+		int k = 0;
+		for (int i = k; i < 3; i++) {
+			for (int j = 0; j < 29; j++) {
+				if (Integer.parseInt(reNum[i]) == j + 101) {
 					reIcon[i] = icon[j];
 					//System.out.println(reIcon[i]);
 				}
 			}
+			k++;
 		}
-		
+
 //		for(int i=0;i<3;i++) {
 //			System.out.println(i);
 //			System.out.println(reIcon[i]);
 //		}
-//		
-		image();
 		
-		this.setSize(400, 400); // 사이즈 정하기
-		this.setVisible(true);
+		image();
+		}
+		else {
+			new NoMoreRecommendFrame();
+			dispose();
+		}
 	}
-	
-	
+
 	private void image() {
 		for(int j =0; j<3; j++) {
 			Image img = reIcon[j].getImage();
@@ -125,37 +150,58 @@ public class RecommendFrame extends JFrame{
 			ImageIcon updateIcon = new ImageIcon(updateImg);
 	
 			rec_label[j].setIcon(updateIcon);
-			rec_label[j].setBounds(50+j*20, 120+j*40, 165+j*20, 150+j*40);
-			rec_label[j].setHorizontalAlignment(JLabel.CENTER);
+			//rec_label[j].setBounds(50, 120, 165, 150);
+			//rec_label[j].setHorizontalAlignment(JLabel.CENTER);
 		}
 	}
+	
 
+//	private void image() {
+//		for (int j = 0; j < 3; j++) {
+//			Image img = reIcon[j].getImage();
+//			Image updateImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+//			ImageIcon updateIcon = new ImageIcon(updateImg);
+//
+//			rec_label[j].setIcon(updateIcon);
+//
+//			switch (j) {
+//			case 0:
+//				rec_label[j].setBounds(50, 10, 165, 150);
+//			case 1:
+//				rec_label[j].setBounds(10, 100, 165, 150);
+//			case 2:
+//				rec_label[j].setBounds(100, 100, 165, 150);
+//			}
+//
+//			rec_label[j].setHorizontalAlignment(JLabel.CENTER);
+//		}
+//	}
 
-	// 문제가 있음 => 고쳤음
+	
+	// 랭크순위에 따라 옷 추천하는 메소드
 	private String[] reRecommend(int num) {
-		int k=0;
-		for (int i=0; i <list.size(); i++) {
+		int k = 0;
+		for (int i = 0; i < list.size(); i++) {
 			if (Integer.parseInt(list.get(i).get("RANK").toString()) == num) {
-				for(int j=k; j<3; j++) {
+				for (int j = k; j < 3; j++) {
 					reNum[j] = list.get(i).get("CLNO").toString();
-//					if(reNum[j]!=null)
-//						continue;
+					
 				}
 				k++;
 			}
-		}	
+		}
 		return reNum;
 	}
-	
-	private class MyListener implements ActionListener{
+
+	// 다시추천하기 버튼이 눌려지면 랭크 숫자 하나 증가
+	private class MyListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			if(e.getSource() == btnNewButton_1) {
-				//System.out.println(k);
+			if (e.getSource() == btnNewButton_1) {
+				Config.rankNum++;
 				new RecommendFrame();
 				dispose();
-			}		
-		}	
+			}
+		}
 	}
-	
 }
