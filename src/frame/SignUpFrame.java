@@ -14,7 +14,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import common.Config;
 import dto.Member;
 import service.LocationService;
 import service.LocationServiceImpl;
