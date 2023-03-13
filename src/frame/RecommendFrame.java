@@ -105,6 +105,7 @@ public class RecommendFrame extends JFrame {
 		this.setSize(400, 400); // 사이즈 정하기
 		this.setVisible(true);
 		
+		// 옷이 상의, 하의, 신발이 다 있는 경우 추천하기
 		if(count==0) {
 		// 이미지 아이콘 배열에 각각 옷 사진 넣기
 		reIcon = new ImageIcon[3];
