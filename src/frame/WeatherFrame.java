@@ -56,7 +56,7 @@ public class WeatherFrame extends JFrame {
 		getContentPane().add(lblNewLabel_date);
 
 		JComboBox comboBox_date = new JComboBox();
-		comboBox_date.setModel(new DefaultComboBoxModel(new String[] {"2023/03/13","2023/03/14","2023/03/15","2023/03/15"}));
+		comboBox_date.setModel(new DefaultComboBoxModel(new String[] {"2023/03/13","2023/03/14","2023/03/15"}));
 		comboBox_date.setBounds(190, 64, 100, 23);
 		getContentPane().add(comboBox_date);
 
@@ -99,7 +99,6 @@ public class WeatherFrame extends JFrame {
 				map.put("hour", comboBox_time.getSelectedItem().toString());
 
 				List<Map<String, Object>> list = w.weatherSelectWVTemp(map);
-				//Map<String, Object> list = w.weatherSelectWVTemp(map);
 				
 				Config.conMap.put("address", textField_add.getText());
 				Config.conMap.put("week", comboBox_date.getSelectedItem());
@@ -110,6 +109,7 @@ public class WeatherFrame extends JFrame {
 					textField.setText(list.get(i).get("TEMPERATURE").toString());
 				}				
 
+				// 이미지 집어넣기
 				icon[0] = new ImageIcon(ImageFrame.class.getResource("cloudy.png"));
 				icon[1] = new ImageIcon(ImageFrame.class.getResource("cloudy1.png"));
 				icon[2] = new ImageIcon(ImageFrame.class.getResource("cloudy2.png"));
@@ -120,6 +120,7 @@ public class WeatherFrame extends JFrame {
 				icon[7] = new ImageIcon(ImageFrame.class.getResource("sun.png"));
 				icon[8] = new ImageIcon(ImageFrame.class.getResource("thunder.png"));
 
+				// 날씨에 맞는 이미지 출력
 				for (int i = 0; i < list.size(); i++) {
 					if (list.get(i).get("WEATHER").toString().equals("흐림")) {
 						image(0);
@@ -155,8 +156,6 @@ public class WeatherFrame extends JFrame {
 		recButton.setBounds(153, 257, 97, 23);
 		getContentPane().add(recButton);
 
-		this.setSize(400, 400); // 사이즈 정하기
-
 		recButton.setBounds(162, 298, 97, 23);
 		getContentPane().add(recButton);
 
@@ -170,6 +169,7 @@ public class WeatherFrame extends JFrame {
 		
 	}
 	
+	// 이미지 출력하는 메소드
 	private void image(int i) {
 		Image img = icon[i].getImage();
 		Image updateImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);

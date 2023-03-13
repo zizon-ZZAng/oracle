@@ -124,6 +124,7 @@ public class RecommendFrame extends JFrame {
 			dispose();
 			new WeatherFrame();
 		}
+		
 	}
 
 	private void image() {
