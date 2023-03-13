@@ -105,26 +105,32 @@ public class PwUpdateFrame extends JFrame {
 				String id = Config.obj.getId();
 				String pw = passwordField.getText();
 				String newpw = passwordField_1.getText();
-				String newpwchk = passwordField_2.getText();
+				String newpwchk = passwordField_2.getText();	//새 비밀번호 확인
 
 				String hash = this.hashPW(pw, id);
 				String newhash = this.hashPW(newpw, id);
-				String newhashchk = this.hashPW(newpwchk, id);
+				String newhashchk = this.hashPW(newpwchk, id);	//새 비밀번호 확인
 
 				Member member = new Member();
 				member.setId(id);
 				member.setPassword(hash);
 				member.setNewpw(newhash);
 
-				if (!hash.equals(mService.selectMemberOne(Config.obj.getId()).getPassword())) {
+				
+				
+				/*mService.selectMemberOne(Config.obj.getId()).getPassword()는  
+				  로그인한 아이디로 회원 1명 조회를 해서 그 해당 아이디의 비밀번호를 갖고온다는 뜻 */
+				
+				if (!hash.equals(mService.selectMemberOne(Config.obj.getId()).getPassword())) {	//hash값과 기존 비밀번호가 다를경우 실행
 					
 					JOptionPane.showMessageDialog(null, "현재 비밀번호가 틀렸습니다", "비밀번호 변경", JOptionPane.ERROR_MESSAGE);
 				
-				} else if (hash.equals(newhash)) {
+				} else if (hash.equals(newhash)) { // hash값과 newhash값이 같을 때 실행
 					
 					JOptionPane.showMessageDialog(null, "새 비밀번호를 현재 비밀번호와 다르게 입력해주세요", "비밀번호 변경", JOptionPane.ERROR_MESSAGE);
 				
-				} else if (!newhash.equals(newhashchk)) {
+				} else if (!newhash.equals(newhashchk)) { //newhash값과 newhashchk(새비밀번호확인)과 다를 경우 실행
+														 //(새비밀번호를 두 번 치는데 두 개의 값이 같아야지 비밀번호 변경이 가능함)
 					
 					JOptionPane.showMessageDialog(null, "새 비밀번호를 확인해주세요", "비밀번호 변경", JOptionPane.ERROR_MESSAGE);
 				

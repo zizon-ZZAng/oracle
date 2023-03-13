@@ -192,7 +192,7 @@ public class MyPageFrame extends JFrame {
       
       
       //화면 설정
-      this.setSize(426, 309); // 창 사이즈 이거 없으면 창 뜰 때 걍 소멸수준임;;;
+      this.setSize(426, 309); // 창 사이즈 이거 없으면 창 뜰 때 창이 실종수준
       this.setLocationRelativeTo(null); //화면 중앙에 오게 해줌
       
       this.setVisible(true);
