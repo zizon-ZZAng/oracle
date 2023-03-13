@@ -1,16 +1,13 @@
 package frame;
 
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JMenuBar;
-import javax.swing.JOptionPane;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import java.awt.Font;
-import java.awt.Color;
 
 public class HomeFrame extends JFrame{	//JFrame 실행되려면 상속되어 있어야함 ! extends JFrame 꼭 써주기
 
