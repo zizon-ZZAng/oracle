@@ -94,16 +94,11 @@ public class RecommendFrame extends JFrame {
 
 		reNum = reRecommend(Config.rankNum);
 		// System.out.println(Config.rankNum);
-
-		
-		for (int j = 0; j < 3; j++)
-			System.out.println(reNum[j]);
-
 		
 		// 동일한 사진이 있는지 확인 => 손 봐야됨....
 		int count=0;
 		for(int i=0; i<2; i++) {
-			if(reNum[i] == reNum[i+1] || reNum[i]==null) {
+			if(reNum[i] == reNum[i+1] || reNum[i]==null || reNum[2]==null) {
 				count++;
 			}
 		}
@@ -119,7 +114,6 @@ public class RecommendFrame extends JFrame {
 			for (int j = 0; j < 29; j++) {
 				if (Integer.parseInt(reNum[i]) == j + 101) {
 					reIcon[i] = icon[j];
-					
 				}
 			}
 			k++;
