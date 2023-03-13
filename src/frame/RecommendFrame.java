@@ -82,7 +82,6 @@ public class RecommendFrame extends JFrame {
 			}
 			
 			clothes_panel.add(rec_label[i]);
-			
 		}
 		
 		// 사진 집어넣기
@@ -130,7 +129,7 @@ public class RecommendFrame extends JFrame {
 	private void image() {
 		for(int j =0; j<3; j++) {
 			Image img = reIcon[j].getImage();
-			Image updateImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+			Image updateImg = img.getScaledInstance(120, 120, Image.SCALE_SMOOTH);
 			ImageIcon updateIcon = new ImageIcon(updateImg);
 	
 			rec_label[j].setIcon(updateIcon);
@@ -147,7 +146,6 @@ public class RecommendFrame extends JFrame {
 			if (Integer.parseInt(list.get(i).get("RANK").toString()) == num) {
 				for (int j = k; j < 3; j++) {
 					reNum[j] = list.get(i).get("CLNO").toString();
-					
 				}
 				k++;
 			}
