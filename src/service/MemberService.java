@@ -24,4 +24,7 @@ public interface MemberService {
 	
 	//암호 변경
 	public int updateMemberPW(Member m);
+	
+	//비밀번호 해쉬로 변경
+	public String hashPW(String pw, String id);
 }

@@ -65,8 +65,6 @@ public class WeatherFrame extends JFrame {
 		getContentPane().add(lblNewLabel_time);
 		
 		
-//		textField_add = new JTextField(Config.member.getAddress().toString());
-		
 		//변경된 주소값 받아옴
 		textField_add = new JTextField(m.selectMember(Config.member.getId()).getAddress());
 		textField_add.setEditable(false);

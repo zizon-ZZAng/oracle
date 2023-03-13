@@ -30,8 +30,7 @@ public class MemberServiceImpl implements MemberService{
 			return result;
 		}
 		catch (Exception e) {
-			e.printStackTrace();
-			
+			e.printStackTrace();	
 			return null;
 		}
 	}
@@ -39,7 +38,6 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public int insertMember(Member m) {
 		try {
-//			if(m.getId()==)
 			String hash = this.hashPW(m.getPassword(), m.getId()); //(비번,아이디)
 			Member member = new Member();
 			member.setPassword(hash);

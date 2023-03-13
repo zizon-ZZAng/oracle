@@ -1,8 +1,6 @@
 package main;
 
-
 import frame.LoginFrame;
-
 
 public class Main {
 

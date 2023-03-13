@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import dto.Member;
@@ -15,11 +16,10 @@ import service.MemberService;
 import service.MemberServiceImpl;
 import session.Config;
 
-import javax.swing.JPasswordField;
-
 public class LoginFrame extends JFrame {
 	private JTextField textField_id;
 	private JPasswordField passwordField;
+	MemberService m = new MemberServiceImpl();
 
 	public LoginFrame() {
 
@@ -47,47 +47,14 @@ public class LoginFrame extends JFrame {
 		JButton loginButton = new JButton("로그인");
 		loginButton.addActionListener(new ActionListener() {
 			
-			
-			public String hashPW(String pw, String id) {
-				try {
-					// 1. Hash 알고리즘 SHA-256, 단방향 aa => dlkfjafkajl
-					MessageDigest md = MessageDigest.getInstance("SHA-256");
-					
-					// ex) 1234(암호) + salt(고유한 값, userid)
-					md.update((pw + id).getBytes());
-					
-					// byte to String 으로 변경
-					byte[] pwdSalt = md.digest();
-					
-					StringBuffer sb = new StringBuffer();
-					for (byte b : pwdSalt) {
-						sb.append(String.format("%02x", b));
-					}
-					
-					String result = sb.toString();
-					
-					return result;
-				}
-				catch (Exception e) {
-					e.printStackTrace();
-					return null;
-				}
-			}
-			
 			public void actionPerformed(ActionEvent e) {
 					Member mem = new Member();
-<<<<<<< HEAD
-//				if(e.getActionCommand().equals("로그인")) {
-					
-=======
 
-				
->>>>>>> c1e93e47ad3a24a2578b247e207a2511966d401e
 					// 아이디, 비밀번호 정보 가져오기
 					String id = textField_id.getText();
 					String pw = passwordField.getText();
 					
-					String hash = this.hashPW(pw, id);
+					String hash = m.hashPW(pw, id);
 					
 					mem.setId(id);
 					mem.setPassword(hash);
