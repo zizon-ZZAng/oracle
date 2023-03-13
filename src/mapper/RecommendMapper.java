@@ -13,44 +13,14 @@ import dto.Recommend;
 
 public interface RecommendMapper {
 	
-	
-//	// 상의 추천
-//			@Select({
-//				" SELECT w.clno, DENSE_RANK() OVER(PARTITION BY cltype ORDER BY clno ASC) rank ", 
-//				" FROM wea_clo_mem_view w ",
-//				" WHERE week=#{week} AND hour=#{hour} and id=#{id} and cltype=#{cltype}"
-//			})
-//			public List<Integer> selectClothesTop(Map<String, Object> map);
-		
-	
-	// 상의 추천
+
+	// 옷 추천
 		@Select({
 			" SELECT w.*, DENSE_RANK() OVER(PARTITION BY cltype ORDER BY clno ASC) rank ", 
 			" FROM wea_clo_mem_view w ",
 			" WHERE week=#{week} AND hour=#{hour} and id=#{id} and address=#{address} "
 		})
-		public List<Map<String,Object>> selectClothesTop(Map<String, Object> map);
-	
-	
-//	// 하의 추천
-//	@Select({
-//		" SELECT clno ",
-//		" FROM wea_clo_mem_rank_view ",
-//		" WHERE id=#{id} AND address=#{address} AND week=#{week} AND hour=#{hour} AND rank=#{rank} AND cltype=#{cltype} "
-//	})
-//	public int selectClothesBottom(Map<String, Object> map);
-//	
-//	
-//	// 신발 추천
-//	@Select({
-//		" SELECT clno ",
-//		" FROM wea_clo_mem_rank_view ",
-//		" WHERE id=#{id} AND address=#{address} AND week=#{week} AND hour=#{hour} AND rank=#{rank} AND cltype=#{cltype} "
-//	})
-//	public int selectClothesShoes(Map<String, Object> map);
-	
-	
-	
+		public List<Map<String,Object>> selectClothesTop(Map<String, Object> map);	
 	
 	// 추천목록 삭제
 	@Delete({

@@ -67,7 +67,7 @@ public class RecommendFrame extends JFrame {
 		recMap.put("hour", hour);
 		recMap.put("address", add);
 
-		list = rsv.selectClothesTop(recMap);
+		list = rsv.selectClothes(recMap);
 
 		for (int i = 0; i < 3; i++) {
 			rec_label[i] = new JLabel("");

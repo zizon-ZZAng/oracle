@@ -56,26 +56,10 @@ public class RecommendServiceImpl implements RecommendService {
 			return null;
 		}
 	}
-
-//	// 상의추천
-//		@Override
-//		public List<Integer> selectClothesTop(Map<String, Object> map) {
-//			try {
-//				return rMapper.selectClothesTop(map);
-//			}
-//			catch(Exception e) {
-//				e.printStackTrace();
-//				MyBatisContext.getSqlSession().close();
-//				return null;
-//			}
-//		}
 	
-	
-	
-	
-	// 상의추천
+	// 옷추천
 	@Override
-	public List<Map<String,Object>> selectClothesTop(Map<String, Object> map) {
+	public List<Map<String,Object>> selectClothes(Map<String, Object> map) {
 		try {
 			return rMapper.selectClothesTop(map);
 		}
@@ -85,31 +69,5 @@ public class RecommendServiceImpl implements RecommendService {
 			return null;
 		}
 	}
-
-//	// 하의추천
-//	@Override
-//	public int selectClothesBottom(Map<String, Object> map) {
-//		try {
-//			return rMapper.selectClothesBottom(map);
-//		}
-//		catch(Exception e) {
-//			e.printStackTrace();
-//			MyBatisContext.getSqlSession().close();
-//			return 0;
-//		}
-//	}
-//
-//	// 신발추천
-//	@Override
-//	public int selectClothesShoes(Map<String, Object> map) {
-//		try {
-//			return rMapper.selectClothesShoes(map);
-//		}
-//		catch(Exception e) {
-//			e.printStackTrace();
-//			MyBatisContext.getSqlSession().close();
-//			return 0;
-//		}
-//	}
 
 }
