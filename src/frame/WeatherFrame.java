@@ -176,7 +176,6 @@ public class WeatherFrame extends JFrame {
 		ImageIcon updateIcon = new ImageIcon(updateImg);
 
 		icon_label.setIcon(updateIcon);
-
 		icon_label.setBounds(50, 120, 165, 150);
 		icon_label.setHorizontalAlignment(JLabel.CENTER);
 	}
