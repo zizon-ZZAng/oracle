@@ -84,8 +84,7 @@ public class MemberServiceImpl implements MemberService {
 
 	//아이디 중복 체크
 	@Override
-	public Member selectMemberIdChk(String id) {
-		
+	public int selectMemberIdChk(String id) {
 		try {
 			
 			return mapper.selectMemberIdChk(id);
@@ -93,7 +92,7 @@ public class MemberServiceImpl implements MemberService {
 		} catch (Exception e) {
 			e.printStackTrace();
 			MyBatisContext.getSqlSession().close();
-			return null;
+			return -1;
 		}
 		
 		

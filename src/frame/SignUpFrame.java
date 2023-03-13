@@ -102,11 +102,8 @@ public class SignUpFrame extends JFrame {
 
 				String id = textField_1.getText(); 
 
-				//아이디 존재 여부 체크
-				Config.obj = mService.selectMemberIdChk(id);
-
 				//아이디 존재 여부 체크 조건문
-				if (Config.obj.getCnt() == 1) {
+				if (mService.selectMemberIdChk(id) == 1) {
 
 					JOptionPane.showMessageDialog(null, "존재하는 아이디입니다");
 
@@ -173,12 +170,9 @@ public class SignUpFrame extends JFrame {
 				member.setAddress(comboBox.getSelectedItem().toString());
 				member.setGender(comboBox_1.getSelectedItem().toString());
 
-				//아이디 중복 체크
-				Config.obj = mService.selectMemberIdChk(id);
-
 				if (id.length() == 0 || pw.length() == 0) {
 					JOptionPane.showMessageDialog(null, "아이디와 비밀번호를 입력해주세요");
-				} else if (Config.obj.getCnt() == 1) {
+				} else if (mService.selectMemberIdChk(id) == 1) {
 
 					JOptionPane.showMessageDialog(null, "존재하는 아이디입니다");
 				} else {

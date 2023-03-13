@@ -27,5 +27,5 @@ public interface MemberService {
 	public Member selectMemberOne(String id);
 	
 	//아이디 중복 체크
-	public Member selectMemberIdChk(String id);
+	public int selectMemberIdChk(String id);
 }

@@ -28,7 +28,7 @@ public interface MemberMapper {
 	
 	// 아이디 중복 체크
 	@Select({ " SELECT COUNT(*) cnt FROM member2 WHERE id = #{id} " })
-	public Member selectMemberIdChk(String id);
+	public int selectMemberIdChk(String id);
 	
 
 	// 회원정보변경
