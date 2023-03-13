@@ -125,7 +125,6 @@ public class RecommendFrame extends JFrame {
 		JButton btnNewButton = new JButton("확인");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new MainFrame2();
 				dispose();
 			}
 		});
