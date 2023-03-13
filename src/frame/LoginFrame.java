@@ -84,6 +84,8 @@ public class LoginFrame extends JFrame {
 
 			}
 
+			
+			//로그인 버튼 눌렀을 때 실행
 			public void actionPerformed(ActionEvent e) {
 
 				Member member = new Member();
@@ -97,8 +99,8 @@ public class LoginFrame extends JFrame {
 				member.setPassword(hash);
 				
 				
-				Config.obj = mService.loginMember(member);
-
+				Config.obj = mService.loginMember(member);	//
+				
 				// 아이디나 비밀번호 성공했을 때의 경우
 				if (Config.obj != null) {
 

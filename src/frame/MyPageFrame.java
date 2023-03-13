@@ -137,17 +137,17 @@ public class MyPageFrame extends JFrame {
            
             Member member = new Member();
             member.setName(textField_1.getText());
-            member.setAddress(comboBox.getSelectedItem().toString());
+            member.setAddress(comboBox.getSelectedItem().toString());	//콤보박스에서 지역하나 선택하면 회원 주소로 설정됨
             
             member.setId(Config.obj.getId());
             member.setPassword(Config.obj.getPassword());
             
-            int ret = mService.updateMember(member);
+            int ret = mService.updateMember(member); // 수정 됐을 경우 1이 뜸
             
-            if (ret==1) {
+            if (ret==1) {	// 수정 성공(1) == 1 같을경우 실행
             	JOptionPane.showMessageDialog(null, "회원정보 수정 성공");
             }
-            else if (textField_1.getText().length() == 0) {
+            else if (textField_1.getText().length() == 0) {	//이름 입력칸이 비어있을 경우 실행
                JOptionPane.showMessageDialog(null, "이름을 입력하세요.");
             }
          }

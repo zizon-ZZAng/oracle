@@ -130,6 +130,8 @@ public class MainFrame2 extends JFrame {
 		// 시간 설정하면 그 날 그 시간대의 기온이 뜸
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				//
 				Config.wdate = comboBox_1.getSelectedItem().toString() + " " + comboBox.getSelectedItem().toString().substring(0, 2);
 
 				Weather weather = new Weather();
