@@ -29,13 +29,10 @@ public interface WeatherService {
 	public List<Weather> weatherSelectHOUR(Weather w);
 	
 	// 날짜가져오기
-	public String weatherSelectDATE();
+	public List<Weather> weatherSelectDATE(Weather w);
 	
 	// 뷰로(지역이름,날짜,시간으로) 기온 가져오기
 	public List<Map<String, Object>> weatherSelectWVTemp(Map<String, Object> map);
-	
-	// 뷰로(지역이름,날짜,시간으로) 기온 가져오기
-	//public Map<String, Object> weatherSelectWVTemp(Map<String, Object> map);
 	
 	// 날씨 가져오기
 	public List<Weather> weatherSelectWeather();

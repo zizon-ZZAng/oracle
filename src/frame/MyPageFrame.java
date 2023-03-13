@@ -120,12 +120,9 @@ public class MyPageFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				new WeatherFrame();
 				dispose();
-
 			}
 		});
 		btnNewButton_1.setBounds(215, 253, 109, 23);
 		getContentPane().add(btnNewButton_1);
-
-
 	}
 }

@@ -67,16 +67,8 @@ public class RecommendFrame extends JFrame {
 
 		list = rsv.selectClothesTop(recMap);
 
-//		for(Map<String, Object> map:list) {
-//			System.out.println(map.toString());
-//		}
-
-//		for(int i=0; i<list.size(); i++)
-//			System.out.println(Integer.parseInt(list.get(i).get("RANK").toString()));
-
 		for (int i = 0; i < 3; i++) {
 			rec_label[i] = new JLabel("");
-			//rec_label[i].setBounds(50 + i * 20, 50 + i * 20, 50 + i * 20, 50 + i * 20);
 			
 			switch (i) {
 			case 0:
@@ -129,12 +121,6 @@ public class RecommendFrame extends JFrame {
 			}
 			k++;
 		}
-
-//		for(int i=0;i<3;i++) {
-//			System.out.println(i);
-//			System.out.println(reIcon[i]);
-//		}
-		
 		image();
 		}
 		else {
@@ -150,32 +136,10 @@ public class RecommendFrame extends JFrame {
 			ImageIcon updateIcon = new ImageIcon(updateImg);
 	
 			rec_label[j].setIcon(updateIcon);
-			//rec_label[j].setBounds(50, 120, 165, 150);
-			//rec_label[j].setHorizontalAlignment(JLabel.CENTER);
+			rec_label[j].setBounds(50, 120, 165, 150);
+			rec_label[j].setHorizontalAlignment(JLabel.CENTER);
 		}
 	}
-	
-
-//	private void image() {
-//		for (int j = 0; j < 3; j++) {
-//			Image img = reIcon[j].getImage();
-//			Image updateImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-//			ImageIcon updateIcon = new ImageIcon(updateImg);
-//
-//			rec_label[j].setIcon(updateIcon);
-//
-//			switch (j) {
-//			case 0:
-//				rec_label[j].setBounds(50, 10, 165, 150);
-//			case 1:
-//				rec_label[j].setBounds(10, 100, 165, 150);
-//			case 2:
-//				rec_label[j].setBounds(100, 100, 165, 150);
-//			}
-//
-//			rec_label[j].setHorizontalAlignment(JLabel.CENTER);
-//		}
-//	}
 
 	
 	// 랭크순위에 따라 옷 추천하는 메소드

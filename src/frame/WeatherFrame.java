@@ -81,7 +81,7 @@ public class WeatherFrame extends JFrame {
 		textField.setColumns(10);
 
 		icon_label = new JLabel("");
-		//icon_label.setBounds(47, 145, 122, 112);
+		icon_label.setBounds(47, 145, 122, 112);
 		getContentPane().add(icon_label);
 		
 		
@@ -103,11 +103,7 @@ public class WeatherFrame extends JFrame {
 				
 				for(int i=0; i<list.size(); i++) {
 					textField.setText(list.get(i).get("TEMPERATURE").toString());
-				}
-				
-//				textField.setText(list.get("TEMPERATURE").toString());
-//				Config.weather.setTemperature(Float.parseFloat(list.get("TEMPERATURE").toString()));
-				
+				}				
 
 				icon[0] = new ImageIcon(ImageFrame.class.getResource("cloudy.png"));
 				icon[1] = new ImageIcon(ImageFrame.class.getResource("cloudy1.png"));
@@ -139,9 +135,7 @@ public class WeatherFrame extends JFrame {
 					} else if (list.get(i).get("WEATHER").toString().equals("천둥번개")) {
 						image(8);
 					}
-
-				}
-				
+				}	
 			}
 		});
 

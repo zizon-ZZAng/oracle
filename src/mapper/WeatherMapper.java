@@ -48,7 +48,7 @@ public interface WeatherMapper {
 	// 날짜가져오기
 	// no는 넣거나 빼거나 필요에 따라
 	@Select({ " SELECT week from wea_clo_mem_view where address=#{address} " })
-	public String[] weatherSelectDATE();
+	public List<Weather> weatherSelectDATE();
 
 	// 날씨 가져오기
 	@Select({ " SELECT weather from wea_clo_mem_view where address=#{address} " })
@@ -62,13 +62,6 @@ public interface WeatherMapper {
 	@Select({ " SELECT temperature, weather ", " from wea_clo_mem_view ",
 			" where address=#{address} and week=#{week} and hour =#{hour} " })
 	public List<Map<String, Object>> weatherSelectWVTemp(Map<String, Object> map);
-
-//// 뷰로 기온과 날씨 가져오기 
-//	@Select({ 
-//			" select temperature, weather from wea_clo_mem_view ",
-//			" where address=#{address} and week=#{week} and hour =#{hour} "
-//		})
-//	public Map<String, Object> weatherSelectWVTemp(Map<String, Object> map);
 
 	@Delete({ " DELETE FROM WEATHER0 WHERE name = #{name} " })
 	public int weatherDelete(Weather w);

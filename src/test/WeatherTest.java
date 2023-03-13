@@ -21,7 +21,7 @@ class WeatherTest {
 		Weather w = new Weather();
 		w.setWeather("흐림");
 		w.setTemperature(25.3f);
-		w.setName("서울");
+		w.setAddress("서울");
 		System.out.println(mapper.weatherInsert(w));
 	}
 
@@ -30,7 +30,7 @@ class WeatherTest {
 		Weather w = new Weather();
 		w.setWeather("맑음");
 		w.setTemperature(25.3f);
-		w.setName("서울");
+		w.setAddress("서울");
 		w.setCode(22);
 		System.out.println(mapper.weatherUpdate(w));
 	}
@@ -38,7 +38,7 @@ class WeatherTest {
 	@Test
 	void weatherSelectHOUR() {
 		Weather w = new Weather();
-		w.setName("서울");
+		w.setAddress("서울");
 			List<Weather> list =mapper.weatherSelectHOUR(w);
 			for(Weather obj : list) {
 			System.out.println(obj);}
@@ -48,7 +48,7 @@ class WeatherTest {
 	void weatherSelectDATE() {
 	
 		Weather w = new Weather();
-		w.setName("서울");
+		w.setAddress("서울");
 			List<Weather> list = mapper.weatherSelectDATE(w);
 			for(Weather obj : list) {
 			System.out.println(obj);}
@@ -91,7 +91,7 @@ class WeatherTest {
 			Weather w = new Weather();
 			w.setWeather("맑음");
 			w.setTemperature(20.5f);
-			w.setName("서울");
+			w.setAddress("서울");
 			System.out.println(mapper.weatherInsert(w));
 		}
 	}
@@ -153,11 +153,7 @@ class WeatherTest {
 	
 	@Test
 	void weatherSelectWVTemp() {
-//		Weather w = new Weather();
-//		w.setName("서울특별시");ㄴ
-//		w.setW_date("2023-03-06");
-//		w.setW_hour("02");
-		
+
 		Map<String, Object> map = new HashMap<>();
 		map.put("address" , "서울");
 		map.put("week", "2023/03/13");

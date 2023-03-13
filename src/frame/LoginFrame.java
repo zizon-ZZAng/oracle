@@ -78,7 +78,6 @@ public class LoginFrame extends JFrame {
 					Member mem = new Member();
 //				if(e.getActionCommand().equals("로그인")) {
 					
-
 					// 아이디, 비밀번호 정보 가져오기
 					String id = textField_id.getText();
 					String pw = passwordField.getText();

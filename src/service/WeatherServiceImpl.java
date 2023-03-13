@@ -88,21 +88,9 @@ public class WeatherServiceImpl implements WeatherService {
 			return null;
 		}
 	}
-	
-//	@Override
-//	public Map<String, Object> weatherSelectWVTemp(Map<String, Object> map) {
-//		try {
-//			return mapper.weatherSelectWVTemp(map);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			MyBatisContext.getSqlSession().close();
-//			return null;
-//		}
-//
-//	}
 
 	@Override
-	public String[] weatherSelectDATE() {
+	public List<Weather> weatherSelectDATE(Weather w) {
 			try {
 				return mapper.weatherSelectDATE();
 			} catch (Exception e) {
