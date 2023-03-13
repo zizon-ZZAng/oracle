@@ -65,8 +65,6 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public int memberUpdateOne(Member obj) {
-
-
 		try {
 			return mMapper.memberUpdateOne(obj);
 		}

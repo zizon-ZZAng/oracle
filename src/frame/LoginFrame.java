@@ -19,7 +19,6 @@ import session.Config;
 public class LoginFrame extends JFrame {
 	private JTextField textField_id;
 	private JPasswordField passwordField;
-	MemberService m = new MemberServiceImpl();
 
 	public LoginFrame() {
 
@@ -54,7 +53,7 @@ public class LoginFrame extends JFrame {
 					String id = textField_id.getText();
 					String pw = passwordField.getText();
 					
-					String hash = m.hashPW(pw, id);
+					String hash = s.hashPW(pw, id);
 					
 					mem.setId(id);
 					mem.setPassword(hash);
