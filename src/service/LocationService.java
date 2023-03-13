@@ -1,7 +1,5 @@
 package service;
 
-import java.util.List;
-
 import connection.MyBatisContext;
 import dto.Location;
 import mapper.LocationMapper;
