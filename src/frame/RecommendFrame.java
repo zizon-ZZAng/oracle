@@ -31,6 +31,8 @@ public class RecommendFrame extends JFrame {
 	private JTextField textField_4;
 	private JTextField textField_5;
 
+	
+	//옷 추천 화면
 	public RecommendFrame() {
 		setTitle("옷 추천");
 
@@ -38,7 +40,12 @@ public class RecommendFrame extends JFrame {
 		map.put("wdate", Config.wdate);
 		map.put("id", Config.obj.getId());
 
+		
 		// 상의
+		JLabel lblNewLabel_1 = new JLabel("상의");
+		lblNewLabel_1.setFont(new Font("굴림", Font.BOLD, 20));
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		
 		Map<String, Object> rett = rservice.clothesRecommendTop(map);
 		String imagecodet = "image/" + rett.get("CLONO").toString() + ".png";
 
@@ -50,17 +57,16 @@ public class RecommendFrame extends JFrame {
 		ImageIcon updatetop = new ImageIcon(updateImgt);
 		JLabel lblNewLabel_1_1 = new JLabel(updatetop);
 
-		JLabel lblNewLabel_1 = new JLabel("상의");
-		lblNewLabel_1.setFont(new Font("굴림", Font.BOLD, 20));
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		
 
-		// --------------------------------------------
+// --------------------------------------------------------------------
 
+		// 하의
 		JLabel lblNewLabel_2 = new JLabel("하의");
 		lblNewLabel_2.setFont(new Font("굴림", Font.BOLD, 20));
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 
-		// 하의
+		
 		Map<String, Object> retb = rservice.clothesRecommendBottom(map);
 		String imagecodeb = "image/" + retb.get("CLONO").toString() + ".png";
 
@@ -72,13 +78,15 @@ public class RecommendFrame extends JFrame {
 		ImageIcon updatebot = new ImageIcon(updateImgb);
 		JLabel lblNewLabel_2_1 = new JLabel(updatebot);
 
-		// --------------------------------------------
+		
+// --------------------------------------------------------------------
 
+		// 신발
 		JLabel lblNewLabel_3 = new JLabel("신발");
 		lblNewLabel_3.setFont(new Font("굴림", Font.BOLD, 20));
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
 
-		// 신발
+		
 		Map<String, Object> rets = rservice.clothesRecommendShoes(map);
 		String imagecodes = "image/" + rets.get("CLONO").toString() + ".png";
 
@@ -90,7 +98,7 @@ public class RecommendFrame extends JFrame {
 		ImageIcon updatesho = new ImageIcon(updateImgs);
 		JLabel lblNewLabel_3_1 = new JLabel(updatesho);
 		
-		// --------------------------------------------
+// --------------------------------------------------------------------
 		
 		textField = new JTextField(rett.get("CLONAME").toString());
 		textField.setHorizontalAlignment(SwingConstants.CENTER);
@@ -122,12 +130,15 @@ public class RecommendFrame extends JFrame {
 		textField_5.setEditable(false);
 		textField_5.setColumns(10);
 		
+		
+		//추천 완료 됐을 때 확인 버튼 눌러서 창을 끔
 		JButton btnNewButton = new JButton("확인");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
+				dispose(); 
 			}
 		});
+		
 		
 		//그룹 레이아웃 사용
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
@@ -190,6 +201,7 @@ public class RecommendFrame extends JFrame {
 
 // --------------------------------------------------------------------
 
+		//화면설정
 		this.setSize(1076, 700);
 		this.setLocationRelativeTo(null);
 

@@ -32,11 +32,12 @@ public class MyPageFrame extends JFrame {
    private JPasswordField passwordField;
    
    
-   
+   //마이페이지 화면
    public MyPageFrame() {
       setTitle("나의 정보");
       getContentPane().setLayout(null);
       
+
       JLabel lblNewLabel = new JLabel("회원 정보");
       lblNewLabel.setBounds(22, 10, 71, 23);
       getContentPane().add(lblNewLabel);

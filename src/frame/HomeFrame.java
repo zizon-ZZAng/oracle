@@ -14,9 +14,9 @@ import java.awt.Color;
 
 public class HomeFrame extends JFrame{	//JFrame 실행되려면 상속되어 있어야함 ! extends JFrame 꼭 써주기
 
-	
+	//홈화면(1) - 로그인 / 회원가입
 	public HomeFrame() {
-		setTitle("zi존ㅉro");
+		setTitle("지존짱");
 		getContentPane().setLayout(new GridLayout(0, 2, 0, 0));
 		
 		

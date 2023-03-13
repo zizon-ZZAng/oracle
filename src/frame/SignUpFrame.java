@@ -30,6 +30,8 @@ public class SignUpFrame extends JFrame {
 	private JTextField textField_1;
 	private JPasswordField passwordField;
 
+	
+	//회원가입 화면
 	public SignUpFrame() {
 		setTitle("회원가입");
 		getContentPane().setLayout(null);
@@ -209,6 +211,8 @@ public class SignUpFrame extends JFrame {
 		btnNewButton_1.setBounds(0, 0, 81, 23);
 		getContentPane().add(btnNewButton_1);
 
+		
+		//화면설정
 		this.setSize(401, 306);
 		this.setLocationRelativeTo(null); // 화면 중앙에 오게 해줌
 

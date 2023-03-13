@@ -24,6 +24,8 @@ public class UnRegisterFrame extends JFrame {
 	private JTextField textField;
 	private JPasswordField passwordField;
 
+	
+	//회원탈퇴 화면
 	public UnRegisterFrame() {
 		setTitle("회원탈퇴");
 		getContentPane().setLayout(null);
@@ -129,6 +131,7 @@ public class UnRegisterFrame extends JFrame {
 
 		btnNewButton.setBounds(139, 191, 97, 23);
 		getContentPane().add(btnNewButton);
+		
 
 		// 뒤로가기
 		JButton btnNewButton_1 = new JButton("Back");
@@ -144,6 +147,7 @@ public class UnRegisterFrame extends JFrame {
 		btnNewButton_1.setFocusPainted(false);
 		btnNewButton_1.setBounds(0, 0, 81, 23);
 		getContentPane().add(btnNewButton_1);
+		
 
 		// 화면 설정
 		this.setSize(400, 300);

@@ -23,6 +23,7 @@ public class PwUpdateFrame extends JFrame {
 	private JPasswordField passwordField_1;
 	private JPasswordField passwordField_2;
 
+	//비밀번호 변경 화면
 	public PwUpdateFrame() {
 		setTitle("비밀번호 변경");
 		getContentPane().setLayout(null);
@@ -72,6 +73,7 @@ public class PwUpdateFrame extends JFrame {
 		// 비밀번호 변경하기 버튼
 		JButton btnNewButton = new JButton("변경하기");
 		btnNewButton.addActionListener(new ActionListener() {
+			
 			// 비밀번호 암호화
 			public String hashPW(String pw, String id) {
 				try {
@@ -97,7 +99,9 @@ public class PwUpdateFrame extends JFrame {
 
 			}
 
+			//비밀번호 변경 버튼 눌렀을 때
 			public void actionPerformed(ActionEvent e) {
+				
 				String id = Config.obj.getId();
 				String pw = passwordField.getText();
 				String newpw = passwordField_1.getText();
@@ -113,23 +117,31 @@ public class PwUpdateFrame extends JFrame {
 				member.setNewpw(newhash);
 
 				if (!hash.equals(mService.selectMemberOne(Config.obj.getId()).getPassword())) {
+					
 					JOptionPane.showMessageDialog(null, "현재 비밀번호가 틀렸습니다", "비밀번호 변경", JOptionPane.ERROR_MESSAGE);
+				
 				} else if (hash.equals(newhash)) {
-					JOptionPane.showMessageDialog(null, "새 비밀번호를 현재 비밀번호와 다르게 입력해주세요", "비밀번호 변경",
-							JOptionPane.ERROR_MESSAGE);
+					
+					JOptionPane.showMessageDialog(null, "새 비밀번호를 현재 비밀번호와 다르게 입력해주세요", "비밀번호 변경", JOptionPane.ERROR_MESSAGE);
+				
 				} else if (!newhash.equals(newhashchk)) {
+					
 					JOptionPane.showMessageDialog(null, "새 비밀번호를 확인해주세요", "비밀번호 변경", JOptionPane.ERROR_MESSAGE);
+				
 				} else {
+					
 					mService.updatePWMember(member); // 성공할 곳에 얘가 존재해야함 그래야 sql 실행되니깐
 					JOptionPane.showMessageDialog(null, "성공", "비밀번호 변경", JOptionPane.PLAIN_MESSAGE);
 					new MyPageFrame();
 					dispose();
+					
 				}
 
 			}
 		});
 		btnNewButton.setBounds(83, 183, 97, 23);
 		getContentPane().add(btnNewButton);
+		
 
 		// 비밀번호 수정 취소 버튼
 		JButton btnNewButton_1 = new JButton("취소");
@@ -143,6 +155,7 @@ public class PwUpdateFrame extends JFrame {
 		btnNewButton_1.setBounds(207, 183, 97, 23);
 		getContentPane().add(btnNewButton_1);
 
+		
 		// 화면 설정
 		this.setSize(400, 300);
 		this.setLocationRelativeTo(null);

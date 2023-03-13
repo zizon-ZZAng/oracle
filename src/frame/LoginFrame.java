@@ -1,5 +1,6 @@
 package frame;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.security.MessageDigest;
@@ -15,7 +16,6 @@ import common.Config;
 import dto.Member;
 import service.MemberService;
 import service.MemberServiceImpl;
-import java.awt.Color;
 
 public class LoginFrame extends JFrame {
 
@@ -25,7 +25,7 @@ public class LoginFrame extends JFrame {
 	private JPasswordField passwordField;
 
 	
-	//로그인
+	//로그인 화면
 	public LoginFrame() {
 		setTitle("로그인");
 		getContentPane().setLayout(null);
@@ -53,7 +53,8 @@ public class LoginFrame extends JFrame {
 		passwordField.setBounds(176, 112, 116, 21);
 		getContentPane().add(passwordField);
 		
-
+		
+		//로그인 버튼
 		JButton btnNewButton = new JButton("로그인");
 		btnNewButton.setFocusPainted(false);
 		btnNewButton.addActionListener(new ActionListener() {
@@ -108,7 +109,6 @@ public class LoginFrame extends JFrame {
 					new MainFrame2();
 
 					dispose(); // 기존 창 종료
-					//뭐지
 
 				} else if (id.length() == 0 || pw.length() == 0) { // 둘 다 입력 안했을 경우
 
@@ -127,6 +127,8 @@ public class LoginFrame extends JFrame {
 		btnNewButton.setBounds(208, 175, 97, 23);
 		getContentPane().add(btnNewButton);
 
+		
+		//초기화 버튼 - 입력 했던거 지우기
 		JButton btnNewButton_1 = new JButton("초기화");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -140,19 +142,21 @@ public class LoginFrame extends JFrame {
 		getContentPane().add(btnNewButton_1);
 
 		
-		//뒤로가기
+		//뒤로가기 버튼
 		JButton btnNewButton_2 = new JButton("Back");
 		btnNewButton_2.setBackground(new Color(240, 240, 240)); // 프레임 색을 버튼에 적용(투명해진 척~)
 		btnNewButton_2.setFocusPainted(false); // 선택되었을 때 생기는 테두리 사용안함
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new HomeFrame();
+				new HomeFrame(); 
 				dispose();
 			}
 		});
 		btnNewButton_2.setBounds(0, 0, 81, 23);
 		getContentPane().add(btnNewButton_2);
 
+		
+		//화면 설정
 		this.setSize(400, 300);
 		this.setLocationRelativeTo(null); // 화면 중앙에 오게 해줌
 

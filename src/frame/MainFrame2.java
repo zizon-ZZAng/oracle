@@ -31,17 +31,22 @@ public class MainFrame2 extends JFrame {
 	private JTextField textField_1;
 	private JTextField textField_2;
 
+	//홈화면(2) - 옷 추천을 위한 설정
 	public MainFrame2() {
+		
 		setTitle("지존짱");
 		getContentPane().setLayout(null);
+		
 
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
-		;
 
+		
 		JMenu mnNewMenu = new JMenu("마이페이지");
 		menuBar.add(mnNewMenu);
 
+		
+		//회원정보 눌렀을 때
 		JMenuItem mntmNewMenuItem = new JMenuItem("회원정보");
 		mntmNewMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -55,7 +60,8 @@ public class MainFrame2 extends JFrame {
 
 		mnNewMenu.add(mntmNewMenuItem);
 
-		// 로그아웃
+		
+		// 로그아웃 눌렀을 때
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("로그아웃");
 		mntmNewMenuItem_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -71,9 +77,6 @@ public class MainFrame2 extends JFrame {
 			}
 		});
 		mnNewMenu.add(mntmNewMenuItem_1);
-
-		setTitle("옷 추천");
-		getContentPane().setLayout(null);
 
 		
 		
@@ -154,7 +157,7 @@ public class MainFrame2 extends JFrame {
 
 				String tmp = textField_2.getText();
 
-				if (tmp.length() == 0) { // 시간 선택 안됐을 경우
+				if (tmp.length() == 0) { // 날짜와 시간 선택 안됐을 경우
 					JOptionPane.showMessageDialog(null, "날짜와 시간을 선택해주세요");
 				}
 
@@ -174,7 +177,7 @@ public class MainFrame2 extends JFrame {
 		this.setLocationRelativeTo(null); // 화면 중앙에 오게 해줌
 
 		this.setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // 이건 윈도우 창 종료시 프로세스까지 깔끔하게 닫는거래
-														// 우리는 창을 껐는데 작업관리자에서는 가동중이래
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // 화면 완전히 닫기
+														
 	}
 }
