@@ -120,7 +120,7 @@ public class MyPageFrame extends JFrame {
       //주소 콤보박스
       //콤보박스 데이터 추가한 방법은 location2테이블을 조회했음
       //회원정보에 들어 갔을 때 회원이 사는 곳이 바로 보이기 위해 로그인된 아이디를 한번 더 조회 해서 회원이 사는 지역을 띄움
-	  //mService.selectMemberOne(Config.obj.getId()) 여기서 조회하고 .getAddress()로 주소를 뽑아왔음
+	  //mService.selectMemberOne(Config.obj.getId()) 여기서 조회하고 .getAddress()로 회원 주소를 뽑아왔음
       JComboBox comboBox = new JComboBox();
       comboBox.setModel(new DefaultComboBoxModel(lService.selectLocation()));	//데이터 추가
       comboBox.setSelectedItem(mService.selectMemberOne(Config.obj.getId()).getAddress());
