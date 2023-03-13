@@ -4,7 +4,9 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -13,21 +15,20 @@ import javax.swing.JTextField;
 
 import common.Config;
 import dto.Member;
+import service.LocationService;
+import service.LocationServiceImpl;
 import service.MemberService;
 import service.MemberServiceImpl;
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeEvent;
 
 public class MyPageFrame extends JFrame {
    
    MemberService mService = new MemberServiceImpl();
-
+   LocationService lService = new LocationServiceImpl();
    
    private JTextField textField;
 
    private JTextField textField_1;
    private JTextField textField_2;
-   private JTextField textField_3;
    private JPasswordField passwordField;
    
    
@@ -116,11 +117,11 @@ public class MyPageFrame extends JFrame {
       getContentPane().add(lblNewLabel_5);
       
       //주소 입력칸
-      textField_3 = new JTextField(mService.selectMemberOne(Config.obj.getId()).getAddress());
-      textField_3.setBounds(155, 180, 116, 21);
-      getContentPane().add(textField_3);
-      textField_3.setColumns(10);
-      
+      JComboBox comboBox = new JComboBox();
+      comboBox.setModel(new DefaultComboBoxModel(lService.selectLocation()));
+      comboBox.setSelectedItem(mService.selectMemberOne(Config.obj.getId()).getAddress());
+      comboBox.setBounds(155, 179, 116, 23);
+      getContentPane().add(comboBox);
       
       
       
@@ -132,7 +133,7 @@ public class MyPageFrame extends JFrame {
            
             Member member = new Member();
             member.setName(textField_1.getText());
-            member.setAddress(textField_3.getText());
+            member.setAddress(comboBox.getSelectedItem().toString());
             
             member.setId(Config.obj.getId());
             member.setPassword(Config.obj.getPassword());
@@ -142,8 +143,8 @@ public class MyPageFrame extends JFrame {
             if (ret==1) {
             	JOptionPane.showMessageDialog(null, "회원정보 수정 성공");
             }
-            else if (textField_1.getText().length() == 0 || textField_3.getText().length() == 0) { // 둘 다 입력 안했을 경우
-               JOptionPane.showMessageDialog(null, "이름 또는 주소를 입력하세요.");
+            else if (textField_1.getText().length() == 0) {
+               JOptionPane.showMessageDialog(null, "이름을 입력하세요.");
             }
          }
       });
