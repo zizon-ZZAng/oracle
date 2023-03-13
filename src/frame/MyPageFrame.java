@@ -107,7 +107,6 @@ public class MyPageFrame extends JFrame {
 								comboBox_add.getSelectedItem().toString().length() == 0) {
 						JOptionPane.showMessageDialog(null, "입력해주세요.");
 					}
-
 				}
 			}
 

@@ -53,14 +53,7 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public Member loginMember(Member m) {
-		try {
-//			Member m1 = new Member();
-//			String id = m.getId();
-//			String password = m.getPassword();
-//			String hash = this.hashPW(password, id); //(비번,아이디)
-//			m1.setId(id);
-//			m1.setPassword(hash);
-			
+		try {			
 			return mMapper.loginMember(m);
 		}
 		catch(Exception e) {

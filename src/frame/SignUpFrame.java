@@ -79,41 +79,13 @@ public class SignUpFrame extends JFrame{
 		
 		JButton comButton = new JButton("완료");
 		//insertMember
-		comButton.addActionListener(new ActionListener() {
-			
-			public String hashPW(String pw, String id) {
-				try {
-					// 1. Hash 알고리즘 SHA-256, 단방향 aa => dlkfjafkajl
-					MessageDigest md = MessageDigest.getInstance("SHA-256");
-					
-					// ex) 1234(암호) + salt(고유한 값, userid)
-					md.update((pw + id).getBytes());
-					
-					// byte to String 으로 변경
-					byte[] pwdSalt = md.digest();
-					
-					StringBuffer sb = new StringBuffer();
-					for (byte b : pwdSalt) {
-						sb.append(String.format("%02x", b));
-					}
-					
-					String result = sb.toString();
-					
-					return result;
-				}
-				catch (Exception e) {
-					e.printStackTrace();
-					return null;
-				}
-			}
-			
+		comButton.addActionListener(new ActionListener() {	
 			
 			public void actionPerformed(ActionEvent e) {
 				String id = textField_id.getText();
 				String pw = passwordField.getText();
 				
-				String hash = this.hashPW(pw, id);
-				
+				String hash = s.hashPW(pw, id);
 				
 				Member m = new Member();
 				
@@ -139,7 +111,6 @@ public class SignUpFrame extends JFrame{
 		});
 		comButton.setBounds(151, 287, 97, 23);
 		getContentPane().add(comButton);
-		
 		
 		this.setSize(400, 400);	// 사이즈 정하기
 		this.setVisible(true);
