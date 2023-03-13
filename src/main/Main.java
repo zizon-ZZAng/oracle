@@ -1,6 +1,5 @@
 package main;
 
-import common.Config;
 import frame.HomeFrame;
 
 public class Main {
