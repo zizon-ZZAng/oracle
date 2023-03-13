@@ -58,5 +58,5 @@ public interface ClothesMapper {
 		" SELECT c.* FROM clothes0 c WHERE ${map.column} ",
 		" LIKE '%' || #{map.txt} || '%' "
 	})
-	public List<Clothes> clothesLikeList( @Param("map") Map<String, String> map);
+	public List<Clothes> clothesLikeList(@Param("map") Map<String, String> map);
 }

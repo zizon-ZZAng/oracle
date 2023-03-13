@@ -15,12 +15,13 @@ public interface RecommendMapper {
 	
 
 	// 옷 추천
-		@Select({
-			" SELECT w.*, DENSE_RANK() OVER(PARTITION BY cltype ORDER BY clno ASC) rank ", 
-			" FROM wea_clo_mem_view w ",
-			" WHERE week=#{week} AND hour=#{hour} and id=#{id} and address=#{address} "
-		})
-		public List<Map<String,Object>> selectClothesTop(Map<String, Object> map);	
+	@Select({
+		" SELECT w.*, DENSE_RANK() OVER(PARTITION BY cltype ORDER BY clno ASC) rank ", 
+		" FROM wea_clo_mem_view w ",
+		" WHERE week=#{week} AND hour=#{hour} and id=#{id} and address=#{address} "
+	})
+	public List<Map<String,Object>> selectClothesTop(Map<String, Object> map);	
+	
 	
 	// 추천목록 삭제
 	@Delete({
