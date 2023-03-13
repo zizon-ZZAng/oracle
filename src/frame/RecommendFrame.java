@@ -134,7 +134,6 @@ public class RecommendFrame extends JFrame {
 			ImageIcon updateIcon = new ImageIcon(updateImg);
 	
 			rec_label[j].setIcon(updateIcon);
-			rec_label[j].setBounds(50, 120, 165, 150);
 			rec_label[j].setHorizontalAlignment(JLabel.CENTER);
 		}
 	}
