@@ -76,8 +76,13 @@ public class LoginFrame extends JFrame {
 			
 			public void actionPerformed(ActionEvent e) {
 					Member mem = new Member();
+<<<<<<< HEAD
 //				if(e.getActionCommand().equals("로그인")) {
 					
+=======
+
+				
+>>>>>>> c1e93e47ad3a24a2578b247e207a2511966d401e
 					// 아이디, 비밀번호 정보 가져오기
 					String id = textField_id.getText();
 					String pw = passwordField.getText();
@@ -101,10 +106,6 @@ public class LoginFrame extends JFrame {
 						JOptionPane.showMessageDialog(null, "아이디, 비밀번호를 확인해주세요.");
 					}
 
-//				}
-					
-				//Config.member.setId(id);
-				//Config.member.setPassword(hash);
 			}
 		});
 		loginButton.setBounds(61, 220, 97, 23);

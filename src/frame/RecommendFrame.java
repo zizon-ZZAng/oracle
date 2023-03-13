@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import service.RecommendService;
@@ -18,6 +19,7 @@ import service.RecommendServiceImpl;
 import service.WeatherService;
 import service.WeatherServiceImpl;
 import session.Config;
+import javax.swing.JScrollPane;
 
 public class RecommendFrame extends JFrame {
 
@@ -80,6 +82,7 @@ public class RecommendFrame extends JFrame {
 			}
 			
 			clothes_panel.add(rec_label[i]);
+			
 		}
 		
 		// 사진 집어넣기
@@ -116,7 +119,7 @@ public class RecommendFrame extends JFrame {
 			for (int j = 0; j < 29; j++) {
 				if (Integer.parseInt(reNum[i]) == j + 101) {
 					reIcon[i] = icon[j];
-					//System.out.println(reIcon[i]);
+					
 				}
 			}
 			k++;
@@ -124,8 +127,9 @@ public class RecommendFrame extends JFrame {
 		image();
 		}
 		else {
-			new NoMoreRecommendFrame();
+			JOptionPane.showMessageDialog(null, "더 이상 추천목록이 없습니다 :)");
 			dispose();
+			new WeatherFrame();
 		}
 	}
 

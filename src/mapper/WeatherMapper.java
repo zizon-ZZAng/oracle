@@ -42,8 +42,8 @@ public interface WeatherMapper {
 
 	// 시간가져오기
 	// no는 넣거나 빼거나 필요에 따라
-	@Select({ " select hour from wea_clo_mem_view where address=#{address} " })
-	public List<Weather> weatherSelectHOUR(Weather w);
+	@Select({ " SELECT distinct(hour) as hour FROM wea_clo_mem_view order by hour " })
+	public Object[] weatherSelectHOUR();
 
 	// 날짜가져오기
 	// no는 넣거나 빼거나 필요에 따라

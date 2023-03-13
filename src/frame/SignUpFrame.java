@@ -127,6 +127,7 @@ public class SignUpFrame extends JFrame{
 				int ret = s.insertMember(m);
 				
 				if(ret ==1 ) {
+					JOptionPane.showMessageDialog(null, "가입되었습니다.");
 					new LoginFrame();
 					dispose();
 				}

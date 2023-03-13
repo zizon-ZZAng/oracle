@@ -16,6 +16,9 @@ public interface MemberService {
 	//로그인
 	public Member loginMember(Member m);
 	
+	//아이디 조회
+	public Member selectMember(String id);
+	
 	// 고객 회원정보수정
 	public int memberUpdateOne(@Param("obj") Member obj);
 	
