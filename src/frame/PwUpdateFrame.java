@@ -27,33 +27,49 @@ public class PwUpdateFrame extends JFrame {
 		setTitle("비밀번호 변경");
 		getContentPane().setLayout(null);
 
+		
+		
+		//현재 비밀번호
 		JLabel lblNewLabel = new JLabel("현재 비밀번호");
 		lblNewLabel.setBounds(69, 52, 84, 15);
 		getContentPane().add(lblNewLabel);
 
+		//현재 비밀번호 입력칸
+		passwordField = new JPasswordField();
+		passwordField.setBounds(214, 49, 116, 21);
+		getContentPane().add(passwordField);
+
+		
+		
+		
+		// 새 비밀번호
 		JLabel lblNewLabel_1 = new JLabel("새 비밀번호");
 		lblNewLabel_1.setBounds(69, 89, 84, 15);
 		getContentPane().add(lblNewLabel_1);
 
-		JLabel lblNewLabel_2 = new JLabel("새 비밀번호 (확인)");
-		lblNewLabel_2.setBounds(69, 129, 104, 15);
-		getContentPane().add(lblNewLabel_2);
-		
-		// 현재 비밀번호
-		passwordField = new JPasswordField();
-		passwordField.setBounds(214, 49, 116, 21);
-		getContentPane().add(passwordField);
-		
-		// 새 비밀번호
+		// 새 비밀번호 입력칸
 		passwordField_1 = new JPasswordField();
 		passwordField_1.setBounds(214, 86, 116, 21);
 		getContentPane().add(passwordField_1);
+
+		
+		
 		
 		// 새 비밀번호 (확인)
+		JLabel lblNewLabel_2 = new JLabel("새 비밀번호 (확인)");
+		lblNewLabel_2.setBounds(69, 129, 104, 15);
+		getContentPane().add(lblNewLabel_2);
+
+		// 새 비밀번호 (확인) 입력칸
 		passwordField_2 = new JPasswordField();
 		passwordField_2.setBounds(214, 126, 116, 21);
 		getContentPane().add(passwordField_2);
+		
+		
+		
+		
 
+		// 비밀번호 변경하기 버튼
 		JButton btnNewButton = new JButton("변경하기");
 		btnNewButton.addActionListener(new ActionListener() {
 			// 비밀번호 암호화
@@ -98,15 +114,13 @@ public class PwUpdateFrame extends JFrame {
 
 				if (!hash.equals(mService.selectMemberOne(Config.obj.getId()).getPassword())) {
 					JOptionPane.showMessageDialog(null, "현재 비밀번호가 틀렸습니다", "비밀번호 변경", JOptionPane.ERROR_MESSAGE);
-				}
-				else if (hash.equals(newhash)) {
-					JOptionPane.showMessageDialog(null, "새 비밀번호를 현재 비밀번호와 다르게 입력해주세요", "비밀번호 변경", JOptionPane.ERROR_MESSAGE);
-				}
-				else if (!newhash.equals(newhashchk)) {
+				} else if (hash.equals(newhash)) {
+					JOptionPane.showMessageDialog(null, "새 비밀번호를 현재 비밀번호와 다르게 입력해주세요", "비밀번호 변경",
+							JOptionPane.ERROR_MESSAGE);
+				} else if (!newhash.equals(newhashchk)) {
 					JOptionPane.showMessageDialog(null, "새 비밀번호를 확인해주세요", "비밀번호 변경", JOptionPane.ERROR_MESSAGE);
-				}
-				else {
-					mService.updatePWMember(member); //성공할 곳에 얘가 존재해야함 그래야 sql 실행되니깐
+				} else {
+					mService.updatePWMember(member); // 성공할 곳에 얘가 존재해야함 그래야 sql 실행되니깐
 					JOptionPane.showMessageDialog(null, "성공", "비밀번호 변경", JOptionPane.PLAIN_MESSAGE);
 					new MyPageFrame();
 					dispose();
@@ -117,10 +131,11 @@ public class PwUpdateFrame extends JFrame {
 		btnNewButton.setBounds(83, 183, 97, 23);
 		getContentPane().add(btnNewButton);
 
+		// 비밀번호 수정 취소 버튼
 		JButton btnNewButton_1 = new JButton("취소");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				new MyPageFrame();
 				dispose();
 			}
@@ -128,6 +143,7 @@ public class PwUpdateFrame extends JFrame {
 		btnNewButton_1.setBounds(207, 183, 97, 23);
 		getContentPane().add(btnNewButton_1);
 
+		// 화면 설정
 		this.setSize(400, 300);
 		this.setLocationRelativeTo(null);
 
