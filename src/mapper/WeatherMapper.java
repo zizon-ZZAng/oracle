@@ -40,6 +40,10 @@ public interface WeatherMapper {
 	public int selectWeatherTemp(Weather weather);
 	
 	// 날짜에서 시간만 조회 => MainFrame2에서 시간 콤보박스용
-	@Select({" select distinct (substr(wdate, 12, 2)) || '시' as time from weather2 order by time "})
+	@Select({" SELECT distinct (substr(wdate, 12, 2)) || '시' as time FROM weather2 ORDER BY time "})
 	public Object[] selectDayTime();
+	
+	// 날짜에서 년월일만 조회 => MainFrame2에서 날짜 콤보박스용
+	@Select({" SELECT distinct (substr(wdate, 1, 10)) as time FROM weather2 ORDER BY time "})
+	public Object[] selectDayYMD();
 }

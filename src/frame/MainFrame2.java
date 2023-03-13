@@ -92,27 +92,16 @@ public class MainFrame2 extends JFrame {
 		textField.setBounds(91, 36, 116, 21);
 		getContentPane().add(textField);
 		
-		
-		
 
 		// 날짜
 		JLabel lblNewLabel_1 = new JLabel("날짜");
 		lblNewLabel_1.setBounds(33, 85, 57, 15);
-		getContentPane().add(lblNewLabel_1);
-
-		// 날짜 입력 방식(힌트)과 텍스트 필드 클릭했을 때의 변화
-		textField_1 = new JTextField("YYYY-MM-DD");
-		textField_1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				textField_1.setText("");
-			}
-		});
-		textField_1.setColumns(10);
-		textField_1.setBounds(91, 82, 116, 21);
-		getContentPane().add(textField_1);
+		getContentPane().add(lblNewLabel_1);		
 		
-		
+		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setBounds(91, 81, 116, 23);
+		getContentPane().add(comboBox_1);
+		comboBox_1.setModel(new DefaultComboBoxModel(wService.selectDayYMD()));
 		
 
 		// 온도
@@ -140,19 +129,13 @@ public class MainFrame2 extends JFrame {
 		// 시간 설정하면 그 날 그 시간대의 기온이 뜸
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (textField_1.getText().length() == 0) {
-					JOptionPane.showMessageDialog(null, "날짜를 기입해주세요");
-				} else if (textField_1.getText().equals("yyyy-mm-dd")) {
-					JOptionPane.showMessageDialog(null, "날짜를 기입해주세요");
-				} else {
-					Config.wdate = textField_1.getText() + " " + comboBox.getSelectedItem().toString().substring(0, 2);
+				Config.wdate = comboBox_1.getSelectedItem().toString() + " " + comboBox.getSelectedItem().toString().substring(0, 2);
 
-					Weather weather = new Weather();
-					weather.setLocname(mService.selectMemberOne(Config.obj.getId()).getAddress());
-					weather.setWdate(Config.wdate);
+				Weather weather = new Weather();
+				weather.setLocname(mService.selectMemberOne(Config.obj.getId()).getAddress());
+				weather.setWdate(Config.wdate);
 
-					textField_2.setText(Integer.toString(wService.selectWeatherTemp(weather)));
-				}
+				textField_2.setText(Integer.toString(wService.selectWeatherTemp(weather)));
 			}
 		});
 
@@ -169,20 +152,10 @@ public class MainFrame2 extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				String date = textField_1.getText();
 				String tmp = textField_2.getText();
-//				int cmb = comboBox.getSelectedIndex();
 
-				if (date.length() == 0) { // 날짜 미 입력시
-					JOptionPane.showMessageDialog(null, "날짜를 기입해주세요");
-				} else if (textField_1.getText().equals("YYYY-MM-DD")) { // YYYY-MM-DD 이 글자 그대로 입력되어 있을 경우
-					JOptionPane.showMessageDialog(null, "날짜를 기입해주세요");
-				}
-				// else if (cmb < -1) { //시간 선택 안됐을 경우
-				// JOptionPane.showMessageDialog(null, "시간을 설정해주세요");
-				// }
-				else if (tmp.length() == 0) { // 시간 선택 안됐을 경우
-					JOptionPane.showMessageDialog(null, "시간을 설정해주세요");
+				if (tmp.length() == 0) { // 시간 선택 안됐을 경우
+					JOptionPane.showMessageDialog(null, "날짜와 시간을 선택해주세요");
 				}
 
 				else {
@@ -195,9 +168,6 @@ public class MainFrame2 extends JFrame {
 		});
 		btnNewButton.setBounds(263, 81, 97, 68);
 		getContentPane().add(btnNewButton);
-		textField_1.setColumns(10);
-		
-		
 
 		// 화면 설정
 		this.setSize(400, 300); // 창 사이즈 이거 없으면 창 뜰 때 사이즈가 말도안되게 줄어들어있음

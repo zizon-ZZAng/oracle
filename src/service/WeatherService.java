@@ -2,8 +2,6 @@ package service;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Select;
-
 import connection.MyBatisContext;
 import dto.Weather;
 import mapper.WeatherMapper;
@@ -22,7 +20,10 @@ public interface WeatherService {
 
 	// 해당 날씨, 시간, 지역에 맞는 온도 조회
 	public int selectWeatherTemp(Weather weather);
-	
+
 	// 날짜에서 시간만 조회 => MainFrame2에서 시간 콤보박스용
 	public Object[] selectDayTime();
+
+	// 날짜에서 년월일만 조회 => MainFrame2에서 날짜 콤보박스용
+	public Object[] selectDayYMD();
 }

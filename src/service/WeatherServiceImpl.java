@@ -68,5 +68,17 @@ public class WeatherServiceImpl implements WeatherService {
 			return null;
 		}
 	}
+	// 날짜에서 년월일만 조회 => MainFrame2에서 날짜 콤보박스용
+	@Override
+	public Object[] selectDayYMD() {
+		try {
+			return mapper.selectDayYMD();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			MyBatisContext.getSqlSession().close();
+			return null;
+		}
+	}
 
 }
